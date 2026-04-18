@@ -1,23 +1,23 @@
 <div class="kanban-container">
-  <!-- 工具栏 -->
+  <!-- Thanh công cụ -->
   <div class="kanban-toolbar left-start-center">
-    <!-- Tìm kiếm框 -->
+    <!-- Tìm kiếmHộp -->
     <nz-input-search class="flex-1" nzEnterButton style="max-width: 360px">
-      <input name="searchKeyword" nz-input placeholder="Tìm kiếm任务..." [ngModel]="searchKeyword()" (ngModelChange)="searchKeyword.set($event)" />
+      <input name="searchKeyword" nz-input placeholder="Tìm kiếmNhiệm vụ..." [ngModel]="searchKeyword()" (ngModelChange)="searchKeyword.set($event)" />
     </nz-input-search>
 
-    <!-- Thêm任务按钮 -->
+    <!-- ThêmNút nhiệm vụ -->
     <button nz-button nzType="primary" (click)="openAddTaskModal()">
       <span nz-icon nzType="plus"></span>
-      <span class="add-btn-text">Thêm mới任务</span>
+      <span class="add-btn-text">Thêm mớiNhiệm vụ</span>
     </button>
   </div>
 
-  <!-- 看板列 -->
+  <!-- Cột bảng Kanban -->
   <div class="kanban-board">
     @for (col of filteredColumns(); track col.id) {
       <div class="b-r-8 flex flex-column" style="gap: 0">
-        <!-- 列头 -->
+        <!-- Tiêu đề cột -->
         <nz-card class="col-header-card" nzSize="small" [nzBodyStyle]="{ padding: '12px 16px', borderTop: '3px solid ' + col.color }">
           <div class="space-between">
             <span class="sp-18">{{ col.title }}</span>
@@ -25,28 +25,28 @@
           </div>
         </nz-card>
 
-        <!-- 任务列表 drop zone -->
+        <!-- Danh sách nhiệm vụ drop zone -->
         <nz-card class="col-body-card" nzSize="small" [nzBodyStyle]="{ padding: '8px' }">
           <div class="col-body" cdkDropList [cdkDropListConnectedTo]="columnIds()" [cdkDropListData]="col.tasks" [id]="col.id" (cdkDropListDropped)="drop($event, col.id)">
             @if (col.tasks.length === 0) {
               <div class="col-empty">
                 <span nz-icon nzTheme="outline" nzType="inbox"></span>
-                <span>暂无任务</span>
+                <span>Tạm thời không có nhiệm vụ</span>
               </div>
             }
 
             @for (task of col.tasks; track task.id) {
               <nz-card class="task-card" cdkDrag nzSize="small" [class.overdue]="col.id !== 'done' && isOverdue(task.dueDate)" [style.border-left-color]="col.color">
-                <!-- 拖拽预览 -->
+                <!-- Xem trước kéo thả -->
                 <div *cdkDragPreview class="drag-preview">
                   <span class="drag-preview-title">{{ task.title }}</span>
                 </div>
 
-                <!-- 拖拽占位 -->
+                <!-- Giữ chỗ kéo thả -->
                 <div *cdkDragPlaceholder class="drag-placeholder"></div>
 
                 <div class="task-card-body" (click)="openEditTaskModal(col.id, task)">
-                  <!-- 标题行 -->
+                  <!-- Dòng tiêu đề -->
                   <div class="task-header">
                     <span class="task-title" [class.done-title]="col.id === 'done'">{{ task.title }}</span>
                     <button class="delete-btn" nz-button nz-tooltip nzDanger nzSize="small" nzTooltipTitle="Xóa" nzType="text" (click)="$event.stopPropagation(); deleteTask(col.id, task.id)">
@@ -54,12 +54,12 @@
                     </button>
                   </div>
 
-                  <!-- 描述 -->
+                  <!-- Mô tả -->
                   @if (task.description) {
                     <div class="task-desc">{{ task.description }}</div>
                   }
 
-                  <!-- 底部 meta -->
+                  <!-- Dưới cùng meta -->
                   <div class="task-footer">
                     <nz-tag [nzColor]="priorityColor[task.priority]">{{ priorityLabel[task.priority] }}</nz-tag>
 

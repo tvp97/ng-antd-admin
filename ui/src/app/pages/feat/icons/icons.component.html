@@ -1,15 +1,15 @@
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 
 <div class="normal-table-wrap">
-  <nz-card nzTitle="图标选择器">
-    <button class="m-b-8" nz-button nzType="primary" (click)="visible = !visible">打开图标选择器</button>
+  <nz-card nzTitle="Bộ chọn biểu tượng">
+    <button class="m-b-8" nz-button nzType="primary" (click)="visible = !visible">Mở chọn biểu tượng</button>
     <nz-input-wrapper>
-      <input disabled nz-input placeholder="点击右侧图标选择图标，这句话有点绕" [(ngModel)]="seletedIcon" />
+      <input disabled nz-input placeholder="Nhấp vào biểu tượng bên phải để chọn" [(ngModel)]="seletedIcon" />
       <app-icon-sel nzInputAddonAfter [visible]="visible" (selIcon)="seletedIcon = $event"></app-icon-sel>
     </nz-input-wrapper>
   </nz-card>
 
-  <nz-card nzTitle="zorro官网直接用">
+  <nz-card nzTitle="zorroTrang chủ dùng trực tiếp">
     <div class="space-between">
       <i class="example" nz-icon nzTheme="outline" nzType="google"></i>
       <i class="example" nz-icon nzTheme="outline" nzType="qq"></i>
@@ -18,15 +18,15 @@
     </div>
   </nz-card>
 
-  <nz-card nzTitle="使用material图标（第一个是基本图标，第二个是svg图标）">
+  <nz-card nzTitle="Sử dụngmaterialBiểu tượng (đầu tiên là cơ bản, thứ hai làsvgbiểu tượng)">
     <div class="space-between">
       <!--      <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>-->
       <!--      <mat-icon aria-hidden="false" aria-label="Example thumbs up SVG icon" svgIcon="thumbs-up"></mat-icon>-->
-      <div class="space-between"> 移除对material的引用，请在v20及以下版本上查看演示代码 </div>
+      <div class="space-between"> Xóa đối vớimaterialViệc tham chiếu, vui lòng ởv20và các phiên bản trước đó để xem mã demo </div>
     </div>
   </nz-card>
 
-  <nz-card nzTitle="彩色图标">
+  <nz-card nzTitle="Biểu tượng màu">
     <div class="space-around">
       <i class="example" nz-icon nzTheme="twotone" nzType="smile"></i>
       <i class="example" nz-icon nzTheme="twotone" nzTwotoneColor="#eb2f96" nzType="heart"></i>
@@ -34,7 +34,7 @@
     </div>
   </nz-card>
 
-  <nz-card nzTitle="自定义图标，我是zorro官网搬运工">
+  <nz-card nzTitle="Biểu tượng tùy chỉnh, tôi làzorroNgười mang từ trang chủ">
     <div class="space-around">
       <i class="example" nz-icon style="color: hotpink">
         <svg>
@@ -74,7 +74,7 @@
     </div>
   </nz-card>
 
-  <nz-card nzTitle="引入阿里图标库的图标,在这里需要先从图标库网站生成对应js,引入load-ali-icon-cdn.service.ts">
+  <nz-card nzTitle="Nhập biểu tượng từ thư viện Ali,Ở đây cần tạo tương ứng từ trang web biểu tượngjs,Nhậpload-ali-icon-cdn.service.ts">
     <div class="space-around">
       <i class="example" nz-icon nzIconfont="icon-medium"></i>
       <i class="example" nz-icon nzIconfont="icon-mel-help"></i>

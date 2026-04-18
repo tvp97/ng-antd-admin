@@ -1,4 +1,4 @@
-<!--头部版块-->
+<!--Phần đầu-->
 <app-page-header [backTpl]="backTpl" [backUrl]="'/default/system/role-manager'" [pageHeaderInfo]="pageHeaderInfo"></app-page-header>
 <ng-template #backTpl>Quay lại</ng-template>
 <div class="normal-table-wrap">
@@ -11,7 +11,7 @@
             @if (permission.children && permission.children.length > 0) {
               <span class="hand-model" (click)="permission.isOpen = !permission.isOpen">
                 <i nz-icon nzTheme="outline" [nzType]="permission.isOpen ? 'down' : 'right'"></i>
-                <span class="operate-text">{{ permission.isOpen ? '收起' : '展开' }}</span>
+                <span class="operate-text">{{ permission.isOpen ? 'Thu gọn' : 'Mở rộng' }}</span>
               </span>
             }
           </div>
@@ -28,14 +28,14 @@
                     @if (childPermission.children && childPermission.children.length > 0) {
                       <span class="hand-model" (click)="childPermission.isOpen = !childPermission.isOpen">
                         <i nz-icon nzTheme="outline" [nzType]="childPermission.isOpen ? 'down' : 'right'"></i>
-                        <span class="operate-text">{{ childPermission.isOpen ? '收起' : '展开' }}</span>
+                        <span class="operate-text">{{ childPermission.isOpen ? 'Thu gọn' : 'Mở rộng' }}</span>
                       </span>
                     }
                   </div>
                 } @else {
                   @if (first) {
                     <div class="operate-line li-height m-0 p-0 p-l-35">
-                      <span>操作权限：</span>
+                      <span>Quyền thao tác:</span>
                       @for (operate of childPermissionArray; track operate) {
                         <label nz-checkbox [(ngModel)]="operate.checked">{{ operate.menuName }}</label>
                       }

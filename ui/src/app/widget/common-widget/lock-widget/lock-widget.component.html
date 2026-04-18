@@ -4,10 +4,10 @@
 
   <form class="m-t-30 full-with p-l-25 p-r-24 m-b-20" autocomplete="off" nz-form [formGroup]="validateForm" nzLayout="vertical">
     <nz-form-item>
-      <nz-form-label nzRequired>锁屏密码</nz-form-label>
+      <nz-form-label nzRequired>Mật khẩu khóa</nz-form-label>
       <nz-form-control nzErrorTip="Vui lòng nhập mật khẩu khóa màn hình">
         <nz-input-wrapper>
-          <input name="password" autocomplete="off" formControlName="password" nz-input placeholder="请输入" [type]="passwordVisible ? 'text' : 'password'" />
+          <input name="password" autocomplete="off" formControlName="password" nz-input placeholder="Vui lòng nhập" [type]="passwordVisible ? 'text' : 'password'" />
           <i nzInputSuffix nz-icon [nzType]="!passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
         </nz-input-wrapper>
       </nz-form-control>

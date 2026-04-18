@@ -14,18 +14,18 @@
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="priority" nzRequired [nzSm]="4" [nzXs]="24">优先级</nz-form-label>
+    <nz-form-label nzFor="priority" nzRequired [nzSm]="4" [nzXs]="24">Độ ưu tiên</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
       <nz-radio-group formControlName="priority">
-        <label nz-radio nzValue="high">紧急</label>
-        <label nz-radio nzValue="medium">中等</label>
-        <label nz-radio nzValue="low">普通</label>
+        <label nz-radio nzValue="high">Khẩn cấp</label>
+        <label nz-radio nzValue="medium">Trung bình</label>
+        <label nz-radio nzValue="low">Bình thường</label>
       </nz-radio-group>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="tags" [nzSm]="4" [nzXs]="24">标签</nz-form-label>
+    <nz-form-label nzFor="tags" [nzSm]="4" [nzXs]="24">Thẻ</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
       <nz-select formControlName="tags" nzMode="multiple" nzPlaceHolder="Chọn nhãn (tuỳ chọn)">
         @for (tag of availableTags; track tag) {
@@ -36,7 +36,7 @@
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="assignee" [nzSm]="4" [nzXs]="24">负责人</nz-form-label>
+    <nz-form-label nzFor="assignee" [nzSm]="4" [nzXs]="24">Người phụ trách</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
       <input id="assignee" formControlName="assignee" nz-input placeholder="Nhập người phụ trách (tuỳ chọn)" />
     </nz-form-control>
@@ -55,6 +55,6 @@
     {{ control.errors.message }}
   }
   @if (control.hasError('required')) {
-    必填项
+    Trường bắt buộc
   }
 </ng-template>

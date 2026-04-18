@@ -1,24 +1,24 @@
 <div class="register-form-wrap">
-  <h3 class="title">注册</h3>
+  <h3 class="title">Đăng ký</h3>
   <form class="login-form" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
     <nz-form-item>
-      <nz-form-control nzErrorTip="请输入邮箱地址！">
-        <input type="text" formControlName="name" nz-input nzSize="large" placeholder="邮箱" />
+      <nz-form-control nzErrorTip="Vui lòng nhập địa chỉ email!">
+        <input type="text" formControlName="name" nz-input nzSize="large" placeholder="Email" />
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-control nzErrorTip="请输入密码!">
-        <input type="password" formControlName="password" nz-input nzSize="large" placeholder="至少6位密码，区分大小写" />
+      <nz-form-control nzErrorTip="Vui lòng nhập mật khẩu!">
+        <input type="password" formControlName="password" nz-input nzSize="large" placeholder="Ít nhất6ký tự mật khẩu, phân biệt hoa thường" />
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-control nzErrorTip="请确认密码!">
-        <input type="text" formControlName="name" nz-input nzSize="large" placeholder="确认密码" />
+      <nz-form-control nzErrorTip="Vui lòng xác nhận mật khẩu!">
+        <input type="text" formControlName="name" nz-input nzSize="large" placeholder="Xác nhận mật khẩu" />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-control nzErrorTip="请输入手机号!">
+      <nz-form-control nzErrorTip="Vui lòng nhập số điện thoại!">
         <nz-input-wrapper>
           <nz-select nzInputAddonBefore style="width: 70px" [ngModel]="'86'" [ngModelOptions]="{ standalone: true }">
             <nz-option nzLabel="+86" nzValue="86"></nz-option>
@@ -31,17 +31,17 @@
 
     <nz-form-item nz-row nzJustify="space-between">
       <nz-form-control class="flex-1" nz-col nzErrorTip="Vui lòng nhập mã xác nhận!" style="max-width: 65%" [nzSm]="16" [nzXs]="15">
-        <input type="password" formControlName="password" nz-input nzSize="large" placeholder="验证码" />
+        <input type="password" formControlName="password" nz-input nzSize="large" placeholder="Mã xác thực" />
       </nz-form-control>
       <button class="p-0" nz-button nz-col nzSize="large" nzType="default" [nzSm]="7" [nzXs]="7">Lấy mã OTP</button>
     </nz-form-item>
 
     <div class="login-form-margin" nz-row nzAlign="middle" nzJustify="space-between">
       <div nz-col [nzSpan]="12">
-        <button class="login-form-button login-form-margin" nz-button nzSize="large" nzType="primary">注 册</button>
+        <button class="login-form-button login-form-margin" nz-button nzSize="large" nzType="primary">Chú thích Cuốn</button>
       </div>
       <div class="text-right" nz-col [nzSpan]="9">
-        <a class="password-login" routerLink="/login/login-form">使用已有帐号登陆</a>
+        <a class="password-login" routerLink="/login/login-form">Đăng nhập bằng tài khoản đã có</a>
       </div>
     </div>
   </form>

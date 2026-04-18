@@ -1,25 +1,25 @@
 <form nz-form [formGroup]="addEditForm">
   <nz-form-item>
-    <nz-form-label nzFor="departmentName" nzRequired [nzSm]="6" [nzXs]="24">部门名称</nz-form-label>
+    <nz-form-label nzFor="departmentName" nzRequired [nzSm]="6" [nzXs]="24">Tên phòng ban</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="14" [nzXs]="24">
-      <input id="departmentName" name="departmentName" formControlName="departmentName" nz-input placeholder="请输入部门名称" />
+      <input id="departmentName" name="departmentName" formControlName="departmentName" nz-input placeholder="Vui lòng nhập tên bộ phận" />
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="state" nzRequired [nzSm]="6" [nzXs]="24">部门状态</nz-form-label>
+    <nz-form-label nzFor="state" nzRequired [nzSm]="6" [nzXs]="24">Trạng thái phòng</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="14" [nzXs]="24">
       <nz-radio-group formControlName="state">
-        <label nz-radio [nzValue]="false">禁用</label>
-        <label nz-radio [nzValue]="true">可用</label>
+        <label nz-radio [nzValue]="false">Vô hiệu hóa</label>
+        <label nz-radio [nzValue]="true">Khả dụng</label>
       </nz-radio-group>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="orderNum" nzRequired [nzSm]="6" [nzXs]="24">排序</nz-form-label>
+    <nz-form-label nzFor="orderNum" nzRequired [nzSm]="6" [nzXs]="24">Sắp xếp</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="14" [nzXs]="24">
-      <nz-input-number id="orderNum" formControlName="orderNum" nzMin="0" nzPlaceHolder="排序" nzStep="1" />
+      <nz-input-number id="orderNum" formControlName="orderNum" nzMin="0" nzPlaceHolder="Sắp xếp" nzStep="1" />
     </nz-form-control>
   </nz-form-item>
 </form>
@@ -29,6 +29,6 @@
     {{ control.errors.message }}
   }
   @if (control.hasError('required')) {
-    必填项
+    Trường bắt buộc
   }
 </ng-template>

@@ -1,38 +1,38 @@
-<!--头部版块-->
+<!--Phần đầu-->
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 <ng-template #headerExtra>
   <nz-radio-group>
     <label nz-radio-button>Thao tác 1</label>
-    <label nz-radio-button>操作二</label>
+    <label nz-radio-button>Thao tác 2</label>
     <label nz-dropdown nz-radio-button [nzDropdownMenu]="menu" nzPlacement="bottomRight">
       <i nz-icon nzTheme="outline" nzType="ellipsis"></i>
     </label>
     <nz-dropdown-menu #menu="nzDropdownMenu">
       <ul nz-menu nzSelectable>
-        <li nz-menu-item>选项一</li>
-        <li nz-menu-item>选项二</li>
-        <li nz-menu-item>选项三</li>
+        <li nz-menu-item>Lựa chọn 1</li>
+        <li nz-menu-item>Lựa chọn 2</li>
+        <li nz-menu-item>Lựa chọn 3</li>
       </ul>
     </nz-dropdown-menu>
   </nz-radio-group>
-  <button nz-button nzType="primary">主操作</button>
+  <button nz-button nzType="primary">Thao tác chính</button>
 </ng-template>
 <ng-template #headerContent>
   <div nz-row>
     <div nz-col [nzLg]="18" [nzMd]="16" [nzSm]="24" [nzXl]="18" [nzXs]="24" [nzXXl]="20">
       <nz-descriptions nzSize="small" [nzColumn]="{ xxl: 2, xl: 2, lg: 2, md: 2, sm: 1, xs: 1 }">
-        <nz-descriptions-item nzTitle="创建人">曲丽丽</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="订购产品">XX 服务</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="创建时间">2017-07-07</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="关联单据"><a class="operate-text">12421</a></nz-descriptions-item>
-        <nz-descriptions-item nzTitle="生效日期">2017-07-07 ~ 2017-08-08</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="备注">请于两个工作日内确认</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Người tạo">Khúc Lệ Lệ</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Sản phẩm đặt mua">XX Dịch vụ</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Thời gian tạo">2017-07-07</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Chứng từ liên quan"><a class="operate-text">12421</a></nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Ngày hiệu lực">2017-07-07 ~ 2017-08-08</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Ghi chú">Vui lòng xác nhận trong vòng 2 ngày làm việc</nz-descriptions-item>
       </nz-descriptions>
     </div>
     <div nz-col [nzLg]="6" [nzMd]="8" [nzSm]="24" [nzXl]="6" [nzXs]="24" [nzXXl]="4">
       <div class="left-start-center">
-        <nz-statistic class="m-r-25" nzTitle="状态" nzValue="待审批"></nz-statistic>
-        <nz-statistic nzPrefix="¥" nzTitle="订单金额" [nzValue]="568.08"></nz-statistic>
+        <nz-statistic class="m-r-25" nzTitle="Trạng thái" nzValue="Chờ phê duyệt"></nz-statistic>
+        <nz-statistic nzPrefix="¥" nzTitle="Số tiền đơn hàng" [nzValue]="568.08"></nz-statistic>
       </div>
     </div>
   </div>
@@ -40,33 +40,33 @@
 <ng-template #headerFooter>
   <nz-tabs [(nzSelectedIndex)]="currentSelTab">
     <nz-tab nzTitle="Chi tiết" (nzClick)="to(tabEnum.Detail)"></nz-tab>
-    <nz-tab nzTitle="规则" (nzClick)="to(tabEnum.Rule)"></nz-tab>
+    <nz-tab nzTitle="Quy tắc" (nzClick)="to(tabEnum.Rule)"></nz-tab>
   </nz-tabs>
 </ng-template>
 
 <div class="normal-table-wrap">
-  <nz-card nzTitle="流程进度">
+  <nz-card nzTitle="Tiến độ quy trình">
     <app-water-mark />
     <nz-steps [nzCurrent]="1" [nzDirection]="stepDirection" [nzProgressDot]="progressTemplate">
-      <nz-step nzTitle="创建项目" [nzDescription]="createTpl"></nz-step>
-      <nz-step nzTitle="部门初审" [nzDescription]="trialTpl"></nz-step>
-      <nz-step nzTitle="财务复核"></nz-step>
-      <nz-step nzTitle="完成"></nz-step>
+      <nz-step nzTitle="Tạo dự án" [nzDescription]="createTpl"></nz-step>
+      <nz-step nzTitle="Phòng ban duyệt vòng 1" [nzDescription]="trialTpl"></nz-step>
+      <nz-step nzTitle="Kế toán kiểm tra"></nz-step>
+      <nz-step nzTitle="Hoàn thành"></nz-step>
     </nz-steps>
     <ng-template #createTpl>
       <div>
-        <span class="m-r-8">曲丽丽</span>
+        <span class="m-r-8">Khúc Lệ Lệ</span>
         <i nz-icon nzTheme="outline" nzType="dingding"></i>
       </div>
       <div>2016-12-12 12:32</div>
     </ng-template>
     <ng-template #trialTpl>
       <div>
-        <span class="m-r-8">周毛毛</span>
+        <span class="m-r-8">Châu Mao Mao</span>
         <i nz-icon nzTheme="outline" nzType="dingding" style="color: rgb(0, 160, 233)"></i>
       </div>
       <div>
-        <a class="operate-text">催一下</a>
+        <a class="operate-text">Nhắc nhở chút</a>
       </div>
     </ng-template>
     <ng-template #progressTemplate let-dot let-index="index" let-status="status">
@@ -77,55 +77,55 @@
     <ng-template #trialPopTpl>
       <div style="width: 160px">
         <div class="flex">
-          <div class="flex-1">吴加号</div>
-          <nz-badge nzStatus="default" nzText="未响应"></nz-badge>
+          <div class="flex-1">Ngô Gia Hào</div>
+          <nz-badge nzStatus="default" nzText="Không phản hồi"></nz-badge>
         </div>
-        <div class="mt5">耗时：2小时25分钟</div>
+        <div class="mt5">Thời gian tiêu tốn:2giờ25phút</div>
       </div>
     </ng-template>
   </nz-card>
 
-  <nz-card class="m-t-20" nzTitle="用户信息">
+  <nz-card class="m-t-20" nzTitle="Thông tin người dùng">
     <app-water-mark />
     <nz-descriptions>
-      <nz-descriptions-item nzTitle="用户姓名">付小小</nz-descriptions-item>
-      <nz-descriptions-item nzTitle="会员卡号">32943898021309809423</nz-descriptions-item>
-      <nz-descriptions-item nzTitle="身份证">3321944288191034921</nz-descriptions-item>
-      <nz-descriptions-item nzTitle="联系方式">18112345678</nz-descriptions-item>
-      <nz-descriptions-item nzTitle="联系地址" [nzSpan]="2">曲丽丽 18100000000 浙江省杭州市西湖区黄姑山路工专路交叉路口</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Tên người dùng">Phó Tiểu Tiểu</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Số thẻ thành viên">32943898021309809423</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="CCCD/CMND">3321944288191034921</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Phương thức liên hệ">18112345678</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Địa chỉ liên hệ" [nzSpan]="2">Khúc Lệ Lệ 18100000000 Ngã tư đường Công Chuyên và Hoàng Cô Sơn, Tây Hồ, Hàng Châu</nz-descriptions-item>
     </nz-descriptions>
-    <nz-descriptions class="m-t-20" nzTitle="信息组">
-      <nz-descriptions-item nzTitle="某某数据">725</nz-descriptions-item>
-      <nz-descriptions-item nzTitle="该数据更新时间">2017-08-08</nz-descriptions-item>
+    <nz-descriptions class="m-t-20" nzTitle="Nhóm thông tin">
+      <nz-descriptions-item nzTitle="Dữ liệu nào đó">725</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Thời gian cập nhật dữ liệu này">2017-08-08</nz-descriptions-item>
       <nz-descriptions-item [nzTitle]="dataTitleTpl">725</nz-descriptions-item>
-      <nz-descriptions-item nzTitle="该数据更新时间">2017-08-08</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Thời gian cập nhật dữ liệu này">2017-08-08</nz-descriptions-item>
     </nz-descriptions>
     <ng-template #dataTitleTpl>
-      某某数据
-      <i class="title-icon" nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="数据说明" nzType="info-circle"></i>
+      Dữ liệu nào đó
+      <i class="title-icon" nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Giải thích dữ liệu" nzType="info-circle"></i>
     </ng-template>
-    <h3 class="m-t-20">信息组</h3>
-    <nz-card class="m-t-20" nzTitle="多层级信息组" nzType="inner">
-      <nz-descriptions nzTitle="组名称">
-        <nz-descriptions-item nzTitle="负责人">林东东</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="角色码">1234567</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="所属部门">XX公司 - YY部</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="过期时间">2017-08-08</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="描述" [nzSpan]="2">这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长...</nz-descriptions-item>
+    <h3 class="m-t-20">Nhóm thông tin</h3>
+    <nz-card class="m-t-20" nzTitle="Nhóm thông tin đa cấp" nzType="inner">
+      <nz-descriptions nzTitle="Tên nhóm">
+        <nz-descriptions-item nzTitle="Người phụ trách">Lâm Đông Đông</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Mã vai trò">1234567</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Phòng ban">XXCông ty - YYBộ phận</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Thời gian hết hạn">2017-08-08</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Mô tả" [nzSpan]="2">Mô tả này rất dài dài dài dài dài dài dài dài dài dài dài dài...</nz-descriptions-item>
       </nz-descriptions>
       <nz-divider></nz-divider>
-      <nz-descriptions nzTitle="组名称" [nzColumn]="1">
-        <nz-descriptions-item nzTitle="学名">Citrullus lanatus (Thunb.) Matsum. et Nakai一年生蔓生藤本；茎、枝粗壮，具明显的棱。卷须较粗..</nz-descriptions-item>
+      <nz-descriptions nzTitle="Tên nhóm" [nzColumn]="1">
+        <nz-descriptions-item nzTitle="Tên khoa học">Citrullus lanatus (Thunb.) Matsum. et NakaiCây dây leo một năm; thân, cành mập, có gân rõ. Tua cuốn khá to..</nz-descriptions-item>
       </nz-descriptions>
       <nz-divider></nz-divider>
-      <nz-descriptions nzTitle="组名称">
-        <nz-descriptions-item nzTitle="负责人">付小小</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="角色码">1234568</nz-descriptions-item>
+      <nz-descriptions nzTitle="Tên nhóm">
+        <nz-descriptions-item nzTitle="Người phụ trách">Phó Tiểu Tiểu</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Mã vai trò">1234568</nz-descriptions-item>
       </nz-descriptions>
     </nz-card>
   </nz-card>
 
-  <nz-card class="m-t-20" nzTitle="用户近半年来电记录">
+  <nz-card class="m-t-20" nzTitle="Nhật ký cuộc gọi người dùng 6 tháng qua">
     <app-water-mark />
     <nz-empty></nz-empty>
   </nz-card>
@@ -134,9 +134,9 @@
     <app-water-mark />
     <nz-card-tab>
       <nz-tabs nzSize="large">
-        <nz-tab nzTitle="操作日志一"></nz-tab>
-        <nz-tab nzTitle="操作日志二"></nz-tab>
-        <nz-tab nzTitle="操作日志三"></nz-tab>
+        <nz-tab nzTitle="Nhật ký thao tác 1"></nz-tab>
+        <nz-tab nzTitle="Nhật ký thao tác 2"></nz-tab>
+        <nz-tab nzTitle="Nhật ký thao tác 3"></nz-tab>
       </nz-tabs>
     </nz-card-tab>
     <app-ant-table [tableConfig]="returnTableConfig" [tableData]="returnDataList"></app-ant-table>
@@ -144,6 +144,6 @@
 </div>
 
 <ng-template #highLightTpl let-code="code">
-  <nz-badge nzStatus="processing" nzText="成功"></nz-badge>
-  并且{{ code }}
+  <nz-badge nzStatus="processing" nzText="Thành công"></nz-badge>
+  và{{ code }}
 </ng-template>

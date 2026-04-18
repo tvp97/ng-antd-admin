@@ -23,15 +23,15 @@
             nzPopoverPlacement="bottomRight"
             nzPopoverTrigger="click"
             nzTheme="outline"
-            nzTooltipTitle="列设置"
+            nzTooltipTitle="Cài đặt cột"
             nzType="setting"
             [nzPopoverContent]="contentTemplate"
             [nzPopoverTitle]="popoverTitle"
             [(nzPopoverVisible)]="tableConfigVisible"
           ></i>
-          <i *nzSpaceItem class="hand-model" nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="刷新" nzType="reload" (click)="reloadClick()"></i>
+          <i *nzSpaceItem class="hand-model" nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Làm mới" nzType="reload" (click)="reloadClick()"></i>
           <ng-container *appScreenLessHidden="393">
-            <i *nzSpaceItem class="hand-model" nz-dropdown nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="密度" nzTrigger="click" nzType="column-height" [nzDropdownMenu]="tableSizeMenu"></i>
+            <i *nzSpaceItem class="hand-model" nz-dropdown nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Mật độ" nzTrigger="click" nzType="column-height" [nzDropdownMenu]="tableSizeMenu"></i>
           </ng-container>
         </nz-space>
       </div>
@@ -61,7 +61,7 @@
             nz-icon
             nz-tooltip
             nzTheme="outline"
-            nzTooltipTitle="固定到左侧"
+            nzTooltipTitle="Cố định bên trái"
             nzType="vertical-right"
             [style.color]="item.fixedDir === 'left' && item.fixed ? '#409eff' : ''"
             (click)="fixedTableHead('left', item)"
@@ -72,7 +72,7 @@
             nz-icon
             nz-tooltip
             nzTheme="outline"
-            nzTooltipTitle="固定到右侧"
+            nzTooltipTitle="Cố định bên phải"
             nzType="vertical-left"
             [style.color]="item.fixedDir === 'right' && item.fixed ? '#409eff' : ''"
             (click)="fixedTableHead('right', item)"
@@ -85,8 +85,8 @@
 <ng-template #popoverTitle>
   <div class="space-between">
     <span>
-      <label nz-checkbox [(nzChecked)]="currentTableComponent().tableConfig().showCheckbox" (nzCheckedChange)="changeTableCheckBoxShow($event)">勾选列</label>
-      <label nz-checkbox [nzIndeterminate]="allTableFieldIndeterminate" [(nzChecked)]="allTableFieldChecked" (nzCheckedChange)="changeAllTableTableConfigShow($event)">列展示</label>
+      <label nz-checkbox [(nzChecked)]="currentTableComponent().tableConfig().showCheckbox" (nzCheckedChange)="changeTableCheckBoxShow($event)">Đánh dấu cột</label>
+      <label nz-checkbox [nzIndeterminate]="allTableFieldIndeterminate" [(nzChecked)]="allTableFieldChecked" (nzCheckedChange)="changeAllTableTableConfigShow($event)">Hiển thị cột</label>
     </span>
     <button class="operate-text" nz-button nzType="text" (click)="reset()">Đặt lại</button>
   </div>

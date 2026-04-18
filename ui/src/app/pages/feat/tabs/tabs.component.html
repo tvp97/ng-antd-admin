@@ -1,26 +1,26 @@
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 <div class="normal-table-wrap">
-  <nz-card nzTitle="在下面输入框输入文本，切换后回来内容会Lưu">
-    <nz-alert class="m-b-8" nzMessage="该操作不会影响页面标题，仅修改Tab标题" nzType="warning"></nz-alert>
+  <nz-card nzTitle="Nhập văn bản vào ô bên dưới, sau khi chuyển qua lại nội dung sẽLưu">
+    <nz-alert class="m-b-8" nzMessage="Thao tác này không ảnh hưởng tiêu đề trang, chỉ sửaTabTiêu đề" nzType="warning"></nz-alert>
     <nz-space-compact nzSize="default" [style.width.%]="100">
       <input #tabTitleInput nz-input placeholder="input search text" />
-      <button nz-button nzType="primary" (click)="changeTabTitle(tabTitleInput.value)">设置tab标题</button>
+      <button nz-button nzType="primary" (click)="changeTabTitle(tabTitleInput.value)">Cài đặttabTiêu đề</button>
     </nz-space-compact>
   </nz-card>
 
-  <nz-card class="m-t-10" nzTitle="标签页操作">
+  <nz-card class="m-t-10" nzTitle="Thao tác trên tab">
     <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="closeRight()">Đóng bên phải</button>
     <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="closeLeft()">Đóng bên trái</button>
     <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="closeOther()">Đóng các tab khác</button>
     <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="closeCurrent()">Đóng tab hiện tại</button>
-    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="refresh()">刷新</button>
+    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="refresh()">Làm mới</button>
   </nz-card>
 
-  <nz-card class="m-t-10" nzTitle="打开Chi tiết操作">
-    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="openDetailPage(1)">打开Chi tiết操作1</button>
-    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="openDetailPage(2)">打开Chi tiết操作2</button>
-    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="openDetailPage(3)">打开Chi tiết操作3</button>
-    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="openDetailPage(4)">打开Chi tiết操作4</button>
-    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="openDetailPage(5)">打开Chi tiết操作5</button>
+  <nz-card class="m-t-10" nzTitle="MởChi tiếtThao tác">
+    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="openDetailPage(1)">MởChi tiếtThao tác1</button>
+    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="openDetailPage(2)">MởChi tiếtThao tác2</button>
+    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="openDetailPage(3)">MởChi tiếtThao tác3</button>
+    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="openDetailPage(4)">MởChi tiếtThao tác4</button>
+    <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="openDetailPage(5)">MởChi tiếtThao tác5</button>
   </nz-card>
 </div>

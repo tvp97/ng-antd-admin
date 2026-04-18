@@ -1,23 +1,23 @@
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 <div class="normal-table-wrap">
-  <nz-card nzTitle="简单实例，服务器Quay lại的文件地址统一，演示功能不会Lưu上传的文件">
+  <nz-card nzTitle="Ví dụ đơn giản, máy chủQuay lạiĐịa chỉ tệp đồng nhất, tính năng demo không bịLưuTải lên tệp">
     <nz-upload [nzAction]="uploadUrl" [nzFileList]="fileList" [nzLimit]="1" nzName="document" nzShowButton [nzSize]="1024 * 5" (nzChange)="handleChange($event)">
       <button nz-button>
         <i nz-icon nzType="upload"></i>
-        导入材料(最大测试上传5M)
+        Nhập tài liệu(Tải lên bản kiểm tra lớn nhất5M)
       </button>
     </nz-upload>
   </nz-card>
-  <nz-card class="m-t-20" nzTitle="嵌入表单，加入表单验证">
+  <nz-card class="m-t-20" nzTitle="Nhúng biểu mẫu, thêm xác thực biểu mẫu">
     <form nz-form nzLayout="vertical" [formGroup]="validateForm">
       <nz-form-item nz-col nzSpan="24">
         <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="6" [nzXs]="24">
-          <nz-form-label [nzSm]="14" [nzXs]="24">附件：</nz-form-label>
+          <nz-form-label [nzSm]="14" [nzXs]="24">Tệp đính kèm:</nz-form-label>
           <nz-form-control [nzSm]="14" [nzXs]="24">
             <nz-upload [nzAction]="uploadUrl" [nzFileList]="fileFormList" [nzLimit]="1" nzName="document" [nzSize]="1024 * 5" (nzChange)="uploadFn($event)">
               <button nz-button>
                 <i nz-icon nzType="upload"></i>
-                上传附件(最大测试上传5M)
+                Tải lên tệp đính kèm(Tải lên bản kiểm tra lớn nhất5M)
               </button>
               <input formControlName="file" [hidden]="true" />
             </nz-upload>
@@ -38,6 +38,6 @@
     {{ control.errors.message }}
   }
   @if (control.hasError('required')) {
-    必填项
+    Trường bắt buộc
   }
 </ng-template>

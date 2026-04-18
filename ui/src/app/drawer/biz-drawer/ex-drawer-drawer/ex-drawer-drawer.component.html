@@ -1,12 +1,12 @@
 <p>
-  带过来的值：
+  Giá trị mang theo:
   <span class="sp-28 text-error">{{ params.name }}</span>
 </p>
 <form [formGroup]="validateForm">
   <nz-form-item>
-    <nz-form-label nzRequired>试一试输入值后点击Xác nhận</nz-form-label>
-    <nz-form-control nzErrorTip="必填项">
-      <input formControlName="password" nz-input [placeholder]="'输入的内容点击Xác nhận，Quay lại给外部'" />
+    <nz-form-label nzRequired>Thử nhập giá trị sau đó nhấp vàoXác nhận</nz-form-label>
+    <nz-form-control nzErrorTip="Trường bắt buộc">
+      <input formControlName="password" nz-input [placeholder]="'Nội dung nhập vào sau khi nhấpXác nhận，Quay lạiCho bên ngoài'" />
     </nz-form-control>
   </nz-form-item>
 </form>

@@ -7,61 +7,61 @@
   </nz-form-item>
   @if (!isEdit) {
     <nz-form-item>
-      <nz-form-label nzFor="roleId" nzRequired [nzSm]="4" [nzXs]="24">密码</nz-form-label>
-      <nz-form-control nzExtra="新建用户初始密码为：a123456" [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
+      <nz-form-label nzFor="roleId" nzRequired [nzSm]="4" [nzXs]="24">Mật khẩu</nz-form-label>
+      <nz-form-control nzExtra="Mật khẩu khởi tạo của người dùng mới là:a123456" [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
         <input formControlName="password" nz-input placeholder="Mật khẩu" [type]="'password'" />
       </nz-form-control>
     </nz-form-item>
   }
   <nz-form-item>
-    <nz-form-label nzFor="sex" nzRequired [nzSm]="4" [nzXs]="24">性别</nz-form-label>
+    <nz-form-label nzFor="sex" nzRequired [nzSm]="4" [nzXs]="24">Giới tính</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
       <nz-radio-group formControlName="sex">
-        <label nz-radio [nzValue]="1">男</label>
-        <label nz-radio [nzValue]="0">女</label>
+        <label nz-radio [nzValue]="1">Nam</label>
+        <label nz-radio [nzValue]="0">Nữ</label>
       </nz-radio-group>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="available" nzRequired [nzSm]="4" [nzXs]="24">状态</nz-form-label>
+    <nz-form-label nzFor="available" nzRequired [nzSm]="4" [nzXs]="24">Trạng thái</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
-      <nz-switch formControlName="available" nzCheckedChildren="可用" nzUnCheckedChildren="禁用"></nz-switch>
+      <nz-switch formControlName="available" nzCheckedChildren="Khả dụng" nzUnCheckedChildren="Vô hiệu hóa"></nz-switch>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="telephone" nzRequired [nzSm]="4" [nzXs]="24">联系电话</nz-form-label>
+    <nz-form-label nzFor="telephone" nzRequired [nzSm]="4" [nzXs]="24">Số điện thoại</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
-      <input id="telephone" formControlName="telephone" nz-input placeholder="联系电话" />
+      <input id="telephone" formControlName="telephone" nz-input placeholder="Số điện thoại" />
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="mobile" nzRequired [nzSm]="4" [nzXs]="24">手机号</nz-form-label>
+    <nz-form-label nzFor="mobile" nzRequired [nzSm]="4" [nzXs]="24">Số điện thoại</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
       <input id="mobile" formControlName="mobile" maxlength="11" nz-input placeholder="Số điện thoại" />
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="email" nzRequired [nzSm]="4" [nzXs]="24">电子邮箱</nz-form-label>
+    <nz-form-label nzFor="email" nzRequired [nzSm]="4" [nzXs]="24">Email</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
-      <input id="email" formControlName="email" nz-input placeholder="电子邮箱" />
+      <input id="email" formControlName="email" nz-input placeholder="Email" />
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="departmentId" nzRequired [nzSm]="4" [nzXs]="24">所属部门</nz-form-label>
+    <nz-form-label nzFor="departmentId" nzRequired [nzSm]="4" [nzXs]="24">Phòng ban</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
       <nz-tree-select formControlName="departmentId" nzPlaceHolder="Please select" nzShowSearch nzDropdownMatchSelectWidth [nzNodes]="deptNodes"></nz-tree-select>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="roleId" nzRequired [nzSm]="4" [nzXs]="24">用户角色</nz-form-label>
+    <nz-form-label nzFor="roleId" nzRequired [nzSm]="4" [nzXs]="24">Vai trò người dùng</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
-      <nz-select formControlName="roleId" nzMode="multiple" nzPlaceHolder="角色">
+      <nz-select formControlName="roleId" nzMode="multiple" nzPlaceHolder="Vai trò">
         @for (option of roleOptions; track option) {
           <nz-option [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
         }
@@ -74,6 +74,6 @@
     {{ control.errors.message }}
   }
   @if (control.hasError('required')) {
-    必填项
+    Trường bắt buộc
   }
 </ng-template>

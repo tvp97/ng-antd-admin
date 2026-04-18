@@ -1,6 +1,6 @@
 <div nz-row [nzGutter]="[24, 24]">
   <div nz-col [nzMd]="12" [nzSm]="24" [nzXs]="24">
-    <nz-card nzTitle="卡片交错进场" [nzExtra]="cardTpl">
+    <nz-card nzTitle="Thẻ đan xen xuất hiện" [nzExtra]="cardTpl">
       <ng-template #cardTpl>
         <nz-tag nzColor="orange">animation-delay: $index × 80ms</nz-tag>
       </ng-template>
@@ -26,12 +26,12 @@
   animation: staggerIn 0.4s
     cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 &#125;</code></pre>
-      <button nz-button nzBlock nzType="primary" (click)="playCards()">播放</button>
+      <button nz-button nzBlock nzType="primary" (click)="playCards()">Phát</button>
     </nz-card>
   </div>
 
   <div nz-col [nzMd]="12" [nzSm]="24" [nzXs]="24">
-    <nz-card nzTitle="列表交错进场" [nzExtra]="listTpl">
+    <nz-card nzTitle="Danh sách đan xen xuất hiện" [nzExtra]="listTpl">
       <ng-template #listTpl>
         <nz-tag nzColor="orange">animation-delay: $index × 60ms</nz-tag>
       </ng-template>
@@ -41,7 +41,7 @@
             <div class="stagger-list-item" [style.animation-delay]="$index * 60 + 'ms'" [style.border-left-color]="item.color">
               <span class="item-dot" [style.background]="item.color"></span>
               <span class="item-label">{{ item.label }}</span>
-              <span class="item-badge" [style.color]="item.color" [style.background]="item.color + '1a'">完成</span>
+              <span class="item-badge" [style.color]="item.color" [style.background]="item.color + '1a'">Hoàn thành</span>
             </div>
           }
         </div>
@@ -58,7 +58,7 @@
   opacity: 0;
   animation: slideInLeft 0.35s ease forwards;
 &#125;</code></pre>
-      <button nz-button nzBlock nzType="primary" (click)="playList()">播放</button>
+      <button nz-button nzBlock nzType="primary" (click)="playList()">Phát</button>
     </nz-card>
   </div>
 </div>

@@ -1,8 +1,8 @@
 <form nz-form [formGroup]="addEditForm">
   <nz-form-item>
-    <nz-form-label nzFor="taskName" nzRequired [nzSm]="4" [nzXs]="24">任务名称</nz-form-label>
+    <nz-form-label nzFor="taskName" nzRequired [nzSm]="4" [nzXs]="24">Tên nhiệm vụ</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
-      <input id="taskName" formControlName="taskName" nz-input placeholder="任务名称" />
+      <input id="taskName" formControlName="taskName" nz-input placeholder="Tên nhiệm vụ" />
     </nz-form-control>
   </nz-form-item>
 
@@ -14,30 +14,30 @@
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="userName" nzRequired [nzSm]="4" [nzXs]="24">执行人</nz-form-label>
+    <nz-form-label nzFor="userName" nzRequired [nzSm]="4" [nzXs]="24">Người thực hiện</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
       <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
-        <input id="userName" formControlName="userName" nz-input placeholder="执行人" />
+        <input id="userName" formControlName="userName" nz-input placeholder="Người thực hiện" />
       </nz-form-control>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="startTime" nzRequired [nzSm]="4" [nzXs]="24">开始时间</nz-form-label>
+    <nz-form-label nzFor="startTime" nzRequired [nzSm]="4" [nzXs]="24">Thời gian bắt đầu</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
       <nz-date-picker formControlName="startTime"></nz-date-picker>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="endTime" nzRequired [nzSm]="4" [nzXs]="24">截止时间</nz-form-label>
+    <nz-form-label nzFor="endTime" nzRequired [nzSm]="4" [nzXs]="24">Thời gian kết thúc</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
       <nz-date-picker formControlName="endTime"></nz-date-picker>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label nzFor="finishRate" nzRequired [nzSm]="4" [nzXs]="24">完成进度</nz-form-label>
+    <nz-form-label nzFor="finishRate" nzRequired [nzSm]="4" [nzXs]="24">Tiến độ hoàn thành</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="18" [nzXs]="24">
       <nz-slider formControlName="finishRate" [nzTipFormatter]="formatter" nzTooltipPlacement="bottom"></nz-slider>
     </nz-form-control>
@@ -48,7 +48,7 @@
     {{ control.errors.message }}
   }
   @if (control.hasError('required')) {
-    必填项
+    Trường bắt buộc
   }
 </ng-template>
-<ng-template #tagPlaceHolder let-selectedList>以及更多{{ selectedList.length }}人</ng-template>
+<ng-template #tagPlaceHolder let-selectedList>và nhiều hơn nữa{{ selectedList.length }}người</ng-template>

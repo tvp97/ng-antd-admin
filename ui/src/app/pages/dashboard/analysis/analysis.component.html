@@ -1,9 +1,9 @@
 <nz-card [nzBodyStyle]="{ padding: '10px 24px' }" [nzBordered]="false">
   <div class="left-start-center">
     <nz-breadcrumb>
-      <nz-breadcrumb-item>首页</nz-breadcrumb-item>
+      <nz-breadcrumb-item>Trang chủ</nz-breadcrumb-item>
       <nz-breadcrumb-item>Dashboard</nz-breadcrumb-item>
-      <nz-breadcrumb-item>分析页</nz-breadcrumb-item>
+      <nz-breadcrumb-item>Trang phân tích</nz-breadcrumb-item>
     </nz-breadcrumb>
   </div>
 </nz-card>
@@ -14,26 +14,26 @@
       <div class="card-wrap">
         <nz-card [nzBodyStyle]="cardPadding" [nzBordered]="false">
           <div class="card-top">
-            <div class="title">总销售额</div>
+            <div class="title">Tổng doanh số</div>
             <div class="number">￥126,560</div>
-            <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="指标说明" nzType="info-circle"></i>
+            <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Chỉ số mô tả" nzType="info-circle"></i>
           </div>
           <div class="card-mid">
             <div class="mid-text">
               <span>
-                日同比 11%
+                So với hôm qua 11%
                 <i nz-icon nzTheme="outline" nzType="caret-down" style="color: green; font-size: 12px"></i>
               </span>
             </div>
             <div class="mid-text">
               <span>
-                周同比 12%
+                So với tuần trước 12%
                 <i nz-icon nzTheme="outline" nzType="caret-up" style="color: red; font-size: 12px"></i>
               </span>
             </div>
           </div>
           <nz-divider class="m-0"></nz-divider>
-          <div class="card-footer">日销售额 ￥12,423</div>
+          <div class="card-footer">Doanh thu hàng ngày ￥12,423</div>
         </nz-card>
       </div>
     </div>
@@ -41,15 +41,15 @@
       <div class="card-wrap">
         <nz-card [nzBodyStyle]="cardPadding" [nzBordered]="false">
           <div class="card-top">
-            <div class="title">访问量</div>
+            <div class="title">Lượng truy cập</div>
             <div class="number">8,846</div>
-            <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="指标说明" nzType="info-circle"></i>
+            <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Chỉ số mô tả" nzType="info-circle"></i>
           </div>
           <div class="card-mid">
             <div id="miniArea"></div>
           </div>
           <nz-divider class="m-0"></nz-divider>
-          <div class="card-footer">日访问量 1,234</div>
+          <div class="card-footer">Lượng truy cập hàng ngày 1,234</div>
         </nz-card>
       </div>
     </div>
@@ -57,15 +57,15 @@
       <div class="card-wrap">
         <nz-card [nzBodyStyle]="cardPadding" [nzBordered]="false">
           <div class="card-top">
-            <div class="title">支付笔数</div>
+            <div class="title">Số lần thanh toán</div>
             <div class="number">6,560</div>
-            <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="指标说明" nzType="info-circle"></i>
+            <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Chỉ số mô tả" nzType="info-circle"></i>
           </div>
           <div class="card-mid">
             <div id="miniBar"></div>
           </div>
           <nz-divider class="m-0"></nz-divider>
-          <div class="card-footer">转化率 60%</div>
+          <div class="card-footer">Tỷ lệ chuyển đổi 60%</div>
         </nz-card>
       </div>
     </div>
@@ -73,15 +73,15 @@
       <div class="card-wrap">
         <nz-card [nzBodyStyle]="cardPadding" [nzBordered]="false">
           <div class="card-top">
-            <div class="title">运营活动效果</div>
+            <div class="title">Hiệu quả chiến dịch</div>
             <div class="number">78%</div>
-            <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="指标说明" nzType="info-circle"></i>
+            <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Chỉ số mô tả" nzType="info-circle"></i>
           </div>
           <div class="card-mid">
             <div id="progress"></div>
           </div>
           <nz-divider class="m-0"></nz-divider>
-          <div class="card-footer">日销售额 ￥12,423</div>
+          <div class="card-footer">Doanh thu hàng ngày ￥12,423</div>
         </nz-card>
       </div>
     </div>
@@ -90,20 +90,20 @@
   <section class="flow-wrap m-t-20">
     <nz-card [nzBodyStyle]="{ padding: 0 }" nzBordered>
       <nz-tabs [nzAnimated]="false" [nzTabBarExtraContent]="extraTemplate" [nzTabBarStyle]="{ padding: '0 10px', fontSize: '16px' }">
-        <nz-tab nzTitle="销售额">
+        <nz-tab nzTitle="Doanh số">
           <div nz-row>
             <div nz-col [nzLg]="12" [nzMd]="13" [nzSm]="24" [nzXl]="17" [nzXs]="24">
-              <h3 class="p-l-35">销售趋势</h3>
+              <h3 class="p-l-35">Xu hướng doanh thu</h3>
               <div id="histogram"></div>
             </div>
             <div nz-col [nzLg]="12" [nzMd]="11" [nzSm]="24" [nzXl]="7" [nzXs]="24">
-              <h3 class="p-l-35 m-b-20">门店销售额排名</h3>
+              <h3 class="p-l-35 m-b-20">Top doanh số cửa hàng</h3>
               @for (_ of 7 | numberLoop; track $index) {
-                <div class="rank-list" title="工专路 {{ $index + 1 }} 号店">
+                <div class="rank-list" title="Đường Công Chuyên {{ $index + 1 }} Cửa hàng số">
                   <div class="center">
                     <!--  <nz-badge [nzCount]="$index + 1" [nzStyle]="{ backgroundColor: $index < 4 ? '#314659' : '#fafafa', color: $index < 4 ? '#fff' : 'black' }"></nz-badge>-->
                     <span class="rank-badge" [style.backgroundColor]="$index < 4 ? '#314659' : '#fafafa'" [style.color]="$index < 4 ? '#fff' : 'black'">{{ $index + 1 }}</span>
-                    <span class="m-l-5">工专路 {{ $index + 1 }} 号店</span>
+                    <span class="m-l-5">Đường Công Chuyên {{ $index + 1 }} Cửa hàng số</span>
                   </div>
                   <div>323,234</div>
                 </div>
@@ -111,35 +111,35 @@
             </div>
           </div>
         </nz-tab>
-        <nz-tab nzTitle="访问量">
+        <nz-tab nzTitle="Lượng truy cập">
           <div class="p-16">
             <div nz-row [nzGutter]="[16, 16]">
               <div nz-col [nzLg]="8" [nzMd]="8" [nzSm]="24" [nzXl]="8" [nzXs]="24">
                 <nz-card [nzBordered]="false">
-                  <div nz-typography nzType="secondary">今日访问量</div>
+                  <div nz-typography nzType="secondary">Lượng truy cập hôm nay</div>
                   <h2 class="m-t-10 m-b-0">98,765</h2>
                   <div class="m-t-10">
-                    <span nz-typography nzType="success">较昨日 +12.6%</span>
+                    <span nz-typography nzType="success">So với hôm qua +12.6%</span>
                   </div>
                 </nz-card>
               </div>
 
               <div nz-col [nzLg]="8" [nzMd]="8" [nzSm]="24" [nzXl]="8" [nzXs]="24">
                 <nz-card [nzBordered]="false">
-                  <div nz-typography nzType="secondary">人均访问时长</div>
-                  <h2 class="m-t-10 m-b-0">6分32秒</h2>
+                  <div nz-typography nzType="secondary">Thời gian truy cập bình quân</div>
+                  <h2 class="m-t-10 m-b-0">6phút32Giây</h2>
                   <div class="m-t-10">
-                    <span nz-typography nzType="warning">较上周 -3.1%</span>
+                    <span nz-typography nzType="warning">So với tuần trước -3.1%</span>
                   </div>
                 </nz-card>
               </div>
 
               <div nz-col [nzLg]="8" [nzMd]="8" [nzSm]="24" [nzXl]="8" [nzXs]="24">
                 <nz-card [nzBordered]="false">
-                  <div nz-typography nzType="secondary">跳出率</div>
+                  <div nz-typography nzType="secondary">Tỷ lệ thoát</div>
                   <h2 class="m-t-10 m-b-0">24.8%</h2>
                   <div class="m-t-10">
-                    <span nz-typography nzType="success">较上周 -1.4%</span>
+                    <span nz-typography nzType="success">So với tuần trước -1.4%</span>
                   </div>
                 </nz-card>
               </div>
@@ -148,59 +148,59 @@
             <div class="m-t-12">
               <div nz-row [nzGutter]="[16, 16]">
                 <div nz-col [nzLg]="14" [nzMd]="14" [nzSm]="24" [nzXl]="14" [nzXs]="24">
-                  <nz-card nzTitle="访问来源分布" [nzBordered]="false">
-                    <div class="m-b-10" nz-typography nzType="secondary">自然流量持续增长，Tìm kiếm引擎和直接访问占比稳定。</div>
+                  <nz-card nzTitle="Phân bố nguồn truy cập" [nzBordered]="false">
+                    <div class="m-b-10" nz-typography nzType="secondary">Lưu lượng tự nhiên tiếp tục tăng,Tìm kiếmCông cụ và truy cập trực tiếp có tỷ lệ ổn định.</div>
                     <div class="rank-list">
-                      <div class="center"><span class="rank-badge" style="background: #314659; color: #fff">1</span><span class="m-l-5">直接访问</span></div>
+                      <div class="center"><span class="rank-badge" style="background: #314659; color: #fff">1</span><span class="m-l-5">Truy cập trực tiếp</span></div>
                       <div>35.2%</div>
                     </div>
                     <div class="rank-list">
-                      <div class="center"><span class="rank-badge" style="background: #314659; color: #fff">2</span><span class="m-l-5">Tìm kiếm引擎</span></div>
+                      <div class="center"><span class="rank-badge" style="background: #314659; color: #fff">2</span><span class="m-l-5">Tìm kiếmCông cụ</span></div>
                       <div>28.7%</div>
                     </div>
                     <div class="rank-list">
-                      <div class="center"><span class="rank-badge" style="background: #314659; color: #fff">3</span><span class="m-l-5">外部链接</span></div>
+                      <div class="center"><span class="rank-badge" style="background: #314659; color: #fff">3</span><span class="m-l-5">Liên kết ngoài</span></div>
                       <div>19.5%</div>
                     </div>
                     <div class="rank-list">
-                      <div class="center"><span class="rank-badge" style="background: #fafafa; color: #000">4</span><span class="m-l-5">社交媒体</span></div>
+                      <div class="center"><span class="rank-badge" style="background: #fafafa; color: #000">4</span><span class="m-l-5">Mạng xã hội</span></div>
                       <div>10.1%</div>
                     </div>
                     <div class="rank-list">
-                      <div class="center"><span class="rank-badge" style="background: #fafafa; color: #000">5</span><span class="m-l-5">邮件营销</span></div>
+                      <div class="center"><span class="rank-badge" style="background: #fafafa; color: #000">5</span><span class="m-l-5">Tiếp thị email</span></div>
                       <div>6.5%</div>
                     </div>
                   </nz-card>
                 </div>
 
                 <div nz-col [nzLg]="10" [nzMd]="10" [nzSm]="24" [nzXl]="10" [nzXs]="24">
-                  <nz-card nzTitle="近7天访问趋势" [nzBordered]="false">
+                  <nz-card nzTitle="Gần7Xu hướng truy cập theo ngày" [nzBordered]="false">
                     <div class="rank-list">
-                      <div>周一</div>
+                      <div>Thứ hai</div>
                       <div>12,430</div>
                     </div>
                     <div class="rank-list">
-                      <div>周二</div>
+                      <div>Thứ ba</div>
                       <div>13,012</div>
                     </div>
                     <div class="rank-list">
-                      <div>周三</div>
+                      <div>Thứ tư</div>
                       <div>13,876</div>
                     </div>
                     <div class="rank-list">
-                      <div>周四</div>
+                      <div>Thứ năm</div>
                       <div>14,205</div>
                     </div>
                     <div class="rank-list">
-                      <div>周五</div>
+                      <div>Thứ sáu</div>
                       <div>15,090</div>
                     </div>
                     <div class="rank-list">
-                      <div>周六</div>
+                      <div>Thứ bảy</div>
                       <div>14,660</div>
                     </div>
                     <div class="rank-list">
-                      <div>周日</div>
+                      <div>Chủ nhật</div>
                       <div>15,492</div>
                     </div>
                   </nz-card>
@@ -214,10 +214,10 @@
 
     <ng-template #extraTemplate>
       <nz-radio-group nzSize="small">
-        <label nz-radio-button nzValue="A">今日</label>
-        <label nz-radio-button nzValue="B">本周</label>
-        <label nz-radio-button nzValue="C">本月</label>
-        <label nz-radio-button nzValue="D">全年</label>
+        <label nz-radio-button nzValue="A">Hôm nay</label>
+        <label nz-radio-button nzValue="B">Tuần này</label>
+        <label nz-radio-button nzValue="C">Tháng này</label>
+        <label nz-radio-button nzValue="D">Cả năm</label>
       </nz-radio-group>
       <nz-range-picker *appScreenLessHidden="620" class="m-l-20"></nz-range-picker>
     </ng-template>
@@ -225,14 +225,14 @@
 
   <section class="m-t-20" nz-row [nzGutter]="[16, 0]">
     <div class="hot-search-wrap" nz-col nzSpan="12" [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXl]="12" [nzXs]="24" [nzXXl]="12">
-      <nz-card [nzBodyStyle]="{ height: '500px' }" [nzExtra]="hotExtra" nzTitle="线上热门Tìm kiếm">
+      <nz-card [nzBodyStyle]="{ height: '500px' }" [nzExtra]="hotExtra" nzTitle="Xu hướng trực tuyếnTìm kiếm">
         <div class="search-wrap" nz-row>
           <div class="search-block" nz-col [nzLg]="12" [nzMd]="12" [nzSm]="24" [nzXl]="12" [nzXs]="24" [nzXXl]="12">
             <div>
               <div>
                 <span nz-typography nzType="secondary">
-                  Tìm kiếm用户数
-                  <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="指标说明" nzType="info-circle"></i>
+                  Tìm kiếmSố lượng người dùng
+                  <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Chỉ số mô tả" nzType="info-circle"></i>
                 </span>
               </div>
               <div>
@@ -249,8 +249,8 @@
             <div>
               <div>
                 <span nz-typography nzType="secondary">
-                  人均Tìm kiếm次数
-                  <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="指标说明" nzType="info-circle"></i>
+                  Bình quân đầu ngườiTìm kiếmSố lần
+                  <i nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Chỉ số mô tả" nzType="info-circle"></i>
                 </span>
               </div>
               <div>
@@ -289,8 +289,8 @@
       </ng-template>
     </div>
     <div class="pipe-wrap" nz-col nzSpan="12" [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXl]="12" [nzXs]="24" [nzXXl]="12">
-      <nz-card [nzBodyStyle]="{ height: '500px' }" nzTitle="销售额类别占比">
-        <h4>销售额</h4>
+      <nz-card [nzBodyStyle]="{ height: '500px' }" nzTitle="Tỷ trọng doanh thu theo loại">
+        <h4>Doanh số</h4>
         <div id="ringPie"></div>
       </nz-card>
     </div>

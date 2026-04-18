@@ -1,4 +1,4 @@
-<!--头部版块-->
+<!--Phần đầu-->
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 
 <div class="normal-table-wrap">
@@ -6,32 +6,32 @@
     <app-water-mark />
     <div nz-row>
       <div class="center" nz-col [nzLg]="8" [nzMd]="8" [nzSm]="8" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
-        <nz-statistic nzTitle="我的待办" nzValue="8个任务"></nz-statistic>
+        <nz-statistic nzTitle="Việc cần làm của tôi" nzValue="8nhiệm vụ"></nz-statistic>
       </div>
       <div class="center" nz-col nz-row [nzLg]="8" [nzMd]="8" [nzSm]="8" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
         <nz-divider nzType="vertical"></nz-divider>
         <div nz-col nzFlex="1">
-          <nz-statistic nzTitle="本周任务平均处理时间" nzValue="32分钟"></nz-statistic>
+          <nz-statistic nzTitle="Thời gian xử lý trung bình tuần này" nzValue="32phút"></nz-statistic>
         </div>
         <nz-divider nzType="vertical"></nz-divider>
       </div>
       <div class="center" nz-col [nzLg]="8" [nzMd]="8" [nzSm]="8" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
-        <nz-statistic nzTitle="本周完成任务数" nzValue="24个任务"></nz-statistic>
+        <nz-statistic nzTitle="Nhiệm vụ hoàn thành tuần này" nzValue="24nhiệm vụ"></nz-statistic>
       </div>
     </div>
   </nz-card>
-  <nz-card class="m-t-20" nzTitle="基本列表" [nzExtra]="extraTpl">
+  <nz-card class="m-t-20" nzTitle="Danh sách cơ bản" [nzExtra]="extraTpl">
     <app-water-mark />
     <ng-template #extraTpl>
       <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px">
         <nz-radio-group class="m-r-8">
-          <label nz-radio-button nzValue="all">全部</label>
-          <label nz-radio-button nzValue="ongoing">进行中</label>
-          <label nz-radio-button nzValue="stay">等待中</label>
+          <label nz-radio-button nzValue="all">Tất cả</label>
+          <label nz-radio-button nzValue="ongoing">Đang diễn ra</label>
+          <label nz-radio-button nzValue="stay">Đang chờ</label>
         </nz-radio-group>
         <nz-space-compact style="width: 270px">
           <nz-input-search>
-            <input nz-input placeholder="请输入" />
+            <input nz-input placeholder="Vui lòng nhập" />
           </nz-input-search>
         </nz-space-compact>
       </div>
@@ -58,7 +58,7 @@
               <div>{{ item.owner }}</div>
             </div>
             <div class="list-content-item">
-              <div>开始时间</div>
+              <div>Thời gian bắt đầu</div>
               <div>{{ item.time }}</div>
             </div>
             <div class="list-content-item">
@@ -71,7 +71,7 @@
             </nz-list-item-action>
             <nz-list-item-action>
               <a nz-dropdown [nzDropdownMenu]="menu">
-                更多
+                Thêm
                 <i nz-icon nzTheme="outline" nzType="down"></i>
               </a>
               <nz-dropdown-menu #menu="nzDropdownMenu">

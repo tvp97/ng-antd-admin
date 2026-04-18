@@ -4,12 +4,12 @@
 @let mixinModeLeftNav = this.mixinModeLeftNav();
 <app-top-progress-bar></app-top-progress-bar>
 <nz-layout class="min-screen-full-height">
-  <!--非混合模式侧边栏固定时占位-->
+  <!--Giữ chỗ sidebar chế độ thường-->
   @if (!isMixinMode && isSideMode && !isOverMode && isHasNavArea && isFixedLeftNav) {
     <nz-sider nzBreakpoint="lg" [nzCollapsed]="isCollapsed" [nzCollapsedWidth]="CollapsedNavWidth" [nzTheme]="theme" [nzWidth]="SideNavWidth" />
   }
 
-  <!--非混合模式侧边栏-->
+  <!--Sidebar không thuộc chế độ hỗn hợp-->
   @if (!isMixinMode && isSideMode && !isOverMode && isHasNavArea) {
     <nz-sider
       id="menuNav"
@@ -28,7 +28,7 @@
     </nz-sider>
   }
 
-  <!--混合模式顶部菜单header-->
+  <!--Menu đỉnh ở chế độ hỗn hợpheader-->
   @if (isMixinMode && isHasTopArea) {
     <nz-header class="animate-02 dark-top-nav-bg top-fixed screen-full-width">
       <app-tool-bar>
@@ -56,7 +56,7 @@
   }
 
   <nz-layout [style]="{ marginTop: isMixinMode && isHasTopArea ? '48px' : 0 }">
-    <!--sider模式的 header-->
+    <!--siderCủa chế độ header-->
     @if (!isMixinMode && isHasTopArea && isSideMode) {
       <nz-header
         style="transition: width 0.2s"
@@ -70,7 +70,7 @@
         <ng-container *ngTemplateOutlet="headerTpl" />
       </nz-header>
     }
-    <!--top模式header-->
+    <!--topChế độheader-->
     @if (!isMixinMode && isHasTopArea && isTopMode) {
       <nz-header
         [class]="{
@@ -82,11 +82,11 @@
       </nz-header>
     }
 
-    <!--混合模式sider固定时占位-->
+    <!--Chế độ hỗn hợpsiderChiếm chỗ khi cố định-->
     @if (isFixedLeftNav && isMixinMode && isHasNavArea && !isOverMode && (mixinModeLeftNav.length > 0 || !isSplitNav)) {
       <nz-sider nzBreakpoint="lg" nzNoAnimation [nzCollapsed]="isCollapsed" [nzCollapsedWidth]="CollapsedNavWidth" [nzTheme]="isNightTheme ? 'dark' : 'light'" [nzWidth]="SideNavWidth" />
     }
-    <!--混合模式sider-->
+    <!--Chế độ hỗn hợpsider-->
     @if (isMixinMode && isHasNavArea && !isOverMode && (mixinModeLeftNav.length > 0 || !isSplitNav)) {
       <nz-sider
         class="menu-sidebar"
@@ -114,7 +114,7 @@
         <router-outlet></router-outlet>
       </nz-content>
       @if (isHasFooterArea) {
-        <nz-footer class="text-center">Ant Design ©2022 Implement By 华舰</nz-footer>
+        <nz-footer class="text-center">Ant Design ©2022 Implement By Hoa Hạm</nz-footer>
       }
     </nz-layout>
   </nz-layout>

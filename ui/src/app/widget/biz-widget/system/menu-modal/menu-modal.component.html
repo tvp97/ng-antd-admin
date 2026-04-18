@@ -1,22 +1,22 @@
 <form nz-form [formGroup]="validateForm">
   <nz-form-item>
-    <nz-form-label nzFor="menuName" nzRequired [nzSm]="6" [nzXs]="24">名称</nz-form-label>
+    <nz-form-label nzFor="menuName" nzRequired [nzSm]="6" [nzXs]="24">Tên</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="14" [nzXs]="24">
-      <input id="menuName" formControlName="menuName" nz-input placeholder="名称" />
+      <input id="menuName" formControlName="menuName" nz-input placeholder="Tên" />
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label nzFor="menuType" nzRequired [nzSm]="6" [nzXs]="24">类型</nz-form-label>
+    <nz-form-label nzFor="menuType" nzRequired [nzSm]="6" [nzXs]="24">Loại</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="14" [nzXs]="24">
       <nz-radio-group formControlName="menuType" (ngModelChange)="changeMenuType($event)">
-        <label nz-radio nzValue="C">菜单</label>
-        <label nz-radio nzValue="F">按钮</label>
+        <label nz-radio nzValue="C">Menu</label>
+        <label nz-radio nzValue="F">Nút</label>
       </nz-radio-group>
     </nz-form-control>
   </nz-form-item>
   @if (menuType === 'C') {
     <nz-form-item>
-      <nz-form-label nzFor="icon" [nzSm]="6" [nzXs]="24">zorro图标</nz-form-label>
+      <nz-form-label nzFor="icon" [nzSm]="6" [nzXs]="24">zorroBiểu tượng</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
         <nz-input-wrapper>
           <input formControlName="icon" nz-input />
@@ -27,57 +27,57 @@
   }
   @if (menuType === 'C') {
     <nz-form-item>
-      <nz-form-label nzFor="alIcon" [nzSm]="6" [nzXs]="24">阿里图标</nz-form-label>
+      <nz-form-label nzFor="alIcon" [nzSm]="6" [nzXs]="24">Biểu tượng Ali</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
-        <input id="alIcon" formControlName="alIcon" nz-input placeholder="阿里图标" />
+        <input id="alIcon" formControlName="alIcon" nz-input placeholder="Biểu tượng Ali" />
       </nz-form-control>
     </nz-form-item>
   }
 
   <nz-form-item>
-    <nz-form-label nzFor="code" nzRequired [nzSm]="6" [nzXs]="24">权限码</nz-form-label>
+    <nz-form-label nzFor="code" nzRequired [nzSm]="6" [nzXs]="24">Mã quyền</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="14" [nzXs]="24">
-      <input id="code" formControlName="code" nz-input placeholder="权限码" />
+      <input id="code" formControlName="code" nz-input placeholder="Mã quyền" />
     </nz-form-control>
   </nz-form-item>
   @if (menuType === 'C') {
     <nz-form-item>
-      <nz-form-label nzFor="path" nzRequired [nzSm]="6" [nzXs]="24">路由地址</nz-form-label>
+      <nz-form-label nzFor="path" nzRequired [nzSm]="6" [nzXs]="24">Đường dẫn Route</nz-form-label>
       <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="14" [nzXs]="24">
-        <input id="path" formControlName="path" nz-input placeholder="路由地址" />
+        <input id="path" formControlName="path" nz-input placeholder="Đường dẫn Route" />
       </nz-form-control>
     </nz-form-item>
   }
   <nz-form-item>
-    <nz-form-label nzFor="orderNum" nzRequired [nzSm]="6" [nzXs]="24">排序</nz-form-label>
+    <nz-form-label nzFor="orderNum" nzRequired [nzSm]="6" [nzXs]="24">Sắp xếp</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="14" [nzXs]="24">
       <nz-input-number formControlName="orderNum" [nzMin]="1" [nzStep]="1"></nz-input-number>
     </nz-form-control>
   </nz-form-item>
   @if (menuType === 'C') {
     <nz-form-item>
-      <nz-form-label nzFor="visible" nzRequired [nzSm]="6" [nzXs]="24">展示</nz-form-label>
+      <nz-form-label nzFor="visible" nzRequired [nzSm]="6" [nzXs]="24">Hiển thị</nz-form-label>
       <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="14" [nzXs]="24">
         <nz-radio-group formControlName="visible">
-          <label nz-radio [nzValue]="true">是</label>
-          <label nz-radio [nzValue]="false">否</label>
+          <label nz-radio [nzValue]="true">Có</label>
+          <label nz-radio [nzValue]="false">Không</label>
         </nz-radio-group>
       </nz-form-control>
     </nz-form-item>
   }
   <nz-form-item>
-    <nz-form-label nzFor="status" nzRequired [nzSm]="6" [nzXs]="24">状态</nz-form-label>
+    <nz-form-label nzFor="status" nzRequired [nzSm]="6" [nzXs]="24">Trạng thái</nz-form-label>
     <nz-form-control [nzErrorTip]="combineTpl" [nzSm]="14" [nzXs]="24">
-      <nz-switch formControlName="status" nzCheckedChildren="可用" nzUnCheckedChildren="禁用"></nz-switch>
+      <nz-switch formControlName="status" nzCheckedChildren="Khả dụng" nzUnCheckedChildren="Vô hiệu hóa"></nz-switch>
     </nz-form-control>
   </nz-form-item>
   @if (menuType === 'C') {
     <nz-form-item>
-      <nz-form-label nzFor="newLinkFlag" [nzSm]="6" [nzXs]="24">外链</nz-form-label>
+      <nz-form-label nzFor="newLinkFlag" [nzSm]="6" [nzXs]="24">Liên kết ngoài</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
         <nz-radio-group formControlName="newLinkFlag">
-          <label nz-radio [nzValue]="true">是</label>
-          <label nz-radio [nzValue]="false">否</label>
+          <label nz-radio [nzValue]="true">Có</label>
+          <label nz-radio [nzValue]="false">Không</label>
         </nz-radio-group>
       </nz-form-control>
     </nz-form-item>
@@ -88,6 +88,6 @@
     {{ control.errors.message }}
   }
   @if (control.hasError('required')) {
-    必填项
+    Trường bắt buộc
   }
 </ng-template>

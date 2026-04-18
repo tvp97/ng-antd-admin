@@ -1,4 +1,4 @@
-<!--头部版块-->
+<!--Phần đầu-->
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 
 <div class="normal-table-wrap">
@@ -7,17 +7,17 @@
       <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24 }">
         <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
           <nz-form-item>
-            <nz-form-label [nzFor]="">部门名称</nz-form-label>
+            <nz-form-label [nzFor]="">Tên phòng ban</nz-form-label>
             <nz-form-control>
-              <input name="departmentName" nz-input placeholder="请输入部门名称" [(ngModel)]="searchParam.departmentName" />
+              <input name="departmentName" nz-input placeholder="Vui lòng nhập tên bộ phận" [(ngModel)]="searchParam.departmentName" />
             </nz-form-control>
           </nz-form-item>
         </div>
         <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
           <nz-form-item>
-            <nz-form-label [nzFor]="">状态</nz-form-label>
+            <nz-form-label [nzFor]="">Trạng thái</nz-form-label>
             <nz-form-control>
-              <nz-select name="state" nzAllowClear nzPlaceHolder="下拉选择" [(ngModel)]="searchParam.state">
+              <nz-select name="state" nzAllowClear nzPlaceHolder="Chọn từ danh sách thả xuống" [(ngModel)]="searchParam.state">
                 @for (item of stateOptions; track item) {
                   <nz-option [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
                 }
@@ -40,13 +40,13 @@
     </form>
   </nz-card>
 
-  <app-card-table-wrap [btnTpl]="tableBtns" [tableTitle]="'部门列表'" (reload)="reloadTable()">
+  <app-card-table-wrap [btnTpl]="tableBtns" [tableTitle]="'Danh sách phòng ban'" (reload)="reloadTable()">
     <app-tree-table [tableConfig]="tableConfig()" [tableData]="dataList()" (changePageIndex)="getDataList()" (changePageSize)="changePageSize($event)" (sortFn)="changeSort($event)"></app-tree-table>
     <ng-template #operationTpl let-fatherId="fatherId" let-id="id" let-level="level">
       <span *appAuth="ActionCode.DeptEdit" class="operate-text" (click)="edit(id, fatherId)">Sửa</span>
       <span *appAuth="ActionCode.DeptDel" class="operate-text" (click)="del(id)">Xóa</span>
       @if (level < 3) {
-        <span class="operate-text" (click)="add(id)">Thêm下级</span>
+        <span class="operate-text" (click)="add(id)">ThêmCấp dưới</span>
       }
     </ng-template>
   </app-card-table-wrap>
@@ -55,7 +55,7 @@
 <ng-template #tableBtns>
   <button class="m-r-8" nz-button nzType="primary" (click)="add(0)">
     <i nz-icon nzType="plus"></i>
-    新建
+    Tạo mới
   </button>
 </ng-template>
 
@@ -63,8 +63,8 @@
   <ng-container *ngTemplateOutlet="state ? yesTpl : notTpl"></ng-container>
 </ng-template>
 <ng-template #yesTpl>
-  <nz-tag nzColor="green">可用</nz-tag>
+  <nz-tag nzColor="green">Khả dụng</nz-tag>
 </ng-template>
 <ng-template #notTpl>
-  <nz-tag nzColor="magenta">禁用</nz-tag>
+  <nz-tag nzColor="magenta">Vô hiệu hóa</nz-tag>
 </ng-template>

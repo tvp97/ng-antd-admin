@@ -1,11 +1,11 @@
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 
 <div class="normal-table-wrap">
-  <input class="m-b-20" nz-input [placeholder]="'传入到抽屉的值'" [(ngModel)]="data" />
+  <input class="m-b-20" nz-input [placeholder]="'Giá trị truyền vào ngăn kéo'" [(ngModel)]="data" />
 
-  这是从抽屉中Quay lại的值:
+  Đây là từ trong DrawerQuay lạiGiá trị của:
   <span class="sp-28 text-error">{{ dataFromDrawer() }}</span>
   <br />
 
-  <button nz-button (click)="showDrawer()">服务的方式创建</button>
+  <button nz-button (click)="showDrawer()">Cách tạo theo dịch vụ</button>
 </div>

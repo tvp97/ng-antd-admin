@@ -1,7 +1,7 @@
 <ng-container *ngTemplateOutlet="headRight"></ng-container>
 <ng-template #headRight>
   <div id="tools" class="bst-header-wrap">
-    <!--      <span *appScreenLessHidden="'375'" (click)="lockScreen()" class="bst-header-icon" nz-tooltip nzTooltipTitle="锁屏"
+    <!--      <span *appScreenLessHidden="'375'" (click)="lockScreen()" class="bst-header-icon" nz-tooltip nzTooltipTitle="Khóa màn hình"
             nzTooltipPlacement="bottom">
          <i nz-icon nzType="lock"
             nzTheme="outline"></i>
@@ -10,8 +10,8 @@
     <span *appScreenLessHidden="320" class="bst-header-icon" nz-tooltip nzTooltipPlacement="bottom" nzTooltipTitle="Tìm kiếm" (click)="showSearchModal()">
       <i nz-icon nzTheme="outline" nzType="search"></i>
     </span>
-    <!--注释的是一个弹出外连接的按钮-->
-    <!-- <span *appScreenLessHidden="'375'" class="bst-header-icon" nz-tooltip nzTooltipTitle="OnChat的帮助文档"
+    <!--Phần chú thích là nút mở liên kết ngoài-->
+    <!-- <span *appScreenLessHidden="'375'" class="bst-header-icon" nz-tooltip nzTooltipTitle="OnChatTài liệu trợ giúp của"
            nzTooltipPlacement="bottom">
              <a href="https://docs.chat.hypergo.net/docs/intro/" target="_blank"><i nz-icon nzType="question-circle"
                                                                                     nzTheme="outline"></i></a>
@@ -23,7 +23,7 @@
       appToggleFullscreen
       nz-tooltip
       nzTooltipPlacement="bottom"
-      [nzTooltipTitle]="toogleFullScreenDir.isFullscreenFlag() ? '全屏' : '退出全屏'"
+      [nzTooltipTitle]="toogleFullScreenDir.isFullscreenFlag() ? 'Toàn màn hình' : 'Thoát toàn màn hình'"
     >
       @if (toogleFullScreenDir.isFullscreenFlag()) {
         <i nz-icon nzTheme="outline" nzType="fullscreen"></i>
@@ -45,29 +45,29 @@
       <ul nz-menu>
         <li nz-menu-item (click)="goPage('personal-center')">
           <i class="m-r-8" nz-icon nzTheme="outline" nzType="user"></i>
-          <span>个人中心</span>
+          <span>Trung tâm cá nhân</span>
         </li>
         <li nz-menu-item (click)="goPage('personal-setting')">
           <i class="m-r-8" nz-icon nzTheme="outline" nzType="setting"></i>
-          <span>个人设置</span>
+          <span>Cài đặt cá nhân</span>
         </li>
         <li nz-menu-item (click)="changePassWorld()">
           <i class="m-r-8" nz-icon nzTheme="outline" nzType="lock"></i>
-          <span>修改密码</span>
+          <span>Đổi mật khẩu</span>
         </li>
         <li nz-menu-divider></li>
         <li nz-menu-item (click)="clean()">
           <i class="m-r-8" nz-icon nzTheme="outline" nzType="clear"></i>
-          <span>清除缓存</span>
+          <span>Xóa bộ đệm</span>
         </li>
         <li nz-menu-item (click)="lockScreen()">
           <i class="m-r-8" nz-icon nzTheme="outline" nzType="lock"></i>
-          <span>锁定屏幕</span>
+          <span>Khóa màn hình</span>
         </li>
         <li nz-menu-item>
           <div (click)="goLogin()">
             <i class="m-r-8" nz-icon nzTheme="outline" nzType="logout"></i>
-            <span>退出登录</span>
+            <span>Đăng xuất</span>
           </div>
         </li>
       </ul>
@@ -80,10 +80,10 @@
       <ul nz-menu nzSelectable>
         <li nz-menu-item (click)="showMessage()">English</li>
         <li nz-menu-item (click)="showMessage()">Bahasa Indonesia</li>
-        <li nz-menu-item (click)="showMessage()">日本語</li>
+        <li nz-menu-item (click)="showMessage()">Tiếng Nhật</li>
         <li nz-menu-item (click)="showMessage()">Português</li>
-        <li nz-menu-item nzSelected (click)="showMessage()">简体中文</li>
-        <li nz-menu-item (click)="showMessage()">繁體中文</li>
+        <li nz-menu-item nzSelected (click)="showMessage()">Tiếng Trung giản thể</li>
+        <li nz-menu-item (click)="showMessage()">Tiếng Trung phồn thể</li>
       </ul>
     </nz-dropdown-menu>
   </div>

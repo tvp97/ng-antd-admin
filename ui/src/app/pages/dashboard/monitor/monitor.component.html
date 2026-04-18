@@ -1,41 +1,41 @@
 <nz-card [nzBodyStyle]="{ padding: '10px 24px' }" [nzBordered]="false">
   <div class="left-start-center">
     <nz-breadcrumb>
-      <nz-breadcrumb-item>首页</nz-breadcrumb-item>
+      <nz-breadcrumb-item>Trang chủ</nz-breadcrumb-item>
       <nz-breadcrumb-item>Dashboard</nz-breadcrumb-item>
-      <nz-breadcrumb-item>监控页</nz-breadcrumb-item>
+      <nz-breadcrumb-item>Trang giám sát</nz-breadcrumb-item>
     </nz-breadcrumb>
   </div>
 </nz-card>
 <section class="content-wrap">
   <section nz-row [nzGutter]="[16, 16]">
     <div nz-col [nzLg]="24" [nzMd]="24" [nzSm]="24" [nzXl]="18" [nzXs]="24" [nzXXl]="18">
-      <nz-card nzTitle="活动实时交易情况">
+      <nz-card nzTitle="Giao dịch trực tiếp sự kiện">
         <div nz-row [nzGutter]="[40, 16]">
           <div nz-col [nzLg]="12" [nzMd]="12" [nzSm]="24" [nzXl]="12" [nzXs]="24" [nzXXl]="12">
             <nz-row [nzGutter]="16">
               <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXl]="12" [nzXs]="24" [nzXXl]="12">
-                <nz-statistic nzTitle="今日交易总额" [nzValue]="(124543233 | number)! + '元'"></nz-statistic>
+                <nz-statistic nzTitle="Tổng giao dịch hôm nay" [nzValue]="(124543233 | number)! + 'đồng'"></nz-statistic>
               </nz-col>
               <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXl]="12" [nzXs]="24" [nzXXl]="12">
-                <nz-statistic nzTitle="销售目标完成率" [nzValue]="(0.92 | percent)!"></nz-statistic>
+                <nz-statistic nzTitle="Tỷ lệ đạt mục tiêu" [nzValue]="(0.92 | percent)!"></nz-statistic>
               </nz-col>
             </nz-row>
           </div>
           <div nz-col [nzLg]="12" [nzMd]="12" [nzSm]="24" [nzXl]="12" [nzXs]="24" [nzXXl]="12">
             <nz-row [nzGutter]="16">
               <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXl]="12" [nzXs]="24" [nzXXl]="12">
-                <nz-countdown nzFormat="HH:mm:ss:SSS" nzTitle="活动剩余时间" [nzValue]="deadline"></nz-countdown>
+                <nz-countdown nzFormat="HH:mm:ss:SSS" nzTitle="Thời gian còn lại của sự kiện" [nzValue]="deadline"></nz-countdown>
               </nz-col>
               <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXl]="12" [nzXs]="24" [nzXXl]="12">
-                <nz-statistic nzTitle="每秒交易总额" [nzValue]="(234 | number)! + '元'"></nz-statistic>
+                <nz-statistic nzTitle="Tổng giao dịch mỗi giây" [nzValue]="(234 | number)! + 'đồng'"></nz-statistic>
               </nz-col>
             </nz-row>
           </div>
           <div nz-col nzSpan="24" style="min-height: 430px">
             <nz-empty
               class="center"
-              nzNotFoundContent="原本是放百度地图，但是给我打电话说我的key暴露了，你可以看源码，我这里有演示异步加载百度地图的方式，看TS注释即可"
+              nzNotFoundContent="Vốn dĩ là dùng Baidu Map, nhưng gọi điện thoại bảo của tôikeyBạn có thể xem mã nguồn, ở đây tôi demo tải bất đồng bộ Baidu Map, xemTSChú thích là được"
               style="height: 430px"
             ></nz-empty>
             <!-- <div id="map"></div>-->
@@ -45,24 +45,24 @@
     </div>
     <div nz-col [nzLg]="24" [nzMd]="24" [nzSm]="24" [nzXl]="6" [nzXs]="24" [nzXXl]="6">
       <div class="card-wrap-line">
-        <nz-card nzTitle="活动情况预测">
+        <nz-card nzTitle="Dự báo hoạt động">
           <div class="card-top">
-            <div nz-typography nzType="secondary">目标评估</div>
-            <div class="title">有望达到预期</div>
+            <div nz-typography nzType="secondary">Đánh giá mục tiêu</div>
+            <div class="title">Có hi vọng đạt được mong đợi</div>
           </div>
           <div>
             <div id="miniArea"></div>
           </div>
         </nz-card>
 
-        <nz-card class="m-t-15" nzTitle="券核效率">
+        <nz-card class="m-t-15" nzTitle="Hiệu suất đối soát">
           <div id="dashBoard"></div>
         </nz-card>
       </div>
     </div>
 
     <div nz-col [nzLg]="24" [nzMd]="24" [nzSm]="24" [nzXl]="12" [nzXs]="24" [nzXXl]="12">
-      <nz-card nzTitle="各品类占比">
+      <nz-card nzTitle="Tỷ lệ từng danh mục">
         <div nz-row>
           <div id="ringProgress1" class="pipe-height center" nz-col [nzLg]="8" [nzMd]="8" [nzSm]="8" [nzXl]="8" [nzXs]="8" [nzXXl]="8"></div>
           <div id="ringProgress2" class="pipe-height center" nz-col [nzLg]="8" [nzMd]="8" [nzSm]="8" [nzXl]="8" [nzXs]="8" [nzXXl]="8"></div>
@@ -71,12 +71,12 @@
       </nz-card>
     </div>
     <div nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXl]="6" [nzXs]="24" [nzXXl]="6">
-      <nz-card nzTitle="热门Tìm kiếm">
+      <nz-card nzTitle="HotTìm kiếm">
         <div id="wordCloud" class="pipe-height"></div>
       </nz-card>
     </div>
     <div nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXl]="6" [nzXs]="24" [nzXXl]="6">
-      <nz-card nzTitle="资源剩余">
+      <nz-card nzTitle="Tài nguyên còn lại">
         <div id="liquidPlot" class="pipe-height"></div>
       </nz-card>
     </div>

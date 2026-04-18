@@ -1,4 +1,4 @@
-<!--头部版块-->
+<!--Phần đầu-->
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 
 <div class="normal-table-wrap">
@@ -7,9 +7,9 @@
       <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24 }">
         <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
           <nz-form-item>
-            <nz-form-label [nzFor]="">Tên vai trò称</nz-form-label>
+            <nz-form-label [nzFor]="">Tên vai trTên</nz-form-label>
             <nz-form-control>
-              <input name="roleName" nz-input placeholder="Nhập tên vai trò称" [(ngModel)]="searchParam.roleName" />
+              <input name="roleName" nz-input placeholder="Nhập tên vai trTên" [(ngModel)]="searchParam.roleName" />
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -28,10 +28,10 @@
     </form>
   </nz-card>
 
-  <app-card-table-wrap [btnTpl]="tableBtns" [tableTitle]="'角色列表'" (reload)="reloadTable()">
+  <app-card-table-wrap [btnTpl]="tableBtns" [tableTitle]="'Danh sách vai trò'" (reload)="reloadTable()">
     <app-ant-table [tableConfig]="tableConfig()" [tableData]="dataList()" (changePageIndex)="getDataList($event)" (changePageSize)="changePageSize($event)"></app-ant-table>
     <ng-template #operationTpl let-$$dataItem="$$dataItem" let-id="id" let-roleName="roleName">
-      <span class="operate-text" (click)="setRole(id, roleName)">设置权限</span>
+      <span class="operate-text" (click)="setRole(id, roleName)">Thiết lập quyền</span>
       <span *appAuth="ActionCode.RoleManagerEdit" class="operate-text" (click)="edit(id, $$dataItem)">Sửa</span>
       <span *appAuth="ActionCode.RoleManagerDel" class="operate-text" (click)="del(id)">Xóa</span>
     </ng-template>
@@ -41,6 +41,6 @@
 <ng-template #tableBtns>
   <button class="m-r-8" nz-button nzType="primary" (click)="add()">
     <i nz-icon nzType="plus"></i>
-    新建
+    Tạo mới
   </button>
 </ng-template>

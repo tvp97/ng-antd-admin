@@ -1,37 +1,37 @@
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 
 <div class="normal-table-wrap">
-  <button class="m-r-8 m-b-8" nz-button (click)="showDailog()">服务的方式创建自定义modal</button>
-  <button class="m-r-8 m-b-8" nz-button (click)="showDailog1()">modal标签通过传nzTitle来进行拖拽</button>
-  <button class="m-r-8 m-b-8" nz-button (click)="showDailogConfirm()">创建可拖动的confirm（by山间之明月）</button>
-  <button class="m-r-8 m-b-8" nz-button (click)="showDailogInfo()">创建可拖动的info（by山间之明月）</button>
-  <button class="m-r-8 m-b-8" nz-button (click)="showDailogSuccess()">创建可拖动的success（by山间之明月）</button>
-  <button class="m-r-8 m-b-8" nz-button (click)="showDailogError()">创建可拖动的error（by山间之明月）</button>
-  <button class="m-r-8 m-b-8" nz-button (click)="showDailogWarning()">创建可拖动的warning（by山间之明月）</button>
-  <button class="m-r-8 m-b-8" nz-button (click)="isVisibleByDir = true">指令创建（by山间之明月）</button>
-  <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="isVisibleDragResize = true">可拖拽+可调整大小的modal</button>
+  <button class="m-r-8 m-b-8" nz-button (click)="showDailog()">Tạo dịch vụ tùy chỉnhmodal</button>
+  <button class="m-r-8 m-b-8" nz-button (click)="showDailog1()">modalTruyền giá trị thẻnzTitleĐể tiến hành kéo thả</button>
+  <button class="m-r-8 m-b-8" nz-button (click)="showDailogConfirm()">Tạo vùng kéo thảconfirm（bytrăng sáng giữa núi)</button>
+  <button class="m-r-8 m-b-8" nz-button (click)="showDailogInfo()">Tạo vùng kéo thảinfo（bytrăng sáng giữa núi)</button>
+  <button class="m-r-8 m-b-8" nz-button (click)="showDailogSuccess()">Tạo vùng kéo thảsuccess（bytrăng sáng giữa núi)</button>
+  <button class="m-r-8 m-b-8" nz-button (click)="showDailogError()">Tạo vùng kéo thảerror（bytrăng sáng giữa núi)</button>
+  <button class="m-r-8 m-b-8" nz-button (click)="showDailogWarning()">Tạo vùng kéo thảwarning（bytrăng sáng giữa núi)</button>
+  <button class="m-r-8 m-b-8" nz-button (click)="isVisibleByDir = true">Lệnh tạo (bytrăng sáng giữa núi)</button>
+  <button class="m-r-8 m-b-8" nz-button nzType="primary" (click)="isVisibleDragResize = true">Có thể kéo thả+Thay đổi kích thướcmodal</button>
 </div>
 
 <nz-modal [nzTitle]="dragTpl" [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
   <ng-container *nzModalContent>
-    <p>床前明月光</p>
-    <p>疑似地上霜</p>
-    <p>举头望明月</p>
-    <p>低头思故乡</p>
+    <p>Ánh trăng sáng trước giường</p>
+    <p>Ngỡ là sương trên mặt đất</p>
+    <p>Ngẩng đầu nhìn trăng sáng</p>
+    <p>Cúi đầu nhớ cố hương</p>
   </ng-container>
 </nz-modal>
 
-<nz-modal nzTitle="指令创建可拖拽" nzxModalDrag nzxModalResize [(nzVisible)]="isVisibleByDir" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<nz-modal nzTitle="Lệnh tạo vùng có thể kéo thả" nzxModalDrag nzxModalResize [(nzVisible)]="isVisibleByDir" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
   <ng-container *nzModalContent>
-    <p>床前明月光</p>
-    <p>疑似地上霜</p>
-    <p>举头望明月</p>
-    <p>低头思故乡</p>
+    <p>Ánh trăng sáng trước giường</p>
+    <p>Ngỡ là sương trên mặt đất</p>
+    <p>Ngẩng đầu nhìn trăng sáng</p>
+    <p>Cúi đầu nhớ cố hương</p>
   </ng-container>
 </nz-modal>
 
 <nz-modal
-  nzTitle="可拖拽+可调整大小"
+  nzTitle="Có thể kéo thả+Có thể thay đổi kích thước"
   nzxModalDrag
   nzxModalResize
   [nzFooter]="null"
@@ -42,20 +42,20 @@
   (nzOnOk)="handleOk()"
 >
   <ng-container *nzModalContent>
-    <p>这个对话框同时支持拖拽和调整大小</p>
+    <p>Hộp thoại này hỗ trợ cả kéo thả và đổi kích thước</p>
     <p
-      ><strong>拖拽：</strong
-      >点击并拖动标题栏来调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小调整大小：拖动边缘或角落来改变大小移动对话框</p
+      ><strong>Kéo thả:</strong
+      >Kéo thanh tiêu đề để chỉnh kích thước</p
     >
-    <p><strong>调整大小：</strong>拖动边缘或角落来改变大小</p>
-    <p>两个功能可以同时使用，互不干扰</p>
+    <p><strong>Đổi kích thước:</strong>Kéo mép hoặc góc để thay đổi kích thước</p>
+    <p>Hai chức năng có thể sử dụng đồng thời, không ảnh hưởng lẫn nhau</p>
     <div style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 4px">
-      <p style="margin: 0"><strong>提示：</strong>这个对话框更加灵活，可以根据内容需要自由调整位置和大小</p>
+      <p style="margin: 0"><strong>Gợi ý:</strong>Hộp thoại linh hoạt này cho phép tự do điều chỉnh vị trí/kích thước</p>
     </div>
   </ng-container>
 </nz-modal>
 
-<!--可以将下列代码放开，放到modal的nzTitle中，也能达到拖动效果-->
+<!--Có thể bỏ comment mã dưới đây, đặt vàomodalcủanzTitletrong, cũng có thể đạt hiệu ứng kéo thả-->
 <ng-template #dragTpl>
-  <div class="hand-model-move" cdkDrag cdkDragBoundary="nz-modal-container" cdkDragHandle cdkDragRootElement=".ant-modal-content">这是一个可拖动modal</div>
+  <div class="hand-model-move" cdkDrag cdkDragBoundary="nz-modal-container" cdkDragHandle cdkDragRootElement=".ant-modal-content">Đây là vùng có thể kéo thảmodal</div>
 </ng-template>

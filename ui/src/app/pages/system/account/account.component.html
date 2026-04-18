@@ -1,4 +1,4 @@
-<!--头部版块-->
+<!--Phần đầu-->
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 
 <div class="normal-table-wrap">
@@ -7,18 +7,18 @@
       <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24 }">
         <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
           <nz-form-item>
-            <nz-form-label [nzFor]="">Tên đăng nhập称</nz-form-label>
+            <nz-form-label [nzFor]="">Tên đăng nhậpGọi</nz-form-label>
             <nz-form-control>
-              <input name="userName" nz-input placeholder="Nhập tên vai trò称" [(ngModel)]="searchParam.userName" />
+              <input name="userName" nz-input placeholder="Nhập tên vai trTên" [(ngModel)]="searchParam.userName" />
             </nz-form-control>
           </nz-form-item>
         </div>
 
         <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
           <nz-form-item>
-            <nz-form-label [nzFor]="">手机</nz-form-label>
+            <nz-form-label [nzFor]="">Điện thoại di động</nz-form-label>
             <nz-form-control>
-              <input name="mobile" nz-input placeholder="请输入手机号" [(ngModel)]="searchParam.mobile" />
+              <input name="mobile" nz-input placeholder="Vui lòng nhập số điện thoại" [(ngModel)]="searchParam.mobile" />
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -26,9 +26,9 @@
         @if (!isCollapse) {
           <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
             <nz-form-item>
-              <nz-form-label [nzFor]="">是否启用</nz-form-label>
+              <nz-form-label [nzFor]="">Có kích hoạt không</nz-form-label>
               <nz-form-control>
-                <nz-select name="available" nzAllowClear nzPlaceHolder="下拉选择" [(ngModel)]="searchParam.available">
+                <nz-select name="available" nzAllowClear nzPlaceHolder="Chọn từ danh sách thả xuống" [(ngModel)]="searchParam.available">
                   @for (item of availableOptions; track item) {
                     <nz-option [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
                   }
@@ -55,9 +55,9 @@
           </button>
           <a class="collapse operate-text" (click)="toggleCollapse()">
             @if (isCollapse) {
-              <span>展开</span>
+              <span>Mở rộng</span>
             } @else {
-              <span>收起</span>
+              <span>Thu gọn</span>
             }
             <i nz-icon [nzType]="isCollapse ? 'down' : 'up'"></i>
           </a>
@@ -66,7 +66,7 @@
     </form>
   </nz-card>
 
-  <app-card-table-wrap [btnTpl]="tableBtns" [tableTitle]="'账号列表'" (reload)="reloadTable()">
+  <app-card-table-wrap [btnTpl]="tableBtns" [tableTitle]="'Danh sách tài khoản'" (reload)="reloadTable()">
     <app-ant-table
       [checkedCashArrayFromComment]="checkedCashArray"
       [tableConfig]="tableConfig()"
@@ -84,15 +84,15 @@
   <ng-template #tableBtns>
     <button class="m-r-8" nz-button nzType="primary" (click)="add()">
       <i nz-icon nzType="plus"></i>
-      新建
+      Tạo mới
     </button>
     <button *appAuth="ActionCode.AccountDel" nz-button nzType="default" (click)="allDel()">
       <i nz-icon nzType="delete"></i>
-      批量Xóa
+      Hàng loạtXóa
     </button>
   </ng-template>
 
   <ng-template #availableFlag let-available="available" let-id="id">
-    <nz-switch nzCheckedChildren="启用" nzUnCheckedChildren="禁用" [ngModel]="available" nzControl nzDisabled></nz-switch>
+    <nz-switch nzCheckedChildren="Kích hoạt" nzUnCheckedChildren="Vô hiệu hóa" [ngModel]="available" nzControl nzDisabled></nz-switch>
   </ng-template>
 </div>
