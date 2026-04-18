@@ -1,4 +1,4 @@
-export const ip = 'huajian123.github.io';
+export const ip = 'tvp97.github.io';
 export const localUrl = `https://${ip}/site/api`;
 
 export const environment = {
