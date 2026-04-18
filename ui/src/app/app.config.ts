@@ -1,6 +1,6 @@
 import { registerLocaleData } from '@angular/common';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import zh from '@angular/common/locales/zh';
+import vi from '@angular/common/locales/vi';
 import {
   ApplicationConfig,
   importProvidersFrom,
@@ -28,14 +28,14 @@ import { StartupService } from '@core/startup/startup.service';
 import { getDeepReuseStrategyKeyFn } from '@utils/tools';
 
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
-import { NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
+import { NZ_I18N, vi_VN } from 'ng-zorro-antd/i18n';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { ViewTransitionService } from '@core/services/common/view-transition.service';
 
 const icons = [MenuFoldOutline, MenuUnfoldOutline, DashboardOutline, FormOutline];
 
-registerLocaleData(zh);
+registerLocaleData(vi);
 
 export function StartupServiceFactory(startupService: StartupService) {
   return () => startupService.load();
@@ -103,7 +103,7 @@ export const appConfig: ApplicationConfig = {
       provide: TitleStrategy, // Tài liệu liên quan:https://dev.to/brandontroberts/setting-page-titles-natively-with-the-angular-router-393j
       useClass: CustomPageTitleResolverService // Khi chuyển đổi tuyến đường tùy chỉnh, trình duyệttitlehiển thị, ởng14Hỗ trợ như trên. Cách sử dụng phiên bản cũ vui lòng xem của tôigithub v16tagMã phiên bản dưới đây
     },
-    { provide: NZ_I18N, useValue: zh_CN }, // zorroQuốc tế hóa
+    { provide: NZ_I18N, useValue: vi_VN }, // zorroQuốc tế hóa
     { provide: NZ_ICONS, useValue: icons }, // zorroBiểu tượng
     provideRouter(
       appRoutes, // Bộ định tuyến
