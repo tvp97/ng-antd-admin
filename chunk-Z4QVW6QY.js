@@ -1,0 +1,1 @@
+import"./chunk-DAQOROHW.js";var t=[{path:"zorro-doc",title:"zorroT\xE0i li\u1EC7u",data:{key:"zorro-doc"},loadComponent:()=>import("./chunk-7Z62SWF7.js").then(o=>o.ZorroDocComponent)},{path:"",redirectTo:"zorro-doc",pathMatch:"full"}];export{t as default};
