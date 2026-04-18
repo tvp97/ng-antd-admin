@@ -1,1 +1,0 @@
-import"./chunk-DAQOROHW.js";var o=[{path:"",redirectTo:"login1",pathMatch:"full"},{path:"login1",title:"Lo\u1EA1i \u0111\u0103ng nh\u1EADp th\u1EE9 nh\u1EA5t",data:{key:"login1"},loadComponent:()=>import("./chunk-SZXXIP5D.js").then(t=>t.Login1Component)}];export{o as default};
