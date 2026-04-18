@@ -38,7 +38,6 @@ export class App implements OnInit, AfterViewInit {
   private lockScreenStoreService = inject(LockScreenStoreService);
   private spinService = inject(SpinService);
   private router = inject(Router);
-
   loading = computed(() => this.spinService.$globalSpinStore());
   lockedState = computed(() => {
     return this.lockScreenStoreService.lockScreenSignalStore();
