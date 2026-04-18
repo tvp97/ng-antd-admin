@@ -2,7 +2,7 @@
 
 # 🚀 ng-antd-admin
 
-**基于 Angular 21 的企业级中后台前端解决方案**
+**Giải pháp frontend admin doanh nghiệp dựa trên Angular 21**
 
 [![CodeFactor](https://www.codefactor.io/repository/github/huajian123/ng-antd-admin/badge)](https://www.codefactor.io/repository/github/huajian123/ng-antd-admin)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
@@ -10,47 +10,47 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?logo=typescript)
 ![ng-zorro](https://img.shields.io/badge/ng--zorro--antd-21-blue?logo=ant-design)
 
-[在线预览](https://huajian123.github.io/ng-antd-admin/) · [功能演示](https://www.bilibili.com/video/BV1gF411x7rN/) · [问题反馈](https://github.com/huajian123/ng-antd-admin/issues) · [更新日志](https://github.com/huajian123/ng-antd-admin/releases)
+[Xem trực tuyến](https://huajian123.github.io/ng-antd-admin/) · [Demo tính năng](https://www.bilibili.com/video/BV1gF411x7rN/) · [Phản hồi vấn đề](https://github.com/huajian123/ng-antd-admin/issues) · [Nhật ký cập nhật](https://github.com/huajian123/ng-antd-admin/releases)
 
-<img src="https://github.com/huajian123/ng-antd-admin/blob/master/ui/projectImg/11.png?raw=true" alt="系统截图" width="800"/>
+<img src="https://github.com/huajian123/ng-antd-admin/blob/master/ui/projectImg/11.png?raw=true" alt="Ảnh chụp màn hình hệ thống" width="800"/>
 </div>
 
 ---
 
-## 📖 项目简介
+## 📖 Giới thiệu dự án
 
-**ng-antd-admin** 是一个**生产就绪**的企业级中后台前端解决方案，基于 **Angular 21** 和 **ng-zorro-antd 21** 构建。
+**ng-antd-admin** là một giải pháp frontend admin doanh nghiệp **sẵn sàng production**, được xây dựng trên **Angular 21** và **ng-zorro-antd 21**.
 
-本项目紧跟 Angular 技术演进，充分利用最新特性，包括 **Standalone Components**、**Zoneless Change Detection**、**Signals API** 和 **View Transitions**，旨在为开发者提供一个现代化、高性能、易于维护的开发模板。
+Dự án bám sát tiến hóa công nghệ Angular, tận dụng tối đa các tính năng mới nhất, gồm **Standalone Components**, **Zoneless Change Detection**, **Signals API** và **View Transitions**, nhằm cung cấp cho lập trình viên một template hiện đại, hiệu năng cao và dễ bảo trì.
 
-### 💡 为什么选择 ng-antd-admin？
+### 💡 Vì sao chọn ng-antd-admin?
 
-- ✅ **技术前沿**：率先拥抱 Angular 21 全新生态（Signals, Zoneless, Control Flow）。
-- ✅ **性能卓越**：全链路 OnPush 策略 + 智能路由复用 + 懒加载，体验媲美原生应用。
-- ✅ **开箱即用**：内置成熟的 RBAC 权限系统、主题切换、多页签管理等核心功能。
-- ✅ **代码规范**：集成严格的 ESLint + TypeScript + Prettier 配置，保障代码质量。
-- ✅ **教学友好**：代码注释详尽，不仅是脚手架，更是学习现代 Angular 的最佳实践。
-- ✅ **持续维护**：承诺跟随 Angular 官方版本长期更新迭代。
+- ✅ **Công nghệ tiên tiến**: Tiên phong hệ sinh thái Angular 21 (Signals, Zoneless, Control Flow).
+- ✅ **Hiệu năng tốt**: Chiến lược OnPush toàn ứng dụng + tái sử dụng route thông minh + lazy load, trải nghiệm gần với ứng dụng native.
+- ✅ **Dùng được ngay**: Tích hợp sẵn RBAC, đổi theme, quản lý nhiều tab và các tính năng lõi khác.
+- ✅ **Chuẩn code**: ESLint + TypeScript + Prettier chặt chẽ, đảm bảo chất lượng mã nguồn.
+- ✅ **Thân thiện học tập**: Chú thích đầy đủ — không chỉ là boilerplate mà còn là thực hành tốt với Angular hiện đại.
+- ✅ **Duy trì lâu dài**: Cam kết cập nhật theo phiên bản chính thức của Angular.
 
 ---
 
-## ✨ 核心特性
+## ✨ Tính năng cốt lõi
 
-### 🎯 技术栈一览
+### 🎯 Tổng quan stack
 
-| 技术 | 版本 | 说明 |
+| Công nghệ | Phiên bản | Mô tả |
 |------|------|------|
-| **Angular** | 21.0.3 | 核心框架，全面采用 Standalone 架构 |
-| **TypeScript** | 5.9.3 | 开发语言，开启严格模式 |
-| **ng-zorro-antd** | 21.0.0 | 企业级 UI 组件库 (Ant Design) |
-| **RxJS** | 7.8.0 | 响应式编程库 |
-| **Less** | 4.2.0 | CSS 预处理器 |
-| **NestJS** | 10.x | (可选) 后端服务框架 |
+| **Angular** | 21.0.3 | Framework lõi, kiến trúc Standalone toàn diện |
+| **TypeScript** | 5.9.3 | Ngôn ngữ phát triển, bật chế độ strict |
+| **ng-zorro-antd** | 21.0.0 | Thư viện UI doanh nghiệp (Ant Design) |
+| **RxJS** | 7.8.0 | Thư viện lập trình phản ứng |
+| **Less** | 4.2.0 | CSS preprocessor |
+| **NestJS** | 10.x | (Tuỳ chọn) Framework backend |
 
-### 🚀 前沿特性详解
+### 🚀 Chi tiết tính năng tiên tiến
 
-#### 1️⃣ Standalone Components - 零 NgModule
-告别繁琐的 `NgModule`，组件依赖更清晰。
+#### 1️⃣ Standalone Components — không cần NgModule
+Loại bỏ `NgModule` rườm rà, phụ thuộc component rõ ràng hơn.
 ```typescript
 @Component({
   selector: 'app-example',
@@ -61,8 +61,8 @@
 export class ExampleComponent {}
 ```
 
-#### 2️⃣ Zoneless Change Detection - 性能飞跃
-移除 `zone.js` 依赖，变更检测性能提升 30% 以上。
+#### 2️⃣ Zoneless Change Detection — hiệu năng vượt trội
+Bỏ phụ thuộc `zone.js`, hiệu năng change detection cải thiện hơn 30%.
 ```typescript
 // app.config.ts
 export const appConfig: ApplicationConfig = {
@@ -72,8 +72,8 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
-#### 3️⃣ Signals API - 细粒度响应式
-使用 Signals 替代部分 RxJS 流，状态管理更直观。
+#### 3️⃣ Signals API — phản ứng chi tiết
+Dùng Signals thay một phần luồng RxJS, quản lý trạng thái trực quan hơn.
 ```typescript
 export class ThemeService {
   $isNightTheme = signal(false);
@@ -85,109 +85,109 @@ export class ThemeService {
 }
 ```
 
-#### 4️⃣ 智能路由复用 (Keep-Alive)
-实现了类似 Vue `keep-alive` 的路由缓存机制，支持滚动位置记忆。
+#### 4️⃣ Tái sử dụng route thông minh (Keep-Alive)
+Cơ chế cache route tương tự `keep-alive` của Vue, hỗ trợ nhớ vị trí cuộn.
 ```typescript
-// 路由配置
+// Cấu hình route
 data: { 
-  key: 'user-list',           // 缓存唯一标识
-  scrollContain: ['#table']   // 自动恢复滚动条位置
+  key: 'user-list',           // Khóa duy nhất cho cache
+  scrollContain: ['#table']   // Tự khôi phục vị trí thanh cuộn
 }
 ```
 
 #### 5️⃣ View Transitions API
-原生级别的路由过渡动画，丝般顺滑。
+Chuyển cảnh giữa các route mức native, mượt mà.
 ```typescript
 provideRouter(routes, withViewTransitions({ skipInitialTransition: true }))
 ```
 
 ---
 
-## 🏗️ 架构与功能
+## 🏗️ Kiến trúc và chức năng
 
-### 前端架构
-- **模块化设计**：清晰的目录结构 (`core` 核心, `shared` 共享, `pages` 页面, `widget` 组件)。
-- **依赖注入**：全面使用 `inject()` 函数，代码更简洁。
-- **极致性能**：全局 OnPush 策略 + 自定义预加载策略。
+### Kiến trúc frontend
+- **Thiết kế module hoá**: Cấu trúc thư mục rõ ràng (`core` lõi, `shared` dùng chung, `pages` trang, `widget` tiện ích).
+- **Dependency injection**: Dùng `inject()` toàn bộ, code gọn hơn.
+- **Hiệu năng tối đa**: Chiến lược OnPush toàn cục + chiến lược preload tuỳ chỉnh.
 
-### UI 功能
-- 🌈 **多主题**：默认、暗黑、阿里云、紧凑 4 种风格一键切换。
-- 🔖 **多页签**：支持右键菜单、拖拽排序，类浏览器体验。
-- 📱 **响应式**：完美适配 PC、平板、手机等各种屏幕尺寸。
-- 🔒 **安全增强**：内置锁屏功能、细粒度的按钮级权限控制。
+### Chức năng UI
+- 🌈 **Đa theme**: Mặc định, tối, Alibaba Cloud, gọn — đổi một cú nhấp.
+- 🔖 **Nhiều tab**: Menu chuột phải, kéo thả sắp xếp, trải nghiệm kiểu trình duyệt.
+- 📱 **Responsive**: Tương thích PC, tablet, điện thoại.
+- 🔒 **Bảo mật**: Khóa màn hình, phân quyền đến mức nút bấm.
 
-### 后端集成 (可选)
-提供基于 **NestJS + PostgreSQL + Drizzle ORM** 的完整后端服务：
-- **RBAC 模型**：用户-角色-菜单-权限的精细化控制。
-- **JWT 认证**：标准的 Token 身份验证流程。
-- **完整模块**：包含用户管理、部门管理、菜单管理等基础业务接口。
+### Tích hợp backend (tuỳ chọn)
+Cung cấp backend đầy đủ dựa trên **NestJS + PostgreSQL + Drizzle ORM**:
+- **Mô hình RBAC**: Kiểm soát chi tiết người dùng – vai trò – menu – quyền.
+- **JWT**: Luồng xác thực token chuẩn.
+- **Module đầy đủ**: Quản lý người dùng, phòng ban, menu và các API nghiệp vụ cơ bản.
 
 ---
 
-## 📦 快速开始
+## 📦 Bắt đầu nhanh
 
-### 方式一：仅前端预览 (推荐体验)
-使用 MSW (Mock Service Worker) 模拟数据，无需启动后端即可体验完整功能。
+### Cách 1: Chỉ xem frontend (khuyến nghị để trải nghiệm)
+Dùng MSW (Mock Service Worker) mô phỏng dữ liệu, không cần chạy backend vẫn dùng đủ tính năng.
 
 ```bash
-# 1. 克隆 mock 分支
+# 1. Clone nhánh mock
 git clone -b mock https://github.com/huajian123/ng-antd-admin.git
 
-# 2. 进入前端目录
+# 2. Vào thư mục frontend
 cd ng-antd-admin/ui
 
-# 3. 安装依赖
+# 3. Cài dependency
 npm install
 
-# 4. 启动项目
+# 4. Chạy dự án
 npm start
 
-# 5. 访问 http://localhost:4201
+# 5. Truy cập http://localhost:4201
 ```
 
-> 也可直接在线预览：[https://huajian123.github.io/ng-antd-admin/](https://huajian123.github.io/ng-antd-admin/)
+> Cũng có thể xem trực tuyến: [https://huajian123.github.io/ng-antd-admin/](https://huajian123.github.io/ng-antd-admin/)
 
-### 方式二：完整全栈版 (前端 + 后端)
-适合需要二次开发完整业务系统的场景。
+### Cách 2: Full-stack (frontend + backend)
+Phù hợp khi cần phát triển tiếp hệ thống nghiệp vụ hoàn chỉnh.
 
-#### 1. 启动后端 (NestJS)
+#### 1. Chạy backend (NestJS)
 ```bash
-# 1. 确保已安装 Docker
+# 1. Đảm bảo đã cài Docker
 docker --version
 
-# 2. 进入后端目录
+# 2. Vào thư mục backend
 cd nest-api
 
-# 3. 启动 PostgreSQL 容器
+# 3. Khởi động container PostgreSQL
 docker-compose up -d
 
-# 4. 导入数据库
-# 使用 DataGrip/Navicat 等工具连接数据库
-# 主机: localhost / 用户名: admin / 密码: 123456
-# 数据库: ng-antd-admin-db
-# 执行文件: nest-api/ng-antd-admin-db.sql
+# 4. Import database
+# Kết nối bằng DataGrip/Navicat v.v.
+# Host: localhost / User: admin / Mật khẩu: 123456
+# Database: ng-antd-admin-db
+# Chạy file: nest-api/ng-antd-admin-db.sql
 
-# 5. 安装依赖并启动
+# 5. Cài dependency và chạy
 npm install
 npm run start
 ```
 
-#### 2. 启动前端
+#### 2. Chạy frontend
 ```bash
-# 1. 进入前端目录
+# 1. Vào thư mục frontend
 cd ui
 
-# 2. 安装依赖
+# 2. Cài dependency
 npm install
 
-# 3. 启动开发服务器
+# 3. Chạy dev server
 npm start
 
-# 4. 浏览器访问 http://localhost:4201
+# 4. Mở trình duyệt http://localhost:4201
 ```
 
-### 方式三：纯净版 (零业务代码)
-仅保留基础架构，适合直接对接已有后端 API。
+### Cách 3: Bản “sạch” (không code nghiệp vụ)
+Chỉ giữ khung kiến trúc, phù hợp khi nối API backend có sẵn.
 
 ```html
 https://gitee.com/hjxiaoqianduan/ng-ant-admin-pure
@@ -195,10 +195,10 @@ https://gitee.com/hjxiaoqianduan/ng-ant-admin-pure
 
 ---
 
-## 📚 核心开发指南
+## 📚 Hướng dẫn phát triển cốt lõi
 
-### 1. 路由复用配置
-在路由定义中通过 `data` 属性控制缓存行为：
+### 1. Cấu hình tái sử dụng route
+Điều khiển hành vi cache qua thuộc tính `data` trong định nghĩa route:
 
 ```typescript
 const routes: Routes = [
@@ -206,168 +206,168 @@ const routes: Routes = [
     path: 'list',
     component: ListComponent,
     data: { 
-      key: 'list-page',         // 必须：唯一标识
-      shouldDetach: 'no',       // 可选：设为 'no' 则强制不缓存
-      scrollContain: ['#list']  // 可选：缓存滚动条的选择器
+      key: 'list-page',         // Bắt buộc: định danh duy nhất
+      shouldDetach: 'no',       // Tuỳ chọn: 'no' thì không cache
+      scrollContain: ['#list']  // Tuỳ chọn: selector để nhớ thanh cuộn
     }
   }
 ];
 
-// 组件生命周期钩子
+// Hook vòng đời component
 export class ListComponent {
   _onReuseInit() {
-    console.log('页面从缓存中恢复');
+    console.log('Trang được khôi phục từ cache');
   }
   _onReuseDestroy() {
-    console.log('页面被缓存');
+    console.log('Trang được đưa vào cache');
   }
 }
 ```
 
-### 2. 响应式布局监听
-使用 `WindowsWidthService` 轻松响应屏幕变化：
+### 2. Lắng nghe layout responsive
+Dùng `WindowsWidthService` để phản ứng thay đổi màn hình:
 
 ```typescript
-// 注入服务
+// Inject service
 private winWidthService = inject(WindowsWidthService);
 
-// 监听断点
+// Lắng nghe breakpoint
 this.winWidthService.getWindowWidthStore()
   .pipe(takeUntilDestroyed())
   .subscribe(width => {
-    console.log('当前屏幕断点:', width); // xs, sm, md, lg, xl, xxl
+    console.log('Breakpoint hiện tại:', width); // xs, sm, md, lg, xl, xxl
   });
 ```
 
-### 3. 多页签控制
-支持在新标签页打开详情，或在同一标签页复用组件。
+### 3. Điều khiển nhiều tab
+Hỗ trợ mở chi tiết trong tab mới hoặc tái sử dụng component trong cùng tab.
 
 ```typescript
-// 场景A：列表点详情，打开新 Tab,请看在线地址上的演示，菜单为：功能>标签页操作>打开详情页1、打开详情页2、打开详情页3
+// Kịch bản A: Từ danh sách sang chi tiết, mở tab mới — xem demo trên site, menu: Tính năng > Thao tác tab > Mở trang chi tiết 1/2/3
 { 
   path: 'detail/:id', 
   component: DetailComponent, 
-  data: { newTab: 'true', title: '详情', key: 'detail' } 
+  data: { newTab: 'true', title: 'Chi tiết', key: 'detail' } 
 }
 
-// 场景B：不同路由复用同一组件（如“添加”和“编辑”）,在当前页签中打开详情,场景请看在线地址上的演示，菜单为：系统管理>角色管理>设置权限
-// 只要 title 相同，多页签系统会视为同一组业务
-{ path: 'add', component: FormComponent, title: '用户管理' },
-{ path: 'edit/:id', component: FormComponent, title: '用户管理' }
+// Kịch bản B: Hai route khác nhau dùng chung một component (ví dụ “Thêm” và “Sửa”), mở trong tab hiện tại — xem demo, menu: Quản trị hệ thống > Quản lý vai trò > Thiết lập quyền
+// Chỉ cần title giống nhau, hệ thống tab sẽ coi là cùng một nhóm nghiệp vụ
+{ path: 'add', component: FormComponent, title: 'Quản lý người dùng' },
+{ path: 'edit/:id', component: FormComponent, title: 'Quản lý người dùng' }
 ```
 
 ---
 
-## 🗂️ 版本说明
+## 🗂️ Phiên bản
 
-| ng-antd-admin 版本 | Angular 版本 | 说明 | 下载 |
+| Phiên bản ng-antd-admin | Angular | Mô tả | Tải |
 |-------------------|-------------|------|------|
-| **Master (最新)** | **Angular 21+** | 全新架构，推荐使用 | [源码](https://github.com/huajian123/ng-antd-admin) |
-| v18.x | Angular 18 | 稳定版 | [下载](https://github.com/huajian123/ng-antd-admin/tree/v18) |
-| v17.x | Angular 17 | 引入 Signals | [下载](https://github.com/huajian123/ng-antd-admin/tree/v17) |
-| v15.x | Angular 15 | 传统 NgModule 版本 | [下载](https://github.com/huajian123/ng-antd-admin/tree/v15) |
+| **Master (mới nhất)** | **Angular 21+** | Kiến trúc mới, khuyến nghị dùng | [Mã nguồn](https://github.com/huajian123/ng-antd-admin) |
+| v18.x | Angular 18 | Bản ổn định | [Tải](https://github.com/huajian123/ng-antd-admin/tree/v18) |
+| v17.x | Angular 17 | Có Signals | [Tải](https://github.com/huajian123/ng-antd-admin/tree/v17) |
+| v15.x | Angular 15 | Phiên bản NgModule truyền thống | [Tải](https://github.com/huajian123/ng-antd-admin/tree/v15) |
 
-> ⚠️ **注意**：Angular 15+ 引入了 Standalone Components，项目结构变化较大。请根据您的团队技术栈选择对应的版本。
+> ⚠️ **Lưu ý**: Từ Angular 15+ có Standalone Components, cấu trúc dự án thay đổi nhiều. Hãy chọn phiên bản phù hợp stack của team.
 
 ---
 
-## 🤖 AI 辅助上手
+## 🤖 Làm quen với AI
 
-本项目在 `docs/meta-model/` 下维护了一套**项目元模型文档**，覆盖模块地图、核心流程、权限体系、状态管理、变更热区等。
+Dự án duy trì bộ **tài liệu meta-model** trong `docs/meta-model/`, bao quát bản đồ module, luồng lõi, hệ thống quyền, quản lý trạng thái và vùng thay đổi rủi ro.
 
-如果你使用 AI 编程助手（Claude、Cursor、Copilot 等），可以直接把 `meta-index.md` 喂给 AI，让它快速建立对项目的完整认知，而不需要重新扫描整个仓库。
+Nếu dùng trợ lý AI (Claude, Cursor, Copilot…), có thể đưa `meta-index.md` cho AI để nắm nhanh toàn bộ dự án mà không cần quét hết repo.
 
-### 推荐用法
+### Cách dùng gợi ý
 
-**1. 快速了解项目结构**
+**1. Nắm nhanh cấu trúc**
 
-把 `docs/meta-model/meta-index.md` 的内容粘贴到对话里，然后问：
-
-```
-读完这份索引，帮我解释一下这个项目的整体架构
-```
-
-**2. 定位某个功能的源码**
+Dán nội dung `docs/meta-model/meta-index.md` vào hội thoại rồi hỏi:
 
 ```
-参考 meta-index.md，帮我找到"多页签"功能的实现逻辑在哪里
+Đọc xong mục lục này, hãy giải thích kiến trúc tổng thể của dự án
 ```
 
-**3. 处理需求或 Bug**
+**2. Tìm mã nguồn một tính năng**
 
 ```
-先读 docs/meta-model/meta-index.md，我要给账号管理页新增"批量禁用"功能，帮我定位影响面和需要改哪些文件
+Tham chiếu meta-index.md, giúp tìm chỗ triển khai tính năng "nhiều tab"
 ```
 
-**4. 理解某个核心流程**
+**3. Xử lý yêu cầu hoặc bug**
 
 ```
-参考 docs/meta-model/flow-index.md，帮我梳理登录到权限加载的完整流程
+Đọc docs/meta-model/meta-index.md trước, tôi muốn thêm "vô hiệu hóa hàng loạt" cho trang quản lý tài khoản, chỉ rõ phạm vi ảnh hưởng và file cần sửa
 ```
 
-### 文档索引
+**4. Hiểu một luồng lõi**
 
-| 文档 | 内容 |
+```
+Tham chiếu docs/meta-model/flow-index.md, tóm tắt luồng từ đăng nhập đến tải quyền
+```
+
+### Mục lục tài liệu
+
+| Tài liệu | Nội dung |
 |------|------|
-| [meta-index.md](./docs/meta-model/meta-index.md) | 总入口，先读这里 |
-| [module-index.md](./docs/meta-model/module-index.md) | 所有页面模块地图 |
-| [functional-inventory.md](./docs/meta-model/functional-inventory.md) | 功能清单（功能 → 路由 → 源码） |
-| [auth-login-index.md](./docs/meta-model/auth-login-index.md) | 认证与权限体系 |
-| [flow-index.md](./docs/meta-model/flow-index.md) | 核心流程（登录、HTTP、路由复用等） |
-| [change-hotspots.md](./docs/meta-model/change-hotspots.md) | 高风险变更区，二次开发必读 |
+| [meta-index.md](./docs/meta-model/meta-index.md) | Cổng vào, đọc trước |
+| [module-index.md](./docs/meta-model/module-index.md) | Bản đồ tất cả module trang |
+| [functional-inventory.md](./docs/meta-model/functional-inventory.md) | Danh sách tính năng (tính năng → route → mã nguồn) |
+| [auth-login-index.md](./docs/meta-model/auth-login-index.md) | Xác thực và phân quyền |
+| [flow-index.md](./docs/meta-model/flow-index.md) | Luồng lõi (đăng nhập, HTTP, tái sử dụng route…) |
+| [change-hotspots.md](./docs/meta-model/change-hotspots.md) | Vùng thay đổi rủi ro cao, bắt buộc đọc khi phát triển tiếp |
 
-> 元模型文档会随项目持续更新。如果你发现文档与代码不符，欢迎提 PR 修正。
+> Tài liệu meta-model được cập nhật theo dự án. Nếu thấy lệch so với code, rất hoan nghênh PR chỉnh sửa.
 
 ---
 
-## 🤝 参与贡献
+## 🤝 Đóng góp
 
-我们非常欢迎各种形式的贡献！
-- 🐛 **提交 Bug**：请详细描述复现步骤。
-- 💡 **功能建议**：提出您想要的特性。
-- 📝 **文档改进**：帮助完善文档和注释。
-- 🔧 **Pull Request**：提交您的代码改进。
+Mọi hình thức đóng góp đều được chào đón!
+- 🐛 **Báo lỗi**: Mô tả rõ các bước tái hiện.
+- 💡 **Đề xuất tính năng**: Nêu tính năng bạn mong muốn.
+- 📝 **Cải thiện tài liệu**: Giúp bổ sung tài liệu và chú thích.
+- 🔧 **Pull Request**: Gửi cải tiến mã nguồn.
 
-### 开发规范命令
+### Lệnh chuẩn phát triển
 ```bash
-npm run prettier      # 格式化代码
-npm run lint          # ESLint 检查
-npm run lint:fix      # 自动修复 Lint 问题
-npm run lint:style    # 样式检查
+npm run prettier      # Định dạng code
+npm run lint          # Kiểm tra ESLint
+npm run lint:fix      # Sửa tự động lỗi lint
+npm run lint:style    # Kiểm tra style
 ```
 
 ---
 
-## ⭐ Star History
+## ⭐ Lịch sử Star
 
-如果这个项目对你有帮助，请给个 **Star** ⭐️ 支持一下！
+Nếu dự án hữu ích với bạn, hãy cho một **Star** ⭐️ nhé!
 
 [![Star History Chart](https://api.star-history.com/svg?repos=huajian123/ng-antd-admin&type=Date)](https://star-history.com/#huajian123/ng-antd-admin&Date)
 
 ---
 
-## 💼 联系与支持
+## 💼 Liên hệ và hỗ trợ
 
-### 💬 交流群
-如果你有好的建议，或者想参与项目开发，欢迎加微信：**hj345678912**，备注 "Angular"，我拉你进交流群一起学习进步！
+### 💬 Nhóm trao đổi
+Nếu có góp ý hay muốn tham gia phát triển, thêm WeChat: **hj345678912**, ghi chú "Angular", tác giả sẽ mời vào nhóm học cùng nhau.
 
-### 💼 商业合作
-提供企业级定制开发、远程工作、兼职外包服务。
-- **前端**：Angular, React, Vue
-- **后端**：NestJS, Node.js
-- **移动端**：React Native, Flutter
+### 💼 Hợp tác thương mại
+Nhận phát triển tuỳ biến doanh nghiệp, làm việc từ xa, outsource bán thời gian.
+- **Frontend**: Angular, React, Vue
+- **Backend**: NestJS, Node.js
+- **Mobile**: React Native, Flutter
 
-### ☕ 赞助作者
-如果本项目对您有用，正巧您如果也想请我喝一杯咖啡，请扫下面的码，哈哈。在此感谢您<br>
+### ☕ Ủng hộ tác giả
+Nếu dự án hữu ích và bạn muốn mời tác giả một ly cà phê, quét mã bên dưới. Cảm ơn bạn<br>
 
-| 微信赞助 | 支付宝赞助 |
+| WeChat | Alipay |
 |:---:|:---:|
-| <img src="https://github.com/huajian123/ng-antd-admin/blob/master/ui/projectImg/weixin.jpeg" width="150" alt="微信"/> | <img src="https://github.com/huajian123/ng-antd-admin/blob/master/ui/projectImg/zhifubao.jpeg" width="150" alt="支付宝"/> |
+| <img src="https://github.com/huajian123/ng-antd-admin/blob/master/ui/projectImg/weixin.jpeg" width="150" alt="WeChat"/> | <img src="https://github.com/huajian123/ng-antd-admin/blob/master/ui/projectImg/zhifubao.jpeg" width="150" alt="Alipay"/> |
 
 ---
 
-## 📄 开源协议
+## 📄 Giấy phép mã nguồn mở
 
-本项目基于 [MIT License](https://github.com/huajian123/ng-antd-admin/blob/master/LICENSE) 开源。
+Dự án phát hành theo [MIT License](https://github.com/huajian123/ng-antd-admin/blob/master/LICENSE).
 
 **Made with ❤️ by huajian123**
