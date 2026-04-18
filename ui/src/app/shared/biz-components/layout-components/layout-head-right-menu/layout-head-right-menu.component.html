@@ -7,7 +7,8 @@
             nzTheme="outline"></i>
         </span>-->
 
-    <span *appScreenLessHidden="320" class="bst-header-icon" nz-tooltip nzTooltipPlacement="bottom" nzTooltipTitle="Tìm kiếm" (click)="showSearchModal()">
+    <span *appScreenLessHidden="320" class="bst-header-icon" nz-tooltip nzTooltipPlacement="bottom"
+      nzTooltipTitle="Tìm kiếm" (click)="showSearchModal()">
       <i nz-icon nzTheme="outline" nzType="search"></i>
     </span>
     <!--Phần chú thích là nút mở liên kết ngoài-->
@@ -16,19 +17,13 @@
              <a href="https://docs.chat.hypergo.net/docs/intro/" target="_blank"><i nz-icon nzType="question-circle"
                                                                                     nzTheme="outline"></i></a>
            </span>-->
-    <span
-      *appScreenLessHidden="393"
-      #toogleFullScreenDir="appToggleFullscreen"
-      class="bst-header-icon"
-      appToggleFullscreen
-      nz-tooltip
-      nzTooltipPlacement="bottom"
-      [nzTooltipTitle]="toogleFullScreenDir.isFullscreenFlag() ? 'Toàn màn hình' : 'Thoát toàn màn hình'"
-    >
+    <span *appScreenLessHidden="393" #toogleFullScreenDir="appToggleFullscreen" class="bst-header-icon"
+      appToggleFullscreen nz-tooltip nzTooltipPlacement="bottom"
+      [nzTooltipTitle]="toogleFullScreenDir.isFullscreenFlag() ? 'Toàn màn hình' : 'Thoát toàn màn hình'">
       @if (toogleFullScreenDir.isFullscreenFlag()) {
-        <i nz-icon nzTheme="outline" nzType="fullscreen"></i>
+      <i nz-icon nzTheme="outline" nzType="fullscreen"></i>
       } @else {
-        <i nz-icon nzTheme="outline" nzType="fullscreen-exit"></i>
+      <i nz-icon nzTheme="outline" nzType="fullscreen-exit"></i>
       }
     </span>
 
@@ -84,6 +79,7 @@
         <li nz-menu-item (click)="showMessage()">Português</li>
         <li nz-menu-item nzSelected (click)="showMessage()">Tiếng Trung giản thể</li>
         <li nz-menu-item (click)="showMessage()">Tiếng Trung phồn thể</li>
+
       </ul>
     </nz-dropdown-menu>
   </div>
