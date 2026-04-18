@@ -131,7 +131,7 @@ Dùng MSW (Mock Service Worker) mô phỏng dữ liệu, không cần chạy bac
 
 ```bash
 # 1. Clone nhánh mock
-git clone -b mock https://github.com/huajian123/ng-antd-admin.git
+git clone -b mock https://github.com/tvp97/ng-antd-admin.git
 
 # 2. Vào thư mục frontend
 cd ng-antd-admin/ui
@@ -145,7 +145,7 @@ npm start
 # 5. Truy cập http://localhost:4201
 ```
 
-> Cũng có thể xem trực tuyến: [https://huajian123.github.io/ng-antd-admin/](https://huajian123.github.io/ng-antd-admin/)
+> Cũng có thể xem trực tuyến: [https://tvp97.github.io/ng-antd-admin/](https://tvp97.github.io/ng-antd-admin/)
 
 ### Cách 2: Full-stack (frontend + backend)
 Phù hợp khi cần phát triển tiếp hệ thống nghiệp vụ hoàn chỉnh.
