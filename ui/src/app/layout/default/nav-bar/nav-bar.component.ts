@@ -25,7 +25,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
   imports: [NzMenuModule, NzNoAnimationDirective, NgTemplateOutlet, NzButtonModule, NzIconModule, RouterLink, AuthDirective]
 })
 export class NavBarComponent implements OnInit {
-  readonly isMixinHead = input(false, { transform: booleanAttribute }); // 是混合模式顶部导航
+  readonly isMixinHead = input(false, { transform: booleanAttribute }); // Thanh điều hướng trên ở chế độ mixin
   readonly isMixinLeft = input(false, { transform: booleanAttribute });
 
   private router = inject(Router);
@@ -50,7 +50,7 @@ export class NavBarComponent implements OnInit {
   themesOptions = this.themesService.$themesOptions;
   isCollapsed = this.themesService.$isCollapsed;
   isOverMode = this.themesService.$isOverModeTheme;
-  // 混合模式下左侧菜单数据源
+  // Nguồn menu trái khi chế độ mixin
   leftMenuArray = this.splitNavStoreService.$splitLeftNavArray;
 
   // Computed signals for derived state
@@ -65,21 +65,21 @@ export class NavBarComponent implements OnInit {
   }
 
   private initMenus(): void {
-    // 1. 读取 $menuArray() —— 这是 effect 的唯一"触发源"，$menuArray 变化才会重新执行。
+    // 1. Đọc $menuArray() — đây là nguồn kích hoạt duy nhất của effect; chỉ khi $menuArray đổi mới chạy lại.
     // 2. untracked(() => this.clickMenuItem(menusArray))
-    //    clickMenuItem 内部会读取 this.routerPath()（也是 signal）。
-    //    如果不加 untracked，routerPath 变化也会触发这个 effect，导致菜单数据被意外Đặt lại。
-    //    用 untracked 包裹，表示"我只是借用 routerPath 的值，但不订阅它的变化"。
+    //    bên trong clickMenuItem đọc this.routerPath() (cũng là signal).
+    //    Nếu không bọc untracked, mỗi lần routerPath đổi cũng kích effect → menu bị reset nhầm.
+    //    untracked nghĩa là chỉ lấy giá trị routerPath, không đăng ký phụ thuộc.
     //
     // 3. untracked(() => this.cloneMenuArray(processed))
-    //    cloneMenuArray 本身不读 signal，加 untracked 是防御性写法，确保 effect 依赖关系清晰。
+    //    cloneMenuArray không đọc signal; bọc untracked để ràng buộc phụ thuộc effect rõ ràng.
     effect(() => {
       const menusArray = this.menuServices.$menuArray();
       const processed = untracked(() => this.clickMenuItem(menusArray));
       this.menus.set(processed);
       this.copyMenus.set(untracked(() => this.cloneMenuArray(processed)));
-      // effect 是异步调度的，ngOnInit 里的 setMixModeLeftMenu() 执行时 menus 可能还是空数组。
-      // 菜单数据就绪后，在混合模式下需要重新设置左侧菜单，否则刷新页面左侧菜单会消失。
+      // Effect chạy bất đồng bộ; lúc setMixModeLeftMenu() trong ngOnInit chạy, menus có thể vẫn rỗng.
+      // Khi dữ liệu menu sẵn sàng, chế độ mixin cần set lại menu trái, không thì F5 mất menu trái.
       if (untracked(() => this.isMixinMode())) {
         untracked(() => this.setMixModeLeftMenu());
       }
@@ -96,24 +96,24 @@ export class NavBarComponent implements OnInit {
           const url = this.activatedRoute.snapshot['_routerState'].url;
           this.routerPath.set(url);
 
-          // 主题切换为混合模式下，设置左侧菜单数据源
-          // 注意：故意在 menus.set() 之前调用，读取的是上一次路由留下的 selected 状态。
-          // 混合模式下切换顶部一级菜单时，左侧菜单应跟随"当前已选中的一级菜单"，而非新路由。
+          // Khi chuyển theme sang mixin: set nguồn menu trái
+          // Cố ý gọi trước menus.set() để đọc trạng thái selected do route trước để lại.
+          // Đổi menu cấp 1 trên top: menu trái theo cấp 1 đang chọn, không theo route mới ngay.
           if (this.isMixinMode()) {
             this.setMixModeLeftMenu();
           }
 
-          // 更新菜单状态
-          //  做一个copyMenus来记录当前menu状态，因为顶部模式时是不展示子menu的，然而主题由顶部模式切换成侧边栏模式，要把当前顶部模式中菜单的状态体现于侧边栏模式的菜单中
+          // Cập nhật trạng thái menu
+          // copyMenus lưu trạng thái hiện tại: top ẩn con; khi đổi từ top sang side cần giữ trạng thái đó ở side
           this.menus.set(this.clickMenuItem(this.menus()));
           this.copyMenus.set(this.clickMenuItem(this.copyMenus()));
 
-          // 折叠菜单且不是over模式时，关闭菜单
+          // Thu gọn menu và không phải over: đóng menu
           if (this.isCollapsed() && !this.isOverMode()) {
             this.menus.set(this.closeMenuOpen(this.menus()));
           }
 
-          // 顶部菜单模式且不是over模式时，关闭菜单。解决顶部模式时，切换tab会有悬浮框菜单的bug
+          // Chế độ top và không over: đóng menu (tránh lỗi popup menu khi đổi tab)
           if (this.themesMode() === 'top' && !this.isOverMode()) {
             this.closeAllMenuOpen();
           }
@@ -135,25 +135,25 @@ export class NavBarComponent implements OnInit {
       });
   }
 
-  // 监听折叠菜单事件
+  /** Theo dõi thu gọn/mở rộng menu */
   private setupCollapseEffect(): void {
     effect(() => {
       const collapsed = this.isCollapsed();
 
       if (!collapsed) {
-        // 菜单展开
+        // Mở rộng menu
         const updated = untracked(() => this.clickMenuItem(this.cloneMenuArray(this.copyMenus())));
         this.menus.set(updated);
 
-        // 混合模式下要在点击一下左侧菜单数据源，不然有二级菜单的菜单在折叠状态变为展开时不open
+        // Mixin: cần áp clickMenuItem cho nguồn menu trái, nếu không menu 2 cấp không mở đúng khi bung từ thu gọn
         if (untracked(() => this.themesMode()) === 'mixin') {
           const leftUpdated = untracked(() => this.clickMenuItem(this.leftMenuArray()));
           this.splitNavStoreService.$splitLeftNavArray.set(leftUpdated);
         }
       } else {
-        // 菜单收起：Lưu当前展开状态到 copyMenus，供展开时恢复。
-        // 注意：不调用 menus.set()，视觉折叠效果由 nzInlineCollapsed 驱动，
-        // closeMenuOpen 只是同步内存里的 open 状态，防止展开时状态错乱。
+        // Thu gọn: lưu trạng thái mở vào copyMenus để bung lại đúng.
+        // Không gọi menus.set(); hiệu ứng thu do nzInlineCollapsed;
+        // closeMenuOpen chỉ đồng bộ open trong bộ nhớ, tránh lệch khi bung.
         const copy = untracked(() => this.cloneMenuArray(this.menus()));
         this.copyMenus.set(this.closeMenuOpen(copy));
       }
@@ -172,7 +172,7 @@ export class NavBarComponent implements OnInit {
     });
   }
 
-  // 设置混合模式时，左侧菜单"自动分割菜单"模式的数据源
+  /** Set nguồn menu trái (split nav) khi mixin */
   setMixModeLeftMenu(): void {
     const menus = this.menus();
     menus.forEach(item => {
@@ -182,7 +182,7 @@ export class NavBarComponent implements OnInit {
     });
   }
 
-  // 深拷贝克隆菜单数组
+  /** Clone sâu mảng menu */
   cloneMenuArray(sourceMenuArray: Menu[], target: Menu[] = []): Menu[] {
     sourceMenuArray.forEach(item => {
       const obj: Menu = { menuName: '', menuType: 'C', path: '', id: -1, fatherId: -1, code: '' };
@@ -203,33 +203,28 @@ export class NavBarComponent implements OnInit {
     return target;
   }
 
-  // 混合模式点击一级菜单，要让一级菜单下的第一个子菜单被选中
+  /** Mixin: nhấn menu cấp 1 — chọn mục con đầu tiên hợp lệ */
   changTopNav(index: number): void {
-    // 当前选中的第一级菜单对象
     const currentTopNav = this.menus()[index];
     let currentLeftNavArray = currentTopNav.children || [];
-    // 如果一级菜单下有二级菜单
     if (currentLeftNavArray.length > 0) {
-      // 当前左侧导航数组
-      /*Thêm了权限版*/
-      // 获取有权限的二级菜单集合（在左侧展示的）
+      /* Lọc theo quyền */
+      // Các mục cấp 2 có quyền (hiển thị bên trái)
       currentLeftNavArray = currentLeftNavArray.filter(item => {
         return this.authCodeArray().includes(item.code!);
       });
-      // 如果第一个二级菜单，没有三级菜单
       if (currentLeftNavArray.length > 0 && !currentLeftNavArray[0].children) {
         this.router.navigateByUrl(currentLeftNavArray[0].path!);
       } else if (currentLeftNavArray.length > 0 && currentLeftNavArray[0].children) {
-        // 如果有三级菜单，则跳转到第一个三级菜单
+        // Có cấp 3: điều hướng tới mục cấp 3 đầu tiên
         this.router.navigateByUrl(currentLeftNavArray[0].children[0].path!);
       }
     }
     this.splitNavStoreService.$splitLeftNavArray.set(currentLeftNavArray);
   }
 
-  // flatMenu 必须是纯函数（Quay lại新数组），不能直接 mutate 传入的 menus。
-  // 原因：此方法在 effect() 内部被调用（通过 clickMenuItem），如果直接修改 signal 内部的对象，
-  // Angular 会检测到变化并重新触发 effect，导致无限循环白屏。
+  // flatMenu phải thuần hàm (trả mảng mới), không mutate menus gốc.
+  // Gọi trong effect (qua clickMenuItem): sửa object trong signal trực tiếp sẽ kích effect lặp vô hạn.
   flatMenu(menus: Menu[], routePath: string): Menu[] {
     return menus.map(item => {
       const isActive = routePath.includes(item.path) && !item.newLinkFlag;
@@ -254,7 +249,7 @@ export class NavBarComponent implements OnInit {
     return this.flatMenu(menus, routePath);
   }
 
-  // 改变当前菜单展示状态
+  /** Đặt mục menu hiện tại là mở, các mục khác đóng */
   changeOpen(currentMenu: Menu, allMenu: Menu[]): void {
     allMenu.forEach(item => {
       item.open = false;
@@ -262,7 +257,7 @@ export class NavBarComponent implements OnInit {
     currentMenu.open = true;
   }
 
-  // 同 flatMenu，必须是纯函数，不能直接 mutate，原因相同。
+  // Giống flatMenu: thuần hàm, không mutate.
   closeMenuOpen(menus: Menu[]): Menu[] {
     return menus.map(menu => ({
       ...menu,
@@ -282,13 +277,13 @@ export class NavBarComponent implements OnInit {
     this.router.navigate([menu.path]);
   }
 
-  // 只负责关闭所有展开项，不更新选中状态
+  /** Chỉ đóng mọi mục mở, không đổi selected */
   private closeAllMenuOpen(): void {
     this.menus.set(this.closeMenuOpen(this.menus()));
   }
 
   closeMenu(): void {
-    // 先用 clickMenuItem 更新菜单选中状态，再用 closeMenuOpen 关闭所有展开项
+    // clickMenuItem cập nhật selected, closeMenuOpen đóng mở
     const menusWithSelection = this.clickMenuItem(this.menus());
     this.menus.set(this.closeMenuOpen(menusWithSelection));
     this.copyMenus.set(this.clickMenuItem(this.copyMenus()));
@@ -314,7 +309,7 @@ export class NavBarComponent implements OnInit {
       isNewTabDetailPage
     );
     this.tabService.findIndex(this.routerPath());
-    // 混合模式时，切换tab，让左侧菜单也相应变化
+    // Mixin: đổi tab thì đồng bộ menu trái
     this.setMixModeLeftMenu();
   }
 

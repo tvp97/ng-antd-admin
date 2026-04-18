@@ -1,4 +1,4 @@
-<!--如果只有side模式时，可以考虑使用zorro的menu递归-->
+<!-- Chỉ side: có thể dùng menu đệ quy của Zorro -->
 <!--https://github.com/NG-ZORRO/ng-zorro-antd/issues/6306-->
 @if (!isMixinHead()) {
   <ul
@@ -11,9 +11,9 @@
     <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: isMixinLeft() ? leftMenuArray() : menus() }"></ng-container>
     <ng-template #menuTpl let-menus>
       @for (menu of menus; track menu.path) {
-        <!--权限1-->
+        <!-- Quyền 1 -->
         <ng-container *appAuth="menu.code">
-          <!--一级菜单-->
+          <!-- Menu cấp 1 -->
           @if (!menu.children || menu.children.length === 0) {
             <li nz-menu-item [nzPaddingLeft]="(themesMode() !== 'top' || isOverMode()) && !isCollapsed() ? 16 : 0" [nzSelected]="menu.selected">
               <a (click)="changeRoute($event, menu)">
@@ -26,7 +26,7 @@
               </a>
             </li>
           }
-          <!--二级菜单-->
+          <!-- Menu cấp 2 -->
           @if (menu.children && menu.children.length > 0) {
             <!--*appAuth="menu.code"-->
             <li
@@ -46,7 +46,7 @@
               </ng-template>
               <ul>
                 @for (menuSecond of menu.children; track menuSecond.path) {
-                  <!--权限2-->
+                  <!-- Quyền 2 -->
                   <ng-container *appAuth="menuSecond.code">
                     @if (!menuSecond.children || menuSecond.children.length === 0) {
                       <li nz-menu-item [nzPaddingLeft]="(themesMode() !== 'top' || isOverMode()) && !isCollapsed() ? 32 : 0" [nzSelected]="menuSecond.selected">
@@ -60,7 +60,7 @@
                         </a>
                       </li>
                     }
-                    <!--三级菜单-->
+                    <!-- Menu cấp 3 -->
                     @if (menuSecond.children && menuSecond.children.length > 0) {
                       <li
                         nz-submenu
@@ -92,7 +92,7 @@
                                   </a>
                                 </li>
                               }
-                              <!--四级菜单-->
+                              <!-- Menu cấp 4 -->
                               @if (menuThird.children && menuThird.children.length > 0) {
                                 <li
                                   nz-submenu
@@ -133,20 +133,20 @@
                       </li>
                     }
                   </ng-container>
-                  <!--权限2结束-->
+                  <!-- /Quyền 2 -->
                 }
               </ul>
             </li>
           }
         </ng-container>
-        <!--权限1结束-->
+        <!-- /Quyền 1 -->
       }
     </ng-template>
   </ul>
 } @else {
   <ul nz-menu nzMode="horizontal" nzTheme="dark">
     @for (menu of menus(); track menu.path; let i = $index) {
-      <!--权限1（不需要时Xóa此ng-container节点）-->
+      <!-- Quyền 1 (có thể xóa ng-container nếu không dùng) -->
       <ng-container *appAuth="menu.code">
         @if (!menu.children || menu.children.length === 0) {
           <li nz-menu-item [nzSelected]="menu.selected">
@@ -172,7 +172,7 @@
           </li>
         }
       </ng-container>
-      <!--权限1结束-->
+      <!-- /Quyền 1 -->
     }
   </ul>
 }

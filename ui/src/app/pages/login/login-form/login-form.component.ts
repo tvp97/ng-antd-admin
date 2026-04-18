@@ -38,16 +38,12 @@ export class LoginFormComponent implements OnInit {
   private loginInOutService = inject(LoginInOutService);
 
   submitForm(): void {
-    // 校验表单
     if (!fnCheckForm(this.validateForm)) {
       return;
     }
-    // 设置全局loading
     this.spinService.$globalSpinStore.set(true);
-    // 获取表单的值
     const param = this.validateForm.getRawValue();
-    // 调用登录接口
-    // todo 登录后台Quay lại统一模式为,如果code不为200，会自动被拦截，如果需要修改，请在src/app/core/services/http/base-http.service.ts中进行修改
+    // Gọi API đăng nhập. Định dạng response thống nhất: code !== 200 bị interceptor xử lý — chỉnh tại base-http.service.ts nếu cần
     // {
     //   code:number,
     //   data:NzSafeAny,
@@ -56,14 +52,13 @@ export class LoginFormComponent implements OnInit {
     this.dataService
       .login(param)
       .pipe(
-        // 无论如何设置全局loading为false
         finalize(() => {
           this.spinService.$globalSpinStore.set(false);
         }),
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe(userToken => {
-        // 这里后台登录成功以后，只会Quay lại一套由jwt加密的token，下面需要对token进行解析
+        // Backend trả token JWT; loginIn parse và lưu
         this.loginInOutService
           .loginIn(userToken)
           .then(() => {
@@ -86,7 +81,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // 只要进入登录页面，就清除各种缓存
+    // Vào trang đăng nhập: xóa cache / phiên cũ
     this.loginInOutService.loginOut();
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],

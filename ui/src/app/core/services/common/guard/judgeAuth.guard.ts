@@ -11,9 +11,9 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 
 import { Menu } from '../../types';
 
-// 有兴趣的可以看看class与fn的争议https://github.com/angular/angular/pull/47924
-// 我这里提供了跟judgeLogin.guard.ts的不同写法，供大家参考,也可以去官网查找mapToCanActivate 这个api，
-// 用于切换路由时判断该用户是否有权限进入该业务页面，如果没有权限则跳转到登录页
+// Tham khảo tranh luận class vs fn: https://github.com/angular/angular/pull/47924
+// Cách viết khác với judgeLogin.guard.ts; xem mapToCanActivate trên doc Angular.
+// Khi đổi route: kiểm tra quyền vào trang nghiệp vụ; không đủ quyền → chuyển về đăng nhập.
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +27,7 @@ export class JudgeAuthGuardService {
   authCodeArray = computed(() => this.userInfoService.$userInfo().authCode);
   menuNavList = computed(() => this.menuStoreService.$menuArray());
 
-  // Lưu当前的menu到this.selMenu
+  /** Ghi menu khớp url vào selMenu */
   getMenu(menu: Menu[], url: string): void {
     // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < menu.length; i++) {
@@ -56,20 +56,19 @@ export class JudgeAuthGuardService {
     while (route.firstChild) {
       route = route.firstChild;
     }
-    // 如果有authCode，则表示是页面上点击按钮跳转到新的路由，而不是菜单中的路由
+    // Có authCode: điều hướng từ nút trên trang, không phải từ menu
     if (route.data['authCode']) {
       return this.getResult(route.data['authCode'], this.authCodeArray());
     }
 
-    // 如果是菜单上的按钮，则走下面
     this.getMenu(this.menuNavList(), state.url);
-    // 没找到菜单，直接回登录页
+    // Không tìm thấy menu → xử lý như không có quyền
     if (!this.selMenu) {
       return this.getResult(fnGetUUID(), this.authCodeArray());
     }
     const selMenuCode = this.selMenu.code;
     this.selMenu = null;
-    // 找到了菜单，但是菜单的权限码用户不拥有，则跳转到登录页
+    // Có menu nhưng user không có mã quyền tương ứng
     return this.getResult(selMenuCode!, this.authCodeArray());
   }
 }

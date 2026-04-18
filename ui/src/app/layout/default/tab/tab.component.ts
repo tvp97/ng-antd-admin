@@ -39,18 +39,18 @@ export class TabComponent {
     return tab.title;
   }
 
-  // 点击tab跳转到对应的path
+  /** Nhấn thẻ → điều hướng tới path */
   goPage(tab: TabModel): void {
     this.router.navigateByUrl(tab.path);
   }
 
-  // 右键点击Đóng bên phảitab
+  /** Chuột phải: đóng các thẻ bên phải */
   closeRithTab(tab: TabModel, e: MouseEvent, index: number): void {
     fnStopMouseEvent(e);
     this.tabService.delRightTab(tab.path, index);
   }
 
-  // 右键点击Đóng bên tráitab
+  /** Chuột phải: đóng các thẻ bên trái */
   closeLeftTab(tab: TabModel, e: MouseEvent, index: number): void {
     if (index === 0) {
       return;
@@ -59,13 +59,13 @@ export class TabComponent {
     this.tabService.delLeftTab(tab.path, index);
   }
 
-  // Đóng các tab kháctab
+  /** Đóng các thẻ khác (giữ thẻ hiện tại) */
   closeOtherTab(tab: TabModel, e: MouseEvent, index: number): void {
     fnStopMouseEvent(e);
     this.tabService.delOtherTab(tab.path, index);
   }
 
-  // 右键Đóng tab hiện tạiTab
+  /** Chuột phải: đóng thẻ hiện tại */
   closeTab(tab: TabModel, e: MouseEvent, index: number): void {
     fnStopMouseEvent(e);
     this.closeCurrentTab(tab, index);
@@ -76,7 +76,6 @@ export class TabComponent {
     this.closeCurrentTab(this.tabsSourceData()[indexObj.index], indexObj.index);
   }
 
-  // Đóng tab hiện tạiTab
   closeCurrentTab(tab: TabModel, index: number): void {
     if (this.tabsSourceData().length === 1) {
       return;
