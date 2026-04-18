@@ -11,13 +11,13 @@ interface Department {
 }
 
 let departments: Department[] = [
-  { id: 1, fatherId: 0, departmentName: 'Ant科技', orderNum: 0, state: true, createdAt: '2024-11-19T13:28:41.890Z', updatedAt: null },
-  { id: 2, fatherId: 1, departmentName: '南京总公司', orderNum: 0, state: true, createdAt: '2024-11-19T13:28:50.898Z', updatedAt: null },
-  { id: 3, fatherId: 1, departmentName: '上海分公司', orderNum: 0, state: true, createdAt: '2024-11-19T13:29:01.310Z', updatedAt: null },
-  { id: 4, fatherId: 2, departmentName: '研发部门', orderNum: 0, state: true, createdAt: '2024-11-19T13:29:09.132Z', updatedAt: null },
-  { id: 5, fatherId: 2, departmentName: '测试部门', orderNum: 1, state: true, createdAt: '2024-11-19T13:29:15.138Z', updatedAt: null },
-  { id: 6, fatherId: 3, departmentName: '市场部门', orderNum: 0, state: true, createdAt: '2024-11-19T13:29:21.009Z', updatedAt: null },
-  { id: 7, fatherId: 3, departmentName: '营销部门', orderNum: 1, state: true, createdAt: '2024-11-19T13:29:27.913Z', updatedAt: null },
+  { id: 1, fatherId: 0, departmentName: 'Công ty Ant', orderNum: 0, state: true, createdAt: '2024-11-19T13:28:41.890Z', updatedAt: null },
+  { id: 2, fatherId: 1, departmentName: 'Trụ sở Nam Kinh', orderNum: 0, state: true, createdAt: '2024-11-19T13:28:50.898Z', updatedAt: null },
+  { id: 3, fatherId: 1, departmentName: 'Chi nhánh Thượng Hải', orderNum: 0, state: true, createdAt: '2024-11-19T13:29:01.310Z', updatedAt: null },
+  { id: 4, fatherId: 2, departmentName: 'Phòng R&D', orderNum: 0, state: true, createdAt: '2024-11-19T13:29:09.132Z', updatedAt: null },
+  { id: 5, fatherId: 2, departmentName: 'Phòng kiểm thử', orderNum: 1, state: true, createdAt: '2024-11-19T13:29:15.138Z', updatedAt: null },
+  { id: 6, fatherId: 3, departmentName: 'Phòng thị trường', orderNum: 0, state: true, createdAt: '2024-11-19T13:29:21.009Z', updatedAt: null },
+  { id: 7, fatherId: 3, departmentName: 'Phòng marketing', orderNum: 1, state: true, createdAt: '2024-11-19T13:29:27.913Z', updatedAt: null },
 ];
 
 let nextId = 8;

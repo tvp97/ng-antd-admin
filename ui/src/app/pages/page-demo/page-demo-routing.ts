@@ -32,19 +32,19 @@ export default [
   },
   {
     path: 'task',
-    title: '任务',
+    title: 'Nhiệm vụ',
     data: { key: 'task' },
     loadComponent: () => import('./task/task.component').then(m => m.TaskComponent)
   },
   {
     path: 'page-demo1',
-    title: '新布局',
+    title: 'Bố cục mới',
     data: { key: 'page-demo1' },
     loadComponent: () => import('./new-page-layout/new-page-layout.component').then(m => m.NewPageLayoutComponent)
   },
   {
     path: 'page-demo1',
-    title: '新布局',
+    title: 'Bố cục mới',
     data: { key: 'page-demo1' },
     loadComponent: () => import('./new-page-layout/new-page-layout.component').then(m => m.NewPageLayoutComponent)
   },
@@ -56,13 +56,13 @@ export default [
   },
   {
     path: 'page-demo3',
-    title: '新页面3',
+    title: 'Trang mới 3',
     data: { key: 'page-demo3' },
     loadComponent: () => import('../../pages/no-content/no-content.component').then(m => m.NoContentComponent)
   },
   {
     path: 'page-demo4',
-    title: '新页面4',
+    title: 'Trang mới 4',
     data: { key: 'page-demo4' },
     loadComponent: () => import('../../pages/no-content/no-content.component').then(m => m.NoContentComponent)
   }

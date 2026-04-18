@@ -33,7 +33,7 @@ export default [
       },
       {
         path: 'about',
-        title: '关于',
+        title: 'Giới thiệu',
         data: { key: 'about' },
         loadComponent: () => import('../../pages/about/about.component').then(m => m.AboutComponent)
       },

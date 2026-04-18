@@ -12,13 +12,13 @@ interface User {
   departmentId: number;
   lastLoginTime: string;
   departmentName: string;
-  roleId?: number[]; // 用户的角色ID数组
+  roleId?: number[]; // Mảng ID vai trò của user
 }
 
-// 用户角色关联表 (from sys_user_role table)
+// Bảng liên kết user–vai trò (sys_user_role)
 const userRoles: Record<number, number[]> = {
-  1: [1], // user id=1 has role id=1 (超级管理员)
-  2: [2], // user id=2 has role id=2 (普通开发)
+  1: [1], // user id=1 → vai trò id=1 (quản trị)
+  2: [2], // user id=2 → vai trò id=2 (dev)
 };
 
 let users: User[] = [
@@ -33,12 +33,12 @@ let users: User[] = [
     telephone: '02884449802',
     departmentId: 4,
     lastLoginTime: '2024-11-23T09:52:45.101Z',
-    departmentName: '研发部门'
+    departmentName: 'Phòng R&D'
   },
   {
     id: 2,
     email: '287643967@qq.com',
-    userName: '普通用户',
+    userName: 'user_demo',
     password: '$argon2id$v=19$m=65536,t=3,p=4$+7i55+ojvRh0ch48FHaknQ$7XQTQRICP4y+0xtkAJ/y9NSggiXt5ISkkxjznF2bNG4',
     available: true,
     sex: 1,
@@ -46,7 +46,7 @@ let users: User[] = [
     telephone: '02884449802',
     departmentId: 5,
     lastLoginTime: '2024-11-23T09:53:08.019Z',
-    departmentName: '测试部门'
+    departmentName: 'Phòng kiểm thử'
   }
 ];
 

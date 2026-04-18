@@ -9,8 +9,8 @@ interface Role {
 }
 
 let roles: Role[] = [
-  { id: 1, roleName: '超级管理员', roleDesc: '拥有所有权限', createdAt: '2024-11-19T13:26:21.226Z', updatedAt: null },
-  { id: 2, roleName: '普通开发', roleDesc: '权限有限', createdAt: '2024-11-19T13:26:33.038Z', updatedAt: null },
+  { id: 1, roleName: 'Quản trị viên', roleDesc: 'Toàn quyền', createdAt: '2024-11-19T13:26:21.226Z', updatedAt: null },
+  { id: 2, roleName: 'Lập trình viên', roleDesc: 'Quyền hạn chế', createdAt: '2024-11-19T13:26:33.038Z', updatedAt: null },
 ];
 
 let nextId = 3;

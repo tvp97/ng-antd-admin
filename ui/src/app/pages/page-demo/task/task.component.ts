@@ -15,7 +15,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 })
 export class TaskComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '任务',
-    breadcrumb: ['首页', '页面', '任务']
+    title: 'Nhiệm vụ',
+    breadcrumb: ['Trang chủ', 'Trang', 'Nhiệm vụ']
   };
 }
