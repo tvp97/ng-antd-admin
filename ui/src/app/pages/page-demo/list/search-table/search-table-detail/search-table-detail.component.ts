@@ -16,9 +16,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 })
 export class SearchTableDetailComponent implements OnInit {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '详情',
+    title: 'Chi tiết',
     // desc: '表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。',
-    breadcrumb: ['首页', '列表页', '查询表格', '详情']
+    breadcrumb: ['首页', '列表页', '查询表格', 'Chi tiết']
   };
   validateForm!: FormGroup;
   name = input.required<string>(); // 从路由中获取的参数，ng16支持的新特性

@@ -125,12 +125,12 @@ export const appConfig: ApplicationConfig = {
             info.transition.skipTransition();
           }
         }
-      }), // 路由切换过渡，ng17新增实验性特性参考资料https://netbasal.com/angular-v17s-view-transitions-navigate-in-elegance-f2d48fd8ceda
+      }), // 路由切换过渡，ng17Thêm mới实验性特性参考资料https://netbasal.com/angular-v17s-view-transitions-navigate-in-elegance-f2d48fd8ceda
       withInMemoryScrolling({
         scrollPositionRestoration: 'top'
       }),
       withHashLocation(), // 使用哈希路由
-      withComponentInputBinding() // 开启路由参数绑定到组件的输入属性,ng16新增特性
+      withComponentInputBinding() // 开启路由参数绑定到组件的输入属性,ng16Thêm mới特性
     ),
     importProvidersFrom(NzDrawerModule, NzModalModule, FormsModule),
     ...APPINIT_PROVIDES, // 项目启动之前，需要调用的一系列方法

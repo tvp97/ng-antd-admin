@@ -15,26 +15,23 @@ import { getDay } from 'date-fns';
 
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzSafeAny } from 'ng-zorro-antd/core/types';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
-
-import { ChangNumberToChinesePipe } from '../../pipes/chang-number-to-chinese.pipe';
 
 @Component({
   selector: 'app-lock-screen',
   templateUrl: './lock-screen.component.html',
   styleUrl: './lock-screen.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NzIconModule, NzButtonModule, NzGridModule, NzAvatarModule, FormsModule, NzFormModule, ReactiveFormsModule, NzInputModule, ChangNumberToChinesePipe, AsyncPipe, DatePipe]
+  imports: [NzIconModule, NzButtonModule, NzGridModule, NzAvatarModule, FormsModule, NzFormModule, ReactiveFormsModule, NzInputModule, AsyncPipe, DatePipe]
 })
 export class LockScreenComponent implements OnInit {
   public showUnlock = false;
   public time$: Observable<Date> = timer(0, 1000).pipe(
     map(() => new Date()),
-    takeUntilDestroyed() // 这里没加  this.destroyRef 是因为在生命周期中https://stackoverflow.com/questions/76264067/takeuntildestroyed-can-only-be-used-within-an-injection-context
+    takeUntilDestroyed() // không truyền destroyRef: trong lifecycle xem https://stackoverflow.com/questions/76264067/takeuntildestroyed-can-only-be-used-within-an-injection-context
   );
   validateForm!: FormGroup;
   passwordVisible = false;
@@ -49,19 +46,18 @@ export class LockScreenComponent implements OnInit {
   private fb = inject(FormBuilder);
   private windowSrv = inject(WindowService);
 
-  // 返回登录页面则解锁
+  /** Về trang đăng nhập đồng thời mở khóa */
   loginOut(): void {
     this.unlock();
     this.loginOutService.loginOut().then();
   }
 
-  // 进入系统
+  // Vào hệ thống
   intoSys(): void {
     if (!fnCheckForm(this.validateForm)) {
       return;
     }
     if (this.lockedState().locked) {
-      // 密码正确则解锁
       if (this.lockedState().password === this.validateForm.get('password')!.value) {
         this.router.navigateByUrl(this.lockedState().beforeLockPath);
         this.unlock();
@@ -71,21 +67,24 @@ export class LockScreenComponent implements OnInit {
     }
   }
 
-  // 解锁
   unlock(): void {
     const lockedStatus = { locked: false, password: '', beforeLockPath: '' };
     this.lockScreenStoreService.lockScreenSignalStore.set(lockedStatus);
     this.windowSrv.setSessionStorage(LockedKey, fnEncrypt(lockedStatus, salt));
   }
 
-  // 点击解锁按钮
   unlockBtn(): void {
     this.validateForm.reset();
     this.showUnlock = true;
   }
 
-  getDays(date: NzSafeAny): 0 | 1 | 2 | 3 | 4 | 5 | 6 {
-    return getDay(date);
+  /** Thứ trong tuần (tiếng Việt), dùng với getDay (0 = Chủ nhật) */
+  getVietnameseWeekday(date: Date | null | undefined): string {
+    if (!date) {
+      return '';
+    }
+    const names = ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'];
+    return names[getDay(date)] ?? '';
   }
 
   initForm(): void {

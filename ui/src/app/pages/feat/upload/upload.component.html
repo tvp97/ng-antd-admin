@@ -1,6 +1,6 @@
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 <div class="normal-table-wrap">
-  <nz-card nzTitle="简单实例，服务器返回的文件地址统一，演示功能不会保存上传的文件">
+  <nz-card nzTitle="简单实例，服务器Quay lại的文件地址统一，演示功能不会Lưu上传的文件">
     <nz-upload [nzAction]="uploadUrl" [nzFileList]="fileList" [nzLimit]="1" nzName="document" nzShowButton [nzSize]="1024 * 5" (nzChange)="handleChange($event)">
       <button nz-button>
         <i nz-icon nzType="upload"></i>
@@ -25,8 +25,8 @@
         </nz-form-control>
         <nz-form-item class="m-t-20" nz-row>
           <nz-form-control [nzSpan]="14">
-            <button nz-button nzType="primary" (click)="submitForm()">提交</button>
-            <button class="m-l-10" nz-button nzType="default" (click)="resetForm()">重置</button>
+            <button nz-button nzType="primary" (click)="submitForm()">Gửi</button>
+            <button class="m-l-10" nz-button nzType="default" (click)="resetForm()">Đặt lại</button>
           </nz-form-control>
         </nz-form-item>
       </nz-form-item>

@@ -193,7 +193,7 @@ export class AdvDetailComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.pageHeaderInfo = {
       title: '单号：234231029431',
-      breadcrumb: ['首页', '详情页', '高级详情页'],
+      breadcrumb: ['首页', 'Chi tiết页', '高级Chi tiết页'],
       extra: this.headerExtra(),
       desc: this.headerContent(),
       footer: this.headerFooter()

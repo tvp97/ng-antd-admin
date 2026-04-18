@@ -111,7 +111,7 @@ export class ModalWrapService {
   }
 
   /**
-   * 获取所有对话框最大值,并确定是否需要修改
+   * 获取所有对话框最大值,并Xác nhận是否需要修改
    *
    * @param wrapElement 待修改z-index 容器
    */
@@ -184,7 +184,7 @@ export class ModalWrapService {
           onClick: this.confirmCallback.bind(this)<T>
         },
         {
-          label: '取消',
+          label: 'Huỷ',
           type: 'default',
           show: true,
           onClick: this.cancelCallback.bind(this)<T>

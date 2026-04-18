@@ -8,7 +8,7 @@ export interface ModalResizeConfig {
 }
 
 /**
- * 对话框调整大小服务
+ * Dịch vụ đổi kích thước hộp thoại
  */
 @Injectable({
   providedIn: 'root'
@@ -113,7 +113,7 @@ export class ModalResizeService {
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
 
-    // 添加 body 样式以防止文本选择
+    // Thêm body 样式以防止文本选择
     document.body.style.userSelect = 'none';
     document.body.style.cursor = this.getCursor(direction);
   }

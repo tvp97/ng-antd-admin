@@ -45,7 +45,7 @@ export class AdvancedComponent implements OnInit {
   readonly taskManageComponent = viewChild.required<TaskManageFormComponent>('taskManageComponent');
   pageHeaderInfo: Partial<PageHeaderType> = {
     title: '高级表单',
-    desc: '高级表单常见于一次性输入和提交大批量数据的场景。(演示自定义表单)',
+    desc: '高级表单常见于一次性输入和Gửi大批量数据的场景。(演示自定义表单)',
     breadcrumb: ['首页', '表单页', '高级表单']
   };
   validateForm!: FormGroup;

@@ -123,7 +123,7 @@ export class AccountComponent implements OnInit {
 
   add(): void {
     this.modalService
-      .show({ nzTitle: '新增' })
+      .show({ nzTitle: 'Thêm mới' })
       .pipe(
         finalize(() => {
           this.tableLoading(false);
@@ -140,12 +140,12 @@ export class AccountComponent implements OnInit {
   }
 
   reloadTable(): void {
-    this.message.info('刷新成功');
+    this.message.info('Làm mới thành công');
     this.getDataList();
   }
 
   // 在这里做了一个示例，用于获取选中列的数据，而不通过接口，这里可以通过dataItem获取到当前列的数据，也可以通过id从dataList中找到匹配的数据
-  // 推荐使用接口获取详情的方式，因为这样保证了数据的实时性
+  // 推荐使用接口获取Chi tiết的方式，因为这样保证了数据的实时性
   // 修改
   edit(id: number, dataItem: User): void {
     console.log(dataItem);
@@ -154,7 +154,7 @@ export class AccountComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(res => {
         this.modalService
-          .show({ nzTitle: '编辑' }, res)
+          .show({ nzTitle: 'Sửa' }, res)
           .pipe(
             finalize(() => {
               this.tableLoading(false);
@@ -208,8 +208,8 @@ export class AccountComponent implements OnInit {
     if (this.checkedCashArray.length > 0) {
       const tempArrays: number[] = [];
       this.modalSrv.confirm({
-        nzTitle: '确定要删除吗？',
-        nzContent: '删除后不可恢复',
+        nzTitle: 'Xác nhận要Xóa吗？',
+        nzContent: 'Xóa后不可恢复',
         nzOnOk: () => {
           this.checkedCashArray.forEach(item => {
             tempArrays.push(item.id);
@@ -241,8 +241,8 @@ export class AccountComponent implements OnInit {
   del(id: number): void {
     const ids: number[] = [id];
     this.modalSrv.confirm({
-      nzTitle: '确定要删除吗？',
-      nzContent: '删除后不可恢复',
+      nzTitle: 'Xác nhận要Xóa吗？',
+      nzContent: 'Xóa后不可恢复',
       nzOnOk: () => {
         this.tableLoading(true);
         this.dataService
@@ -254,7 +254,7 @@ export class AccountComponent implements OnInit {
             takeUntilDestroyed(this.destroyRef)
           )
           .subscribe(() => {
-            // 例如分页第二页只有一条数据，此时删除这条数据，跳转到第一页，并重新查询一下列表,pageIndex改变会由changePageIndex自动触发表格查询getDataList（）
+            // 例如分页第二页只有一条数据，此时Xóa这条数据，跳转到第一页，并重新查询一下列表,pageIndex改变会由changePageIndex自动触发表格查询getDataList（）
             if (this.dataList().length === 1 && this.tableConfig().pageIndex !== 1) {
               this.tableConfig.update(c => ({ ...c, pageIndex: c.pageIndex! - 1 }));
             } else {
@@ -289,7 +289,7 @@ export class AccountComponent implements OnInit {
       showCheckbox: true,
       headers: [
         {
-          title: '用户名称',
+          title: 'Tên đăng nhập称',
           field: 'userName',
           width: 100
         },

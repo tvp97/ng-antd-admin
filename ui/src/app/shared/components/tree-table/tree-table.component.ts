@@ -57,12 +57,12 @@ export class TreeTableComponent implements OnChanges {
   _dataList = computed(() => {
     // 根据dataList获取map形式的treeData,每一个key对应一组（也就是有子集）的数据
     this.mapOfExpandedData = fnTreeDataToMap(this.tableData());
-    const beFilterId: Array<string | number> = []; // 待删除的展开数据的child集的id数组
+    const beFilterId: Array<string | number> = []; // 待Xóa的展开数据的child集的id数组
     Object.values(this.mapOfExpandedData).forEach(menuArray => {
       menuArray.forEach(menuItem => {
         if (this.cashExpandIdArray.includes(menuItem.id)) {
           menuItem.expand = true;
-          // 让当前节点子集进行缓存，下面再删除，不然会多余出子集的数据到expand为true的平级上
+          // 让当前节点子集进行缓存，下面再Xóa，不然会多余出子集的数据到expand为true的平级上
           if (menuItem.children && menuItem.children.length > 0) {
             menuItem.children.forEach(item => {
               beFilterId.push(item.id);

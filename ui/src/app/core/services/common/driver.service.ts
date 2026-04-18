@@ -42,7 +42,7 @@ export class DriverService {
         element: '#tools',
         popover: {
           title: '工具栏',
-          description: '锁屏，搜索菜单，全屏，通知消息，退出登录，多语言',
+          description: '锁屏，Tìm kiếm菜单，全屏，通知消息，退出登录，多语言',
           side: 'bottom'
         }
       },

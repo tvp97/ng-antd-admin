@@ -14,7 +14,7 @@ export class NzModalWrapService {
   modalDragService = inject(ModalDragService);
 
   /**
-   * 创建对话框, 增加可拖拽功能
+   * Tạo hộp thoại, thêm khả năng kéo
    *
    * @param config ModalOptions
    */
@@ -74,7 +74,7 @@ export class NzModalWrapService {
   protected createModalConfig<T, R = NzSafeAny>(config: ModalOptions<T, R>, wrapCls: string): ModalOptions<T, R> {
     const defaultConfig: ModalOptions = {
       nzMaskClosable: false,
-      nzTitle: '提示'
+      nzTitle: 'Thông báo'
     };
     const maskStyle = config.nzMask === false ? { nzMaskStyle: { display: 'none' } } : {};
     const newConfig = Object.assign(defaultConfig, config, maskStyle);

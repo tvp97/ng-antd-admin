@@ -130,14 +130,14 @@ const rolePermissions: Record<number, string[]> = {
 };
 
 export const permission = [
-  // 获取角色的权限码列表
+  // Lấy danh sách mã quyền của vai trò
   http.get('/site/api/permission/list-role-resources/:roleId', ({ params }) => {
     const roleId = Number(params['roleId']);
     const perms = rolePermissions[roleId] || [];
     return HttpResponse.json({ code: 200, msg: 'SUCCESS', data: perms });
   }),
 
-  // 更新角色权限
+  // Cập nhật quyền vai trò
   http.post('/site/api/permission/assign-role-menu', async ({ request }) => {
     const body = await request.json() as { roleId: number; permCodes: string[] };
     rolePermissions[body.roleId] = body.permCodes;

@@ -68,7 +68,7 @@ export class NavBarComponent implements OnInit {
     // 1. 读取 $menuArray() —— 这是 effect 的唯一"触发源"，$menuArray 变化才会重新执行。
     // 2. untracked(() => this.clickMenuItem(menusArray))
     //    clickMenuItem 内部会读取 this.routerPath()（也是 signal）。
-    //    如果不加 untracked，routerPath 变化也会触发这个 effect，导致菜单数据被意外重置。
+    //    如果不加 untracked，routerPath 变化也会触发这个 effect，导致菜单数据被意外Đặt lại。
     //    用 untracked 包裹，表示"我只是借用 routerPath 的值，但不订阅它的变化"。
     //
     // 3. untracked(() => this.cloneMenuArray(processed))
@@ -151,7 +151,7 @@ export class NavBarComponent implements OnInit {
           this.splitNavStoreService.$splitLeftNavArray.set(leftUpdated);
         }
       } else {
-        // 菜单收起：保存当前展开状态到 copyMenus，供展开时恢复。
+        // 菜单收起：Lưu当前展开状态到 copyMenus，供展开时恢复。
         // 注意：不调用 menus.set()，视觉折叠效果由 nzInlineCollapsed 驱动，
         // closeMenuOpen 只是同步内存里的 open 状态，防止展开时状态错乱。
         const copy = untracked(() => this.cloneMenuArray(this.menus()));
@@ -211,7 +211,7 @@ export class NavBarComponent implements OnInit {
     // 如果一级菜单下有二级菜单
     if (currentLeftNavArray.length > 0) {
       // 当前左侧导航数组
-      /*添加了权限版*/
+      /*Thêm了权限版*/
       // 获取有权限的二级菜单集合（在左侧展示的）
       currentLeftNavArray = currentLeftNavArray.filter(item => {
         return this.authCodeArray().includes(item.code!);
@@ -227,7 +227,7 @@ export class NavBarComponent implements OnInit {
     this.splitNavStoreService.$splitLeftNavArray.set(currentLeftNavArray);
   }
 
-  // flatMenu 必须是纯函数（返回新数组），不能直接 mutate 传入的 menus。
+  // flatMenu 必须是纯函数（Quay lại新数组），不能直接 mutate 传入的 menus。
   // 原因：此方法在 effect() 内部被调用（通过 clickMenuItem），如果直接修改 signal 内部的对象，
   // Angular 会检测到变化并重新触发 effect，导致无限循环白屏。
   flatMenu(menus: Menu[], routePath: string): Menu[] {

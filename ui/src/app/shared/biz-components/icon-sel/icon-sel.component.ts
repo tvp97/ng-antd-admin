@@ -28,7 +28,7 @@ interface IconItem {
 })
 export class IconSelComponent implements OnInit, AfterViewInit {
   visible = input(false, { transform: booleanAttribute });
-  // 做图标搜索防抖
+  // 做图标Tìm kiếm防抖
   private searchText$ = new Subject<string>();
   selectedIcon = '';
   readonly selIcon = output<string>();
@@ -37,7 +37,7 @@ export class IconSelComponent implements OnInit, AfterViewInit {
     pageSize: 50,
     pageIndex: 1
   };
-  // 图标搜索出来的所有结果
+  // 图标Tìm kiếm出来的所有结果
   iconsStrAllArray: IconItem[] = [];
   sourceIconsArray: IconItem[] = []; // 所有icon的数据源
   iconsStrShowArray: IconItem[] = []; // 每页中展示的icon

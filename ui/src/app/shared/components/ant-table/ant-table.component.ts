@@ -38,7 +38,7 @@ export interface AntTableConfig {
   pageIndex: number; // 当前页码，（与页面中页码双向绑定）
   pageSize: number; // 每一页显示的数据条数（与页面中pageSize双向绑定）
   total: number; // 数据总量，用于计算分页（应该从后端接口中获得）
-  loading: boolean; // 是否显示表格加载中
+  loading: boolean; // 是否显示表格Đang tải
   headers: TableHeader[]; // 列设置
 }
 

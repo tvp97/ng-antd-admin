@@ -41,7 +41,7 @@ export class TaskModalComponent extends BasicConfirmModalComponent implements On
   private fb = inject(FormBuilder);
   override modalRef = inject(NzModalRef);
 
-  // 返回false则不关闭对话框
+  // Trả về false thì không đóng hộp thoại
   override getCurrentValue(): Observable<NzSafeAny> {
     if (!fnCheckForm(this.taskForm)) {
       return of(false);

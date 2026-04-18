@@ -53,7 +53,7 @@ export class SearchTableComponent implements OnInit {
   isCollapse = true;
   tableConfig = signal<AntTableConfig>({ headers: [], total: 0, showCheckbox: true, loading: false, pageSize: 10, pageIndex: 1 });
   readonly pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '查询表格（表头可拖动，点击列表的"查看"按钮，演示在当前tab打开详情操作，如果需要新开tab展示详情，请跳转到"功能>页签操作"中查看演示效果）',
+    title: '查询表格（表头可拖动，点击列表的"查看"按钮，演示在当前tab打开Chi tiết操作，如果需要新开tab展示Chi tiết，请跳转到"功能>页签操作"中查看演示效果）',
     // desc: '表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。',
     breadcrumb: ['首页', '列表页', '查询表格']
   };
@@ -90,7 +90,7 @@ export class SearchTableComponent implements OnInit {
 
   // 刷新页面
   reloadTable(): void {
-    this.message.info('已经刷新了');
+    this.message.info('Đã làm mới');
     this.getDataList();
   }
 
@@ -182,7 +182,7 @@ export class SearchTableComponent implements OnInit {
     // }));
   }
 
-  /*重置*/
+  /*Đặt lại*/
   resetForm(): void {
     this.searchParam = {};
     this.getDataList();
@@ -200,7 +200,7 @@ export class SearchTableComponent implements OnInit {
   }
 
   add(): void {
-    // this.modalService.show({nzTitle: '新增'}).subscribe((res) => {
+    // this.modalService.show({nzTitle: 'Thêm mới'}).subscribe((res) => {
     //   if (!res || res.status === ModalBtnStatus.Cancel) {
     //     return;
     //   }
@@ -212,7 +212,7 @@ export class SearchTableComponent implements OnInit {
   // 修改
   edit(id: number): void {
     // this.dataService.getFireSysDetail(id).subscribe(res => {
-    //   this.modalService.show({nzTitle: '编辑'}, res).subscribe(({modalValue, status}) => {
+    //   this.modalService.show({nzTitle: 'Sửa'}, res).subscribe(({modalValue, status}) => {
     //     if (status === ModalBtnStatus.Cancel) {
     //       return;
     //     }
@@ -231,8 +231,8 @@ export class SearchTableComponent implements OnInit {
 
   del(id: number): void {
     this.modalSrv.confirm({
-      nzTitle: '确定要删除吗？',
-      nzContent: '删除后不可恢复',
+      nzTitle: 'Xác nhận要Xóa吗？',
+      nzContent: 'Xóa后不可恢复',
       nzOnOk: () => {
         this.tableLoading(true);
         /*注释的是模拟接口调用*/
@@ -245,7 +245,7 @@ export class SearchTableComponent implements OnInit {
         // }, error => this.tableLoading(false));
 
         setTimeout(() => {
-          this.message.info(`id数组(支持分页保存):${JSON.stringify(id)}`);
+          this.message.info(`id数组(支持分页Lưu):${JSON.stringify(id)}`);
           this.getDataList();
           this.checkedCashArray.splice(
             this.checkedCashArray.findIndex(item => item.id === id),
@@ -260,8 +260,8 @@ export class SearchTableComponent implements OnInit {
   allDel(): void {
     if (this.checkedCashArray.length > 0) {
       this.modalSrv.confirm({
-        nzTitle: '确定要删除吗？',
-        nzContent: '删除后不可恢复',
+        nzTitle: 'Xác nhận要Xóa吗？',
+        nzContent: 'Xóa后不可恢复',
         nzOnOk: () => {
           const tempArrays: number[] = [];
           this.checkedCashArray.forEach(item => {
@@ -277,7 +277,7 @@ export class SearchTableComponent implements OnInit {
           //   this.checkedCashArray = [];
           // }, error => this.tableLoading(false));
           setTimeout(() => {
-            this.message.info(`id数组(支持分页保存):${JSON.stringify(tempArrays)}`);
+            this.message.info(`id数组(支持分页Lưu):${JSON.stringify(tempArrays)}`);
             this.getDataList();
             this.checkedCashArray = [];
             this.tableLoading(false);

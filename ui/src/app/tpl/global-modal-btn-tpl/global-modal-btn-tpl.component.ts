@@ -28,7 +28,7 @@ export class GlobalModalBtnTplComponent implements GlobalModalBtnTplComponentTok
 
   fullScreenIconClick($event: MouseEvent): void {
     this.modalFullStatusService.$modalFullStatusStore.update(flag => !flag);
-    // 可以阻止对话框关闭
+    // Có thể chặn đóng hộp thoại
     fnStopMouseEvent($event);
   }
 

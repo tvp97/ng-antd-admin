@@ -47,7 +47,7 @@ export class LoginFormComponent implements OnInit {
     // 获取表单的值
     const param = this.validateForm.getRawValue();
     // 调用登录接口
-    // todo 登录后台返回统一模式为,如果code不为200，会自动被拦截，如果需要修改，请在src/app/core/services/http/base-http.service.ts中进行修改
+    // todo 登录后台Quay lại统一模式为,如果code不为200，会自动被拦截，如果需要修改，请在src/app/core/services/http/base-http.service.ts中进行修改
     // {
     //   code:number,
     //   data:NzSafeAny,
@@ -63,7 +63,7 @@ export class LoginFormComponent implements OnInit {
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe(userToken => {
-        // 这里后台登录成功以后，只会返回一套由jwt加密的token，下面需要对token进行解析
+        // 这里后台登录成功以后，只会Quay lại一套由jwt加密的token，下面需要对token进行解析
         this.loginInOutService
           .loginIn(userToken)
           .then(() => {
@@ -71,16 +71,16 @@ export class LoginFormComponent implements OnInit {
           })
           .finally(() => {
             this.spinService.$globalSpinStore.set(false);
-            this.notification.blank(
-              '温馨提示',
-              `
-                源码地址：<a href="https://github.com/huajian123/ng-antd-admin">在这里</a>
-            `,
-              {
-                nzPlacement: 'top',
-                nzDuration: 0
-              }
-            );
+            // this.notification.blank(
+            //   'Thông báo',
+            //   `
+            //    Mã nguồn：<a href="https://github.com/huajian123/ng-antd-admin">Tại dây</a>
+            // `,
+            //   {
+            //     nzPlacement: 'top',
+            //     nzDuration: 0
+            //   }
+            // );
           });
       });
   }

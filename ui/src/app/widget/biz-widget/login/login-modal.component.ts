@@ -27,7 +27,7 @@ export class LoginModalComponent extends BasicConfirmModalComponent implements O
   private loginService = inject(LoginService);
   override modalRef = inject(NzModalRef);
 
-  // 返回false则不关闭对话框
+  // Trả về false thì không đóng hộp thoại
   override getCurrentValue(): Observable<NzSafeAny> {
     if (!fnCheckForm(this.loginModalForm)) {
       return of(false);

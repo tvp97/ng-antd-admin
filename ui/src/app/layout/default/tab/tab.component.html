@@ -1,5 +1,5 @@
 @let $themesOptions = this.$themesOptions();
-<!--非固定tab模式-->
+<!-- Chế độ tab không cố định -->
 @if (!$themesOptions.fixedTab) {
   <nz-card id="multi-tab" class="m-t-10" style="height: 35px" [nzBodyStyle]="{ padding: 0 }" [nzBordered]="false">
     <nz-tabs nzHideAdd nzTabPosition="top" nzType="editable-card" [nzSelectedIndex]="currentIndex()" [nzTabBarStyle]="{ height: '35px' }" (nzClose)="clickCloseIcon($event)">
@@ -7,11 +7,11 @@
         <nz-tab nzClosable [nzTitle]="tab.title" (nzClick)="goPage(tab)" (nzContextmenu)="contextMenu($event, menu)">
           <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu>
-              <li nz-menu-item [nzDisabled]="router.url !== tab.path" (click)="refresh()">刷新</li>
-              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === 0" (click)="closeTab(tab, $event, i)">关闭标签</li>
-              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === 0" (click)="closeOtherTab(tab, $event, i)">关闭其他标签</li>
-              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === i" (click)="closeRithTab(tab, $event, i)">关闭右侧标签</li>
-              <li nz-menu-item [nzDisabled]="i === 0" (click)="closeLeftTab(tab, $event, i)">关闭左侧标签</li>
+              <li nz-menu-item [nzDisabled]="router.url !== tab.path" (click)="refresh()">Làm mới</li>
+              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === 0" (click)="closeTab(tab, $event, i)">Đóng thẻ</li>
+              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === 0" (click)="closeOtherTab(tab, $event, i)">Đóng các thẻ khác</li>
+              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === i" (click)="closeRithTab(tab, $event, i)">Đóng thẻ bên phải</li>
+              <li nz-menu-item [nzDisabled]="i === 0" (click)="closeLeftTab(tab, $event, i)">Đóng thẻ bên trái</li>
             </ul>
           </nz-dropdown-menu>
         </nz-tab>
@@ -41,11 +41,11 @@
           </ng-template>
           <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu>
-              <li nz-menu-item [nzDisabled]="router.url !== tab.path" (click)="refresh()">刷新</li>
-              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === 0" (click)="closeTab(tab, $event, i)">关闭标签</li>
-              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === 0" (click)="closeOtherTab(tab, $event, i)">关闭其他标签</li>
-              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === i" (click)="closeRithTab(tab, $event, i)">关闭右侧标签</li>
-              <li nz-menu-item [nzDisabled]="i === 0" (click)="closeLeftTab(tab, $event, i)">关闭左侧标签</li>
+              <li nz-menu-item [nzDisabled]="router.url !== tab.path" (click)="refresh()">Làm mới</li>
+              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === 0" (click)="closeTab(tab, $event, i)">Đóng thẻ</li>
+              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === 0" (click)="closeOtherTab(tab, $event, i)">Đóng các thẻ khác</li>
+              <li nz-menu-item [nzDisabled]="tabsSourceData().length - 1 === i" (click)="closeRithTab(tab, $event, i)">Đóng thẻ bên phải</li>
+              <li nz-menu-item [nzDisabled]="i === 0" (click)="closeLeftTab(tab, $event, i)">Đóng thẻ bên trái</li>
             </ul>
           </nz-dropdown-menu>
         </nz-tab>
@@ -53,4 +53,4 @@
     </nz-tabs>
   </nz-card>
 }
-<!--固定tab模式-->
+<!-- Chế độ tab cố định -->

@@ -41,7 +41,7 @@ const fnTreeDataToMap = function tableToTreeData(dataList: NzSafeAny[]): Record<
 /**
  * 该方法用于将有父子关系的数组转换成树形结构的数组
  * 接收一个具有父子关系的数组作为参数
- * 返回一个树形结构的数组
+ * Quay lại一个树形结构的数组
  */
 const fnFlatDataHasParentToTree = function translateDataToTree(data: NzSafeAny[], fatherId = 'fatherId'): NzSafeAny {
   // 我们认为，fatherId=0的数据，为一级数据
@@ -76,7 +76,7 @@ const fnFlatDataHasParentToTree = function translateDataToTree(data: NzSafeAny[]
   return parents;
 };
 
-// 将树状结构数据添加层级以及是否是根节点的标记，根节点isLeaf为true，层级由level表示
+// 将树状结构数据Thêm层级以及是否是根节点的标记，根节点isLeaf为true，层级由level表示
 const fnAddTreeDataGradeAndLeaf = function AddTreeDataGradeAndLeaf(array: NzSafeAny[], levelName = 'level', childrenName = 'children'): NzSafeAny[] {
   const recursive = (array: NzSafeAny[], level = 0): NzSafeAny => {
     level++;

@@ -1,15 +1,15 @@
 <div class="kanban-container">
   <!-- 工具栏 -->
   <div class="kanban-toolbar left-start-center">
-    <!-- 搜索框 -->
+    <!-- Tìm kiếm框 -->
     <nz-input-search class="flex-1" nzEnterButton style="max-width: 360px">
-      <input name="searchKeyword" nz-input placeholder="搜索任务..." [ngModel]="searchKeyword()" (ngModelChange)="searchKeyword.set($event)" />
+      <input name="searchKeyword" nz-input placeholder="Tìm kiếm任务..." [ngModel]="searchKeyword()" (ngModelChange)="searchKeyword.set($event)" />
     </nz-input-search>
 
-    <!-- 添加任务按钮 -->
+    <!-- Thêm任务按钮 -->
     <button nz-button nzType="primary" (click)="openAddTaskModal()">
       <span nz-icon nzType="plus"></span>
-      <span class="add-btn-text">新增任务</span>
+      <span class="add-btn-text">Thêm mới任务</span>
     </button>
   </div>
 
@@ -49,7 +49,7 @@
                   <!-- 标题行 -->
                   <div class="task-header">
                     <span class="task-title" [class.done-title]="col.id === 'done'">{{ task.title }}</span>
-                    <button class="delete-btn" nz-button nz-tooltip nzDanger nzSize="small" nzTooltipTitle="删除" nzType="text" (click)="$event.stopPropagation(); deleteTask(col.id, task.id)">
+                    <button class="delete-btn" nz-button nz-tooltip nzDanger nzSize="small" nzTooltipTitle="Xóa" nzType="text" (click)="$event.stopPropagation(); deleteTask(col.id, task.id)">
                       <span nz-icon nzType="delete"></span>
                     </button>
                   </div>

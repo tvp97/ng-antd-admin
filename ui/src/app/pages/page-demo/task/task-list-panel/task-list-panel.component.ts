@@ -115,7 +115,7 @@ export class TaskListPanelComponent {
         {
           id: 3,
           title: '更新 API 文档',
-          description: '补充新增接口的 Swagger 注释',
+          description: '补充Thêm mới接口的 Swagger 注释',
           status: 'done',
           priority: 'medium',
           dueDate: '2026-03-20',
@@ -128,7 +128,7 @@ export class TaskListPanelComponent {
 
   columnIds = computed(() => this.columns().map(c => c.id));
 
-  // 过滤后的列（根据搜索关键词）
+  // 过滤后的列（根据Tìm kiếm关键词）
   filteredColumns = computed(() => {
     const keyword = this.searchKeyword().toLowerCase().trim();
     if (!keyword) return this.columns();
@@ -191,7 +191,7 @@ export class TaskListPanelComponent {
   }
 
   openAddTaskModal() {
-    this.taskModalService.show({ nzTitle: '新增任务' }).subscribe(res => {
+    this.taskModalService.show({ nzTitle: 'Thêm mới任务' }).subscribe(res => {
       if (res.status === ModalBtnStatus.Ok) {
         const formValue = res.modalValue;
         const task: Task = {
@@ -212,7 +212,7 @@ export class TaskListPanelComponent {
   openEditTaskModal(colId: TaskStatus, task: Task) {
     this.taskModalService
       .show(
-        { nzTitle: '编辑任务' },
+        { nzTitle: 'Sửa任务' },
         {
           id: task.id,
           title: task.title,

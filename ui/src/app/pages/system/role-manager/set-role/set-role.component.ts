@@ -51,7 +51,7 @@ export class SetRoleComponent implements OnInit {
   permissionList: Array<Menu & { isOpen?: boolean; checked?: boolean }> = [];
   destroyRef = inject(DestroyRef);
   readonly id = input.required<string>(); // 从路由中获取的角色id，ng16支持的新特性
-  readonly roleName = input.required<string>(); // 从路由中获取的角色名称，ng16支持的新特性
+  readonly roleName = input.required<string>(); // 从路由中获取的Tên vai trò称，ng16支持的新特性
 
   private dataService = inject(RoleService);
   private menusService = inject(MenusService);

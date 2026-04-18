@@ -11,7 +11,7 @@ import { NzSafeAny } from 'ng-zorro-antd/core/types';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 export interface HttpCustomConfig {
-  needSuccessInfo?: boolean; // 是否需要"操作成功"提示
+  needSuccessInfo?: boolean; // 是否需要"Thao tác thành công"提示
   showLoading?: boolean; // 是否需要loading
   otherUrl?: boolean; // 是否是第三方接口
   loadingText?: string; // 可选：自定义Loading文案
@@ -110,13 +110,13 @@ export class BaseHttpService {
 
   /**
    * Loading处理逻辑
-   * 即使接口瞬间返回，Loading 也会坚持展示最少 500ms
+   * 即使接口瞬间Quay lại，Loading 也会坚持展示最少 500ms
    */
   private handleLoading(config: HttpCustomConfig): () => void {
     if (config.showLoading) {
       const startTime = Date.now();
       // 注意：设置 nzDuration: 0 为手动关闭，否则会被默认的 3000ms 自动消除逻辑干扰
-      const msgRef = this.message.loading(config.loadingText || '加载中...', { nzDuration: 0 });
+      const msgRef = this.message.loading(config.loadingText || 'Đang tải...', { nzDuration: 0 });
 
       return () => {
         const elapsed = Date.now() - startTime;
@@ -125,7 +125,7 @@ export class BaseHttpService {
 
         if (remaining > 0) {
           // 如果请求太快（比如 50ms），则延迟 450ms 后再移除 Loading
-          // 此时数据已经返回给页面了，但 Loading 还在
+          // 此时数据已经Quay lại给页面了，但 Loading 还在
           setTimeout(() => {
             this.message.remove(msgRef.messageId);
           }, remaining);
@@ -158,7 +158,7 @@ export class BaseHttpService {
     if (![200, 201].includes(item.code)) {
       this.message.error(item.msg);
     } else if (needSuccessInfo) {
-      this.message.success('操作成功');
+      this.message.success('Thao tác thành công');
     }
     return true;
   }

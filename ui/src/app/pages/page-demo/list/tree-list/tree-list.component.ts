@@ -54,7 +54,7 @@ export class TreeListComponent implements OnInit {
   isCollapse = true;
   tableConfig = signal<AntTableConfig>({ headers: [], total: 0, showCheckbox: false, loading: false, pageSize: 10, pageIndex: 1 });
   readonly pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '树状表格（演示默认值的情况，删除或者查看，可以打印选中行的id）',
+    title: '树状表格（演示默认值的情况，Xóa或者查看，可以打印选中行的id）',
     // desc: '表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。',
     breadcrumb: ['首页', '列表页', '树状表格']
   };
@@ -65,7 +65,7 @@ export class TreeListComponent implements OnInit {
   private message = inject(NzMessageService);
 
   reloadTable(): void {
-    this.message.info('已经刷新了');
+    this.message.info('Đã làm mới');
     this.getDataList();
   }
 
@@ -246,14 +246,14 @@ export class TreeListComponent implements OnInit {
     console.log(parent);
   }
 
-  /*重置*/
+  /*Đặt lại*/
   resetForm(): void {
     this.searchParam = {};
     this.getDataList();
   }
 
   add(): void {
-    // this.modalService.show({nzTitle: '新增'}).subscribe((res) => {
+    // this.modalService.show({nzTitle: 'Thêm mới'}).subscribe((res) => {
     //   if (!res || res.status === ModalBtnStatus.Cancel) {
     //     return;
     //   }
@@ -264,11 +264,11 @@ export class TreeListComponent implements OnInit {
 
   del(id: number): void {
     this.modalSrv.confirm({
-      nzTitle: '确定要删除吗？',
-      nzContent: '删除后不可恢复',
+      nzTitle: 'Xác nhận要Xóa吗？',
+      nzContent: 'Xóa后不可恢复',
       nzOnOk: () => {
         this.tableLoading(true);
-        this.message.info(`id数组(支持分页保存):${JSON.stringify(id)}`);
+        this.message.info(`id数组(支持分页Lưu):${JSON.stringify(id)}`);
         this.getDataList();
         this.checkedCashArray.splice(
           this.checkedCashArray.findIndex(item => item.id === id),
@@ -290,15 +290,15 @@ export class TreeListComponent implements OnInit {
   allDel(): void {
     if (this.checkedCashArray.length > 0) {
       this.modalSrv.confirm({
-        nzTitle: '确定要删除吗？',
-        nzContent: '删除后不可恢复',
+        nzTitle: 'Xác nhận要Xóa吗？',
+        nzContent: 'Xóa后不可恢复',
         nzOnOk: () => {
           const tempArrays: number[] = [];
           this.checkedCashArray.forEach(item => {
             tempArrays.push(item.id);
           });
           this.tableLoading(true);
-          this.message.info(`数组(支持分页保存):${JSON.stringify(tempArrays)}`);
+          this.message.info(`数组(支持分页Lưu):${JSON.stringify(tempArrays)}`);
           this.getDataList();
           this.checkedCashArray = [];
           this.tableLoading(false);
@@ -321,7 +321,7 @@ export class TreeListComponent implements OnInit {
   // 修改
   edit(id: number): void {
     // this.dataService.getFireSysDetail(id).subscribe(res => {
-    //   this.modalService.show({nzTitle: '编辑'}, res).subscribe(({modalValue, status}) => {
+    //   this.modalService.show({nzTitle: 'Sửa'}, res).subscribe(({modalValue, status}) => {
     //     if (status === ModalBtnStatus.Cancel) {
     //       return;
     //     }

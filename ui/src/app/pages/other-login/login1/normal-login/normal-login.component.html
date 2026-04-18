@@ -3,14 +3,14 @@
   <div class="full-with">
     <form class="login-form-wrap" nz-form [formGroup]="validateForm">
       <nz-form-item>
-        <nz-form-control nzErrorTip="请输入用户名!">
-          <input type="text" formControlName="userName" nz-input nzSize="large" placeholder="用户名" [placeholder]="'没有账号密码直接登陆'" />
+        <nz-form-control nzErrorTip="Vui lòng nhập tên đăng nhập!">
+          <input type="text" formControlName="userName" nz-input nzSize="large" placeholder="Tên đăng nhập" [placeholder]="'没有账号密码直接登陆'" />
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
         <nz-form-control nzErrorTip="请输入密码!">
           <nz-input-wrapper>
-            <input autocomplete="on" formControlName="password" nz-input nzSize="large" placeholder="密码" [placeholder]="'no username and password,just login'" [type]="passwordVisible ? 'text' : 'password'" />
+            <input autocomplete="on" formControlName="password" nz-input nzSize="large" placeholder="Mật khẩu" [placeholder]="'no username and password,just login'" [type]="passwordVisible ? 'text' : 'password'" />
             <i nzInputSuffix nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
           </nz-input-wrapper>
         </nz-form-control>
@@ -22,7 +22,7 @@
           </label>
         </div>
         <div nz-col>
-          <a class="operate-text">忘记密码?</a>
+          <a class="operate-text">Quên mật khẩu?</a>
         </div>
       </div>
       <button class="full-with m-t-15 btn" nz-button nzSize="large" nzType="primary" (click)="submitForm()">登 录</button>

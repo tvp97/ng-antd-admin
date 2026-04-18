@@ -23,7 +23,7 @@ export class LuckysheetComponent implements AfterViewInit {
       ])
       .then(() => {
         const options = {
-          userName: 'NgAntAdmin', // 用户名
+          userName: 'NgAntAdmin', // Tên đăng nhập
           myFolderUrl: 'https://github.com/huajian123/ng-antd-admin',
           container: 'luckysheet',
           title: '简单的示例', // 设定表格名称

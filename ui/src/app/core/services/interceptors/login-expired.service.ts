@@ -79,13 +79,13 @@ export class LoginExpiredService implements HttpInterceptor {
             .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe(({ modalValue: token, status }) => {
               if (status === ModalBtnStatus.Cancel) {
-                // 这么做是为了登录状态下token过期，刷新页面，登录窗口点击取消，需要在startUp中的获取menu的接口完成掉,
+                // 这么做是为了登录状态下token过期，刷新页面，登录窗口点击Huỷ，需要在startUp中的获取menu的接口完成掉,
                 // 不然进不去angular应用，路由不跳转
                 observer.next(
                   new HttpResponse({
                     body: {
                       code: 3013,
-                      msg: '取消后请重新登录',
+                      msg: 'Huỷ后请重新登录',
                       data: null
                     }
                   })
@@ -103,9 +103,9 @@ export class LoginExpiredService implements HttpInterceptor {
                     observer.next(data);
                   },
                   error: () => {
-                    // 如果先用admin登录系统，token超时弹登录框，此时登录的却是normal账号，对目标页面没有权限，则返回登录页
+                    // 如果先用admin登录系统，token超时弹登录框，此时登录的却是normal账号，对目标页面没有权限，则Quay lại登录页
                     // 这里靠后端判断新的token没有权限，请求报错403
-                    this.message.error('您没有权限登录该模块');
+                    this.message.error('Bạn không có quyền truy cập module này');
                     this.loginOut();
                   }
                 });

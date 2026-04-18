@@ -48,7 +48,7 @@ export interface TaskObj {
   finishRate: number;
 }
 
-// 任务搜索条件
+// 任务Tìm kiếm条件
 export enum TaskStateSearchEnum {
   NoStarted,
   Processing,
@@ -57,7 +57,7 @@ export enum TaskStateSearchEnum {
   All
 }
 
-// 任务搜索条件
+// 任务Tìm kiếm条件
 export enum TaskStateSearchCheckPeriodEnum {
   DayCheck,
   MonthCheck,
@@ -124,7 +124,7 @@ export class AppendFormComponent implements OnInit {
       systemName: '一个任务',
       systemId: 1,
       taskState: 1,
-      userName: '小华',
+      userName: 'Hoa',
       taskStateName: '一个任务',
       taskUserId: '一个任务',
       checkPeriod: '一个任务',
@@ -250,7 +250,7 @@ export class AppendFormComponent implements OnInit {
 
   add(): void {
     this.modalService
-      .show({ nzTitle: '新增' })
+      .show({ nzTitle: 'Thêm mới' })
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(({ modalValue, status }) => {
         if (status === ModalBtnStatus.Cancel) {

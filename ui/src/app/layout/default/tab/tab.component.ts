@@ -44,13 +44,13 @@ export class TabComponent {
     this.router.navigateByUrl(tab.path);
   }
 
-  // 右键点击关闭右侧tab
+  // 右键点击Đóng bên phảitab
   closeRithTab(tab: TabModel, e: MouseEvent, index: number): void {
     fnStopMouseEvent(e);
     this.tabService.delRightTab(tab.path, index);
   }
 
-  // 右键点击关闭左侧tab
+  // 右键点击Đóng bên tráitab
   closeLeftTab(tab: TabModel, e: MouseEvent, index: number): void {
     if (index === 0) {
       return;
@@ -59,24 +59,24 @@ export class TabComponent {
     this.tabService.delLeftTab(tab.path, index);
   }
 
-  // 关闭其他tab
+  // Đóng các tab kháctab
   closeOtherTab(tab: TabModel, e: MouseEvent, index: number): void {
     fnStopMouseEvent(e);
     this.tabService.delOtherTab(tab.path, index);
   }
 
-  // 右键关闭当前Tab
+  // 右键Đóng tab hiện tạiTab
   closeTab(tab: TabModel, e: MouseEvent, index: number): void {
     fnStopMouseEvent(e);
     this.closeCurrentTab(tab, index);
   }
 
-  // 点击tab上的关闭icon
+  // Nhấn icon đóng trên thẻ
   clickCloseIcon(indexObj: { index: number }): void {
     this.closeCurrentTab(this.tabsSourceData()[indexObj.index], indexObj.index);
   }
 
-  // 关闭当前Tab
+  // Đóng tab hiện tạiTab
   closeCurrentTab(tab: TabModel, index: number): void {
     if (this.tabsSourceData().length === 1) {
       return;

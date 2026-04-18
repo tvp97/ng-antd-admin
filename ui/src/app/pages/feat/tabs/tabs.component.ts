@@ -20,7 +20,7 @@ import { NzSpaceCompactComponent } from 'ng-zorro-antd/space';
 })
 export class TabsComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '标签页操作示例，如果需要在当前tab页面展示详情，请在"列表页>查询表格"中点击表格查看按钮，演示效果',
+    title: '标签页操作示例，如果需要在当前tab页面展示Chi tiết，请在"列表页>查询表格"中点击表格查看按钮，演示效果',
     breadcrumb: ['首页', '扩展功能', '标签页面操作示例']
   };
   private msg = inject(NzMessageService);
@@ -47,7 +47,7 @@ export class TabsComponent {
     if (tabArray.length > 1) {
       this.tabService.delTab(tabArray[this.tabService.getCurrentTabIndex()], this.tabService.getCurrentTabIndex());
     } else {
-      this.msg.warning('这是最后一个页签，无法关闭');
+      this.msg.warning('Đây là thẻ cuối cùng, không thể đóng');
     }
   }
 

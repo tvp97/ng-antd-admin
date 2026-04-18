@@ -1,6 +1,6 @@
 <!--头部版块-->
 <app-page-header [backTpl]="backTpl" [backUrl]="'/default/system/role-manager'" [pageHeaderInfo]="pageHeaderInfo"></app-page-header>
-<ng-template #backTpl>返回</ng-template>
+<ng-template #backTpl>Quay lại</ng-template>
 <div class="normal-table-wrap">
   <nz-card>
     <ul>
@@ -53,6 +53,6 @@
   </nz-card>
 </div>
 <app-footer-submit>
-  <button class="right" nz-button nzType="primary" (click)="submit()">提交</button>
-  <button class="right m-l-20" nz-button nzGhost nzType="primary" (click)="back()">返回</button>
+  <button class="right" nz-button nzType="primary" (click)="submit()">Gửi</button>
+  <button class="right m-l-20" nz-button nzGhost nzType="primary" (click)="back()">Quay lại</button>
 </app-footer-submit>

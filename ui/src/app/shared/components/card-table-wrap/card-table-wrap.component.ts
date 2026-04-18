@@ -154,7 +154,7 @@ export class CardTableWrapComponent implements AfterContentInit {
     this.allTableFieldIndeterminate = !this.allTableFieldChecked && !allUnChecked;
   }
 
-  // 重置
+  // Đặt lại
   reset(): void {
     this.tableHeaders = [];
     this.copyHeader.forEach(item => {

@@ -83,7 +83,7 @@ export class AnalysisComponent {
       priority: false
     },
     {
-      title: '搜索关键词',
+      title: 'Tìm kiếm关键词',
       compare: (a: DataItem, b: DataItem) => a.chinese - b.chinese,
       priority: 3
     },
@@ -278,7 +278,7 @@ export class AnalysisComponent {
         content: '{value}'
       },
       statistic: {},
-      // 添加 中心统计文本 交互
+      // Thêm 中心统计文本 交互
       interactions: [{ type: 'element-selected' }, { type: 'element-active' }, { type: 'pie-statistic-active' }]
     });
     tinyArea.render();

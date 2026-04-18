@@ -5,7 +5,7 @@ import { NzModalComponent } from 'ng-zorro-antd/modal';
 import { ModalDragService } from './modal-drag.service';
 
 /**
- * 可拖动的对话框
+ * Hộp thoại có thể kéo
  *
  * @example
  * ``` html

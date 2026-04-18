@@ -27,8 +27,8 @@ interface ReturnObj {
 export class BaseDetailComponent implements OnInit {
   readonly returnProductTpl = viewChild.required<TemplateRef<NzSafeAny>>('returnProductTpl');
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '基础详情页',
-    breadcrumb: ['首页', '详情页', '基础详情页']
+    title: '基础Chi tiết页',
+    breadcrumb: ['首页', 'Chi tiết页', '基础Chi tiết页']
   };
   returnTableConfig!: AntTableConfig;
   returnTableConfig2!: AntTableConfig;

@@ -71,7 +71,7 @@ export class MenuComponent implements OnInit {
   destroyRef = inject(DestroyRef);
   tableConfig = signal<AntTableConfig>({ headers: [], total: 0, showCheckbox: false, loading: false, pageSize: 10, pageIndex: 1 });
   readonly pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '菜单管理,新增完菜单记得给对应角色添加刚刚新增的菜单权限，不然无法展示',
+    title: '菜单管理,Thêm mới完菜单记得给对应角色Thêm刚刚Thêm mới的菜单权限，不然无法展示',
     breadcrumb: ['首页', '系统管理', '菜单管理']
   };
   dataList = signal<TreeNodeInterface[]>([]);
@@ -83,7 +83,7 @@ export class MenuComponent implements OnInit {
   private message = inject(NzMessageService);
 
   reloadTable(): void {
-    this.message.info('已经刷新了');
+    this.message.info('Đã làm mới');
     this.getDataList();
   }
 
@@ -110,7 +110,7 @@ export class MenuComponent implements OnInit {
         const target = fnFlatDataHasParentToTree(menuList.list, 'fatherId');
         let list = fnFlattenTreeDataByDataList(target);
         console.log(sortFile);
-        // 因为前段要对后端返回的数据进行处理，所以排序这里交给了前段来做
+        // 因为前段要对后端Quay lại的数据进行处理，所以排序这里交给了前段来做
         if (sortFile) {
           fnSortTreeData(list, sortFile);
         }
@@ -119,7 +119,7 @@ export class MenuComponent implements OnInit {
       });
   }
 
-  /*重置*/
+  /*Đặt lại*/
   resetForm(): void {
     this.searchParam = {};
     this.getDataList();
@@ -127,7 +127,7 @@ export class MenuComponent implements OnInit {
 
   add(fatherId: number): void {
     this.menuModalService
-      .show({ nzTitle: '新增' })
+      .show({ nzTitle: 'Thêm mới' })
       .pipe(
         finalize(() => {
           this.tableLoading(false);
@@ -160,8 +160,8 @@ export class MenuComponent implements OnInit {
 
   del(id: number): void {
     this.modalSrv.confirm({
-      nzTitle: '确定要删除吗？',
-      nzContent: '删除后不可恢复',
+      nzTitle: 'Xác nhận要Xóa吗？',
+      nzContent: 'Xóa后不可恢复',
       nzOnOk: () => {
         this.tableLoading(true);
         this.dataService
@@ -173,7 +173,7 @@ export class MenuComponent implements OnInit {
             takeUntilDestroyed(this.destroyRef)
           )
           .subscribe(() => {
-            // 例如分页第二页只有一条数据，此时删除这条数据，跳转到第一页，并重新查询一下列表,pageIndex改变会由changePageIndex自动触发表格查询getDataList（）
+            // 例如分页第二页只有一条数据，此时Xóa这条数据，跳转到第一页，并重新查询一下列表,pageIndex改变会由changePageIndex自动触发表格查询getDataList（）
             if (this.dataList().length === 1 && this.tableConfig().pageIndex !== 1) {
               this.tableConfig.update(c => ({ ...c, pageIndex: c.pageIndex! - 1 }));
             } else {
@@ -191,7 +191,7 @@ export class MenuComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(res => {
         this.menuModalService
-          .show({ nzTitle: '编辑' }, res)
+          .show({ nzTitle: 'Sửa' }, res)
           .pipe(
             finalize(() => {
               this.tableLoading(false);

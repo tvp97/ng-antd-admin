@@ -27,7 +27,7 @@ export class JudgeAuthGuardService {
   authCodeArray = computed(() => this.userInfoService.$userInfo().authCode);
   menuNavList = computed(() => this.menuStoreService.$menuArray());
 
-  // 保存当前的menu到this.selMenu
+  // Lưu当前的menu到this.selMenu
   getMenu(menu: Menu[], url: string): void {
     // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < menu.length; i++) {
@@ -46,7 +46,7 @@ export class JudgeAuthGuardService {
     if (authCodeArray.includes(code)) {
       return true;
     } else {
-      this.message.error('您没有权限登录该模块');
+      this.message.error('Bạn không có quyền truy cập module này');
       this.loginOutService.loginOut();
       return this.router.parseUrl('/login');
     }

@@ -24,7 +24,7 @@ export class UploadComponent implements OnInit {
   pageHeaderInfo: Partial<PageHeaderType> = {
     title: '文件上传',
     breadcrumb: ['首页', '功能', '文件上传'],
-    desc: '简单弄一下，返回的都是服务器统一返回的文件'
+    desc: '简单弄一下，Quay lại的都是服务器统一Quay lại的文件'
   };
   uploadUrl = environment.production ? '/api/file/test/upload/document/' : '/site/api/file/test/upload/document/';
   fileList: NzUploadFile[] = [];
@@ -36,7 +36,7 @@ export class UploadComponent implements OnInit {
   handleChange(info: NzUploadChangeParam): void {
     if (info.type === 'success') {
       if (info.file.response.code === 0) {
-        this.message.success(`服务器上返回的文件路径：${info.file.response.data.data}`);
+        this.message.success(`服务器上Quay lại的文件路径：${info.file.response.data.data}`);
       }
     }
   }

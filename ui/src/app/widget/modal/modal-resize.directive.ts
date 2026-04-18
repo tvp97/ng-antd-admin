@@ -5,7 +5,7 @@ import { NzModalComponent } from 'ng-zorro-antd/modal';
 import { ModalResizeConfig, ModalResizeService } from './modal-resize.service';
 
 /**
- * 可调整大小的对话框
+ * Hộp thoại có thể đổi kích thước
  *
  * @example
  * ``` html

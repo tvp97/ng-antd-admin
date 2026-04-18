@@ -33,7 +33,7 @@ export class IconsComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
     title: '图标',
     breadcrumb: ['首页', '功能', '图标'],
-    desc: '在图标选择器中演示：搜索防抖，前端分页功能。'
+    desc: '在图标选择器中演示：Tìm kiếm防抖，前端分页功能。'
   };
   seletedIcon = '';
   visible = false;

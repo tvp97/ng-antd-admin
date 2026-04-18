@@ -85,7 +85,7 @@ export class DeptComponent implements OnInit {
   });
 
   reloadTable(): void {
-    this.message.info('已经刷新了');
+    this.message.info('Đã làm mới');
     this.getDataList();
   }
 
@@ -111,7 +111,7 @@ export class DeptComponent implements OnInit {
       .subscribe(deptList => {
         const target = fnFlatDataHasParentToTree(deptList.list);
         let list = fnFlattenTreeDataByDataList(target);
-        // 因为前段要对后端返回的数据进行处理，所以排序这里交给了前段来做
+        // 因为前段要对后端Quay lại的数据进行处理，所以排序这里交给了前段来做
         if (sortFile) {
           fnSortTreeData(list, sortFile);
         }
@@ -125,7 +125,7 @@ export class DeptComponent implements OnInit {
     this.message.success(id);
   }
 
-  /*重置*/
+  /*Đặt lại*/
   resetForm(): void {
     this.searchParam = {};
     this.getDataList();
@@ -133,7 +133,7 @@ export class DeptComponent implements OnInit {
 
   add(fatherId: number): void {
     this.deptModalService
-      .show({ nzTitle: '新增' })
+      .show({ nzTitle: 'Thêm mới' })
       .pipe(
         finalize(() => {
           this.tableLoading(false);
@@ -167,8 +167,8 @@ export class DeptComponent implements OnInit {
   del(id: number): void {
     const ids: number[] = [id];
     this.modalSrv.confirm({
-      nzTitle: '确定要删除吗？',
-      nzContent: '删除后不可恢复',
+      nzTitle: 'Xác nhận要Xóa吗？',
+      nzContent: 'Xóa后不可恢复',
       nzOnOk: () => {
         this.tableLoading(true);
         this.dataService
@@ -180,7 +180,7 @@ export class DeptComponent implements OnInit {
             takeUntilDestroyed(this.destroyRef)
           )
           .subscribe(() => {
-            // 例如分页第二页只有一条数据，此时删除这条数据，跳转到第一页，并重新查询一下列表,pageIndex改变会由changePageIndex自动触发表格查询getDataList（）
+            // 例如分页第二页只有一条数据，此时Xóa这条数据，跳转到第一页，并重新查询一下列表,pageIndex改变会由changePageIndex自动触发表格查询getDataList（）
             if (this.dataList().length === 1 && this.tableConfig().pageIndex !== 1) {
               this.tableConfig.update(config => ({ ...config, pageIndex: config.pageIndex! - 1 }));
             } else {
@@ -198,7 +198,7 @@ export class DeptComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(res => {
         this.deptModalService
-          .show({ nzTitle: '编辑' }, res)
+          .show({ nzTitle: 'Sửa' }, res)
           .pipe(
             finalize(() => {
               this.tableLoading(false);

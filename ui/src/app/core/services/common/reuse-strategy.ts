@@ -31,7 +31,7 @@ export class SimpleReuseStrategy implements RouteReuseStrategy {
   // 缓存每个页面的scroll位置,为啥不放在handlers里面呢,因为路由离开时路由复用导致以当前页为key为null了
   static scrollHandlers: Record<string, NzSafeAny> = {};
 
-  // 这个参数的目的是，在当前页签中点击删除按钮，虽然页签关闭了，但是在路由离开的时候，还是会将已经关闭的页签的组件缓存，
+  // 这个参数的目的是，在当前页签中点击Xóa按钮，虽然页签关闭了，但是在路由离开的时候，还是会将已经关闭的页签的组件缓存，
   // 用这个参数来记录，是否需要缓存当前路由
   public static waitDelete: string | null;
   themesService = inject(ThemeService); // 用于获取主题
@@ -50,7 +50,7 @@ export class SimpleReuseStrategy implements RouteReuseStrategy {
     }
   }
 
-  // 删除全部的缓存，在退出登录，不使用多标签 等操作中需要用到
+  // Xóa全部的缓存，在退出登录，不使用多标签 等操作中需要用到
   public static deleteAllRouteSnapshot(route: ActivatedRouteSnapshot): Promise<void> {
     return new Promise(resolve => {
       Object.keys(SimpleReuseStrategy.handlers).forEach(key => {
@@ -91,7 +91,7 @@ export class SimpleReuseStrategy implements RouteReuseStrategy {
       return;
     }
     const key = fnGetReuseStrategyKeyFn(route);
-    // 如果待删除的是当前路由则不存储快照
+    // 如果待Xóa的是当前路由则不存储快照
     if (SimpleReuseStrategy.waitDelete === key) {
       this.runHook('_onReuseDestroy', handle.componentRef);
       handle.componentRef.destroy();

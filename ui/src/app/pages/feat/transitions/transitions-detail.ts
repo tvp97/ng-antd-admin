@@ -30,7 +30,7 @@ export class TransitionsDetail {
 
   readonly pageHeaderInfo: Partial<PageHeaderType> = {
     title: 'View Transition API',
-    breadcrumb: ['首页', '功能', 'View Transition API', '详情'],
-    desc: '共享元素从列表页平滑过渡到此详情页。'
+    breadcrumb: ['首页', '功能', 'View Transition API', 'Chi tiết'],
+    desc: '共享元素从列表页平滑过渡到此Chi tiết页。'
   };
 }

@@ -52,11 +52,11 @@
         <div class="m-b-8 text-right p-0" nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
           <button nz-button nzType="primary">
             <i nz-icon nzType="search"></i>
-            搜索
+            Tìm kiếm
           </button>
           <button class="m-l-15" nz-button (click)="resetForm()">
             <i nz-icon nzTheme="outline" nzType="close-circle"></i>
-            重置
+            Đặt lại
           </button>
           <a class="collapse operate-text" (click)="toggleCollapse()">
             @if (isCollapse) {
@@ -84,10 +84,10 @@
     ></app-ant-table>
     <ng-template #operationTpl let-id="id" let-longText="longText">
       <span class="operate-text" (click)="check(longText)">查看</span>
-      <!--添加了权限的写法-->
-      <!-- <span *appAuth="ActionCode.FireSysSettingDel" class="operate-text" (click)="del(id)">删除</span>-->
-      <span class="operate-text" (click)="del(id)">删除</span>
-      <span class="operate-text" (click)="edit(id)">编辑</span>
+      <!--Thêm了权限的写法-->
+      <!-- <span *appAuth="ActionCode.FireSysSettingDel" class="operate-text" (click)="del(id)">Xóa</span>-->
+      <span class="operate-text" (click)="del(id)">Xóa</span>
+      <span class="operate-text" (click)="edit(id)">Sửa</span>
     </ng-template>
   </app-card-table-wrap>
 </div>
@@ -101,6 +101,6 @@
   </button>
   <button nz-button nzType="default" (click)="allDel()">
     <i nz-icon nzType="delete"></i>
-    删除
+    Xóa
   </button>
 </ng-template>

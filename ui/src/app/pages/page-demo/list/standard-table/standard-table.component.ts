@@ -98,7 +98,7 @@ export class StandardTableComponent {
     {
       id: 4,
       name: 'Ant Design Pro',
-      desc: '城镇中有那么多的酒馆，她却偏偏走进了我的酒馆',
+      desc: 'Biết bao quán trong phố, nàng lại bước vào quán của tôi',
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png',
       owner: '周星星',
       owner_id: '4',

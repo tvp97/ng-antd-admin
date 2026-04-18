@@ -42,12 +42,12 @@ export class AccountModalComponent extends BasicConfirmModalComponent implements
   private deptService = inject(DeptService);
   override modalRef = inject(NzModalRef);
 
-  // 此方法为如果有异步数据需要加载，则在该方法中添加
+  // 此方法为如果有异步数据需要加载，则在该方法中Thêm
   protected getAsyncFnData(modalValue: NzSafeAny): Observable<NzSafeAny> {
     return of(modalValue);
   }
 
-  // 返回false则不关闭对话框
+  // Trả về false thì không đóng hộp thoại
   override getCurrentValue(): Observable<NzSafeAny> {
     if (!fnCheckForm(this.addEditForm)) {
       return of(false);

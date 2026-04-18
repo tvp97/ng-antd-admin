@@ -7,9 +7,9 @@
       <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24 }">
         <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
           <nz-form-item>
-            <nz-form-label [nzFor]="">用户名称</nz-form-label>
+            <nz-form-label [nzFor]="">Tên đăng nhập称</nz-form-label>
             <nz-form-control>
-              <input name="userName" nz-input placeholder="请输入角色名称" [(ngModel)]="searchParam.userName" />
+              <input name="userName" nz-input placeholder="Nhập tên vai trò称" [(ngModel)]="searchParam.userName" />
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -47,11 +47,11 @@
         <div class="text-right p-0 m-b-10" nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
           <button nz-button nzType="primary" (click)="getDataList({ pageIndex: 1 })">
             <i nz-icon nzType="search"></i>
-            搜索
+            Tìm kiếm
           </button>
           <button class="m-l-15" nz-button (click)="resetForm()">
             <i nz-icon nzTheme="outline" nzType="close-circle"></i>
-            重置
+            Đặt lại
           </button>
           <a class="collapse operate-text" (click)="toggleCollapse()">
             @if (isCollapse) {
@@ -76,8 +76,8 @@
       (selectedChange)="selectedChecked($event)"
     ></app-ant-table>
     <ng-template #operationTpl let-$$dataItem="$$dataItem" let-id="id">
-      <span *appAuth="ActionCode.AccountEdit" class="operate-text" (click)="edit(id, $$dataItem)">编辑</span>
-      <span *appAuth="ActionCode.AccountDel" class="operate-text" (click)="del(id)">删除</span>
+      <span *appAuth="ActionCode.AccountEdit" class="operate-text" (click)="edit(id, $$dataItem)">Sửa</span>
+      <span *appAuth="ActionCode.AccountDel" class="operate-text" (click)="del(id)">Xóa</span>
     </ng-template>
   </app-card-table-wrap>
 
@@ -88,7 +88,7 @@
     </button>
     <button *appAuth="ActionCode.AccountDel" nz-button nzType="default" (click)="allDel()">
       <i nz-icon nzType="delete"></i>
-      批量删除
+      批量Xóa
     </button>
   </ng-template>
 

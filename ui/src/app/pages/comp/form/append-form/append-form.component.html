@@ -3,7 +3,7 @@
   <nz-card class="m-b-10" nzTitle="Message">
     <button class="m-b-8" nz-button nzBlock nzType="dashed" (click)="addForm()">
       <i nz-icon nzType="plus"></i>
-      <span>添加</span>
+      <span>Thêm</span>
     </button>
 
     <form nz-form [formGroup]="validateForm">
@@ -30,7 +30,7 @@
 
     <button class="m-b-8" nz-button nzBlock nzType="dashed" (click)="submitForm()">
       <i nz-icon nzType="plus"></i>
-      <span>提交(查看控制台)</span>
+      <span>Gửi(查看控制台)</span>
     </button>
     <button class="m-b-8" nz-button nzBlock nzType="dashed" (click)="updateFormItem()">
       <i nz-icon nzType="plus"></i>
@@ -38,7 +38,7 @@
     </button>
     <button class="m-b-8" nz-button nzBlock nzType="dashed" (click)="add2form()">
       <i nz-icon nzType="plus"></i>
-      <span>新增但是不触发valueChange(查看控制台)</span>
+      <span>Thêm mới但是不触发valueChange(查看控制台)</span>
     </button>
 
     <ng-template #combineTpl let-control>
@@ -119,7 +119,7 @@
 
     <button class="m-b-8 m-t-20" nz-button nzBlock nzType="dashed" (click)="add()">
       <i nz-icon nzType="plus"></i>
-      <span>添加</span>
+      <span>Thêm</span>
     </button>
 
     <nz-list [nzDataSource]="showTaskList" [nzLoading]="loading" [nzPagination]="pagination" [nzRenderItem]="item">
@@ -135,8 +135,8 @@
             </a>
             <nz-dropdown-menu #opMenu="nzDropdownMenu">
               <ul nz-menu>
-                <li nz-menu-item>编辑</li>
-                <li nz-menu-item>删除</li>
+                <li nz-menu-item>Sửa</li>
+                <li nz-menu-item>Xóa</li>
               </ul>
             </nz-dropdown-menu>
           </ng-template>

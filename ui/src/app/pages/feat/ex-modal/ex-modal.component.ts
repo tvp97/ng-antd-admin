@@ -23,8 +23,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 export class ExModalComponent {
   readonly dragTpl = viewChild.required<TemplateRef<NzSafeAny>>('dragTpl');
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '拖动Modal，是对zorro弹窗组件的拓展',
-    breadcrumb: ['首页', '拖拽modal']
+    title: 'Kéo Modal — mở rộng trên dialog Zorro',
+    breadcrumb: ['Trang chủ', 'Modal kéo thả']
   };
   destroyRef = inject(DestroyRef);
   isVisible = false;
@@ -58,44 +58,44 @@ export class ExModalComponent {
   showDailogConfirm(): void {
     this.modalDragService.confirm({
       nzTitle: 'Confirm',
-      nzContent: '提示一下的内容',
+      nzContent: 'Nội dung thông báo mẫu',
       nzOnOk: () => {
-        console.log('确定');
+        console.log('Xác nhận');
       },
       nzOnCancel: () => {
-        console.log('取消');
+        console.log('Huỷ');
       }
     });
   }
 
   showDailogInfo(): void {
-    this.modalDragService.info({ nzTitle: 'Info', nzContent: '提示一下的内容' });
+    this.modalDragService.info({ nzTitle: 'Info', nzContent: 'Nội dung thông báo mẫu' });
   }
 
   showDailogSuccess(): void {
-    this.modalDragService.success({ nzTitle: 'Success', nzContent: '提示一下的内容' });
+    this.modalDragService.success({ nzTitle: 'Success', nzContent: 'Nội dung thông báo mẫu' });
   }
 
   showDailogError(): void {
-    this.modalDragService.error({ nzTitle: 'Error', nzContent: '提示一下的内容' });
+    this.modalDragService.error({ nzTitle: 'Error', nzContent: 'Nội dung thông báo mẫu' });
   }
 
   showDailogWarning(): void {
-    this.modalDragService.warning({ nzTitle: 'Warning', nzContent: '提示一下的内容' });
+    this.modalDragService.warning({ nzTitle: 'Warning', nzContent: 'Nội dung thông báo mẫu' });
   }
 
   showDailog(): void {
-    // 两种方式
+    // Hai cách
     // this.dragService.show({nzTitle: this.dragTpl, nzMask: false,nzMaskStyle:{display:'none'},nzWrapClassName:"pointer-events-none"}).subscribe(res=>console.log(res))
     this.dragService
       .show(
         {
-          nzTitle: '拖动的title',
+          nzTitle: 'Tiêu đề kéo thả',
           nzMask: false,
           nzMaskStyle: { display: 'none' },
           nzWrapClassName: 'pointer-events-none'
         },
-        { title: '我是从外部传入到对话框的参数' }
+        { title: 'Tham số truyền từ bên ngoài vào hộp thoại' }
       )
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(({ modalValue, status }) => {

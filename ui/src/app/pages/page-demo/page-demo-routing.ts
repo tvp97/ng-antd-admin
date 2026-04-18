@@ -50,7 +50,7 @@ export default [
   },
   {
     path: 'page-demo2',
-    title: '新页面2',
+    title: 'Trang mới 2',
     data: { key: 'page-demo2' },
     loadComponent: () => import('../../pages/no-content/no-content.component').then(m => m.NoContentComponent)
   },

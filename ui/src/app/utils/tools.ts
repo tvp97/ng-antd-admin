@@ -97,7 +97,7 @@ const fnGetPathWithoutParam = function getPathWithoutParam(path: string): string
   return path;
 };
 
-// 返回uuid
+// Quay lạiuuid
 const fnGetUUID = function getUUID(): string {
   return uuidv4();
 };

@@ -6,7 +6,7 @@ import { Type } from '@angular/core';
 
 import { NzSafeAny } from 'ng-zorro-antd/core/types';
 
-// 动态组件
+// Hoạt động组件
 export class DynamicComponent {
   constructor(
     public component: Type<NzSafeAny>,
@@ -20,7 +20,7 @@ export interface OptionsInterface {
   label: string;
 }
 
-// 列表搜索
+// 列表Tìm kiếm
 export interface SearchCommonVO<T> {
   pageIndex: number;
   pageSize: number;
@@ -50,7 +50,7 @@ export interface PageInfo<T> {
   navigatepageIndexs?: number[];
 }
 
-// 动态组件
+// Hoạt động组件
 export interface AdComponent {
   data: NzSafeAny;
 }
@@ -73,8 +73,8 @@ export interface Menu {
   orderNum?: number;
   menuName: string;
   menuType: 'C' | 'F'; // c:菜单，f按钮
-  icon?: string; // 如果showIcon为false，设置这个为搜索窗口时，最左侧的icon
-  alIcon?: string; // 如果showIcon为false，设置这个为搜索窗口时，最左侧的icon
+  icon?: string; // 如果showIcon为false，设置这个为Tìm kiếm窗口时，最左侧的icon
+  alIcon?: string; // 如果showIcon为false，设置这个为Tìm kiếm窗口时，最左侧的icon
   updatedAt?: string;
   createdAt?: string;
   deletedAt?: string;

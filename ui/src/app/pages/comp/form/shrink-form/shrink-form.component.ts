@@ -33,7 +33,7 @@ export class ShrinkFormComponent {
 
   isCollapse = true;
 
-  /*重置*/
+  /*Đặt lại*/
   resetForm(): void {
     this.searchParam = {};
   }

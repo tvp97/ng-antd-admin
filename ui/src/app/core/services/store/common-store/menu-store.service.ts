@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 
 import { Menu } from '@core/services/types';
 
-// 菜单store service
+// Dịch vụ store menu
 @Injectable({
   providedIn: 'root'
 })

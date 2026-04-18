@@ -26,7 +26,7 @@ export class SubWindowWithService {
   private themesService = inject(ThemeService);
   // todo signal 修正
   themesOptions$ = toObservable(this.themesService.$themesOptions);
-  // 监听主题（是top，还是side），确定over模式最小宽度
+  // 监听主题（是top，还是side），Xác nhậnover模式最小宽度
   subWidthForTheme(): void {
     this.themesOptions$
       .pipe(

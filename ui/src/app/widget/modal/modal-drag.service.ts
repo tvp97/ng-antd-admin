@@ -5,7 +5,7 @@ import { NzSafeAny } from 'ng-zorro-antd/core/types';
 import { ModalTypes, NzModalService } from 'ng-zorro-antd/modal';
 
 /**
- * 对话框拖动服务
+ * Dịch vụ kéo hộp thoại
  */
 @Injectable({
   providedIn: 'root'
@@ -69,7 +69,7 @@ export class ModalDragService {
   }
 
   /**
-   * 获取所有对话框最大值,并确定是否需要修改
+   * 获取所有对话框最大值,并Xác nhận是否需要修改
    *
    * @param wrapElement 待修改z-index 容器
    */
