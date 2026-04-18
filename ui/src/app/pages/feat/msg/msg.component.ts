@@ -32,9 +32,9 @@ export class MsgComponent {
   };
 
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '消息提示',
-    breadcrumb: ['首页', '功能', '消息提示'],
-    desc: '这个是好心人pr的功能'
+    title: 'Thông báo',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Thông báo'],
+    desc: 'Đây là người tốt bụngprchức năng'
   };
   private message = inject(NzMessageService);
   private modal = inject(NzModalService);

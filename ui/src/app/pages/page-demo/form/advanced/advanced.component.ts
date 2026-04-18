@@ -18,7 +18,7 @@ import { TaskManageFormComponent as TaskManageFormComponent_1 } from './task-man
 import { UserMemberManageComponent } from './user-member-manage/user-member-manage.component';
 import { WarehouseManageFormComponent as WarehouseManageFormComponent_1 } from './warehouse-manage-form/warehouse-manage-form.component';
 
-// 自定义表单
+// Biểu mẫu tùy chỉnh
 /*https://juejin.cn/post/6844904018922176520*/
 @Component({
   selector: 'app-advanced',
@@ -31,7 +31,7 @@ import { WarehouseManageFormComponent as WarehouseManageFormComponent_1 } from '
     NzFormModule,
     ReactiveFormsModule,
     NzCardModule,
-    WaterMarkComponent,
+
     WarehouseManageFormComponent_1,
     TaskManageFormComponent_1,
     UserMemberManageComponent,
@@ -44,9 +44,9 @@ export class AdvancedComponent implements OnInit {
   readonly warehouseManageComponent = viewChild.required<WarehouseManageFormComponent>('warehouseManageComponent');
   readonly taskManageComponent = viewChild.required<TaskManageFormComponent>('taskManageComponent');
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '高级表单',
-    desc: '高级表单常见于一次性输入和Gửi大批量数据的场景。(演示自定义表单)',
-    breadcrumb: ['首页', '表单页', '高级表单']
+    title: 'Biểu mẫu nâng cao',
+    desc: 'Biểu mẫu cao cấp thường xuất hiện trong việc nhập dữ liệu một lần vàGửiKịch bản dữ liệu với khối lượng lớn.(Trình diễn biểu mẫu tùy chỉnh)',
+    breadcrumb: ['Trang chủ', 'Trang biểu mẫu', 'Biểu mẫu nâng cao']
   };
   validateForm!: FormGroup;
 
@@ -58,7 +58,7 @@ export class AdvancedComponent implements OnInit {
     if (!fnCheckForm(this.validateForm) | this.warehouseManageComponent().checkForm() | this.taskManageComponent().checkForm()) {
       return;
     }
-    this.message.info('控制台打印出了表单数据');
+    this.message.info('Console đã in ra dữ liệu biểu mẫu');
     console.log(this.validateForm.value);
   }
 

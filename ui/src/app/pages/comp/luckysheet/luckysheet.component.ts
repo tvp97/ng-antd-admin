@@ -26,8 +26,8 @@ export class LuckysheetComponent implements AfterViewInit {
           userName: 'NgAntAdmin', // Tên đăng nhập
           myFolderUrl: 'https://github.com/huajian123/ng-antd-admin',
           container: 'luckysheet',
-          title: '简单的示例', // 设定表格名称
-          lang: 'zh' // 设定表格语言
+          title: 'Ví dụ đơn giản', // Đặt tên bảng
+          lang: 'zh' // Đặt ngôn ngữ bảng
         };
         // @ts-ignore
         luckysheet.create(options);

@@ -18,9 +18,9 @@ import { NzWaveModule } from 'ng-zorro-antd/core/wave';
 export class LazyBasicComponent implements AfterViewInit {
   lazyServiceService = inject(LazyServiceService);
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '懒加载组件示例',
-    breadcrumb: ['首页', '组件', '懒加载组件'],
-    desc: '懒加载组件,我不再喜欢明星'
+    title: 'Ví dụ về thành phần tải lười',
+    breadcrumb: ['Trang chủ', 'Thành phần', 'Thành phần tải lười'],
+    desc: 'Thành phần tải lười,Tôi không còn thích người nổi tiếng nữa'
   };
   readonly adHost = viewChild.required(AdDirective);
   isStarted = false;

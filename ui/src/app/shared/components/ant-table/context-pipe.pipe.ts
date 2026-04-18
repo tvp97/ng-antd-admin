@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { NzSafeAny } from 'ng-zorro-antd/core/types';
 
 /*
- * 用于在调用table时，获取每一列的数据，而指定上下文
+ * Dùng để gọitableKhi đó, lấy dữ liệu của từng cột, và chỉ định ngữ cảnh
  * */
 @Pipe({
   name: 'contextPipe',

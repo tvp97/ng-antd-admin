@@ -7,7 +7,7 @@ import { PageInfo, SearchCommonVO } from '../../types';
 import { BaseHttpService } from '../base-http.service';
 
 /*
- *  权限
+ *  Quyền hạn
  * */
 export interface Permission {
   hasChildren: boolean;
@@ -15,20 +15,20 @@ export interface Permission {
   code: string;
   fatherId: number;
   id: number;
-  menuGrade: number; // 级别
+  menuGrade: number; // Cấp độ
   permissionVo: Permission[];
-  isOpen?: boolean; // 是否折叠
+  isOpen?: boolean; // Có gập lại không
   checked: boolean;
 }
 
-// 更新权限参数接口
+// Giao diện tham số quyền cập nhật
 export interface PutPermissionParam {
   permCodes: string[];
   roleId: number;
 }
 
 /*
- * 角色
+ * nhân vật
  * */
 export interface Role {
   id?: number;
@@ -43,7 +43,7 @@ export class RoleService {
   http = inject(BaseHttpService);
 
   public getRoles(param: SearchCommonVO<Role>): Observable<PageInfo<Role>> {
-    return this.http.post('/role/list', param, { showLoading: true, loadingText: '请求中' });
+    return this.http.post('/role/list', param, { showLoading: true, loadingText: 'Đang yêu cầu' });
   }
 
   public getRolesDetail(id: number): Observable<Role> {

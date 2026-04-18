@@ -478,13 +478,13 @@ export class MonitorComponent {
         fill: '#d6e3fd'
       },
       annotations: [
-        // 平均值
+        // Giá trị trung bình
         {
           type: 'line',
           start: ['min', 'mean'],
           end: ['max', 'mean'],
           text: {
-            content: '400亿元',
+            content: '400tỷ nhân dân tệ',
             offsetY: -2,
             style: {
               textAlign: 'left',
@@ -497,13 +497,13 @@ export class MonitorComponent {
             //   stroke: 'rgba(0, 0, 0, 0.25)',
           }
         },
-        // 目标值
+        // Giá trị mục tiêu
         {
           type: 'line',
           start: ['min', 800],
           end: ['max', 800],
           text: {
-            content: '1400亿元',
+            content: '1400tỷ nhân dân tệ',
             offsetY: -2,
             style: {
               textAlign: 'left',
@@ -545,11 +545,11 @@ export class MonitorComponent {
         fontFamily: 'Verdana',
         fontSize: [24, 80]
       },
-      // 设置交互类型
+      // Thiết lập loại tương tác
       interactions: [{ type: 'element-active' }],
       state: {
         active: {
-          // 这里可以设置 active 时的样式
+          // Ở đây có thể cài đặt active kiểu dáng của thời điểm
           style: {
             lineWidth: 3
           }

@@ -25,7 +25,7 @@ export class LazyServiceService {
     const viewContainerRef = this._adHost.viewContainerRef;
     const { LazyTargCompComponent } = await import('./lazy-targ-comp/lazy-targ-comp.component');
     const componentRef = viewContainerRef.createComponent(LazyTargCompComponent);
-    // 使用setInput api可以被onchange钩子管理
+    // sử dụngsetInput apicó thể bịonchangeQuản lý hook
     componentRef.setInput('purChoosePeople', selPerson);
     componentRef.instance.currentPeople.subscribe(currentPeople => {
       this.create(currentPeople);

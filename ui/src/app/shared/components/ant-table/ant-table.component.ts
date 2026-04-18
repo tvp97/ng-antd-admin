@@ -11,35 +11,35 @@ import { MapPipe } from '../../pipes/map.pipe';
 import { TableFiledPipe } from '../../pipes/table-filed.pipe';
 
 export interface TableHeader {
-  title: string; // 表头名称
-  field?: string; // 字段
-  pipe?: string; // 管道
-  showSort?: boolean; // 是否显示排序
-  sortDir?: undefined | 'asc' | 'desc'; // 排序方向
-  width?: number; // 单元格宽度
-  thTemplate?: TemplateRef<NzSafeAny>; // th单元格模板
-  tdTemplate?: TemplateRef<NzSafeAny>; // td单元格模板
-  fixed?: boolean; // 是否固定单元格 （只有从最左边或最右边连续固定才有效）
-  fixedDir?: 'left' | 'right'; // 固定在左边还是右边，需要配合fixed来使用
-  notNeedEllipsis?: boolean; // 不需要...时给true
-  tdClassList?: string[]; // 为td单元格指定类 (父组件中的类必须加上 /deep/ 前缀才能对子组件生效)
-  thClassList?: string[]; // 为th单元格指定类  (父组件中的类必须加上 /deep/ 前缀才能对子组件生效)
-  show?: boolean; // 是否显示列，false:不显示，其他：显示
+  title: string; // Tên tiêu đề
+  field?: string; // Trường
+  pipe?: string; // Ống dẫn
+  showSort?: boolean; // Có hiển thị sắp xếp không
+  sortDir?: undefined | 'asc' | 'desc'; // Hướng sắp xếp
+  width?: number; // Chiều rộng ô
+  thTemplate?: TemplateRef<NzSafeAny>; // thMẫu ô
+  tdTemplate?: TemplateRef<NzSafeAny>; // tdMẫu ô
+  fixed?: boolean; // Có cố định ô không （Chỉ hiệu quả khi cố định liên tục từ bên trái nhất hoặc bên phải nhất）
+  fixedDir?: 'left' | 'right'; // Cố định ở bên trái hay bên phải, cần phối hợpfixedHãy sử dụng
+  notNeedEllipsis?: boolean; // Không cần...khi chotrue
+  tdClassList?: string[]; // vìtdLớp chỉ định ô (Lớp trong thành phần cha phải được thêm vào /deep/ Chỉ có tiền tố mới có hiệu lực đối với các thành phần con)
+  thClassList?: string[]; // vìthLớp chỉ định ô  (Lớp trong thành phần cha phải được thêm vào /deep/ Chỉ có tiền tố mới có hiệu lực đối với các thành phần con)
+  show?: boolean; // Có hiển thị cột không,false:Không hiển thị, khác: hiển thị
   tdClassFn?: (data: NzSafeAny, index: number) => string[];
   thClassFn?: (data: NzSafeAny) => string[];
 }
 
 export interface AntTableConfig {
-  needNoScroll?: boolean; //列表是否需要滚动条
-  xScroll?: number; //列表横向滚动条
-  yScroll?: number; //列表纵向滚动条
-  virtualItemSize?: number; //虚拟滚动时每一列的高度，与 cdk itemSize 相同
-  showCheckbox?: boolean; // 如果需要checkBox,则需要showCheckbox=true,并且使用app-ant-table组件时传入 [checkedCashArrayFromComment]="cashArray"，cashArray为业务组件中自己定义的数组，并且需要table中的data都有一个id属性
-  pageIndex: number; // 当前页码，（与页面中页码双向绑定）
-  pageSize: number; // 每一页显示的数据条数（与页面中pageSize双向绑定）
-  total: number; // 数据总量，用于计算分页（应该从后端接口中获得）
-  loading: boolean; // 是否显示表格Đang tải
-  headers: TableHeader[]; // 列设置
+  needNoScroll?: boolean; //Danh sách có cần thanh cuộn không
+  xScroll?: number; //Thanh cuộn ngang của danh sách
+  yScroll?: number; //Thanh cuộn dọc của danh sách
+  virtualItemSize?: number; //Chiều cao của mỗi cột khi cuộn ảo, với cdk itemSize tương tự
+  showCheckbox?: boolean; // Nếu cầncheckBox,thì cầnshowCheckbox=true,và sử dụngapp-ant-tabletruyền vào khi lắp ráp thành phần [checkedCashArrayFromComment]="cashArray"，cashArrayĐối với mảng do chính mình định nghĩa trong thành phần nghiệp vụ, và cầntabletrongdatađều có mộtidThuộc tính
+  pageIndex: number; // Số trang hiện tại (liên kết hai chiều với số trang trong trang)
+  pageSize: number; // Số lượng mục dữ liệu hiển thị trên mỗi trang (với trong trangpageSizeRàng buộc hai chiều
+  total: number; // Tổng lượng dữ liệu, dùng để tính phân trang (nên lấy từ giao diện lập trình phía sau)
+  loading: boolean; // Có hiển thị bảng không Đang tải
+  headers: TableHeader[]; // Cài đặt cột
 }
 
 export abstract class AntTableComponentToken {
@@ -63,7 +63,7 @@ export interface SortFile {
   imports: [NzTableModule, NzResizableModule, NgTemplateOutlet, MapPipe, TableFiledPipe, ContextPipePipe]
 })
 export class AntTableComponent implements OnChanges {
-  // 从业务组件中传入的缓存的已经选中的checkbox数据数组
+  // Đã được chọn trong bộ nhớ đệm truyền từ thành phần kinh doanhcheckboxmảng dữ liệu
   readonly checkedCashArrayFromComment = input<NzSafeAny[]>([]);
 
   tableData = input<NzSafeAny[]>([]);
@@ -127,7 +127,7 @@ export class AntTableComponent implements OnChanges {
   }
 
   tableChangeDectction(): void {
-    // 改变引用触发变更检测。
+    // Thay đổi tham chiếu sẽ kích hoạt kiểm tra thay đổi.
     // this._dataList() = [...this._dataList()];
     this.cdr.markForCheck();
   }
@@ -144,12 +144,12 @@ export class AntTableComponent implements OnChanges {
     return `${item.id}-${index}`;
   }
 
-  // 分页页码改变
+  // Thay đổi số trang phân trang
   onQueryParamsChange(tableQueryParams: NzTableQueryParams): void {
     this.changePageIndex.emit(tableQueryParams);
   }
 
-  // 修改一页几条的页码
+  // Chỉnh sửa số trang cho mỗi trang vài mục
   onPageSizeChange($event: NzSafeAny): void {
     this.changePageSize.emit($event);
   }
@@ -179,14 +179,14 @@ export class AntTableComponent implements OnChanges {
     }
   }
 
-  // 单选
+  // Chọn đơn
   public checkRowSingle(isChecked: boolean, selectIndex: number): void {
     this.checkFn(this._dataList()[selectIndex], isChecked);
     this.selectedChange.emit(this.checkedCashArrayFromComment());
     this.refreshStatus();
   }
 
-  // 全选
+  // Chọn tất cả
   onAllChecked(isChecked: boolean): void {
     this._dataList().forEach(item => {
       this.checkFn(item, isChecked);
@@ -195,7 +195,7 @@ export class AntTableComponent implements OnChanges {
     this.refreshStatus();
   }
 
-  // 刷新复选框状态
+  // Làm mới trạng thái hộp kiểm
   refreshStatus(): void {
     this._dataList().forEach(item => {
       const index = this.checkedCashArrayFromComment().findIndex(cashItem => {

@@ -20,28 +20,28 @@ import { NzTooltipModule } from 'ng-zorro-antd/tooltip';
 })
 export class FlowChatComponent implements AfterViewInit {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '流程Sửa器，有了流程图，我就该知道未来该做什么了',
-    breadcrumb: ['首页', '扩展功能', '图形Sửa器', '流程图'],
-    desc: '千言万语不如一张图，流程图是表示算法思路的好方法(简单流程图示例,具体功能需要自己完善，antV x6)'
+    title: 'Quy trìnhSửaCórồi quy trình, tôi sẽ biết mình nên làm gì trong tương lai',
+    breadcrumb: ['Trang chủ', 'Chức năng mở rộng', 'Đồ họaSửakhí', 'Sơ đồ quy trình'],
+    desc: 'Ngàn lời không bằng một bức tranh, sơ đồ quy trình là phương pháp tốt để thể hiện ý tưởng thuật toán(Ví dụ sơ đồ quy trình đơn giản,Các chức năng cụ thể cần tự mình hoàn thiện,antV x6)'
   };
   graph!: Graph;
   readonly container = viewChild.required<ElementRef>('container');
 
-  /** x6画布的一些基础属性 */
+  /** x6Một số thuộc tính cơ bản của canvas */
   graphBasicConfig = {
     grid: {
-      size: 10, // 网格大小 10px
-      visible: true // 渲染网格背景
+      size: 10, // Kích thước lưới 10px
+      visible: true // Kết xuất nền lưới
     },
-    panning: true, // 画布拖拽
+    panning: true, // Kéo thả canvas
     selecting: true,
     height: 400,
     connecting: {
-      snap: true, // 连线的过程中距离节点或者连接桩 50px 时会触发自动吸附
-      allowBlank: false, // 是否允许连接到画布空白位置的点
-      allowLoop: false, // 是否允许创建循环连线，即边的起始节点和终止节点为同一节点
-      allowNode: false, // 是否允许边链接到节点（非节点上的链接桩）
-      allowEdge: false, // 是否允许边链接到另一个边
+      snap: true, // Trong quá trình kết nối, khoảng cách đến nút hoặc trụ kết nối 50px Khi đó sẽ kích hoạt tự động hút
+      allowBlank: false, // Có cho phép kết nối với các điểm trên vị trí trống của canvas không
+      allowLoop: false, // Có cho phép tạo kết nối vòng lặp, tức là nút bắt đầu và nút kết thúc của cạnh là cùng một nút không
+      allowNode: false, // Có cho phép cạnh liên kết đến nút (không phải chấu liên kết trên nút) hay không
+      allowEdge: false, // Có cho phép một cạnh liên kết đến một cạnh khác không
       connector: 'rounded',
       connectionPoint: 'boundary'
     }
@@ -61,7 +61,7 @@ export class FlowChatComponent implements AfterViewInit {
       shape: shap,
       ports: {
         groups: {
-          // 输入链接桩群组定义
+          // Nhập định nghĩa nhóm cọc liên kết
           in: {
             position: 'top',
             attrs: {
@@ -74,7 +74,7 @@ export class FlowChatComponent implements AfterViewInit {
               }
             }
           },
-          // 输出链接桩群组定义
+          // Xuất định nghĩa nhóm chốt liên kết
           out: {
             position: 'bottom',
             attrs: {

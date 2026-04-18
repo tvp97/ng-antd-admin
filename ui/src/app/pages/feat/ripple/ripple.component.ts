@@ -17,8 +17,8 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 })
 export class RippleComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '水波纹',
-    breadcrumb: ['首页', '功能', '水波纹']
+    title: 'Gợn sóng nước',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Gợn sóng nước']
   };
   centered = false;
   disabled = false;

@@ -6,7 +6,7 @@ import { driver, DriveStep } from 'driver.js';
 import { NzSafeAny } from 'ng-zorro-antd/core/types';
 /*
  * https://madewith.cn/766
- * 引导页
+ * Trang dẫn hướng
  * */
 @Injectable({
   providedIn: 'root'
@@ -18,14 +18,14 @@ export class DriverService {
   $fixedTab = computed(() => this.themesService.$themesOptions().fixedTab);
 
   load(): void {
-    // 是否是固定页签
+    // Có phải là tab cố định không
     const tabId = !this.$fixedTab() ? '#multi-tab' : '#multi-tab2';
     const steps: DriveStep[] = [
       {
         element: '#menuNav',
         popover: {
-          title: '菜单',
-          description: '这里是菜单',
+          title: 'Thực đơn',
+          description: 'Đây là thực đơn',
           side: 'right',
           align: 'center'
         }
@@ -33,40 +33,40 @@ export class DriverService {
       {
         element: '#drawer-handle',
         popover: {
-          title: '主题设置按钮',
-          description: '点击展开设置主题，可以上下拖动',
+          title: 'Nút cài đặt chủ đề',
+          description: 'Nhấn để mở rộng cài đặt chủ đề, có thể kéo lên và xuống',
           side: 'left'
         }
       },
       {
         element: '#tools',
         popover: {
-          title: '工具栏',
-          description: '锁屏，Tìm kiếm菜单，全屏，通知消息，退出登录，多语言',
+          title: 'Thanh công cụ',
+          description: 'Khóa màn hình,Tìm kiếmMenu, toàn màn hình, thông báo, đăng xuất, đa ngôn ngữ',
           side: 'bottom'
         }
       },
       {
         element: '#chats',
         popover: {
-          title: '联系管理员',
-          description: '跟管理员联系联系',
+          title: 'Liên hệ quản trị viên',
+          description: 'Liên hệ với quản trị viên',
           side: 'top'
         }
       },
       {
         element: '#trigger',
         popover: {
-          title: '折叠菜单',
-          description: '菜单折叠',
+          title: 'Menu gập',
+          description: 'Thu gọn menu',
           side: 'bottom'
         }
       },
       {
         element: tabId,
         popover: {
-          title: '多标签',
-          description: '鼠标右键点击单个标签可以展开多个选项，超出屏幕后，滚动鼠标滚轮可以进行页签滚动',
+          title: 'Đa nhãn',
+          description: 'Nhấp chuột phải vào một tab đơn có thể mở ra nhiều tùy chọn, khi vượt quá màn hình, cuộn bánh xe chuột có thể di chuyển các tab.',
           side: 'bottom'
         }
       }
@@ -82,9 +82,9 @@ export class DriverService {
       showProgress: true,
       animate: true,
       allowClose: true,
-      doneBtnText: '完成',
-      nextBtnText: '下一步',
-      prevBtnText: '上一步',
+      doneBtnText: 'Hoàn thành',
+      nextBtnText: 'Bước tiếp theo',
+      prevBtnText: 'Bước trước',
       onHighlightStarted: () => {
         this.doc.body.style.cssText = 'overflow:hidden';
       },

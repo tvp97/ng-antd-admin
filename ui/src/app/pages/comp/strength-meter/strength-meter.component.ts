@@ -18,9 +18,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 })
 export class StrengthMeterComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '密码强度校验组件',
-    breadcrumb: ['首页', '组件', '密码强度校验组件'],
-    desc: '看看你密码强度够不够'
+    title: 'Thành phần kiểm tra độ mạnh của mật khẩu',
+    breadcrumb: ['Trang chủ', 'Thành phần', 'Thành phần kiểm tra độ mạnh của mật khẩu'],
+    desc: 'Xem mật khẩu của bạn có đủ mạnh không'
   };
   passwordVisible = false;
   newPassword!: string;

@@ -17,10 +17,10 @@ export class ModalDragService {
   dragDrop = inject(DragDrop);
 
   /**
-   * 创建拖拽手柄
+   * Tạo tay cầm kéo thả
    *
-   * @param wrapCls 类名
-   * @param nzModalType 对话框类型
+   * @param wrapCls Tên lớp
+   * @param nzModalType Loại hộp thoại
    */
   createDragHandler<T = NzSafeAny>(wrapCls: string, nzModalType?: ModalTypes): DragRef<T> {
     const wrapElement = document.querySelector<HTMLDivElement>(`.${wrapCls}`)!;
@@ -32,14 +32,14 @@ export class ModalDragService {
   }
 
   /**
-   * 获取随机类名
+   * Lấy tên lớp ngẫu nhiên
    */
   getRandomCls(): string {
     return ModalDragService.DRAG_CLS_PREFIX + Date.now() + Math.random().toString().replace('0.', '');
   }
 
   /**
-   * 解决wrap的样式, 设置鼠标可以穿透
+   * giải quyếtwrapkiểu dáng, Cài đặt chuột có thể xuyên qua
    *
    * @param wrapElement
    * @protected
@@ -49,10 +49,10 @@ export class ModalDragService {
   }
 
   /**
-   * 当前对话框点击时,设置当前对话框z-index为最大
+   * Khi nhấn vào hộp thoại hiện tại,Đặt hộp thoại hiện tạiz-indexVì tối đa
    *
-   * @param rootElement 当前对话框
-   * @param wrapElement 待修改z-index 容器
+   * @param rootElement Hộp thoại hiện tại
+   * @param wrapElement Chờ sửa đổiz-index Bình chứa
    * @protected
    */
   protected setMaxZIndex(rootElement: HTMLElement, wrapElement: HTMLElement): void {
@@ -69,9 +69,9 @@ export class ModalDragService {
   }
 
   /**
-   * 获取所有对话框最大值,并Xác nhận是否需要修改
+   * Lấy giá trị tối đa của tất cả các hộp thoại,vàXác nhậnCó cần chỉnh sửa không
    *
-   * @param wrapElement 待修改z-index 容器
+   * @param wrapElement Chờ sửa đổiz-index Bình chứa
    */
   protected getModalMaxZIndex(wrapElement: HTMLElement): number | null {
     const wrapZIndex = this.getZIndex(wrapElement);

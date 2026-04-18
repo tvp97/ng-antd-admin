@@ -17,12 +17,12 @@ import { NzSafeAny } from 'ng-zorro-antd/core/types';
 })
 export class ClickOutSideComponent implements AfterViewInit {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '点内外部触发事件，点一点总会有好运',
-    breadcrumb: ['首页', '功能', 'clickOutSide']
+    title: 'Chạm vào các sự kiện kích hoạt bên trong và bên ngoài, chạm một lần sẽ luôn gặp may mắn',
+    breadcrumb: ['Trang chủ', 'chức năng', 'clickOutSide']
   };
   destroyRef = inject(DestroyRef);
-  text = signal('点击内部或者外部');
-  winClick$!: Observable<Event>; // 绑定window的click事件
+  text = signal('Nhấp vào bên trong hoặc bên ngoài');
+  winClick$!: Observable<Event>; // Liên kếtwindowcủaclicksự kiện
   readonly targetHtml = viewChild.required<ElementRef>('targetHtml');
   targetHtmlClick$!: Observable<NzSafeAny>;
 
@@ -32,12 +32,12 @@ export class ClickOutSideComponent implements AfterViewInit {
     this.targetHtmlClick$ = fromEvent(this.targetHtml().nativeElement, 'click').pipe(
       tap(e => {
         fnStopMouseEvent(e as MouseEvent);
-        this.text.set('刀斩肉身');
+        this.text.set('Đao chém thân xác');
       })
     );
     this.winClick$ = fromEvent(this.doc, 'click').pipe(
       tap(() => {
-        this.text.set('心斩灵魂');
+        this.text.set('Chém linh hồn');
       })
     );
     merge(this.targetHtmlClick$, this.winClick$)

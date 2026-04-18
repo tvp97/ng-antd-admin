@@ -2,12 +2,12 @@ import { Route } from '@angular/router';
 
 export default [
   { path: '', redirectTo: 'transition', pathMatch: 'full' },
-  { path: 'transition', title: '动画组件', data: { key: 'transition' }, loadComponent: () => import('./transition/transition.component').then(m => m.TransitionComponent) },
-  { path: 'basic', title: '基础组件', data: { key: 'basic' }, loadComponent: () => import('./basic/basic.component').then(m => m.BasicComponent) },
+  { path: 'transition', title: 'Thành phần hoạt hình', data: { key: 'transition' }, loadComponent: () => import('./transition/transition.component').then(m => m.TransitionComponent) },
+  { path: 'basic', title: 'Các thành phần cơ bản', data: { key: 'basic' }, loadComponent: () => import('./basic/basic.component').then(m => m.BasicComponent) },
   { path: 'lazy', loadChildren: () => import('./lazy/lazy-routing') },
-  { path: 'luckysheet', title: '在线excel', data: { key: 'luckysheet' }, loadComponent: () => import('./luckysheet/luckysheet.component').then(m => m.LuckysheetComponent) },
-  { path: 'desc', title: 'Chi tiết组件', data: { key: 'desc' }, loadComponent: () => import('./desc/desc.component').then(m => m.DescComponent) },
-  { path: 'strength-meter', title: '密码强度组件', data: { key: 'strength-meter' }, loadComponent: () => import('./strength-meter/strength-meter.component').then(m => m.StrengthMeterComponent) },
+  { path: 'luckysheet', title: 'Trực tuyếnexcel', data: { key: 'luckysheet' }, loadComponent: () => import('./luckysheet/luckysheet.component').then(m => m.LuckysheetComponent) },
+  { path: 'desc', title: 'Chi tiếtThành phần', data: { key: 'desc' }, loadComponent: () => import('./desc/desc.component').then(m => m.DescComponent) },
+  { path: 'strength-meter', title: 'Thành phần độ mạnh mật khẩu', data: { key: 'strength-meter' }, loadComponent: () => import('./strength-meter/strength-meter.component').then(m => m.StrengthMeterComponent) },
   { path: 'form', loadChildren: () => import('./form/form-routing') },
   {
     path: 'blingbling',
@@ -17,25 +17,25 @@ export default [
   },
   {
     path: 'comp2',
-    title: '新组件2',
+    title: 'Thành phần mới2',
     data: { key: 'comp2' },
     loadComponent: () => import('../../pages/no-content/no-content.component').then(m => m.NoContentComponent)
   },
   {
     path: 'comp3',
-    title: '新组件3',
+    title: 'Thành phần mới3',
     data: { key: 'comp3' },
     loadComponent: () => import('../../pages/no-content/no-content.component').then(m => m.NoContentComponent)
   },
   {
     path: 'comp4',
-    title: '新组件4',
+    title: 'Thành phần mới4',
     data: { key: 'comp4' },
     loadComponent: () => import('../../pages/no-content/no-content.component').then(m => m.NoContentComponent)
   },
   {
     path: 'comp5',
-    title: '新组件5',
+    title: 'Thành phần mới5',
     data: { key: 'comp5' },
     loadComponent: () => import('../../pages/no-content/no-content.component').then(m => m.NoContentComponent)
   }

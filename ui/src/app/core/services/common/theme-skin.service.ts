@@ -3,7 +3,7 @@ import { computed, inject, Injectable, DOCUMENT } from '@angular/core';
 import { StyleTheme, ThemeService } from '@store/common-store/theme.service';
 
 /*
- * 切换主题服务
+ * Chuyển đổi dịch vụ chủ đề
  * */
 @Injectable({
   providedIn: 'root'

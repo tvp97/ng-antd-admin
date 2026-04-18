@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, inject, DestroyRef, computed } from
 
 import { LockScreenStoreService } from '@store/common-store/lock-screen-store.service';
 
-/*此组件为了解决锁屏时f12仍然能查看到被隐藏的页面，而创建的空白页面*/
+/*Bộ phận này nhằm để giải quyết khi khóa màn hìnhf12Vẫn có thể xem được các trang bị ẩn, cũng như các trang trống đã tạo*/
 @Component({
   selector: 'app-empty-for-lock',
   template: ``,
@@ -11,7 +11,7 @@ import { LockScreenStoreService } from '@store/common-store/lock-screen-store.se
 export class EmptyForLockComponent {
   destroyRef = inject(DestroyRef);
   private lockScreenStoreService = inject(LockScreenStoreService);
-  // 路由的锁屏状态
+  // Trạng thái khóa màn hình của bộ định tuyến
   routeStatus = computed(() => {
     return this.lockScreenStoreService.lockScreenSignalStore();
   });

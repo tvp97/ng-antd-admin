@@ -26,7 +26,7 @@ export class StepOneComponent implements OnInit {
 
   private fb = inject(FormBuilder);
 
-  // 下一步
+  // Bước tiếp theo
   goNext(): void {
     if (!fnCheckForm(this.validateForm)) {
       return;

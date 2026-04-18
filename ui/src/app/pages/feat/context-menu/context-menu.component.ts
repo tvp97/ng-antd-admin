@@ -16,9 +16,9 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 })
 export class ContextMenuComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '右键菜单示例',
-    breadcrumb: ['首页', '功能', '右键菜单'],
-    desc: '没什么，搬运的zorro官网示例'
+    title: 'Ví dụ menu chuột phải',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Menu chuột phải'],
+    desc: 'Không có gì, chỉ là vận chuyểnzorroVí dụ trên trang web chính thức'
   };
   private nzContextMenuService = inject(NzContextMenuService);
 

@@ -35,7 +35,7 @@ export class TaskModalComponent extends BasicConfirmModalComponent implements On
   readonly nzModalData: TaskModalData = inject(NZ_MODAL_DATA);
   isEdit = false;
 
-  // 可用标签列表
+  // Danh sách nhãn có sẵn
   availableTags = ['Frontend', 'Backend', 'DevOps', 'UI', 'Bug', 'Feature', 'Docs', 'Review', 'K8s', 'Angular', 'Mobile'];
 
   private fb = inject(FormBuilder);

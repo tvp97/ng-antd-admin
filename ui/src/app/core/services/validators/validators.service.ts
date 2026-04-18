@@ -9,22 +9,22 @@ import { ValidatorsRuleService } from './validators-rule.service';
 export class ValidatorsService {
   private vrService = inject(ValidatorsRuleService);
 
-  // 邮箱校验
+  // Xác thực email
   public emailValidator(): ValidatorFn | null {
     return this.commonUtil(this.vrService.emailRule);
   }
 
-  // 手机号码校验
+  // Xác minh số điện thoại di động
   public mobileValidator(): ValidatorFn | null {
     return this.commonUtil(this.vrService.mobileRule);
   }
 
-  // 密码校验
+  // Xác thực mật khẩu
   public passwordValidator(): ValidatorFn | null {
     return this.commonUtil(this.vrService.passwordRule);
   }
 
-  // 电话号码校验
+  // Xác minh số điện thoại
   public telephoneValidator(): ValidatorFn {
     return this.commonUtil(this.vrService.telPhoneRule);
   }

@@ -11,8 +11,8 @@ import { WaterMarkComponent } from '@shared/components/water-mark/water-mark.com
 })
 export class WaterMarkDemoComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '水印',
-    breadcrumb: ['首页', '功能', '水印'],
-    desc: '自己封装的水印组件，也可以使用zorro官网的，示例,https://ng.ant.design/components/water-mark/zh'
+    title: 'Dấu chìm',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Dấu chìm'],
+    desc: 'Có thể tự đóng gói thành phần watermark, cũng có thể sử dụngzorroTrang web chính thức, ví dụ,https://ng.ant.design/components/water-mark/zh'
   };
 }

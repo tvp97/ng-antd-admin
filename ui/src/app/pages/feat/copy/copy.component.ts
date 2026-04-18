@@ -21,12 +21,12 @@ export class CopyComponent {
   private msg = inject(NzMessageService);
 
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '文本复制示例',
-    breadcrumb: ['首页', '功能', '剪切板']
+    title: 'Ví dụ sao chép văn bản',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Bảng tạm']
   };
   value = '';
 
   info(): void {
-    this.msg.success('复制成功，直接粘贴');
+    this.msg.success('Sao chép thành công, dán trực tiếp');
   }
 }

@@ -2,7 +2,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { DestroyRef, Directive, effect, inject, input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-/*屏幕宽度小于某个宽度时不显示的组件*/
+/*Các thành phần không hiển thị khi độ rộng màn hình nhỏ hơn một độ rộng nhất định*/
 @Directive({
   selector: '[appScreenLessHidden]',
 })

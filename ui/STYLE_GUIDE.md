@@ -13,7 +13,7 @@
 
 <div class="normal-table-wrap">
   <nz-card>
-    <app-water-mark />
+    
     <!-- 页面内容 -->
   </nz-card>
 </div>
@@ -237,7 +237,7 @@
 ```html
 <!-- 推荐：使用 nz-card -->
 <nz-card nzTitle="标题" [nzExtra]="extraTpl">
-  <app-water-mark />
+  
   <!-- 内容 -->
 </nz-card>
 

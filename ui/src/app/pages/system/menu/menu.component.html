@@ -2,7 +2,7 @@
 <app-page-header [pageHeaderInfo]="pageHeaderInfo" />
 
 <div class="normal-table-wrap">
-  <app-water-mark />
+
   <nz-card class="m-b-10" nzHoverable [nzBodyStyle]="{ 'padding-bottom': 0 }">
     <form nz-form>
       <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24 }">
@@ -18,9 +18,10 @@
           <nz-form-item>
             <nz-form-label [nzFor]="">Trạng thái</nz-form-label>
             <nz-form-control>
-              <nz-select name="visible" nzAllowClear nzPlaceHolder="Chọn từ danh sách thả xuống" [(ngModel)]="searchParam.visible">
+              <nz-select name="visible" nzAllowClear nzPlaceHolder="Chọn từ danh sách thả xuống"
+                [(ngModel)]="searchParam.visible">
                 @for (item of visibleOptions; track item) {
-                  <nz-option [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
+                <nz-option [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
                 }
               </nz-select>
             </nz-form-control>
@@ -42,12 +43,13 @@
   </nz-card>
 
   <app-card-table-wrap [btnTpl]="tableBtns" [tableTitle]="'Danh sách Menu'" (reload)="reloadTable()">
-    <app-tree-table [tableConfig]="tableConfig()" [tableData]="dataList()" (changePageIndex)="getDataList()" (changePageSize)="changePageSize($event)"></app-tree-table>
+    <app-tree-table [tableConfig]="tableConfig()" [tableData]="dataList()" (changePageIndex)="getDataList()"
+      (changePageSize)="changePageSize($event)"></app-tree-table>
     <ng-template #operationTpl let-fatherId="fatherId" let-id="id" let-menuType="menuType">
       <span *appAuth="ActionCode.MenuEdit" class="operate-text" (click)="edit(id, fatherId)">Sửa</span>
       <ng-container *appAuth="ActionCode.MenuAddLowLevel">
         @if (menuType === 'C') {
-          <span class="operate-text" (click)="add(id)">ThêmCấp dưới</span>
+        <span class="operate-text" (click)="add(id)">ThêmCấp dưới</span>
         }
       </ng-container>
       <span *appAuth="ActionCode.MenuDel" class="operate-text" (click)="del(id)">Xóa</span>
@@ -62,7 +64,7 @@
 <ng-template #aliIconTpl let-alIcon="alIcon">
   <div class="center">
     @if (alIcon) {
-      <i nz-icon [nzIconfont]="alIcon"></i>
+    <i nz-icon [nzIconfont]="alIcon"></i>
     }
   </div>
 </ng-template>
@@ -74,12 +76,12 @@
 </ng-template>
 <ng-template #visibleTpl let-menuType="menuType" let-visible="visible">
   @if (menuType === 'C') {
-    <ng-container *ngTemplateOutlet="visible ? yesTpl : notTpl"></ng-container>
+  <ng-container *ngTemplateOutlet="visible ? yesTpl : notTpl"></ng-container>
   }
 </ng-template>
 <ng-template #newLinkFlag let-menuType="menuType" let-newLinkFlag="newLinkFlag">
   @if (menuType === 'C') {
-    <ng-container *ngTemplateOutlet="newLinkFlag ? yesTpl : notTpl"></ng-container>
+  <ng-container *ngTemplateOutlet="newLinkFlag ? yesTpl : notTpl"></ng-container>
   }
 </ng-template>
 <ng-template #yesTpl>

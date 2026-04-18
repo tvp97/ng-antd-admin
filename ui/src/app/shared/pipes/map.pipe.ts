@@ -1,5 +1,5 @@
 /*
-使用方法：
+Cách sử dụng:
 accidentTypeOptions: OptionsInterface[];
 this.accidentTypeOptions = [...MapPipe.transformMapToArray(MapSet.accidentType)];
 */
@@ -23,20 +23,20 @@ export const enum MapKeyType {
 
 export const MapSet = {
   sex: {
-    0: '女',
-    1: '男'
+    0: 'nữ',
+    1: 'Nam'
   },
   available: {
-    true: '可用',
-    false: '禁用'
+    true: 'Có thể sử dụng',
+    false: 'Vô hiệu hóa'
   },
   isOrNot: {
-    true: '是',
-    false: '否'
+    true: 'là',
+    false: 'Không'
   },
   visible: {
-    true: '展示',
-    false: '隐藏'
+    true: 'trưng bày',
+    false: 'Ẩn'
   }
 };
 

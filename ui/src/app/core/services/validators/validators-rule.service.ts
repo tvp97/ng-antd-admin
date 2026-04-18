@@ -11,27 +11,27 @@ export class ValidatorsRuleService {
     if (!value) {
       return null;
     }
-    return isMobile(value) ? null : { message: '请输入正确的手机号' };
+    return isMobile(value) ? null : { message: 'Vui lòng nhập số điện thoại hợp lệ' };
   }
 
   telPhoneRule(value: string): ValidationErrors | null {
     if (!value) {
       return null;
     }
-    return isTelPhone(value) ? null : { message: '请输入正确的电话号码' };
+    return isTelPhone(value) ? null : { message: 'Vui lòng nhập số điện thoại đúng' };
   }
 
   emailRule(value: string): ValidationErrors | null {
     if (!value) {
       return null;
     }
-    return isEmail(value) ? null : { message: '请输入正确的邮箱格式' };
+    return isEmail(value) ? null : { message: 'Vui lòng nhập định dạng email đúng' };
   }
 
   passwordRule(value: string): ValidationErrors | null {
     if (!value) {
       return null;
     }
-    return isPasswordPass(value) ? null : { message: '密码由6到20位大小写字母、数字或其他字符组成' };
+    return isPasswordPass(value) ? null : { message: 'Mật khẩu do6đến20bao gồm các chữ cái hoa và thường, chữ số hoặc các ký tự khác' };
   }
 }

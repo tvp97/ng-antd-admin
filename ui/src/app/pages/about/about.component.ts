@@ -16,9 +16,9 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 })
 export class AboutComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '关于',
-    breadcrumb: ['首页', '拓展功能', '关于'],
-    desc: 'ng-antd-admin 是一个基于Angular和ng-zorro的后台解决方案，目标是为中大型项目开发，提供现成的开箱解决方案以及丰富的示例，不限制任何代码用于商用'
+    title: 'Về',
+    breadcrumb: ['Trang chủ', 'Mở rộng chức năng', 'Về'],
+    desc: 'ng-antd-admin là dựa trênAngularvàng-zorroGiải pháp back-end, mục tiêu là phát triển cho các dự án vừa và lớn, cung cấp các giải pháp sẵn sàng sử dụng và các ví dụ phong phú, không giới hạn bất kỳ mã nào để sử dụng thương mại'
   };
   data = new Date();
   dateFormat = DateFormat.DateTime;

@@ -5,7 +5,7 @@ import { ApplicationRef, ComponentRef, createComponent, EnvironmentInjector, inj
 import { GlobalModalBtnTplComponent } from '@app/tpl/global-modal-btn-tpl/global-modal-btn-tpl.component';
 
 /**
- * 全局对话框右上角，拓展最大化功能模板
+ * Góc trên bên phải hộp thoại toàn cục, mở rộng mẫu chức năng phóng to tối đa
  */
 export const GLOBAL_TPL_MODAL_ACTION_TOKEN = new InjectionToken<ComponentRef<GlobalModalBtnTplComponent>>('modal action btn token', {
   providedIn: 'root',
@@ -16,7 +16,7 @@ export const GLOBAL_TPL_MODAL_ACTION_TOKEN = new InjectionToken<ComponentRef<Glo
     const componentRef = createComponent(GlobalModalBtnTplComponent, {
       environmentInjector: injector
     });
-    // 使用 `ApplicationRef` 实例注册新创建的 ref将组件视图包含到变更检测周期中。
+    // sử dụng `ApplicationRef` để thêm component ref mới được tạo vào chu kỳ kiểm tra thay đổi.
     appRef.attachView(componentRef.hostView);
     return componentRef;
   }

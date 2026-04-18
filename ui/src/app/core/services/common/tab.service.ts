@@ -15,7 +15,7 @@ export interface TabModel {
 }
 
 /*
- * tab操作的服务
+ * tabDịch vụ vận hành
  * */
 @Injectable({
   providedIn: 'root'
@@ -31,21 +31,21 @@ export class TabService {
   }
 
   addTab(tabModel: TabModel, isNewTabDetailPage = false): void {
-    // 如果是刷新操作时的
+    // Nếu là thao tác làm mới
     if (tabModel.title === 'refresh-empty') {
       return;
     }
     this.$tabArray.update(tabs => {
       tabs.forEach(tab => {
         if (tab.title === tabModel.title && !isNewTabDetailPage) {
-          // 列表Chi tiết操作，例如用户表单点击Chi tiết，在当前tab中打开这个Chi tiết，可以看在线示例："查询表格"与表格中的"查看按钮"
-          // title需和用户表单Chi tiết组件路由的title相同
-          // 将每个tab下的组件快照存入tab数组中，下面做了去重操作
+          // Danh sáchChi tiếtCác thao tác, ví dụ như nhấp vào biểu mẫu người dùngChi tiết，trong hiện tạitabMở cái này ở giữaChi tiếtBạn có thể xem ví dụ trực tuyến:"Bảng tra cứu"với trong bảng"Xem nút"
+          // titleCần có biểu mẫu người dùngChi tiếtĐịnh tuyến thành phầntitletương tự
+          // mỗi cáitabLưu ảnh chụp nhanh của thành phần dướitabTrong mảng, dưới đây đã thực hiện thao tác loại bỏ trùng lặp
           tab.snapshotArray = _.uniqBy([...tab.snapshotArray, ...tabModel.snapshotArray], item => {
             // @ts-ignore
             return item['_routerState'].url;
           });
-          // 当前页中打开Chi tiết时，需要将对应的tab的path替换掉
+          // Mở trong trang hiện tạiChi tiếtkhi cần, phải đưa tương ứngtabcủapaththay thế
           tab.path = tabModel.path;
         }
       });
@@ -67,16 +67,16 @@ export class TabService {
     });
   }
 
-  // 通过key来Xóa路由复用中SimpleReuseStrategy.handlers这个里面的缓存
+  // quakeyĐếnXóaĐang tái sử dụng định tuyếnSimpleReuseStrategy.handlersBộ nhớ đệm bên trong này
   delReuseStrategy(snapshotArray: ActivatedRouteSnapshot[]): void {
-    // beDeleteKey数组Lưu相关路由的key，解决"在当前tab打开Chi tiết页时"，而产生"在哪个页面（列表页还是列表的Chi tiết页）上点击关闭按钮,被点击的页面（列表或者列表中的Chi tiết页，其中一个）的状态才会被清除，另一个不被清除"的bug
+    // beDeleteKeyMảngLưuCác tuyến liên quankey, giải quyết"Trong hiện tạitabmởChi tiếtTrang thời gian"và sinh ra"Ở trang nào (trang danh sách hay danh sách củaChi tiếtNhấp vào nút đóng trên trang,Trang bị nhấp (danh sách hoặc trong danh sáchChi tiếtTrang, trạng thái của một trong số đó mới bị xóa, cái kia thì không bị xóa"củabug
     const beDeleteKeysArray = this.getSnapshotArrayKey(snapshotArray);
     beDeleteKeysArray.forEach(item => {
       SimpleReuseStrategy.deleteRouteSnapshot(item);
     });
   }
 
-  // 根据tab中缓存的路由快照，构造路由复用的key 例如： login{name:'zhangsan'},这样key+param的形式是缓存在SimpleReuseStrategy.handlers中的
+  // theotabBản chụp nhanh của tuyến trong bộ nhớ cache, xây dựng tái sử dụng tuyếnkey Ví dụ: login{name:'zhangsan'},Như vậykey+paramdạng là được lưu trong bộ nhớ đệmSimpleReuseStrategy.handlerstrong
   getSnapshotArrayKey(activatedArray: ActivatedRouteSnapshot[]): string[] {
     const temp: string[] = [];
     activatedArray.forEach(item => {
@@ -86,37 +86,37 @@ export class TabService {
     return temp;
   }
 
-  // 右键tab移除右边所有tab，index为鼠标选中的tab索引
+  // Nhấp chuột phảitabXóa tất cả bên phảitab，indexĐược chọn bởi chuộttabChỉ mục
   delRightTab(tabPath: string, index: number): void {
     const tabs = this.$tabArray();
-    // 获取待Xóa的tab
+    // Lấy chờXóacủatab
     const beDelTabArray = tabs.filter((_, tabindex) => tabindex > index);
-    // 移除右键选中的tab右边的所有tab
+    // Gỡ bỏ mục đã chọn bằng chuột phảitabTất cả ở bên phảitab
     beDelTabArray.forEach(({ snapshotArray }) => {
       this.delReuseStrategy(snapshotArray);
     });
     this.$tabArray.set(tabs.slice(0, index + 1));
-    // 如果鼠标右键选中的tab索引小于当前展示的tab的索引，就要连同正在打开的tab也要被Xóa
+    // Nếu nhấn chuột phải chọntabChỉ mục nhỏ hơn hiển thị hiện tạitabcủa chỉ mục, phải cùng với những gì đang mởtabcũng phải bịXóa
     if (index < this.$currSelectedIndexTab()) {
       SimpleReuseStrategy.waitDelete = getDeepReuseStrategyKeyFn(this.activatedRoute.snapshot);
       this.router.navigateByUrl(this.$tabArray()[index].path);
     }
   }
 
-  // 右键移除左边所有tab
+  // Nhấp chuột phải để loại bỏ tất cả bên tráitab
   /*
-   * @params index 当前鼠标点击右键所在的tab索引
+   * @params index Vị trí hiện tại của chuột khi nhấn chuột phảitabChỉ mục
    * */
   delLeftTab(tabPath: string, index: number): void {
     const tabs = this.$tabArray();
-    // 要Xóa的tab
+    // MuốnXóacủatab
     const beDelTabArray = tabs.filter((_, tabindex) => tabindex < index);
 
-    // 先处理索引关系
+    // Trước tiên xử lý mối quan hệ chỉ mục
     if (this.$currSelectedIndexTab() === index) {
       this.$currSelectedIndexTab.set(0);
     } else if (this.$currSelectedIndexTab() < index) {
-      // 如果鼠标点击的tab索引大于当前索引，需要将当前页的path放到waitDelete中
+      // Nếu nhấp chuộttabChỉ mục lớn hơn chỉ mục hiện tại, cần phải làm trang hiện tạipathđặt vàowaitDeleteTrung
       SimpleReuseStrategy.waitDelete = getDeepReuseStrategyKeyFn(this.activatedRoute.snapshot);
       this.$currSelectedIndexTab.set(0);
     } else if (this.$currSelectedIndexTab() > index) {
@@ -126,60 +126,60 @@ export class TabService {
     beDelTabArray.forEach(({ snapshotArray }) => {
       this.delReuseStrategy(snapshotArray);
     });
-    // 剩余的tab
+    // còn lạitab
     this.$tabArray.set(tabs.slice(beDelTabArray.length));
     this.router.navigateByUrl(this.$tabArray()[this.$currSelectedIndexTab()].path);
   }
 
-  // 右键tab选择"移除其他tab"
+  // Nhấp chuột phảitabchọn"Gỡ bỏ cái kháctab"
   delOtherTab(path: string, index: number): void {
     const tabs = this.$tabArray();
-    // 要Xóa的tab
+    // MuốnXóacủatab
     const beDelTabArray = tabs.filter((_, tabindex) => tabindex !== index);
 
-    // 处理应当展示的tab
-    // 移除要Xóa的tab的缓存
+    // Xử lý những gì cần hiển thịtab
+    // Gỡ bỏ cầnXóacủatabbộ nhớ đệm
     beDelTabArray.forEach(({ snapshotArray }) => {
       this.delReuseStrategy(snapshotArray);
     });
 
-    // 如果鼠标选中的tab的索引，不是当前打开的页面的tab的索引，则要将当前页面的key作为waitDelete防止这个当前tab展示的组件移除后仍然被缓存
+    // Nếu được chọn bằng chuộttabchỉ mục, không phải trang hiện đang mởtabcủa chỉ mục, thì cần phải lấy trang hiện tại củakeyLàwaitDeleteNgăn chặn điều hiện tại nàytabCác thành phần đã hiển thị vẫn được lưu trong bộ nhớ đệm sau khi bị loại bỏ
     if (index !== this.$currSelectedIndexTab()) {
       SimpleReuseStrategy.waitDelete = getDeepReuseStrategyKeyFn(this.activatedRoute.snapshot);
     }
-    // 必须先 set 再 navigateByUrl，因为路由变化会触发 nav-bar 的 setupRouterListener，
-    // 里面会调用 findIndex()，此时 $tabArray 必须已经是最新状态。
+    // Phải trước tiên set lại navigateByUrl, bởi vì sự thay đổi đường dẫn sẽ kích hoạt nav-bar của setupRouterListener，
+    // Bên trong sẽ gọi findIndex()lúc này $tabArray Phải ở trạng thái mới nhất.
     this.$tabArray.set([tabs[index]]);
     this.router.navigateByUrl(path);
   }
 
-  // 点击tab标签上x图标Xóatab的动作,或者右键 点击"Xóa当前tab"动作
+  // Nhấptabtrên nhãnxBiểu tượngXóatabđộng tác,Hoặc nhấp chuột phải Nhấp"Xóahiện tạitab"Động tác
   delTab(tab: TabModel, index: number): void {
     const tabs = this.$tabArray();
     const updated = [...tabs];
     updated.splice(index, 1);
-    // 移除当前正在展示的tab
+    // Gỡ bỏ những gì đang hiển thị hiện tạitab
     if (index === this.$currSelectedIndexTab()) {
       const seletedTabKey = getDeepReuseStrategyKeyFn(this.activatedRoute.snapshot);
       this.$tabArray.set(updated);
-      // 处理索引关系
+      // Xử lý mối quan hệ chỉ mục
       this.$currSelectedIndexTab.set(index - 1 < 0 ? 0 : index - 1);
-      // 必须在 navigateByUrl 之前设置 waitDelete，否则路由离开时 store() 已执行，
-      // waitDelete 还未赋值，被Xóa的路由组件会被缓存，导致下次进入时复用旧实例。
+      // phải ở trong navigateByUrl Cài đặt trước waitDelete, nếu không khi rời khỏi đường dẫn store() Đã thực hiện,
+      // waitDelete Chưa được gán giá trị, bịXóaCác thành phần định tuyến sẽ được lưu trong bộ nhớ đệm, dẫn đến việc sử dụng lại các thể hiện cũ khi vào lần sau.
       SimpleReuseStrategy.waitDelete = seletedTabKey;
-      // 跳转到新tab
+      // Chuyển đến mớitab
       this.router.navigateByUrl(this.$tabArray()[this.$currSelectedIndexTab()].path);
     } else if (index < this.$currSelectedIndexTab()) {
-      // 如果鼠标选中的tab索引小于当前展示的tab索引，也就是鼠标选中的tab在当前tab的左侧
+      // Nếu được chọn bằng chuộttabChỉ mục nhỏ hơn hiển thị hiện tạitabChỉ mục, tức là cái được lựa chọn bởi chuộttabTrong hiện tạitabbên trái
       this.$tabArray.set(updated);
       this.$currSelectedIndexTab.set(this.$currSelectedIndexTab() - 1);
     } else if (index > this.$currSelectedIndexTab()) {
-      // 移除当前页签右边的页签
+      // Gỡ tab bên phải của tab hiện tại
       this.$tabArray.set(updated);
     }
-    // 此操作为了解决例如列表页中有Chi tiết页，列表页和Chi tiết页两个页面的状态Lưu问题，解决了只能移除
-    // 当前页面关闭的tab中状态的bug
-    // Xóa选中的tab所缓存的快照
+    // Hành động này nhằm giải quyết ví dụ như trong trang danh sách cóChi tiếttrang, trang danh sách vàChi tiếtTrạng thái của hai trangLưuVấn đề, chỉ có thể loại bỏ khi đã giải quyết
+    // Trang hiện tại đã bị đóngtabtrạng thái trung bìnhbug
+    // Xóađã chọntabẢnh chụp nhanh đã được lưu trong bộ nhớ đệm
     this.delReuseStrategy(tab.snapshotArray);
   }
 
@@ -191,10 +191,10 @@ export class TabService {
 
   getCurrentPathWithoutParam(urlSegmentArray: UrlSegment[], queryParam: Record<string, NzSafeAny>): string {
     const temp: string[] = [];
-    // 获取所有参数的value
+    // Lấy tất cả các tham sốvalue
     const queryParamValuesArray = Object.values(queryParam);
     urlSegmentArray.forEach(urlSeqment => {
-      // 把表示参数的url片段剔除
+      // biểu thị tham sốurlLoại bỏ đoạn
       if (!queryParamValuesArray.includes(urlSeqment.path)) {
         temp.push(urlSeqment.path);
       }
@@ -202,17 +202,17 @@ export class TabService {
     return `${temp.join('/')}`;
   }
 
-  // 刷新
+  // Làm mới
   refresh(): void {
-    // 获取当前的路由快照
+    // Lấy ảnh chụp nhanh tuyến đường hiện tại
     let snapshot = this.activatedRoute.snapshot;
     const key = getDeepReuseStrategyKeyFn(snapshot);
     while (snapshot.firstChild) {
       snapshot = snapshot.firstChild;
     }
     let params: Params;
-    let urlWithOutParam = ''; // 这是没有参数的url
-    // 是路径传参的路由，并且有参数
+    let urlWithOutParam = ''; // Đây là không có tham sốurl
+    // Là đường dẫn truyền tham số và có tham số
     if (Object.keys(snapshot.params).length > 0) {
       params = snapshot.params;
       // @ts-ignore
@@ -222,11 +222,11 @@ export class TabService {
         this.router.navigate([urlWithOutParam, ...Object.values(params)]);
       });
     } else {
-      // 是query传参的路由,或者是没有参数的路由
+      // làqueryĐường dẫn truyền tham số,Hoặc là tuyến đường không có tham số
       params = snapshot.queryParams;
       const sourceUrl = this.router.url;
       const currentRoute = fnGetPathWithoutParam(sourceUrl);
-      // 是query传参
+      // làqueryTruyền tham số
       this.router.navigateByUrl('/default/refresh-empty', { skipLocationChange: true }).then(() => {
         SimpleReuseStrategy.deleteRouteSnapshot(key);
         this.router.navigate([currentRoute], { queryParams: params });

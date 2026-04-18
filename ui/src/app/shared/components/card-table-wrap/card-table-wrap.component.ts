@@ -51,45 +51,45 @@ interface TableSizeItem {
 export class CardTableWrapComponent implements AfterContentInit {
   readonly tableTitle = input<string | TemplateRef<NzSafeAny>>();
   readonly btnTpl = input<TemplateRef<NzSafeAny>>();
-  readonly isNormalTable = input(true, { transform: booleanAttribute }); // 如果只是需要card-table-wrap的样式，这里设置为false
+  readonly isNormalTable = input(true, { transform: booleanAttribute }); // Nếu chỉ cầncard-table-wrapkiểu dáng, ở đây thiết lập thànhfalse
   readonly reload = output();
   readonly antTableComponent = contentChild(AntTableComponentToken);
   readonly antTreeTableComponent = contentChild(AntTreeTableComponentToken);
   tableConfigVisible = false;
   tableSizeOptions: TableSizeItem[] = [
-    { sizeName: '默认', selected: true, value: 'default' },
-    { sizeName: '中等', selected: false, value: 'middle' },
-    { sizeName: '紧凑', selected: false, value: 'small' }
+    { sizeName: 'Mặc định', selected: true, value: 'default' },
+    { sizeName: 'Trung bình', selected: false, value: 'middle' },
+    { sizeName: 'gọn gàng', selected: false, value: 'small' }
   ];
   tableHeaders: TableHeader[] = [];
 
-  // 当前包裹的table组件
+  // Gói hàng hiện tạitableThành phần
   currentTableComponent = computed(() => {
     const tableComponent = this.antTableComponent() || this.antTreeTableComponent();
     if (!tableComponent) {
-      throw new Error('没有antTableComponent或者antTreeTableComponent作为投影组件');
+      throw new Error('Không cóantTableComponenthoặcantTreeTableComponentNhư là một thành phần chiếu');
     }
     return tableComponent;
   });
 
-  allTableFieldChecked = false; // 设置里面全选列
-  allTableFieldIndeterminate = false; // 设置里面全选列的半选状态
-  copyHeader: TableHeader[] = []; // 缓存默认配置
+  allTableFieldChecked = false; // Chọn tất cả cột trong cài đặt
+  allTableFieldIndeterminate = false; // Trạng thái chọn một phần của toàn bộ cột trong cài đặt
+  copyHeader: TableHeader[] = []; // Cấu hình mặc định của bộ nhớ đệm
 
-  // 是否展示复选框
+  // Có hiển thị hộp kiểm không
   changeTableCheckBoxShow(e: boolean): void {
     this.currentTableComponent().tableConfig().showCheckbox = e;
     this.tableChangeDectction();
   }
 
-  // 大中小表格密度
+  // Mật độ bảng lớn, vừa và nhỏ
   tableSizeMenuClick(item: TableSizeItem): void {
     this.tableSizeOptions.forEach(tableSizeItem => (tableSizeItem.selected = false));
     item.selected = true;
     this.currentTableComponent().tableSize = item.value;
   }
 
-  // 配置中tableCheckbox是否全选
+  // Đang cấu hìnhtableCheckboxCó chọn tất cả không
   changeAllTableTableConfigShow(e: boolean): void {
     if (e) {
       this.allTableFieldChecked = e;
@@ -99,7 +99,7 @@ export class CardTableWrapComponent implements AfterContentInit {
     this.tableChangeDectction();
   }
 
-  // 设置固定左侧还是右侧
+  // Cài đặt cố định bên trái hay bên phải
   changeTableConfigShow(): void {
     const tempArray = [...this.tableHeaders];
     const fixedLeftArray: TableHeader[] = [];
@@ -135,19 +135,19 @@ export class CardTableWrapComponent implements AfterContentInit {
     this.reload.emit();
   }
 
-  // 某一列check变化
+  // Một cột nào đócheckbiến hóa
   changeSignalCheck(e: boolean, item: TableHeader): void {
     item.show = e;
     this.judgeAllChecked();
     this.tableChangeDectction();
   }
 
-  // 使子列表变更检测
+  // Cho phép phát hiện thay đổi danh sách con
   tableChangeDectction(): void {
     this.currentTableComponent().tableChangeDectction();
   }
 
-  // 判断列展示这个checkbox的状态
+  // Cột đánh giá hiển thị cái nàycheckboxtrạng thái
   judgeAllChecked(): void {
     this.allTableFieldChecked = this.tableHeaders.every(item => item.show === true);
     const allUnChecked = this.tableHeaders.every(item => !item.show);

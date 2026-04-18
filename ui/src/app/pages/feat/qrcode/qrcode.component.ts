@@ -12,8 +12,8 @@ import { NzQRCodeModule } from 'ng-zorro-antd/qr-code';
 })
 export class QrcodeComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '二维码',
-    breadcrumb: ['首页', '功能', '二维码'],
-    desc: '不要扫陌生人的二维码，防诈从我做起。可以考虑使用https://github.com/cordobo/angularx-qrcode本项目ng16之前的版本有安装使用'
+    title: 'Mã QR',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Mã QR'],
+    desc: 'Đừng quét mã QR của người lạ, phòng chống lừa đảo bắt đầu từ tôi. Có thể cân nhắc sử dụnghttps://github.com/cordobo/angularx-qrcodeDự án nàyng16Phiên bản trước đã được cài đặt và sử dụng'
   };
 }

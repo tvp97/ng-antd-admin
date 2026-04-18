@@ -2,7 +2,7 @@
 <app-page-header [pageHeaderInfo]="pageHeaderInfo()" />
 <ng-template #headerContent>
   <div class="center">
-    <app-water-mark />
+
     <div style="width: 455px">
       <nz-space-compact nzSize="large" [style.width.%]="100">
         <input type="text" nz-input placeholder="Vui lòng nhập" />
@@ -15,7 +15,7 @@
 <ng-template #headerFooter>
   <nz-tabs [(nzSelectedIndex)]="currentSelTab">
     @for (item of tabData; track item) {
-      <nz-tab [nzTitle]="item.label" (nzClick)="to(item)"></nz-tab>
+    <nz-tab [nzTitle]="item.label" (nzClick)="to(item)"></nz-tab>
     }
   </nz-tabs>
 </ng-template>

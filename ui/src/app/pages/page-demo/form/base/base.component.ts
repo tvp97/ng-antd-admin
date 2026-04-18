@@ -26,7 +26,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
   imports: [
     PageHeaderComponent,
     NzCardModule,
-    WaterMarkComponent,
+
     FormsModule,
     NzFormModule,
     ReactiveFormsModule,
@@ -44,14 +44,14 @@ export class BaseComponent implements OnInit, AfterViewInit {
   readonly dragTpl = viewChild.required<TemplateRef<NzSafeAny>>('dragTpl');
   readonly baseForm = viewChild.required<FormGroup>('baseForm');
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '基础表单',
-    desc: '表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。',
-    breadcrumb: ['首页', '表单页', '基础表单']
+    title: 'Biểu mẫu cơ bản',
+    desc: 'Trang biểu mẫu được dùng để thu thập hoặc xác minh thông tin từ người dùng, các biểu mẫu cơ bản thường xuất hiện trong các tình huống biểu mẫu có ít mục dữ liệu.',
+    breadcrumb: ['Trang chủ', 'Trang biểu mẫu', 'Biểu mẫu cơ bản']
   };
   listOfOption = [
-    { label: '同事甲', value: '同事甲' },
-    { label: '同事乙', value: '同事乙' },
-    { label: '同事丙', value: '同事丙' }
+    { label: 'Đồng nghiệp A', value: 'Đồng nghiệp A' },
+    { label: 'Đồng nghiệp B', value: 'Đồng nghiệp B' },
+    { label: 'Đồng nghiệp B', value: 'Đồng nghiệp B' }
   ];
   destroyRef = inject(DestroyRef);
 
@@ -82,7 +82,7 @@ export class BaseComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // 无论是模版式表单还是响应式表单，都可以通过这种方式来监听表单数据都变化
+    // Dù là biểu mẫu dạng mẫu hay biểu mẫu phản hồi, đều có thể sử dụng cách này để lắng nghe sự thay đổi của dữ liệu biểu mẫu
     this.baseForm()
       .valueChanges.pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(res => {

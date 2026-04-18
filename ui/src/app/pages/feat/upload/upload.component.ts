@@ -22,9 +22,9 @@ import { NzUploadChangeParam, NzUploadFile, NzUploadModule } from 'ng-zorro-antd
 })
 export class UploadComponent implements OnInit {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '文件上传',
-    breadcrumb: ['首页', '功能', '文件上传'],
-    desc: '简单弄一下，Quay lại的都是服务器统一Quay lại的文件'
+    title: 'Tải tệp lên',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Tải tệp lên'],
+    desc: 'Làm đơn giản một chút,Quay lạiĐều là máy chủ thống nhấtQuay lạitài liệu'
   };
   uploadUrl = environment.production ? '/api/file/test/upload/document/' : '/site/api/file/test/upload/document/';
   fileList: NzUploadFile[] = [];
@@ -36,7 +36,7 @@ export class UploadComponent implements OnInit {
   handleChange(info: NzUploadChangeParam): void {
     if (info.type === 'success') {
       if (info.file.response.code === 0) {
-        this.message.success(`服务器上Quay lại的文件路径：${info.file.response.data.data}`);
+        this.message.success(`trên máy chủQuay lạiĐường dẫn tệp:${info.file.response.data.data}`);
       }
     }
   }

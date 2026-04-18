@@ -3,7 +3,7 @@
 
 <div class="normal-table-wrap">
   <nz-card class="m-b-10" [nzBodyStyle]="{ 'padding-bottom': 0 }">
-    <app-water-mark />
+
     <form nz-form>
       <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24 }">
         <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
@@ -23,30 +23,30 @@
           </nz-form-item>
         </div>
         @if (!isCollapse) {
-          <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
-            <nz-form-item>
-              <nz-form-label [nzFor]="">Số lần gọi dịch vụ</nz-form-label>
-              <nz-form-control>
-                <input name="desc" nz-input placeholder="Vui lòng nhập" [(ngModel)]="searchParam.desc" />
-              </nz-form-control>
-            </nz-form-item>
-          </div>
-          <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
-            <nz-form-item>
-              <nz-form-label [nzFor]="">Trạng thái</nz-form-label>
-              <nz-form-control>
-                <input name="desc" nz-input placeholder="Vui lòng nhập" [(ngModel)]="searchParam.desc" />
-              </nz-form-control>
-            </nz-form-item>
-          </div>
-          <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
-            <nz-form-item>
-              <nz-form-label [nzFor]="">Thời gian lịch trình trước</nz-form-label>
-              <nz-form-control>
-                <input name="desc" nz-input placeholder="Vui lòng nhập" [(ngModel)]="searchParam.desc" />
-              </nz-form-control>
-            </nz-form-item>
-          </div>
+        <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
+          <nz-form-item>
+            <nz-form-label [nzFor]="">Số lần gọi dịch vụ</nz-form-label>
+            <nz-form-control>
+              <input name="desc" nz-input placeholder="Vui lòng nhập" [(ngModel)]="searchParam.desc" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
+          <nz-form-item>
+            <nz-form-label [nzFor]="">Trạng thái</nz-form-label>
+            <nz-form-control>
+              <input name="desc" nz-input placeholder="Vui lòng nhập" [(ngModel)]="searchParam.desc" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
+          <nz-form-item>
+            <nz-form-label [nzFor]="">Thời gian lịch trình trước</nz-form-label>
+            <nz-form-control>
+              <input name="desc" nz-input placeholder="Vui lòng nhập" [(ngModel)]="searchParam.desc" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
         }
 
         <div class="m-b-8 text-right p-0" nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
@@ -60,10 +60,10 @@
           </button>
           <a class="collapse operate-text" (click)="toggleCollapse()">
             @if (isCollapse) {
-              <span>Mở rộng</span>
+            <span>Mở rộng</span>
             }
             @if (!isCollapse) {
-              <span>Thu gọn</span>
+            <span>Thu gọn</span>
             }
             <i nz-icon [nzType]="isCollapse ? 'down' : 'up'"></i>
           </a>
@@ -73,15 +73,9 @@
   </nz-card>
 
   <app-card-table-wrap [btnTpl]="tableBtns" (reload)="reloadTable()">
-    <app-tree-table
-      [cashArray]="checkedCashArray"
-      [tableConfig]="tableConfig()"
-      [tableData]="dataList()"
-      (changePageIndex)="getDataList($event)"
-      (changePageSize)="changePageSize($event)"
-      (selectedChange)="selectedChecked($event)"
-      (sortFn)="changeSort($event)"
-    ></app-tree-table>
+    <app-tree-table [cashArray]="checkedCashArray" [tableConfig]="tableConfig()" [tableData]="dataList()"
+      (changePageIndex)="getDataList($event)" (changePageSize)="changePageSize($event)"
+      (selectedChange)="selectedChecked($event)" (sortFn)="changeSort($event)"></app-tree-table>
     <ng-template #operationTpl let-children="children" let-id="id" let-parent="parent">
       <span class="operate-text" (click)="check(id, children, parent)">Xem</span>
       <!--Thêmcách viết quyền hạn-->

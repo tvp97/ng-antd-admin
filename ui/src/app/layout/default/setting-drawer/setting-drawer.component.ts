@@ -190,9 +190,9 @@ export class SettingDrawerComponent implements OnInit {
     this.setThemeOptions();
   }
 
-  // 修改主题
+  // Chỉnh sửa chủ đề
   changeStyleTheme(styleTheme: StyleTheme): void {
-    // 让每个主题都变成未选中,当前选中的主题变为选中状态
+    // Đặt mỗi chủ đề thành không được chọn,Chủ đề đang chọn hiện tại chuyển sang trạng thái được chọn
     this.$currentStyleTheme.set({
       ...{
         default: false,
@@ -203,15 +203,15 @@ export class SettingDrawerComponent implements OnInit {
       [styleTheme]: true
     });
 
-    // 存储主题模式状态
+    // Lưu trạng thái chế độ chủ đề
     this.themesService.$themeStyle.set(styleTheme);
-    // 持久化
+    // khả năng lưu trữ lâu dài
     this.windowServe.setStorage(StyleThemeModelKey, styleTheme);
-    // 切换主题
+    // Chuyển đổi chủ đề
     this.themeSkinService.toggleTheme().then();
   }
 
-  // 选择一个isChecked为true,其他为false
+  // Chọn một cáiisCheckedvìtrue,khácfalse
   selOne(item: NormalModel, itemArray: NormalModel[]): void {
     itemArray.forEach(_item => (_item.isChecked = false));
     item.isChecked = true;
@@ -228,7 +228,7 @@ export class SettingDrawerComponent implements OnInit {
     this.setThemeOptions();
   }
 
-  // 切换主题
+  // Chuyển đổi chủ đề
   changeTheme(themeItem: Theme): void {
     this.selOne(themeItem, this.themes);
     this.themesService.$themesOptions.update(v => {
@@ -237,14 +237,14 @@ export class SettingDrawerComponent implements OnInit {
     this.setThemeOptions();
   }
 
-  // 设置主题参数
+  // Thiết lập tham số chủ đề
   setThemeOptions(): void {
     this.windowServe.setStorage(ThemeOptionsKey, JSON.stringify(this.$themesOptions()));
   }
 
-  // 修改主题配置项
+  // Chỉnh sửa mục cấu hình chủ đề
   changeThemeOptions(isTrue: boolean, type: SettingKey): void {
-    // 非固定头部时，设置标签也不固定
+    // Khi đầu không cố định, việc cài nhãn cũng không cố định
     if (type === 'fixedHead' && !isTrue) {
       this.themesService.$themesOptions.update(v => {
         return { ...v, fixedTab: false };
@@ -255,7 +255,7 @@ export class SettingDrawerComponent implements OnInit {
     });
     this.setThemeOptions();
 
-    // 如果不展示多标签，则要清空tab,以及已经被缓存的所有组件
+    // Nếu không hiển thị nhiều thẻ, thì cần xóa sạchtab,và tất cả các thành phần đã được lưu trong bộ nhớ đệm
     if (type === 'isShowTab') {
       if (!isTrue) {
         SimpleReuseStrategy.deleteAllRouteSnapshot(this.activatedRoute.snapshot).then(() => {
@@ -267,7 +267,7 @@ export class SettingDrawerComponent implements OnInit {
     }
   }
 
-  // 修改特殊主题，色弱主题，灰色主题
+  // Chỉnh sửa chủ đề đặc biệt, chủ đề cho người mù màu, chủ đề màu xám
   changeSpecialTheme(e: boolean, themeType: SpecialTheme): void {
     const name = this.doc.getElementsByTagName('html');
     const theme = fnFormatToHump(themeType);
@@ -283,7 +283,7 @@ export class SettingDrawerComponent implements OnInit {
   }
 
   initThemeOption(): void {
-    // 特殊模式主题变换（色弱模式，灰色模式）
+    // Chuyển đổi chủ đề chế độ đặc biệt (chế độ mù màu, chế độ xám)
     (['grey-theme', 'color-weak'] as SpecialTheme[]).forEach(item => {
       const specialTheme = fnFormatToHump(item);
       this.changeSpecialTheme(this.$themesOptions()[specialTheme as SpecialThemeHump], item);

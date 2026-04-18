@@ -41,7 +41,7 @@ export default [
         path: 'system',
         loadChildren: () => import('../../pages/system/system-routing')
       },
-      // 此路由用于tab刷新时占位组件
+      // Đường dẫn này được sử dụng đểtabThành phần giữ chỗ khi làm mới
       {
         path: 'refresh-empty',
         title: 'refresh-empty',

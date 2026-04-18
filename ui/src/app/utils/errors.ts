@@ -1,11 +1,11 @@
-// 通用错误处理
+// Xử lý lỗi chung
 export const throwAthError = (errorMsg: string): never => {
   throw new Error(errorMsg);
 };
 
 export const throwModalRefError = (): never => {
-  return throwAthError('可能你的modal组件中没有引入override modalRef = inject(NzModalRef);');
+  return throwAthError('Có thể của bạnmodalKhông có nhập khẩu trong thành phầnoverride modalRef = inject(NzModalRef);');
 };
 export const throwModalGetCurrentFnError = (): never => {
-  return throwAthError('可能你的modal组件中没有引入getCurrentValue方法，你需要复写实现');
+  return throwAthError('Có thể của bạnmodalKhông có nhập khẩu trong thành phầngetCurrentValuePhương pháp, bạn cần ghi đè triển khai');
 };

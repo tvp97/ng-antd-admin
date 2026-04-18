@@ -2,13 +2,14 @@
 
 <div class="normal-table-wrap">
   <nz-card>
-    <app-water-mark />
+
     <form class="form-wrap" nz-form [formGroup]="validateForm">
       <nz-form-item nz-col [nzLg]="24" [nzMd]="24" [nzSm]="24" [nzXl]="24" [nzXs]="24" [nzXXl]="24">
         <nz-form-label nzFor="detail" nzRequired nzSpan="24">Mô tả</nz-form-label>
         <nz-form-control [nzErrorTip]="combineTpl" [nzLg]="18" [nzMd]="24" [nzSm]="24" [nzXl]="18" [nzXXl]="18">
           <!--Tự đi đăng ký một cáikeyAh-->
-          <editor formControlName="detail" [apiKey]="'95b1w09g3ruzin5ylg5inr4afxzm3oxotroc0ofkh8pwcefz'" [init]="editInit"></editor>
+          <editor formControlName="detail" [apiKey]="'95b1w09g3ruzin5ylg5inr4afxzm3oxotroc0ofkh8pwcefz'"
+            [init]="editInit"></editor>
         </nz-form-control>
       </nz-form-item>
     </form>
@@ -16,6 +17,6 @@
 </div>
 <ng-template #combineTpl let-control>
   @if (control.hasError('required')) {
-    Trường bắt buộc
+  Trường bắt buộc
   }
 </ng-template>

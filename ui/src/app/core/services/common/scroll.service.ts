@@ -15,9 +15,9 @@ export class ScrollService {
   }
 
   /**
-   * 获取滚动条位置
+   * Lấy vị trí thanh cuộn
    *
-   * @param element 指定元素，默认 `window`
+   * @param element Chỉ định phần tử, mặc định `window`
    */
   getScrollPosition(element?: Element | Window): [number, number] {
     if (!this.platform.isBrowser) {
@@ -33,9 +33,9 @@ export class ScrollService {
   }
 
   /**
-   * 设置滚动条位置
+   * Đặt vị trí thanh cuộn
    *
-   * @param element 指定元素
+   * @param element Phần tử chỉ định
    * @param position
    */
   scrollToPosition(element: Element | Window | null | undefined, position: [number, number]): void {
@@ -46,10 +46,10 @@ export class ScrollService {
   }
 
   /**
-   * 设置滚动条至指定元素
+   * Đặt thanh cuộn đến phần tử chỉ định
    *
-   * @param element 指定元素，默认 `document.body`
-   * @param topOffset 偏移值，默认 `0`
+   * @param element Chỉ định phần tử, mặc định `document.body`
+   * @param topOffset Giá trị bù, mặc định `0`
    */
   scrollToElement(element?: Element | null, topOffset = 0): void {
     if (!this.platform.isBrowser) {
@@ -72,9 +72,9 @@ export class ScrollService {
   }
 
   /**
-   * 滚动至顶部
+   * Cuộn lên đầu
    *
-   * @param topOffset 偏移值，默认 `0`
+   * @param topOffset Giá trị bù, mặc định `0`
    */
   scrollToTop(topOffset = 0): void {
     if (!this.platform.isBrowser) {

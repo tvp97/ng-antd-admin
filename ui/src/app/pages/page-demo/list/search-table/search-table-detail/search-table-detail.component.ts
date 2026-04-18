@@ -17,11 +17,11 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 export class SearchTableDetailComponent implements OnInit {
   pageHeaderInfo: Partial<PageHeaderType> = {
     title: 'Chi tiết',
-    // desc: '表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。',
-    breadcrumb: ['首页', '列表页', '查询表格', 'Chi tiết']
+    // desc: 'Trang biểu mẫu được dùng để thu thập hoặc xác minh thông tin từ người dùng, các biểu mẫu cơ bản thường xuất hiện trong các tình huống biểu mẫu có ít mục dữ liệu.',
+    breadcrumb: ['Trang chủ', 'Trang danh sách', 'Bảng tra cứu', 'Chi tiết']
   };
   validateForm!: FormGroup;
-  name = input.required<string>(); // 从路由中获取的参数，ng16支持的新特性
+  name = input.required<string>(); // Các tham số lấy từ đường dẫn,ng16Các tính năng mới được hỗ trợ
   backUrl = '/default/page-demo/list/search-table';
   destroyRef = inject(DestroyRef);
 
@@ -40,7 +40,7 @@ export class SearchTableDetailComponent implements OnInit {
   }
 
   _onReuseDestroy(): void {
-    console.log('tab销毁了，调用_OnReuseDestroy');
+    console.log('tabĐã hủy, gọi_OnReuseDestroy');
   }
 
   ngOnInit(): void {

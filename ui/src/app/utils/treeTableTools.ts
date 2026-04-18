@@ -29,7 +29,7 @@ function visitNode(node: TreeNodeInterface, hashMap: Record<string, boolean>, ar
   }
 }
 
-// 获取map形式的treeData,入参为dataList
+// lấymaphình thứctreeData,Tham số đầu vào làdataList
 const fnTreeDataToMap = function tableToTreeData(dataList: NzSafeAny[]): Record<string, TreeNodeInterface[]> {
   const mapOfExpandedData: Record<string, TreeNodeInterface[]> = {};
   dataList.forEach(item => {
@@ -39,44 +39,44 @@ const fnTreeDataToMap = function tableToTreeData(dataList: NzSafeAny[]): Record<
 };
 
 /**
- * 该方法用于将有父子关系的数组转换成树形结构的数组
- * 接收一个具有父子关系的数组作为参数
- * Quay lại一个树形结构的数组
+ * Phương pháp này được sử dụng để chuyển mảng có quan hệ cha con sang mảng cấu trúc cây
+ * Nhận một mảng có quan hệ cha con làm tham số
+ * Quay lạiMột mảng có cấu trúc cây
  */
 const fnFlatDataHasParentToTree = function translateDataToTree(data: NzSafeAny[], fatherId = 'fatherId'): NzSafeAny {
-  // 我们认为，fatherId=0的数据，为一级数据
-  //没有父节点的数据
+  // Chúng tôi cho rằng,fatherId=0dữ liệu, là dữ liệu cấp một
+  //Dữ liệu không có nút cha
   const parents = data.filter(value => value[fatherId] === 0);
 
-  //有父节点的数据
+  //Dữ liệu có nút cha
   const children = data.filter(value => value[fatherId] !== 0);
 
-  //定义转换方法的具体实现
+  //Định nghĩa triển khai cụ thể của phương pháp chuyển đổi
   const translator = (parents: NzSafeAny[], children: NzSafeAny[]): NzSafeAny => {
-    //遍历父节点数据
+    //Duyệt dữ liệu nút cha
     parents.forEach(parent => {
-      //遍历子节点数据
+      //Duyệt dữ liệu các nút con
       children.forEach((current, index) => {
-        //此时找到父节点对应的一个子节点
+        //Lúc này tìm một nút con tương ứng với nút cha
         if (current[fatherId] === parent.id) {
-          //对子节点数据进行深复制，这里只支持部分类型的数据深复制，对深复制不了解的童靴可以先去了解下深复制
+          //Thực hiện sao chép sâu dữ liệu của các nút con, ở đây chỉ hỗ trợ sao chép sâu một số loại dữ liệu, những bạn không hiểu về sao chép sâu có thể tìm hiểu trước về sao chép sâu
           const temp = JSON.parse(JSON.stringify(children));
-          //让当前子节点从temp中移除，temp作为新的子节点数据，这里是为了让递归时，子节点的遍历次数更少，如果父子关系的层级越多，越有利
+          //Để nút con hiện tại từtempgỡ bỏ ở giữa,tempLà dữ liệu nút con mới, đây là để khi đệ quy, số lần duyệt các nút con sẽ ít hơn, nếu cấp bậc cha con càng nhiều thì càng có lợi
           temp.splice(index, 1);
-          //让当前子节点作为唯一的父节点，去递归查找其对应的子节点
+          //Đặt nút con hiện tại làm nút cha duy nhất, sau đó đệ quy tìm kiếm các nút con tương ứng của nó
           translator([current], temp);
-          //把找到子节点放入父节点的children属性中
+          //Đặt các nút con đã tìm được vào nút chachildrenTrong thuộc tính
           typeof parent.children !== 'undefined' ? parent.children.push(current) : (parent.children = [current]);
         }
       });
     });
   };
-  //调用转换方法
+  //Gọi phương thức chuyển đổi
   translator(parents, children);
   return parents;
 };
 
-// 将树状结构数据Thêm层级以及是否是根节点的标记，根节点isLeaf为true，层级由level表示
+// Đưa dữ liệu cấu trúc câyThêmCấp bậc và dấu hiệu có phải là nút gốc hay không, nút gốcisLeafvìtruecấp bậc dolevelbiểu thị
 const fnAddTreeDataGradeAndLeaf = function AddTreeDataGradeAndLeaf(array: NzSafeAny[], levelName = 'level', childrenName = 'children'): NzSafeAny[] {
   const recursive = (array: NzSafeAny[], level = 0): NzSafeAny => {
     level++;
@@ -95,13 +95,13 @@ const fnAddTreeDataGradeAndLeaf = function AddTreeDataGradeAndLeaf(array: NzSafe
   return recursive(array);
 };
 
-// 摊平的tree数据
+// làm phẳngtreedữ liệu
 const fnFlattenTreeDataByDataList = function flattenTreeData(dataList: NzSafeAny[]): TreeNodeInterface[] {
   const mapOfExpandedData: Record<string, TreeNodeInterface[]> = fnTreeDataToMap(dataList);
   return fnGetFlattenTreeDataByMap(mapOfExpandedData);
 };
 
-// 获取摊平的tree数据,入参为map形式的treeData
+// Lấy giá trung bìnhtreedữ liệu,Tham số đầu vào làmaphình thứctreeData
 const fnGetFlattenTreeDataByMap = function getFlattenTreeData(mapOfExpandedData: Record<string, TreeNodeInterface[]>): TreeNodeInterface[] {
   const targetArray: TreeNodeInterface[] = [];
   Object.values(mapOfExpandedData).forEach(item => {
@@ -112,7 +112,7 @@ const fnGetFlattenTreeDataByMap = function getFlattenTreeData(mapOfExpandedData:
   return targetArray;
 };
 
-// 给树结构数据进行排序
+// Sắp xếp dữ liệu cấu trúc cây
 const fnSortTreeData = function sortTreeData(data: TreeNodeInterface[], sortObj: SortFile): void {
   data.forEach(item => {
     if (item.children && item.children.length > 0) {
@@ -124,11 +124,11 @@ const fnSortTreeData = function sortTreeData(data: TreeNodeInterface[], sortObj:
     const bValue = b[sortObj.fileName];
 
     if (sortObj.sortDir === 'asc') {
-      return aValue - bValue; // 升序
+      return aValue - bValue; // Tăng dần
     } else if (sortObj.sortDir === 'desc') {
-      return bValue - aValue; // 降序
+      return bValue - aValue; // Giảm dần
     }
-    return 0; // 不排序的情况
+    return 0; // Trường hợp không sắp xếp
   });
 };
 

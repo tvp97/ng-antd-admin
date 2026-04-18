@@ -14,8 +14,8 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 export class ColorSelComponent {
   public color = '#2889e9';
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '我突然想到了“你却说花花世界不必当真”这句歌词',
-    desc: '也可以选择：https://zefoy.github.io/ngx-color-picker/ 示例代码在v20之前都有提供',
-    breadcrumb: ['首页', '功能', '颜色选择器']
+    title: 'Tôi đột nhiên nghĩ đến câu lời bài hát Nhưng em lại nói thế giới hoa lệ không cần phải nghiêm túc',
+    desc: 'Cũng có thể chọn:https://zefoy.github.io/ngx-color-picker/ Mã ví dụ ởv20Trước đây đều đã cung cấp',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Bộ chọn màu']
   };
 }

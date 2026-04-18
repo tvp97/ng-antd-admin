@@ -12,9 +12,9 @@ import { CoolTheme } from './data';
   selector: 'app-theme-charts',
   template: `
     <div class="m-b-20">
-      <button class="m-r-8 m-b-8" nz-button nzType="default" (click)="theme = 'dark'">dark主题</button>
-      <button class="m-r-8 m-b-8" nz-button nzType="default" (click)="theme = 'macarons'">macarons主题</button>
-      <button class="m-r-8 m-b-8" nz-button nzType="default" (click)="theme = coolTheme">自定义主题</button>
+      <button class="m-r-8 m-b-8" nz-button nzType="default" (click)="theme = 'dark'">darkchủ đề</button>
+      <button class="m-r-8 m-b-8" nz-button nzType="default" (click)="theme = 'macarons'">macaronschủ đề</button>
+      <button class="m-r-8 m-b-8" nz-button nzType="default" (click)="theme = coolTheme">Chủ đề tùy chỉnh</button>
     </div>
     <div class="demo-chart" echarts [options]="options" [theme]="theme"></div>
   `,

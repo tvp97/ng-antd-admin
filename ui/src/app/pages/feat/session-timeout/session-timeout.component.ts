@@ -15,9 +15,9 @@ import { NzWaveModule } from 'ng-zorro-antd/core/wave';
 })
 export class SessionTimeoutComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '登录超时',
-    breadcrumb: ['首页', '功能', '登录超时'],
-    desc: '用户登录超时示例。如果redis超时了，则重新弹出登录框，登录成功则将原先的接口重新发送，' + '登录失败，则跳转到登录页面。'
+    title: 'Đăng nhập hết hạn',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Đăng nhập hết hạn'],
+    desc: 'Ví dụ đăng nhập người dùng hết thời gian. NếuredisNếu vượt quá thời gian, thì sẽ hiển thị lại hộp đăng nhập, đăng nhập thành công thì sẽ gửi lại giao diện ban đầu.' + 'Đăng nhập thất bại, thì chuyển đến trang đăng nhập.'
   };
   destroyRef = inject(DestroyRef);
 

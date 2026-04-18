@@ -10,11 +10,11 @@ export interface LazyResult {
   error?: NzSafeAny;
 }
 /*https://netbasal.com/loading-external-libraries-on-demand-in-angular-9dad45701801*/
-// 使用方式：
+// Cách sử dụng:
 // this.lazy.load(["https://unpkg.com/driver.js/dist/driver.min.js", "https://unpkg.com/driver.js/dist/driver.min.css"]).then(() => {
 
 /**
- * 延迟加载资源（js 或 css）服务
+ * Tài nguyên tải chậm (js hoặc css）dịch vụ
  */
 @Injectable({ providedIn: 'root' })
 export class LazyService {

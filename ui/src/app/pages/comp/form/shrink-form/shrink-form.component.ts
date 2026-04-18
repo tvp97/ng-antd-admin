@@ -24,9 +24,9 @@ interface SearchParam {
 })
 export class ShrinkFormComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '可折叠表单示例',
-    breadcrumb: ['首页', '组件', 'Form', '可折叠表单'],
-    desc: '可折叠表单'
+    title: 'Ví dụ về biểu mẫu có thể gập lại',
+    breadcrumb: ['Trang chủ', 'Thành phần', 'Form', 'Biểu mẫu có thể gập lại'],
+    desc: 'Biểu mẫu có thể gập lại'
   };
 
   searchParam: Partial<SearchParam> = {};
@@ -38,7 +38,7 @@ export class ShrinkFormComponent {
     this.searchParam = {};
   }
 
-  /*展开*/
+  /*Mở rộng*/
   toggleCollapse(): void {
     this.isCollapse = !this.isCollapse;
   }

@@ -25,20 +25,20 @@ export class DemoStaggerComponent {
   private readonly destroyRef = inject(DestroyRef);
 
   readonly cardItems: StaggerItem[] = [
-    { label: '设计', color: '#1890ff' },
-    { label: '开发', color: '#52c41a' },
-    { label: '测试', color: '#fa8c16' },
-    { label: '部署', color: '#722ed1' },
-    { label: '监控', color: '#eb2f96' },
-    { label: '迭代', color: '#13c2c2' }
+    { label: 'Thiết kế', color: '#1890ff' },
+    { label: 'phát triển', color: '#52c41a' },
+    { label: 'kiểm tra', color: '#fa8c16' },
+    { label: 'triển khai', color: '#722ed1' },
+    { label: 'giám sát', color: '#eb2f96' },
+    { label: 'lặp đi lặp lại', color: '#13c2c2' }
   ];
 
   readonly listItems: StaggerItem[] = [
-    { label: '第一条数据加载完成', color: '#1890ff' },
-    { label: '第二条数据加载完成', color: '#52c41a' },
-    { label: '第三条数据加载完成', color: '#fa8c16' },
-    { label: '第四条数据加载完成', color: '#722ed1' },
-    { label: '第五条数据加载完成', color: '#eb2f96' }
+    { label: 'Dữ liệu đầu tiên đã tải xong', color: '#1890ff' },
+    { label: 'Dữ liệu thứ hai đã tải xong', color: '#52c41a' },
+    { label: 'Dữ liệu của mục thứ ba đã được tải xong', color: '#fa8c16' },
+    { label: 'Dữ liệu của mục thứ tư đã được tải xong', color: '#722ed1' },
+    { label: 'Điều 5 dữ liệu đã tải xong', color: '#eb2f96' }
   ];
 
   visibleCards = signal<StaggerItem[]>([]);

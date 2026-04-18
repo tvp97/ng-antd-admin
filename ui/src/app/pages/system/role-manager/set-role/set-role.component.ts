@@ -43,15 +43,15 @@ import { NzResultModule } from 'ng-zorro-antd/result';
 })
 export class SetRoleComponent implements OnInit {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '设置权限',
-    desc: '当前角色：',
-    breadcrumb: ['首页', '用户管理', '角色管理', '设置权限']
+    title: 'Cài đặt quyền',
+    desc: 'Vai trò hiện tại:',
+    breadcrumb: ['Trang chủ', 'Quản lý người dùng', 'Quản lý vai trò', 'Cài đặt quyền']
   };
   authCodeArr: string[] = [];
   permissionList: Array<Menu & { isOpen?: boolean; checked?: boolean }> = [];
   destroyRef = inject(DestroyRef);
-  readonly id = input.required<string>(); // 从路由中获取的角色id，ng16支持的新特性
-  readonly roleName = input.required<string>(); // 从路由中获取的Tên vai trò称，ng16支持的新特性
+  readonly id = input.required<string>(); // Vai trò lấy từ định tuyếnid，ng16Các tính năng mới được hỗ trợ
+  readonly roleName = input.required<string>(); // Lấy từ định tuyếnTên vai trgọi,ng16Các tính năng mới được hỗ trợ
 
   private dataService = inject(RoleService);
   private menusService = inject(MenusService);
@@ -59,21 +59,21 @@ export class SetRoleComponent implements OnInit {
   private message = inject(NzMessageService);
   private cdr = inject(ChangeDetectorRef);
 
-  // 初始化数据
+  // Khởi tạo dữ liệu
   initPermission(): void {
-    // 通过角色id获取这个角色拥有的权限码
+    // Thông qua vai tròidLấy mã quyền mà vai trò này sở hữu
     this.dataService
       .getPermissionById(this.id())
       .pipe(
         concatMap(authCodeArr => {
           this.authCodeArr = authCodeArr;
-          // 获取所有菜单
+          // Lấy tất cả các menu
           return this.menusService.getMenuList({ pageSize: 0, pageIndex: 0, filters: {} });
         }),
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe(response => {
-        // isOpen表示 节点是否展开
+        // isOpenbiểu thị Nút có được mở rộng không
         const menuArray: Array<Menu & { isOpen?: boolean; checked?: boolean }> = response.list;
         menuArray.forEach(item => {
           item.isOpen = false;
@@ -85,7 +85,7 @@ export class SetRoleComponent implements OnInit {
   }
 
   getRoleName(): void {
-    this.pageHeaderInfo = { ...this.pageHeaderInfo, ...{ desc: `当前角色：${this.roleName()}` } };
+    this.pageHeaderInfo = { ...this.pageHeaderInfo, ...{ desc: `Vai trò hiện tại:${this.roleName()}` } };
     this.cdr.markForCheck();
   }
 
@@ -110,7 +110,7 @@ export class SetRoleComponent implements OnInit {
       .updatePermission(param)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
-        this.message.success('设置成功，重新登录后生效');
+        this.message.success('Cài đặt thành công, sẽ có hiệu lực sau khi đăng nhập lại');
       });
   }
 

@@ -5,7 +5,7 @@ import { WindowService } from '@core/services/common/window.service';
 import { LockScreenStoreService } from '@store/common-store/lock-screen-store.service';
 import { fnDecrypt, fnEncrypt } from '@utils/tools';
 
-// 监听锁屏状态
+// Lắng nghe trạng thái khóa màn hình
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +15,7 @@ export class SubLockedStatusService {
   destroyRef = inject(DestroyRef);
 
   initLockedStatus(): void {
-    // 判断是否有缓存
+    // Xác định có bộ nhớ đệm hay không
     const hasCash = this.windowSer.getSessionStorage(LockedKey);
     if (hasCash) {
       this.lockScreenStoreService.lockScreenSignalStore.set(fnDecrypt(hasCash, salt));

@@ -56,7 +56,7 @@ export class LoginExpiredService implements HttpInterceptor {
     this.router.navigateByUrl('/login/login-form');
   }
 
-  // 登录超时拦截
+  // Chặn đăng nhập quá thời gian
   private loginExpiredFn(req: HttpRequest<string>, next: HttpHandler): NzSafeAny {
     return switchMap((event: HttpResponse<NzSafeAny>): NzSafeAny => {
       if (event.type !== HttpEventType.Response || event.body.code !== loginTimeOutCode) {
@@ -72,20 +72,20 @@ export class LoginExpiredService implements HttpInterceptor {
       }
 
       this.refresher = new Observable(observer => {
-        // setTimeout为了解决刷新页面的时候，由于zorro样式未加载，登录对话框会闪屏
+        // setTimeoutĐể giải quyết khi làm mới trang, vìzorroKiểu chưa được tải, hộp thoại đăng nhập sẽ nhấp nháy
         setTimeout(() => {
           this.loginModalService
-            .show({ nzTitle: '登录信息过期，重新登录' })
+            .show({ nzTitle: 'Thông tin đăng nhập đã hết hạn, vui lòng đăng nhập lại' })
             .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe(({ modalValue: token, status }) => {
               if (status === ModalBtnStatus.Cancel) {
-                // 这么做是为了登录状态下token过期，刷新页面，登录窗口点击Huỷ，需要在startUp中的获取menu的接口完成掉,
-                // 不然进不去angular应用，路由不跳转
+                // Làm như vậy là để trong trạng thái đăng nhậptokenHết hạn, làm mới trang, nhấn vào cửa sổ đăng nhậpHuỷ, cần phải ởstartUplấy trongmenuHoàn thành giao diện,
+                // Không thì sẽ không vào đượcangularỨng dụng, định tuyến không chuyển hướng
                 observer.next(
                   new HttpResponse({
                     body: {
                       code: 3013,
-                      msg: 'Huỷ后请重新登录',
+                      msg: 'HuVui lòng đăng nhập lại',
                       data: null
                     }
                   })
@@ -103,8 +103,8 @@ export class LoginExpiredService implements HttpInterceptor {
                     observer.next(data);
                   },
                   error: () => {
-                    // 如果先用admin登录系统，token超时弹登录框，此时登录的却是normal账号，对目标页面没有权限，则Quay lại登录页
-                    // 这里靠后端判断新的token没有权限，请求报错403
+                    // Nếu trước tiên dùngadminĐăng nhập hệ thống,tokenHiện ra hộp đăng nhập khi vượt quá thời gian, lúc này lại đang đăng nhập lànormalTài khoản, không có quyền truy cập trang mục tiêu, thìQuay lạiTrang đăng nhập
+                    // Ở đây dựa vào phần backend để xác định cái mớitokenKhông có quyền, yêu cầu báo lỗi403
                     this.message.error('Bạn không có quyền truy cập module này');
                     this.loginOut();
                   }

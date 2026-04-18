@@ -1,12 +1,12 @@
 /*
- * 通用interface
+ * chunginterface
  * */
 
 import { Type } from '@angular/core';
 
 import { NzSafeAny } from 'ng-zorro-antd/core/types';
 
-// Hoạt động组件
+// Hoạt độngThành phần
 export class DynamicComponent {
   constructor(
     public component: Type<NzSafeAny>,
@@ -14,20 +14,20 @@ export class DynamicComponent {
   ) {}
 }
 
-// select下拉
+// selectKéo xuống
 export interface OptionsInterface {
   value: number | string;
   label: string;
 }
 
-// 列表Tìm kiếm
+// Danh sáchTìm kiếm
 export interface SearchCommonVO<T> {
   pageIndex: number;
   pageSize: number;
   filters?: T;
 }
 
-// 分页
+// Phân trang
 export interface PageInfo<T> {
   pageIndex: number;
   pageSize: number;
@@ -50,12 +50,12 @@ export interface PageInfo<T> {
   navigatepageIndexs?: number[];
 }
 
-// Hoạt động组件
+// Hoạt độngThành phần
 export interface AdComponent {
   data: NzSafeAny;
 }
 
-// 级联选择数据结构
+// Cấu trúc dữ liệu lựa chọn theo cấp
 export interface CascaderOption {
   value: number | string;
   label: string;
@@ -64,7 +64,7 @@ export interface CascaderOption {
 }
 
 /*
- * 菜单
+ * Thực đơn
  * */
 export interface Menu {
   id: number | string;
@@ -72,17 +72,17 @@ export interface Menu {
   path: string;
   orderNum?: number;
   menuName: string;
-  menuType: 'C' | 'F'; // c:菜单，f按钮
-  icon?: string; // 如果showIcon为false，设置这个为Tìm kiếm窗口时，最左侧的icon
-  alIcon?: string; // 如果showIcon为false，设置这个为Tìm kiếm窗口时，最左侧的icon
+  menuType: 'C' | 'F'; // c:Thực đơn,fnút bấm
+  icon?: string; // nếushowIconvìfalsethiết lập cái này thànhTìm kiếmKhi cửa sổ, bên trái nhấticon
+  alIcon?: string; // nếushowIconvìfalsethiết lập cái này thànhTìm kiếmKhi cửa sổ, bên trái nhấticon
   updatedAt?: string;
   createdAt?: string;
   deletedAt?: string;
   open?: boolean;
-  selected?: boolean; // 是否选中
-  status?: boolean; // 是否禁用
-  visible?: boolean; // 是否可见
+  selected?: boolean; // Có được chọn không
+  status?: boolean; // Có tắt không
+  visible?: boolean; // Có thể nhìn thấy không
   children?: Menu[];
-  code: string; // 权限码
-  newLinkFlag?: 0 | 1; // 是否是新页
+  code: string; // Mã quyền hạn
+  newLinkFlag?: 0 | 1; // Có phải là trang mới không
 }

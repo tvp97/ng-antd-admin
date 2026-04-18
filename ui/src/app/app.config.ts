@@ -49,43 +49,43 @@ export function InitThemeServiceFactory(initThemeService: InitThemeService) {
   return async (): Promise<void> => await initThemeService.initTheme();
 }
 
-// 监听锁屏状态
+// Lắng nghe trạng thái khóa màn hình
 export function InitLockedStatusServiceFactory(subLockedStatusService: SubLockedStatusService) {
   return () => subLockedStatusService.initLockedStatus();
 }
 
-// 开启监听屏幕宽度
+// Bật nghe theo độ rộng màn hình
 export function SubWindowWithServiceFactory(subWindowWithService: SubWindowWithService) {
   return () => subWindowWithService.subWindowWidth();
 }
 
 const APPINIT_PROVIDES: EnvironmentProviders[] = [
-  // 项目启动
+  // Khởi động dự án
   provideAppInitializer(() => {
     const initializerFn = StartupServiceFactory(inject(StartupService));
     return initializerFn();
   }),
-  // load阿里图标库cdn
+  // loadThư viện biểu tượng Alicdn
   provideAppInitializer(() => {
     const initializerFn = LoadAliIconCdnFactory(inject(LoadAliIconCdnService));
     return initializerFn();
   }),
-  // 初始化锁屏服务
+  // Khởi tạo dịch vụ khóa màn hình
   provideAppInitializer(() => {
     const initializerFn = InitLockedStatusServiceFactory(inject(SubLockedStatusService));
     return initializerFn();
   }),
-  // 初始化主题
+  // Khởi tạo chủ đề
   provideAppInitializer(() => {
     const initializerFn = InitThemeServiceFactory(inject(InitThemeService));
     return initializerFn();
   }),
-  // 初始化监听屏幕宽度服务
+  // Khởi tạo dịch vụ lắng nghe độ rộng màn hình
   provideAppInitializer(() => {
     const initializerFn = SubWindowWithServiceFactory(inject(SubWindowWithService));
     return initializerFn();
   }),
-  // 初始化暗黑模式还是default模式的css
+  // Khởi tạo chế độ tối hay khôngdefaultmẫucss
   provideAppInitializer(() => {
     const initializerFn = ((themeService: ThemeSkinService) => () => {
       return themeService.loadTheme();
@@ -96,18 +96,18 @@ const APPINIT_PROVIDES: EnvironmentProviders[] = [
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    // 在无 Zone.js (Zoneless) 的新模式下，Angular 不再依赖 Zone.js 来感知异步操作和错误。这就导致了原生异步任务（如 setTimeout 或 Promise）中未处理的错误会“逃逸”出 Angular 的管理范围。
-    provideBrowserGlobalErrorListeners(), // 在浏览器环境中，设置全局的错误监听器，并自动将捕获到的未处理错误和 Promise 拒绝 (rejection) 转发给 Angular 的 ErrorHandler 进行统一处理。
-    { provide: RouteReuseStrategy, useClass: SimpleReuseStrategy }, // 路由复用
+    // không có Zone.js (Zoneless) trong mô hình mới,Angular Không còn phụ thuộc Zone.js Hãy cảm nhận các thao tác không đồng bộ và lỗi. Điều này dẫn đến các tác vụ không đồng bộ gốc (như setTimeout hoặc PromiseLỗi chưa được xử lý sẽ "thoát ra" Angular Phạm vi quản lý.
+    provideBrowserGlobalErrorListeners(), // Trong môi trường trình duyệt, thiết lập trình nghe lỗi toàn cục và tự động ghi lại các lỗi chưa được xử lý và Promise Từ chối (rejection) Chuyển tiếp cho Angular của ErrorHandler Tiến hành xử lý thống nhất.
+    { provide: RouteReuseStrategy, useClass: SimpleReuseStrategy }, // Tái sử dụng định tuyến
     {
-      provide: TitleStrategy, // 相关资料：https://dev.to/brandontroberts/setting-page-titles-natively-with-the-angular-router-393j
-      useClass: CustomPageTitleResolverService // 自定义路由切换时，浏览器title的显示，在ng14以上支持。旧版本使用方式请看我的github v16tag以下版本代码
+      provide: TitleStrategy, // Tài liệu liên quan:https://dev.to/brandontroberts/setting-page-titles-natively-with-the-angular-router-393j
+      useClass: CustomPageTitleResolverService // Khi chuyển đổi tuyến đường tùy chỉnh, trình duyệttitlehiển thị, ởng14Hỗ trợ như trên. Cách sử dụng phiên bản cũ vui lòng xem của tôigithub v16tagMã phiên bản dưới đây
     },
-    { provide: NZ_I18N, useValue: zh_CN }, // zorro国际化
-    { provide: NZ_ICONS, useValue: icons }, // zorro图标
+    { provide: NZ_I18N, useValue: zh_CN }, // zorroQuốc tế hóa
+    { provide: NZ_ICONS, useValue: icons }, // zorroBiểu tượng
     provideRouter(
-      appRoutes, // 路由
-      withPreloading(SelectivePreloadingStrategyService), // 自定义模块预加载
+      appRoutes, // Bộ định tuyến
+      withPreloading(SelectivePreloadingStrategyService), // Tải trước mô-đun tùy chỉnh
       withViewTransitions({
         skipInitialTransition: true,
         onViewTransitionCreated: info => {
@@ -121,20 +121,20 @@ export const appConfig: ApplicationConfig = {
           const fromSource = getDeepReuseStrategyKeyFn(info.from, false);
 
           if (fromSource === 'refresh-empty') {
-            // 刷新tab或者切换“是否展示tab”时禁用过渡动画，否则页面tab栏会闪烁
+            // Làm mớitabHoặc chuyển đổi 'Có hiển thị hay không'tab”Hãy tạm thời vô hiệu hóa hiệu ứng chuyển tiếp, nếu không trangtabThanh sẽ nhấp nháy
             info.transition.skipTransition();
           }
         }
-      }), // 路由切换过渡，ng17Thêm mới实验性特性参考资料https://netbasal.com/angular-v17s-view-transitions-navigate-in-elegance-f2d48fd8ceda
+      }), // Chuyển tiếp chuyển đổi định tuyến,ng17Thêm mớiTài liệu tham khảo về tính năng thử nghiệmhttps://netbasal.com/angular-v17s-view-transitions-navigate-in-elegance-f2d48fd8ceda
       withInMemoryScrolling({
         scrollPositionRestoration: 'top'
       }),
-      withHashLocation(), // 使用哈希路由
-      withComponentInputBinding() // 开启路由参数绑定到组件的输入属性,ng16Thêm mới特性
+      withHashLocation(), // Sử dụng định tuyến băm
+      withComponentInputBinding() // Bật ràng buộc tham số định tuyến vào thuộc tính đầu vào của thành phần,ng16Thêm mớiĐặc tính
     ),
     importProvidersFrom(NzDrawerModule, NzModalModule, FormsModule),
-    ...APPINIT_PROVIDES, // 项目启动之前，需要调用的一系列方法
+    ...APPINIT_PROVIDES, // Trước khi khởi động dự án, cần gọi một loạt phương thức
     provideHttpClient(withInterceptors([httpInterceptorService])),
-    provideZonelessChangeDetection() // 开启 zoneless
+    provideZonelessChangeDetection() // Mở zoneless
   ]
 };

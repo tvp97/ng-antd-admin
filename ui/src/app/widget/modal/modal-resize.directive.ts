@@ -30,11 +30,11 @@ export class ModalResizeDirective {
         return;
       }
 
-      // 生成唯一类名
+      // Tạo tên lớp duy nhất
       const wrapCls = `modal-resize-${Date.now()}-${Math.random().toString().replace('0.', '')}`;
       modalElement.classList.add(wrapCls);
 
-      // 创建调整大小手柄
+      // Tạo tay cầm điều chỉnh kích thước
       this.modalResizeService.createResizeHandlers(wrapCls, this.nzxResizeConfig());
 
       this.modal.afterClose.subscribe(() => {

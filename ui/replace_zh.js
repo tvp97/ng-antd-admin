@@ -18,7 +18,7 @@ function walk(dir) {
         if (stat && stat.isDirectory()) {
             results = results.concat(walk(file));
         } else {
-            if (file.endsWith('.html')) {
+            if (file.endsWith('.ts')) {
                 results.push(file);
             }
         }

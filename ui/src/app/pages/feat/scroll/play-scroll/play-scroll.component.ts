@@ -18,9 +18,9 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 })
 export class PlayScrollComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '玩弄滚动条',
-    breadcrumb: ['首页', '拓展功能', '玩弄滚动条'],
-    desc: '传说有一位少年骑着电驴去买瓜'
+    title: 'Chơi với thanh cuộn',
+    breadcrumb: ['Trang chủ', 'Mở rộng chức năng', 'Chơi với thanh cuộn'],
+    desc: 'Truyền rằng có một cậu thiếu niên cưỡi xe điện đi mua dưa'
   };
   private scrollService = inject(NzScrollService);
   private _doc = inject(DOCUMENT);

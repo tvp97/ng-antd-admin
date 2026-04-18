@@ -14,9 +14,9 @@ import { NzWaveModule } from 'ng-zorro-antd/core/wave';
 })
 export class SetupComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '引导页',
-    breadcrumb: ['首页', '引导页'],
-    desc: '用于给用户的指引操作'
+    title: 'Trang dẫn hướng',
+    breadcrumb: ['Trang chủ', 'Trang dẫn hướng'],
+    desc: 'Dùng để hướng dẫn thao tác cho người dùng'
   };
 
   private driverService = inject(DriverService);

@@ -22,9 +22,9 @@ export class LazyScrollComponent implements AfterViewInit {
   private destroyRef = inject(DestroyRef);
   readonly adHost = viewChild.required(AdDirective);
   readonly pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '滚动懒加载组件示例',
-    breadcrumb: ['首页', '组件', '滚动懒加载'],
-    desc: '滚动页面，加载组件'
+    title: 'Ví dụ về thành phần tải lười theo cuộn',
+    breadcrumb: ['Trang chủ', 'Thành phần', 'Tải lười cuộn'],
+    desc: 'Cuộn trang, tải thành phần'
   };
 
   ngAfterViewInit(): void {

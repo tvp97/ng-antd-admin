@@ -5,7 +5,7 @@ const WINDOW_TOKEN = new InjectionToken<Window>('A reference to the window objec
   factory: () => window
 });
 
-/*window对象封装服务*/
+/*windowDịch vụ đóng gói đối tượng*/
 @Injectable({
   providedIn: 'root'
 })

@@ -35,7 +35,7 @@ export class DeptManageModalComponent extends BasicConfirmModalComponent impleme
     });
   }
 
-  // 此方法为如果有异步数据需要加载，则在该方法中Thêm
+  // Phương pháp này sẽ được sử dụng nếu cần tải dữ liệu bất đồng bộ, thì sẽ thực hiện trong phương pháp nàyThêm
   protected getAsyncFnData(modalValue: NzSafeAny): Observable<NzSafeAny> {
     return of(modalValue);
   }

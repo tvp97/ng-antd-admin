@@ -18,8 +18,8 @@ import { NzSpaceModule } from 'ng-zorro-antd/space';
 })
 export class FullScreenComponent implements OnInit {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '全屏示例',
-    breadcrumb: ['首页', '功能', '全屏示例']
+    title: 'Ví dụ toàn màn hình',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Ví dụ toàn màn hình']
   };
 
   isFullscreenFlag = signal(true);

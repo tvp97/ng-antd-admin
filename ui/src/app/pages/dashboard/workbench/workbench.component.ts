@@ -26,7 +26,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
   imports: [
     PageHeaderComponent,
     NzGridModule,
-    WaterMarkComponent,
+
     NzCardModule,
     NzTypographyModule,
     NzListModule,
@@ -65,8 +65,8 @@ export class WorkbenchComponent {
     { item: 'UX', user: 'b', score: 60 }
   ];
   pageHeaderInfo = computed<Partial<PageHeaderType>>(() => ({
-    title: '工作台',
-    breadcrumb: ['首页', 'Dashboard', '工作台'],
+    title: 'Bàn làm việc',
+    breadcrumb: ['Trang chủ', 'Dashboard', 'Bàn làm việc'],
     desc: this.pageHeaderContent()
   }));
 
@@ -78,32 +78,32 @@ export class WorkbenchComponent {
 
   private initRadar(): void {
     const radarPlot = new Radar('randar', {
-        data: this.radarData,
-        xField: 'item',
-        yField: 'score',
-        seriesField: 'user',
-        meta: {
-          score: {
-            alias: '分数',
-            min: 0,
-            max: 80
-          }
-        },
-        xAxis: {
-          line: null,
-          tickLine: null,
-          grid: {
-            line: {
-              style: {
-                lineDash: null
-              }
+      data: this.radarData,
+      xField: 'item',
+      yField: 'score',
+      seriesField: 'user',
+      meta: {
+        score: {
+          alias: 'điểm số',
+          min: 0,
+          max: 80
+        }
+      },
+      xAxis: {
+        line: null,
+        tickLine: null,
+        grid: {
+          line: {
+            style: {
+              lineDash: null
             }
           }
-        },
-        // 开启辅助点
-        point: {
-          size: 2
         }
+      },
+      // Bật điểm hỗ trợ
+      point: {
+        size: 2
+      }
     });
     radarPlot.render();
   }

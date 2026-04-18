@@ -47,11 +47,11 @@ export class LayoutHeadRightMenuComponent {
     return this.userInfoService.$userInfo();
   });
 
-  // 锁定屏幕
+  // Khóa màn hình
   lockScreen(): void {
     this.lockWidgetService
       .show({
-        nzTitle: '锁定屏幕',
+        nzTitle: 'Khóa màn hình',
         nzStyle: { top: '25px' },
         nzWidth: '520px',
         nzFooter: null,
@@ -60,9 +60,9 @@ export class LayoutHeadRightMenuComponent {
       .subscribe();
   }
 
-  // 修改密码
+  // Đổi mật khẩu
   changePassWorld(): void {
-    this.changePasswordModalService.show({ nzTitle: '修改密码' }).subscribe(({ modalValue, status }) => {
+    this.changePasswordModalService.show({ nzTitle: 'Đổi mật khẩu' }).subscribe(({ modalValue, status }) => {
       if (status === ModalBtnStatus.Cancel) {
         return;
       }
@@ -73,7 +73,7 @@ export class LayoutHeadRightMenuComponent {
       };
       this.accountService.editAccountPsd(this.user).subscribe(() => {
         this.loginOutService.loginOut().then();
-        this.message.success('修改成功，请重新登录');
+        this.message.success('Sửa đổi thành công, vui lòng đăng nhập lại');
       });
     });
   }
@@ -97,11 +97,11 @@ export class LayoutHeadRightMenuComponent {
     this.windowServe.clearStorage();
     this.windowServe.clearSessionStorage();
     this.loginOutService.loginOut().then();
-    this.message.success('清除成功，请重新登录');
+    this.message.success('Xóa thành công, vui lòng đăng nhập lại');
   }
 
   showMessage(): void {
-    this.message.info('切换成功');
+    this.message.info('Chuyển đổi thành công');
   }
 
   goPage(path: string): void {

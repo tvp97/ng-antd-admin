@@ -53,7 +53,7 @@ export class TaskManageFormComponent implements OnInit, ControlValueAccessor {
   }
 
   checkForm(): boolean {
-    // 用下面方式让formArray每一项置脏（如果有formArray的话，这里只是做个示例）
+    // Dùng cách dưới đây đểformArrayMỗi mục bẩn (nếu cóformArraynếu vậy, đây chỉ là một ví dụ)
     /* ((this.validateForm.get('fontImgArray') as FormArray).controls).forEach(item => {
        fnCheckForm(item as FormGroup);
      })*/

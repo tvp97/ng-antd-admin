@@ -42,7 +42,7 @@ export class TreeTableComponent implements OnChanges {
   // _dataList!: TreeNodeInterface[];
   allChecked = false;
   indeterminate = false;
-  // 从业务组件中传入的缓存的已经选中的checkbox数据数组,相当于缓存的tableData
+  // Đã được chọn trong bộ nhớ đệm truyền từ thành phần kinh doanhcheckboxmảng dữ liệu,Tương đương với bộ nhớ đệmtableData
   readonly cashArray = input<NzSafeAny[]>([]);
   checkedCashArrayFromComment: NzSafeAny[] = [];
   readonly sortFn = output<SortFile>();
@@ -51,18 +51,18 @@ export class TreeTableComponent implements OnChanges {
   mapOfExpandedData: Record<string, TreeNodeInterface[]> = {};
   readonly tableConfig = input.required<AntTableConfig>();
   readonly selectedChange = output<NzSafeAny[]>();
-  cashExpandIdArray: Array<number | string> = []; // 缓存已经展开的节点的id
+  cashExpandIdArray: Array<number | string> = []; // Bộ nhớ đệm của các nút đã mở rộngid
 
   tableData = input<TreeNodeInterface[]>([]);
   _dataList = computed(() => {
-    // 根据dataList获取map形式的treeData,每一个key对应一组（也就是有子集）的数据
+    // theodataListlấymaphình thứctreeData,MỗikeyTương ứng với một tập hợp (tức là có tập con) dữ liệu
     this.mapOfExpandedData = fnTreeDataToMap(this.tableData());
-    const beFilterId: Array<string | number> = []; // 待Xóa的展开数据的child集的id数组
+    const beFilterId: Array<string | number> = []; // ĐợiXóadữ liệu khai triển củachildtậpidMảng
     Object.values(this.mapOfExpandedData).forEach(menuArray => {
       menuArray.forEach(menuItem => {
         if (this.cashExpandIdArray.includes(menuItem.id)) {
           menuItem.expand = true;
-          // 让当前节点子集进行缓存，下面再Xóa，不然会多余出子集的数据到expand为true的平级上
+          // Để tập con của nút hiện tại được lưu vào bộ nhớ đệm, nếu không sẽ xuất ra dư thừa các dữ liệu con có expand là true ở cùng cấp độ
           if (menuItem.children && menuItem.children.length > 0) {
             menuItem.children.forEach(item => {
               beFilterId.push(item.id);
@@ -88,12 +88,12 @@ export class TreeTableComponent implements OnChanges {
   }
 
   tableChangeDectction(): void {
-    // 改变引用触发变更检测。
+    // Thay đổi tham chiếu sẽ kích hoạt kiểm tra thay đổi.
     // this._dataList = [...this._dataList];
     this.cdr.markForCheck();
   }
 
-  // 表头拖动
+  // Kéo đầu bảng
   onResize(nzResizeEvent: NzResizeEvent, col: string): void {
     this.tableConfig().headers = this.tableConfig().headers.map(e =>
       e.title === col
@@ -105,7 +105,7 @@ export class TreeTableComponent implements OnChanges {
     ) as TableHeader[];
   }
 
-  // 点击排序
+  // Nhấp để sắp xếp
   changeSort(tableHeader: TableHeader): void {
     this.tableConfig().headers.forEach(item => {
       if (item.field !== tableHeader.field) {
@@ -118,12 +118,12 @@ export class TreeTableComponent implements OnChanges {
     this.sortFn.emit({ fileName: tableHeader.field!, sortDir: tableHeader.sortDir });
   }
 
-  // 分页页码改变
+  // Thay đổi số trang phân trang
   onQueryParamsChange(tableQueryParams: NzTableQueryParams): void {
     this.changePageIndex.emit(tableQueryParams);
   }
 
-  // 修改一页几条的页码
+  // Chỉnh sửa số trang cho mỗi trang vài mục
   onPageSizeChange($event: NzSafeAny): void {
     this.changePageSize.emit($event);
   }
@@ -156,7 +156,7 @@ export class TreeTableComponent implements OnChanges {
     }
   }
 
-  // 设置选中与否，并处理缓存值
+  // Cài đặt chọn hoặc không chọn, và xử lý giá trị bộ nhớ đệm
   setIsCheckFn(dataItem: NzSafeAny, isChecked: boolean): void {
     dataItem['_checked'] = isChecked;
     const index = this.checkedCashArrayFromComment.findIndex(cashItem => cashItem.id === dataItem.id);
@@ -171,7 +171,7 @@ export class TreeTableComponent implements OnChanges {
     }
   }
 
-  // 全选
+  // Chọn tất cả
   onAllChecked(isChecked: boolean): void {
     fnGetFlattenTreeDataByMap(this.mapOfExpandedData).forEach(row => {
       this.setIsCheckFn(row, isChecked);
@@ -180,16 +180,16 @@ export class TreeTableComponent implements OnChanges {
     this.refreshStatus();
   }
 
-  // 单选
+  // Chọn đơn
   public checkRowSingle(isChecked: boolean, selectIndex: number, row: TreeNodeInterface): void {
     this.setIsCheckFn(row, isChecked);
     this.selectedChange.emit(this.checkedCashArrayFromComment);
     this.refreshStatus();
   }
 
-  // 刷新复选框状态
+  // Làm mới trạng thái hộp kiểm
   refreshStatus(): void {
-    // 获取铺平的treeData
+    // lấy được trải phẳngtreeData
     const dataTempArray: TreeNodeInterface[] = fnGetFlattenTreeDataByMap(this.mapOfExpandedData);
 
     const allChecked =
@@ -206,7 +206,7 @@ export class TreeTableComponent implements OnChanges {
     if (changes['cashArray'] && !changes['cashArray'].firstChange) {
       this.checkedCashArrayFromComment = [...changes['cashArray'].currentValue];
       fnGetFlattenTreeDataByMap(this.mapOfExpandedData).forEach(row => {
-        // 判断缓存中是否有该值，有的话设置成true
+        // Kiểm tra xem có giá trị này trong bộ nhớ đệm hay không, nếu có thì đặt thànhtrue
         const index = this.checkedCashArrayFromComment.findIndex(item => item.id === row.id);
         this.setIsCheckFn(row, index !== -1);
       });

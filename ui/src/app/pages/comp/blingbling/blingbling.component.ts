@@ -12,8 +12,8 @@ import { NzCardComponent } from 'ng-zorro-antd/card';
 })
 export class BlingblingComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '不灵不灵',
-    breadcrumb: ['首页', '组件', 'blingbling'],
-    desc: '抄了一个样式 https://mp.weixin.qq.com/s/CaMKgC4EwBGkmsGK9yh0hA'
+    title: 'Không linh nghiệm',
+    breadcrumb: ['Trang chủ', 'Thành phần', 'blingbling'],
+    desc: 'Sao chép một kiểu https://mp.weixin.qq.com/s/CaMKgC4EwBGkmsGK9yh0hA'
   };
 }

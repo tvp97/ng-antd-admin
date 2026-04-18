@@ -18,9 +18,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 })
 export class ExDrawerComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '抽屉封装',
-    breadcrumb: ['首页', '抽屉封装'],
-    desc: '小小的抽屉里面藏着我好多大大的梦想'
+    title: 'Đóng gói ngăn kéo',
+    breadcrumb: ['Trang chủ', 'Đóng gói ngăn kéo'],
+    desc: 'Trong ngăn kéo nhỏ bé ấy chứa đựng biết bao nhiêu ước mơ lớn của tôi'
   };
   data = '';
   dataFromDrawer = signal('');
@@ -29,7 +29,7 @@ export class ExDrawerComponent {
 
   showDrawer(): void {
     this.drawerService
-      .show({ nzTitle: '服务创建' }, { name: this.data })
+      .show({ nzTitle: 'Tạo dịch vụ' }, { name: this.data })
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(({ modalValue, status }) => {
         if (status === ModalBtnStatus.Cancel) {

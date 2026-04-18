@@ -16,7 +16,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   templateUrl: './card-table.component.html',
   styleUrl: './card-table.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PageHeaderComponent, NzGridModule, WaterMarkComponent, NzCardModule, NzIconModule, NzButtonModule, NzAvatarModule]
+  imports: [PageHeaderComponent, NzGridModule, NzCardModule, NzIconModule, NzButtonModule, NzAvatarModule]
 })
 export class CardTableComponent implements AfterViewInit {
   private themesService = inject(ThemeService);
@@ -32,57 +32,57 @@ export class CardTableComponent implements AfterViewInit {
       id: 1,
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png',
       name: 'Alipay',
-      desc: '在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。'
+      desc: 'Trong quá trình nghiên cứu và phát triển sản phẩm trung gian, sẽ xuất hiện các tiêu chuẩn thiết kế và cách triển khai khác nhau, nhưng trong số đó thường tồn tại nhiều trang và thành phần tương tự, những thành phần tương tự này sẽ được tách ra thành một bộ tiêu chuẩn.'
     },
     {
       id: 2,
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png',
       name: 'Angular',
-      desc: '在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。'
+      desc: 'Trong quá trình nghiên cứu và phát triển sản phẩm trung gian, sẽ xuất hiện các tiêu chuẩn thiết kế và cách triển khai khác nhau, nhưng trong số đó thường tồn tại nhiều trang và thành phần tương tự, những thành phần tương tự này sẽ được tách ra thành một bộ tiêu chuẩn.'
     },
     {
       id: 3,
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
       name: 'Ant Design',
-      desc: '在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。'
+      desc: 'Trong quá trình nghiên cứu và phát triển sản phẩm trung gian, sẽ xuất hiện các tiêu chuẩn thiết kế và cách triển khai khác nhau, nhưng trong số đó thường tồn tại nhiều trang và thành phần tương tự, những thành phần tương tự này sẽ được tách ra thành một bộ tiêu chuẩn.'
     },
     {
       id: 4,
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png',
       name: 'Ant Design Pro',
-      desc: '在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。'
+      desc: 'Trong quá trình nghiên cứu và phát triển sản phẩm trung gian, sẽ xuất hiện các tiêu chuẩn thiết kế và cách triển khai khác nhau, nhưng trong số đó thường tồn tại nhiều trang và thành phần tương tự, những thành phần tương tự này sẽ được tách ra thành một bộ tiêu chuẩn.'
     },
     {
       id: 5,
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/siCrBXXhmvTQGWPNLBow.png',
       name: 'Bootstrap',
-      desc: '在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。'
+      desc: 'Trong quá trình nghiên cứu và phát triển sản phẩm trung gian, sẽ xuất hiện các tiêu chuẩn thiết kế và cách triển khai khác nhau, nhưng trong số đó thường tồn tại nhiều trang và thành phần tương tự, những thành phần tương tự này sẽ được tách ra thành một bộ tiêu chuẩn.'
     },
     {
       id: 6,
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/kZzEzemZyKLKFsojXItE.png',
       name: 'React',
-      desc: '在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。'
+      desc: 'Trong quá trình nghiên cứu và phát triển sản phẩm trung gian, sẽ xuất hiện các tiêu chuẩn thiết kế và cách triển khai khác nhau, nhưng trong số đó thường tồn tại nhiều trang và thành phần tương tự, những thành phần tương tự này sẽ được tách ra thành một bộ tiêu chuẩn.'
     },
     {
       id: 7,
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/ComBAopevLwENQdKWiIn.png',
       name: 'Vue',
-      desc: '在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。'
+      desc: 'Trong quá trình nghiên cứu và phát triển sản phẩm trung gian, sẽ xuất hiện các tiêu chuẩn thiết kế và cách triển khai khác nhau, nhưng trong số đó thường tồn tại nhiều trang và thành phần tương tự, những thành phần tương tự này sẽ được tách ra thành một bộ tiêu chuẩn.'
     },
     {
       id: 8,
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/nxkuOJlFJuAUhzlMTCEe.png',
       name: 'Webpack',
-      desc: '在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。'
+      desc: 'Trong quá trình nghiên cứu và phát triển sản phẩm trung gian, sẽ xuất hiện các tiêu chuẩn thiết kế và cách triển khai khác nhau, nhưng trong số đó thường tồn tại nhiều trang và thành phần tương tự, những thành phần tương tự này sẽ được tách ra thành một bộ tiêu chuẩn.'
     }
   ];
   readonly headerContent = viewChild.required<TemplateRef<NzSafeAny>>('headerContent');
 
   ngAfterViewInit(): void {
     this.pageHeaderInfo = {
-      title: '卡片列表',
-      breadcrumb: ['首页', '列表页', '卡片列表'],
+      title: 'Danh sách thẻ',
+      breadcrumb: ['Trang chủ', 'Trang danh sách', 'Danh sách thẻ'],
       desc: this.headerContent()
     };
   }

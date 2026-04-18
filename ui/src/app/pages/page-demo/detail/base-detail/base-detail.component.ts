@@ -22,20 +22,20 @@ interface ReturnObj {
   selector: 'app-base-detail',
   templateUrl: './base-detail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PageHeaderComponent, NzCardModule, WaterMarkComponent, NzDescriptionsModule, NzDividerModule, AntTableComponent]
+  imports: [PageHeaderComponent, NzCardModule, NzDescriptionsModule, NzDividerModule, AntTableComponent]
 })
 export class BaseDetailComponent implements OnInit {
   readonly returnProductTpl = viewChild.required<TemplateRef<NzSafeAny>>('returnProductTpl');
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '基础Chi tiết页',
-    breadcrumb: ['首页', 'Chi tiết页', '基础Chi tiết页']
+    title: 'Cơ sởChi tiếttrang',
+    breadcrumb: ['Trang chủ', 'Chi tiếttrang', 'Cơ sởChi tiếttrang']
   };
   returnTableConfig!: AntTableConfig;
   returnTableConfig2!: AntTableConfig;
   returnDataList: ReturnObj[] = [
     {
       num: '1234561',
-      name: '矿泉水 550ml',
+      name: 'nước khoáng 550ml',
       code: '12421432143214321',
       unitPrice: '2.00',
       number: '1',
@@ -43,7 +43,7 @@ export class BaseDetailComponent implements OnInit {
     },
     {
       num: '1234561',
-      name: '矿泉水 550ml',
+      name: 'nước khoáng 550ml',
       code: '12421432143214321',
       unitPrice: '2.00',
       number: '1',
@@ -51,7 +51,7 @@ export class BaseDetailComponent implements OnInit {
     },
     {
       num: '1234561',
-      name: '矿泉水 550ml',
+      name: 'nước khoáng 550ml',
       code: '12421432143214321',
       unitPrice: '2.00',
       number: '1',
@@ -59,7 +59,7 @@ export class BaseDetailComponent implements OnInit {
     },
     {
       num: '1234561',
-      name: '矿泉水 550ml',
+      name: 'nước khoáng 550ml',
       code: '12421432143214321',
       unitPrice: '2.00',
       number: '1',
@@ -67,7 +67,7 @@ export class BaseDetailComponent implements OnInit {
     },
     {
       num: '1234561',
-      name: '矿泉水 550ml',
+      name: 'nước khoáng 550ml',
       code: '12421432143214321',
       unitPrice: '2.00',
       number: '1',
@@ -80,33 +80,33 @@ export class BaseDetailComponent implements OnInit {
       showCheckbox: false,
       headers: [
         {
-          title: '商品编号',
+          title: 'Mã sản phẩm',
           field: 'num',
           width: 150,
           tdTemplate: this.returnProductTpl()
         },
         {
-          title: '商品名称',
+          title: 'Tên sản phẩm',
           width: 160,
           field: 'name'
         },
         {
-          title: '商品条码',
+          title: 'Mã vạch sản phẩm',
           width: 150,
           field: 'code'
         },
         {
-          title: '单价',
+          title: 'Đơn giá',
           width: 150,
           field: 'unitPrice'
         },
         {
-          title: '数量（件）',
+          title: 'Số lượng (chiếc)',
           width: 150,
           field: 'number'
         },
         {
-          title: '金额',
+          title: 'Số tiền',
           field: 'price'
         }
       ],
@@ -119,33 +119,33 @@ export class BaseDetailComponent implements OnInit {
       showCheckbox: false,
       headers: [
         {
-          title: '商品编号',
+          title: 'Mã sản phẩm',
           field: 'num',
           width: 150,
           tdTemplate: this.returnProductTpl()
         },
         {
-          title: '商品名称',
+          title: 'Tên sản phẩm',
           width: 160,
           field: 'name'
         },
         {
-          title: '商品条码',
+          title: 'Mã vạch sản phẩm',
           width: 150,
           field: 'code'
         },
         {
-          title: '单价',
+          title: 'Đơn giá',
           width: 150,
           field: 'unitPrice'
         },
         {
-          title: '数量（件）',
+          title: 'Số lượng (chiếc)',
           width: 150,
           field: 'number'
         },
         {
-          title: '金额',
+          title: 'Số tiền',
           field: 'price'
         }
       ],

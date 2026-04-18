@@ -5,7 +5,7 @@ import { PageInfo, SearchCommonVO } from '../../types';
 import { BaseHttpService } from '../base-http.service';
 
 /*
- *  部门列表
+ *  Danh sách phòng ban
  * */
 export interface Dept {
   id?: number;

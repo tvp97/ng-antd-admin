@@ -17,7 +17,7 @@ import { NZ_MODAL_DATA, NzModalRef } from 'ng-zorro-antd/modal';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 
-// c:菜单，f按钮
+// c:Thực đơn,fnút bấm
 type menuType = 'C' | 'F';
 
 @Component({
@@ -69,7 +69,7 @@ export class MenuModalComponent extends BasicConfirmModalComponent implements On
     this.validateForm.get('path')?.[methodName]();
   }
 
-  // 修改菜单type
+  // Chỉnh sửa thực đơntype
   changeMenuType(type: menuType): void {
     this.menuType = type;
     if (type === 'F') {

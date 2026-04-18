@@ -3,36 +3,36 @@ import { computed, Injectable, signal } from '@angular/core';
 import { Theme, ThemeMode } from '@app/layout/default/setting-drawer/setting-drawer.component';
 
 export interface SettingInterface {
-  theme: Theme['key']; // 主题模式（暗黑模式，明亮模式）
-  color: string; // 主题色
-  mode: ThemeMode['key']; // 菜单模式（侧边模式，顶部模式，混合模式）
-  colorWeak: boolean; // 色弱
-  greyTheme: boolean; // 灰色模式
-  fixedHead: boolean; // 固定头部
-  splitNav: boolean; // 是否分割菜单（在菜单模式为混合模式时才生效）
-  fixedLeftNav: boolean; // 固定左侧菜单
-  isShowTab: boolean; // 是否展示多页签
-  fixedTab: boolean; // 固定tab页签
-  hasTopArea: boolean; // 是否展示顶部区域
-  hasFooterArea: boolean; // 是否展示底部区域
-  hasNavArea: boolean; // 是否有菜单
-  hasNavHeadArea: boolean; // 菜单是否有菜单头
+  theme: Theme['key']; // Chế độ giao diện (chế độ tối, chế độ sáng)
+  color: string; // Màu chủ đạo
+  mode: ThemeMode['key']; // Chế độ menu (chế độ bên, chế độ trên cùng, chế độ hỗn hợp)
+  colorWeak: boolean; // thiếu sắc tố
+  greyTheme: boolean; // Chế độ xám
+  fixedHead: boolean; // Đầu cố định
+  splitNav: boolean; // Có tách menu không (chỉ có hiệu lực khi chế độ menu là chế độ hỗn hợp)
+  fixedLeftNav: boolean; // Cố định menu bên trái
+  isShowTab: boolean; // Có hiển thị nhiều tab không
+  fixedTab: boolean; // Cố địnhtabTrang tab
+  hasTopArea: boolean; // Có hiển thị khu vực trên cùng không
+  hasFooterArea: boolean; // Có hiển thị khu vực dưới cùng không
+  hasNavArea: boolean; // Có thực đơn không?
+  hasNavHeadArea: boolean; // Menu có tiêu đề menu không
 }
 
-export type StyleTheme = 'default' | 'dark' | 'aliyun' | 'compact'; // 默认主题，暗黑主题，阿里云主题，紧凑主题
+export type StyleTheme = 'default' | 'dark' | 'aliyun' | 'compact'; // Chủ đề mặc định, Chủ đề tối, Chủ đề Alibaba Cloud, Chủ đề gọn gàng
 
-// 主题风格
+// Phong cách chủ đề
 export type StyleThemeInterface = Record<StyleTheme, boolean>;
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  $themeStyle = signal<StyleTheme>('default'); // 主题风格，暗黑，默认，紧凑，阿里云
-  $isNightTheme = computed(() => this.$themeStyle() === 'dark'); // 暗黑主题
-  $isCompactTheme = computed(() => this.$themeStyle() === 'compact'); // 紧凑主题
-  $isOverModeTheme = signal(false); // over模式，即拖动浏览器宽度，至菜单栏消失的状态
-  $isCollapsed = signal(false); // 菜单收缩模式，拖动浏览器至菜单自动缩短成图标
+  $themeStyle = signal<StyleTheme>('default'); // Chủ đề phong cách, tối, mặc định, gọn gàng, Alibaba Cloud
+  $isNightTheme = computed(() => this.$themeStyle() === 'dark'); // Chủ đề tối
+  $isCompactTheme = computed(() => this.$themeStyle() === 'compact'); // Chủ đề gọn gàng
+  $isOverModeTheme = signal(false); // overChế độ, tức là kéo độ rộng của trình duyệt cho đến khi thanh menu biến mất
+  $isCollapsed = signal(false); // Chế độ thu gọn menu, kéo trình duyệt để menu tự động thu thành biểu tượng
   $themesOptions = signal<SettingInterface>({
     theme: 'dark',
     color: '#1890FF',

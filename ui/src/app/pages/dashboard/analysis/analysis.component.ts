@@ -54,46 +54,46 @@ export class AnalysisComponent {
   miniBarData = [497, 666, 219, 269, 274, 337, 81, 497, 666, 219, 269];
   miniAreaData = [264, 274, 284, 294, 284, 274, 264, 264, 274, 264, 264, 264, 284, 264, 254, 264, 244, 340, 264, 243, 226, 192];
   histogramData = [
-    { type: '1月', value: 769 },
-    { type: '2月', value: 769 },
-    { type: '3月', value: 861 },
-    { type: '4月', value: 442 },
-    { type: '5月', value: 555 },
-    { type: '6月', value: 439 },
-    { type: '7月', value: 590 },
-    { type: '8月', value: 434 },
-    { type: '9月', value: 843 },
-    { type: '10月', value: 840 },
-    { type: '11月', value: 769 },
-    { type: '12月', value: 769 }
+    { type: '1tháng', value: 769 },
+    { type: '2tháng', value: 769 },
+    { type: '3tháng', value: 861 },
+    { type: '4tháng', value: 442 },
+    { type: '5tháng', value: 555 },
+    { type: '6tháng', value: 439 },
+    { type: '7tháng', value: 590 },
+    { type: '8tháng', value: 434 },
+    { type: '9tháng', value: 843 },
+    { type: '10tháng', value: 840 },
+    { type: '11tháng', value: 769 },
+    { type: '12tháng', value: 769 }
   ];
   ringData = [
-    { type: '分类一', value: 27 },
-    { type: '分类二', value: 25 },
-    { type: '分类三', value: 18 },
-    { type: '分类四', value: 15 },
-    { type: '分类五', value: 10 },
-    { type: '其他', value: 5 }
+    { type: 'Phân loại một', value: 27 },
+    { type: 'Phân loại hai', value: 25 },
+    { type: 'Phân loại ba', value: 18 },
+    { type: 'Phân loại bốn', value: 15 },
+    { type: 'Phân loại năm', value: 10 },
+    { type: 'Khác', value: 5 }
   ];
 
   listOfColumn = [
     {
-      title: '排名',
+      title: 'Xếp hạng',
       compare: null,
       priority: false
     },
     {
-      title: 'Tìm kiếm关键词',
+      title: 'Tìm kiếmTừ khóa',
       compare: (a: DataItem, b: DataItem) => a.chinese - b.chinese,
       priority: 3
     },
     {
-      title: '用户数',
+      title: 'Số lượng người dùng',
       compare: (a: DataItem, b: DataItem) => a.math - b.math,
       priority: 2
     },
     {
-      title: '周涨幅',
+      title: 'Tăng trưởng hàng tuần',
       compare: (a: DataItem, b: DataItem) => a.english - b.english,
       priority: 1
     }
@@ -216,7 +216,7 @@ export class AnalysisComponent {
       .interval()
       .position('type*value')
       .color('type', val => {
-        if (val === '10-30分' || val === '30+分') {
+        if (val === '10-30phân' || val === '30+phân') {
           return '#ff4d4f';
         }
         return '#2194ff';
@@ -278,7 +278,7 @@ export class AnalysisComponent {
         content: '{value}'
       },
       statistic: {},
-      // Thêm 中心统计文本 交互
+      // Thêm Văn bản thống kê trung tâm Tương tác
       interactions: [{ type: 'element-selected' }, { type: 'element-active' }, { type: 'pie-statistic-active' }]
     });
     tinyArea.render();

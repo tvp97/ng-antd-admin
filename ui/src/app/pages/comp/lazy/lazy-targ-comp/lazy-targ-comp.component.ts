@@ -27,7 +27,7 @@ export class LazyTargCompComponent implements OnChanges {
   disabled = true;
   destroyRef = inject(DestroyRef);
 
-  // 选择明星
+  // Chọn thần tượng
   choosePeople(people: LazySelPeopleEnum): void {
     this.currentPeople.emit(people);
     this.disabled = false;

@@ -28,19 +28,19 @@ interface IconItem {
 })
 export class IconSelComponent implements OnInit, AfterViewInit {
   visible = input(false, { transform: booleanAttribute });
-  // 做图标Tìm kiếm防抖
+  // Tạo biểu tượngTìm kiếmchống rung
   private searchText$ = new Subject<string>();
   selectedIcon = '';
   readonly selIcon = output<string>();
-  // 分页信息
+  // Thông tin phân trang
   pageObj = {
     pageSize: 50,
     pageIndex: 1
   };
-  // 图标Tìm kiếm出来的所有结果
+  // Biểu tượngTìm kiếmTất cả kết quả đưa ra
   iconsStrAllArray: IconItem[] = [];
-  sourceIconsArray: IconItem[] = []; // 所有icon的数据源
-  iconsStrShowArray: IconItem[] = []; // 每页中展示的icon
+  sourceIconsArray: IconItem[] = []; // tất cảiconnguồn dữ liệu
+  iconsStrShowArray: IconItem[] = []; // Hiển thị trên mỗi trangicon
   gridStyle = {
     width: '20%'
   };
@@ -73,7 +73,7 @@ export class IconSelComponent implements OnInit, AfterViewInit {
     this.getData(1);
   }
 
-  // 分页获取数据
+  // Lấy dữ liệu theo phân trang
   getData(event: number = this.pageObj.pageIndex): void {
     this.pageObj = { ...this.pageObj, pageIndex: event };
     this.iconsStrShowArray = [...this.iconsStrAllArray.slice((this.pageObj.pageIndex - 1) * this.pageObj.pageSize, this.pageObj.pageIndex * this.pageObj.pageSize)];

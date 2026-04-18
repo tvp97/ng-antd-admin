@@ -12,12 +12,12 @@ export default [
     children: [
       {
         path: 'empty-page',
-        title: '空页面',
+        title: 'Trang trống',
         data: { key: 'empty-page', shouldDetach: 'no' },
         loadComponent: () => import('../../pages/empty/empty.component').then(m => m.EmptyComponent)
       },
       {
-        title: '锁屏',
+        title: 'Khóa màn hình',
         canDeactivate: [(component: EmptyForLockComponent) => !component.routeStatus().locked],
         data: { key: 'empty-for-lock', shouldDetach: 'no' },
         path: 'empty-for-lock',

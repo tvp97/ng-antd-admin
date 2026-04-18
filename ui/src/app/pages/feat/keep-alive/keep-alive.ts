@@ -15,8 +15,8 @@ import { NzInputDirective } from 'ng-zorro-antd/input';
 export class KeepAliveDemo {
   pageHeaderInfo: Partial<PageHeaderType> = {
     title: 'KeepAlive',
-    breadcrumb: ['首页', '功能', 'keepAlive'],
-    desc: 'ng群主提供的指令，我觉得很棒分享给大家。你先输入一些内容到输入框，切换按钮，输入框中的内容仍然能保留。可以是输入框也可以是表单'
+    breadcrumb: ['Trang chủ', 'chức năng', 'keepAlive'],
+    desc: 'ngLệnh do chủ nhóm cung cấp, tôi thấy rất hay nên chia sẻ cho mọi người. Bạn nhập trước một số nội dung vào ô nhập liệu, chuyển nút, nội dung trong ô nhập liệu vẫn có thể được giữ lại. Có thể là ô nhập liệu hoặc cũng có thể là biểu mẫu.'
   };
 
   flag = signal(true);

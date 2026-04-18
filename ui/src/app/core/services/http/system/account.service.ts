@@ -5,7 +5,7 @@ import { PageInfo, SearchCommonVO } from '../../types';
 import { BaseHttpService } from '../base-http.service';
 
 /*
- * 用户管理
+ * Quản lý người dùng
  * */
 export interface User {
   id: number;
@@ -24,7 +24,7 @@ export interface User {
 }
 
 /*
- * 用户修改密码
+ * Người dùng thay đổi mật khẩu
  * */
 export interface UserPsd {
   id: number;

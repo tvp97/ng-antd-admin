@@ -29,7 +29,7 @@ export interface ModalResponse {
   modalValue: NzSafeAny;
 }
 
-// 组件实例需要继承此类
+// Các thể hiện thành phần cần kế thừa lớp này
 export abstract class BasicConfirmModalComponent {
   modalRef: NzModalRef<NzSafeAny, ModalResponse | boolean> = inject(NzModalRef);
   abstract getCurrentValue(): NzSafeAny;
@@ -111,9 +111,9 @@ export class ModalWrapService {
   }
 
   /**
-   * 获取所有对话框最大值,并Xác nhận是否需要修改
+   * Lấy giá trị tối đa của tất cả các hộp thoại,vàXác nhậnCó cần chỉnh sửa không
    *
-   * @param wrapElement 待修改z-index 容器
+   * @param wrapElement Chờ sửa đổiz-index Bình chứa
    */
   getModalMaxZIndex(wrapElement: HTMLElement): ModalZIndex {
     return this.bsModalService.openModals.reduce<ModalZIndex>(
@@ -133,7 +133,7 @@ export class ModalWrapService {
     );
   }
 
-  // 当对话框面板时,设置当前对话框z-index为最大
+  // Khi đối thoại bảng điều khiển,Đặt hộp thoại hiện tạiz-indexVì tối đa
   protected setMaxZIndex(wrapElement: HTMLElement): void {
     wrapElement.addEventListener(
       'mousedown',
@@ -169,7 +169,7 @@ export class ModalWrapService {
     wrapElement.style.pointerEvents = 'none';
   }
 
-  // 创建对话框的配置项
+  // Tạo các tùy chọn cấu hình hộp thoại
   createModalConfig<T extends BasicConfirmModalComponent, U>(component: Type<T>, modalOptions: ModalOptions = {}, params?: U, wrapCls: string = ''): ModalOptions {
     const defaultOptions: ModalOptions<NzSafeAny, U> = {
       nzTitle: '',
@@ -178,7 +178,7 @@ export class ModalWrapService {
       nzMaskClosable: false,
       nzFooter: [
         {
-          label: '确认',
+          label: 'Xác nhận',
           type: 'primary',
           show: true,
           onClick: this.confirmCallback.bind(this)<T>
@@ -197,7 +197,7 @@ export class ModalWrapService {
       },
       nzClosable: true,
       nzWidth: 720,
-      nzData: params // 参数中的属性将传入nzContent实例中
+      nzData: params // Các thuộc tính trong tham số sẽ được truyền vàonzContenttrong ví dụ
     };
     const newOptions = _.merge(defaultOptions, modalOptions);
     newOptions.nzWrapClassName = `${newOptions.nzWrapClassName || ''} ${wrapCls}`;

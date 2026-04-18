@@ -16,7 +16,7 @@ import { UserInfo, UserInfoStoreService } from '@store/common-store/userInfo-sto
 import { fnFlatDataHasParentToTree } from '@utils/treeTableTools';
 
 /*
- * 登录/登出
+ * Đăng nhập/Đăng xuất
  * */
 @Injectable({
   providedIn: 'root'
@@ -31,28 +31,28 @@ export class LoginInOutService {
   private menuService = inject(MenuStoreService);
   private windowServe = inject(WindowService);
 
-  // 通过用户所拥有的权限码来获取菜单数组
+  // Lấy mảng menu thông qua mã quyền mà người dùng sở hữu
   getMenuByUserAuthCode(authCode: string[]): Observable<Menu[]> {
     return this.loginService.getMenuByUserAuthCode(authCode);
   }
 
   loginIn(token: string): Promise<void> {
     return new Promise(resolve => {
-      // 将 token 持久化缓存，请注意，如果没有缓存，则会在路由守卫中被拦截，不让路由跳转
-      // 这个路由守卫在src/app/core/services/common/guard/judgeLogin.guard.ts
+      // sẽ token Bộ nhớ đệm bền vững, xin lưu ý, nếu không có bộ nhớ đệm, nó sẽ bị chặn trong bảo vệ định tuyến và không cho phép chuyển hướng định tuyến
+      // Vệ sĩ định tuyến này ởsrc/app/core/services/common/guard/judgeLogin.guard.ts
       this.windowServe.setSessionStorage(TokenKey, TokenPre + token);
-      // 解析token ，然后获取用户信息
+      // Phân tíchtoken rồi sau đó lấy thông tin người dùng
       const userInfo: UserInfo = this.userInfoService.parsToken(TokenPre + token);
-      // 根据用户的id来获取当前用户所拥有的权限码
+      // Dựa trên người dùngidLấy mã quyền mà người dùng hiện tại sở hữu
       this.userInfoService
         .getUserAuthCodeByUserId(userInfo.userId)
         .pipe(
           switchMap(autoCodeArray => {
             userInfo.authCode = autoCodeArray;
-            // todo  这里是手动Thêm静态页面标签页操作中打开Chi tiết的按钮的权限，因为他们涉及到路由跳转，会走路由守卫，但是权限又没有通过后端管理，所以下面两行手动Thêm权限，实际操作中可以Xóa下面2行，如果你也有类似的需求，请全局Tìm kiếmActionCode.TabsDetail，这个需要在路由中配置一下
+            // todo  Đây là thủ côngThêmMở trong thao tác thẻ trang tĩnhChi tiếtQuyền của nút, vì chúng liên quan đến chuyển hướng tuyến đường, sẽ đi qua bảo vệ tuyến đường, nhưng quyền lại không được quản lý bởi backend, nên hai dòng dưới đây thực hiện thủ côngThêmQuyền hạn, trong thực tế hoạt động có thểXóadưới đây2Được, nếu bạn cũng có nhu cầu tương tự, xin làm toàn cụcTìm kiếmActionCode.TabsDetail, việc này cần được cấu hình trong router
             userInfo.authCode.push(ActionCode.TabsDetail);
             userInfo.authCode.push(ActionCode.SearchTableDetail);
-            // 将用户信息缓存到全局service中
+            // Lưu thông tin người dùng vào bộ nhớ đệm toàn cụcserviceTrung
             this.userInfoService.$userInfo.set(userInfo);
             return this.getMenuByUserAuthCode(userInfo.authCode);
           }),
@@ -68,18 +68,18 @@ export class LoginInOutService {
             return item.menuType === 'C';
           });
           const temp = fnFlatDataHasParentToTree(menus);
-          // 存储menu
+          // Lưu trữmenu
           this.menuService.setMenuArrayStore(temp);
           resolve();
         });
     });
   }
 
-  // 清除Tab缓存,是与路由复用相关的东西
+  // XóaTabBộ nhớ đệm,Là những thứ liên quan đến tái sử dụng định tuyến
   clearTabCash(): Promise<void> {
     return SimpleReuseStrategy.deleteAllRouteSnapshot(this.activatedRoute.snapshot).then(() => {
       return new Promise(resolve => {
-        // 清空tab
+        // Xóa sạchtab
         this.tabService.clearTabs();
         resolve();
       });

@@ -21,7 +21,7 @@ interface ItemData {
   imports: [NzTableModule, NzInputModule, FormsModule, NzPopconfirmModule, NzButtonModule, NzWaveModule, NzIconModule]
 })
 export class UserMemberManageComponent implements OnInit {
-  // 表格
+  // Bảng
   editCache: Record<string, { edit: boolean; data: ItemData }> = {};
   listOfData: ItemData[] = [];
   constructor() {}

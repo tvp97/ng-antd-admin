@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { NzSafeAny } from 'ng-zorro-antd/core/types';
 import { silentEvent } from 'ng-zorro-antd/core/util';
 
-/*获取1到100之间的随机整数 this.randomNum(1,101)*/
+/*lấy1đến100số nguyên ngẫu nhiên giữa this.randomNum(1,101)*/
 const fnGetRandomNum = function getRandomNum(m: number, n: number): number {
   return Math.floor(Math.random() * (m - n) + n);
 };
@@ -45,7 +45,7 @@ const fnCheckForm = function checkForm(form: FormGroup): boolean {
   return !form.invalid;
 };
 
-// 清空formArray
+// Xóa sạchformArray
 const fnClearFormArray = function clearFormArray(formArray: FormArray): void {
   while (formArray.length !== 0) {
     formArray.removeAt(0);
@@ -58,7 +58,7 @@ const fnStopMouseEvent = function stopMouseEvent(e: MouseEvent): void {
   // e.preventDefault();
 };
 
-// 获取路由复用缓存的key，为key+param的形式：login{name:xxx}
+// Lấy bộ nhớ đệm tái sử dụng định tuyếnkeyvìkey+paramdạng thức:login{name:xxx}
 const getDeepReuseStrategyKeyFn = function (route: ActivatedRouteSnapshot, needParams = true): string {
   let temp = route;
   while (temp.firstChild) {
@@ -67,7 +67,7 @@ const getDeepReuseStrategyKeyFn = function (route: ActivatedRouteSnapshot, needP
   return fnGetReuseStrategyKeyFn(temp, needParams);
 };
 
-// 获取key，为key+param的形式：login{name:xxx}
+// lấykeyvìkey+paramdạng thức:login{name:xxx}
 const fnGetReuseStrategyKeyFn = function getKey(route: ActivatedRouteSnapshot, needParams = true): string {
   const configKey = route.data['key'];
   if (!configKey) {
@@ -76,19 +76,19 @@ const fnGetReuseStrategyKeyFn = function getKey(route: ActivatedRouteSnapshot, n
   if (!needParams) {
     return configKey;
   }
-  // 是query传参,并且有参数
+  // làqueryTruyền tham số,và có tham số
   if (Object.keys(route.queryParams).length > 0) {
     return configKey + JSON.stringify(route.queryParams);
   } else if (Object.keys(route.params).length > 0) {
-    // 是路径传参，并且有参数
+    // Là truyền tham số đường dẫn, và có tham số
     return configKey + JSON.stringify(route.params);
   } else {
-    // 没有路由参数
+    // Không có tham số định tuyến
     return `${configKey}{}`;
   }
 };
 
-// 获取没有参数的路由
+// Lấy tuyến đường không có tham số
 const fnGetPathWithoutParam = function getPathWithoutParam(path: string): string {
   const paramIndex = path.indexOf('?');
   if (paramIndex > -1) {
@@ -113,13 +113,13 @@ const fnGetBase64 = function getBase64(file: File): Promise<string | ArrayBuffer
 
 // todo https://stackoverflow.com/questions/78263714/the-package-crypto-wasnt-found-on-the-file-system-but-is-built-into-node
 // https://stackoverflow.com/questions/77918038/problem-while-ng-build-using-the-new-angular-17-application-builder
-// 加密
+// Mã hóa
 const fnEncrypt = function encrypt(word: NzSafeAny, keyStr: string): string {
   return JSON.stringify(word);
   // return CryptoJS.AES.encrypt(JSON.stringify(word), keyStr).toString();
 };
 
-// 解密
+// Giải mã
 const fnDecrypt = function decrypt(word: NzSafeAny, keyStr: string): LockScreenFlag {
   try {
     return JSON.parse(word);
@@ -139,7 +139,7 @@ const fnEndOfDay = function EndOfDay(time: number): number {
   return endOfDay(time).getTime();
 };
 
-// weak-theme 转换为 weakTheme
+// weak-theme chuyển đổi thành weakTheme
 // https://blog.csdn.net/weixin_39238200/article/details/125665052
 const fnFormatToHump = function formatToHump(value: string): string {
   return value.replace(/-(\w)/g, (_, letter) => letter.toUpperCase());

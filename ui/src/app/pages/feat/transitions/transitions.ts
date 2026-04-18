@@ -23,56 +23,56 @@ export const TECH_ITEMS: TechItem[] = [
   {
     id: 1,
     title: 'Angular Signals',
-    subtitle: '细粒度响应式',
+    subtitle: 'Phản hồi tinh vi',
     imageUrl: 'https://angular.dev/assets/images/ng-image.jpg',
     color: '#dd0031',
-    tags: ['响应式', '性能', 'Zoneless'],
-    desc: 'Signals 是 Angular 引入的细粒度响应式原语，让变更检测更精准、更高效。无需 Zone.js，组件只在真正依赖的数据变化时才重新渲染。'
+    tags: ['Phản hồi', 'hiệu suất', 'Zoneless'],
+    desc: 'Signals là Angular Các nguyên thủy phản ứng hạt mịn được giới thiệu, giúp phát hiện thay đổi chính xác hơn và hiệu quả hơn. Không cần Zone.jsCác thành phần chỉ được render lại khi dữ liệu thực sự phụ thuộc thay đổi.'
   },
   {
     id: 2,
     title: 'View Transitions API',
-    subtitle: '原生页面过渡',
+    subtitle: 'Chuyển tiếp trang gốc',
     imageUrl: 'https://angular.dev/assets/images/ng-image.jpg',
     color: '#1890ff',
-    tags: ['动画', '路由', 'UX'],
-    desc: 'View Transitions API 是浏览器原生支持的页面过渡能力。Angular 17+ 通过 withViewTransitions() 与路由深度集成，实现零配置的共享元素动画。'
+    tags: ['hoạt hình', 'Bộ định tuyến', 'UX'],
+    desc: 'View Transitions API Là khả năng chuyển tiếp trang được trình duyệt hỗ trợ nguyên bản.Angular 17+ qua withViewTransitions() Tích hợp sâu với định tuyến, thực hiện hoạt ảnh phần tử chia sẻ không cần cấu hình.'
   },
   {
     id: 3,
     title: 'Deferrable Views',
-    subtitle: '按需延迟加载',
+    subtitle: 'Tải theo nhu cầu',
     imageUrl: 'https://angular.dev/assets/images/ng-image.jpg',
     color: '#52c41a',
-    tags: ['性能', '懒加载', '模板'],
-    desc: '@defer 块让你可以将组件的加载推迟到真正需要时，支持 on viewport、on interaction 等多种触发条件，大幅提升首屏性能。'
+    tags: ['hiệu suất', 'Tải lười', 'Mẫu'],
+    desc: '@defer Khối cho phép bạn hoãn việc tải các thành phần đến khi thật sự cần, hỗ trợ on viewport、on interaction Đợi nhiều điều kiện kích hoạt khác nhau, nâng cao đáng kể hiệu suất màn hình chính.'
   },
   {
     id: 4,
     title: 'Control Flow',
-    subtitle: '内置控制流语法',
+    subtitle: 'Cú pháp điều khiển luồng tích hợp sẵn',
     imageUrl: 'https://angular.dev/assets/images/ng-image.jpg',
     color: '#722ed1',
-    tags: ['模板', '语法', '性能'],
-    desc: '@if、@for、@switch 取代了 *ngIf、*ngFor 等结构指令，语法更直观，性能更好，且无需额外导入模块。'
+    tags: ['Mẫu', 'Ngữ pháp', 'hiệu suất'],
+    desc: '@if、@for、@switch thay thế *ngIf、*ngFor Cấu trúc lệnh đợi, cú pháp trực quan hơn, hiệu quả tốt hơn và không cần nhập thêm mô-đun.'
   },
   {
     id: 5,
     title: 'SSR & Hydration',
-    subtitle: '服务端渲染',
+    subtitle: 'Kết xuất phía máy chủ',
     imageUrl: 'https://angular.dev/assets/images/ng-image.jpg',
     color: '#fa8c16',
-    tags: ['SSR', 'SEO', '性能'],
-    desc: 'Angular 的增量水合（Incremental Hydration）让服务端渲染的 HTML 可以按需激活，避免全量重渲染，显著提升 LCP 和 TTI 指标。'
+    tags: ['SSR', 'SEO', 'hiệu suất'],
+    desc: 'Angular sự thủy hợp tăng dần (Incremental Hydration）để kết xuất phía máy chủ HTML Có thể kích hoạt theo nhu cầu, tránh việc kết xuất lại toàn bộ, cải thiện rõ rệt LCP và TTI Chỉ số.'
   },
   {
     id: 6,
     title: 'Zoneless Angular',
-    subtitle: '无 Zone.js 模式',
+    subtitle: 'Không có Zone.js chế độ',
     imageUrl: 'https://angular.dev/assets/images/ng-image.jpg',
     color: '#13c2c2',
-    tags: ['性能', '实验性', 'Signals'],
-    desc: '通过 provideZonelessChangeDetection()，Angular 完全摆脱对 Zone.js 的依赖，变更检测完全由 Signals 驱动，包体积更小，性能更强。'
+    tags: ['hiệu suất', 'thí nghiệm', 'Signals'],
+    desc: 'qua provideZonelessChangeDetection()，Angular hoàn toàn thoát khỏi sự phụ thuộc vào Zone.js sự phụ thuộc, việc kiểm tra thay đổi hoàn toàn do Signals Trình điều khiển, kích thước gói nhỏ hơn, hiệu suất mạnh hơn.'
   }
 ];
 
@@ -87,8 +87,8 @@ export class Transitions {
   private router = inject(Router);
   readonly pageHeaderInfo: Partial<PageHeaderType> = {
     title: 'View Transition API',
-    breadcrumb: ['首页', '功能', 'View Transition API'],
-    desc: '利用 Angular withViewTransitions() 实现路由级共享元素过渡动画，点击卡片体验效果。'
+    breadcrumb: ['Trang chủ', 'chức năng', 'View Transition API'],
+    desc: 'sử dụng Angular withViewTransitions() Thực hiện hoạt ảnh chuyển tiếp phần tử chia sẻ cấp độ tuyến đường, bấm vào thẻ để trải nghiệm hiệu ứng.'
   };
 
   readonly items = TECH_ITEMS;

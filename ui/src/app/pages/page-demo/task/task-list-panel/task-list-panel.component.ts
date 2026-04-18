@@ -48,13 +48,13 @@ export class TaskListPanelComponent {
   columns = signal<Column[]>([
     {
       id: 'todo',
-      title: '未开始',
+      title: 'Chưa bắt đầu',
       color: '#8c8c8c',
       tasks: [
         {
           id: 1,
           title: 'Kubernetes cluster meeting',
-          description: '讨论集群扩容方案和监控告警配置',
+          description: 'Thảo luận về phương án mở rộng cụm và cấu hình cảnh báo giám sát',
           status: 'todo',
           priority: 'high',
           dueDate: '2026-03-22',
@@ -63,7 +63,7 @@ export class TaskListPanelComponent {
         },
         {
           id: 4,
-          title: '修复移动端布局问题',
+          title: 'Sửa lỗi bố cục trên thiết bị di động',
           status: 'todo',
           priority: 'medium',
           dueDate: '2026-03-23',
@@ -71,7 +71,7 @@ export class TaskListPanelComponent {
         },
         {
           id: 5,
-          title: '代码 Review：支付模块',
+          title: 'mã Review: Mô-đun thanh toán',
           status: 'todo',
           priority: 'low',
           dueDate: '2026-03-28',
@@ -82,13 +82,13 @@ export class TaskListPanelComponent {
     },
     {
       id: 'in-progress',
-      title: '进行中',
+      title: 'Đang tiến hành',
       color: '#1890ff',
       tasks: [
         {
           id: 2,
-          title: '完成 Angular 信号状态管理重构',
-          description: '将现有组件迁移到 signal-based 状态管理',
+          title: 'Hoàn thành Angular Tái cấu trúc quản lý trạng thái tín hiệu',
+          description: 'Di chuyển các thành phần hiện có sang signal-based Quản lý trạng thái',
           status: 'in-progress',
           priority: 'high',
           dueDate: '2026-03-25',
@@ -97,8 +97,8 @@ export class TaskListPanelComponent {
         },
         {
           id: 6,
-          title: '设计新版登录页',
-          description: '参考 Figma 稿完成响应式布局',
+          title: 'Thiết kế trang đăng nhập phiên bản mới',
+          description: 'Tham khảo Figma Bản thảo hoàn thành bố cục phản hồi',
           status: 'in-progress',
           priority: 'medium',
           dueDate: '2026-03-24',
@@ -109,13 +109,13 @@ export class TaskListPanelComponent {
     },
     {
       id: 'done',
-      title: '已完成',
+      title: 'Đã hoàn thành',
       color: '#52c41a',
       tasks: [
         {
           id: 3,
-          title: '更新 API 文档',
-          description: '补充Thêm mới接口的 Swagger 注释',
+          title: 'Cập nhật API Tài liệu',
+          description: 'Bổ sungThêm mớigiao diện Swagger Chú thích',
           status: 'done',
           priority: 'medium',
           dueDate: '2026-03-20',
@@ -128,7 +128,7 @@ export class TaskListPanelComponent {
 
   columnIds = computed(() => this.columns().map(c => c.id));
 
-  // 过滤后的列（根据Tìm kiếm关键词）
+  // Cột đã lọc (theoTìm kiếmTừ khóa)
   filteredColumns = computed(() => {
     const keyword = this.searchKeyword().toLowerCase().trim();
     if (!keyword) return this.columns();
@@ -152,9 +152,9 @@ export class TaskListPanelComponent {
   };
 
   priorityLabel: Record<TaskPriority, string> = {
-    high: '紧急',
-    medium: '中等',
-    low: '普通'
+    high: 'khẩn cấp',
+    medium: 'Trung bình',
+    low: 'Bình thường'
   };
 
   drop(event: CdkDragDrop<Task[]>, targetColId: TaskStatus) {
@@ -163,7 +163,7 @@ export class TaskListPanelComponent {
     const toColId = targetColId;
 
     if (fromColId === toColId) {
-      // 同列排序
+      // Sắp xếp theo cột
       this.columns.update(list =>
         list.map(col => {
           if (col.id !== fromColId) return col;
@@ -173,7 +173,7 @@ export class TaskListPanelComponent {
         })
       );
     } else {
-      // 跨列移动
+      // Di chuyển qua các hàng
       const fromCol = cols.find(c => c.id === fromColId)!;
       const toCol = cols.find(c => c.id === toColId)!;
       const fromTasks = [...fromCol.tasks];
@@ -191,7 +191,7 @@ export class TaskListPanelComponent {
   }
 
   openAddTaskModal() {
-    this.taskModalService.show({ nzTitle: 'Thêm mới任务' }).subscribe(res => {
+    this.taskModalService.show({ nzTitle: 'Thêm mớinhiệm vụ' }).subscribe(res => {
       if (res.status === ModalBtnStatus.Ok) {
         const formValue = res.modalValue;
         const task: Task = {
@@ -212,7 +212,7 @@ export class TaskListPanelComponent {
   openEditTaskModal(colId: TaskStatus, task: Task) {
     this.taskModalService
       .show(
-        { nzTitle: 'Sửa任务' },
+        { nzTitle: 'Sửanhiệm vụ' },
         {
           id: task.id,
           title: task.title,

@@ -18,7 +18,7 @@ export class TopProgressBarComponent {
 
   constructor() {
     this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(evt => {
-      // 表示在惰性加载某个路由配置前触发的事件。
+      // Biểu thị sự kiện được kích hoạt trước khi tải lười một cấu hình tuyến đường nào đó.
       if (!this.isFetching() && evt instanceof RouteConfigLoadStart) {
         this.isFetching.set(true);
       }
@@ -28,7 +28,7 @@ export class TopProgressBarComponent {
       if (evt instanceof NavigationError || evt instanceof NavigationCancel) {
         this.isFetching.set(false);
         if (evt instanceof NavigationError) {
-          console.error('路由跳转失败');
+          console.error('Chuyển hướng tuyến đường thất bại');
         }
         return;
       }

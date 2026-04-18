@@ -8,7 +8,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { NZ_MODAL_DATA, NzModalRef } from 'ng-zorro-antd/modal';
 
 /**
- * 这是一个从外部传入到对话框到数据
+ * Đây là một dữ liệu được truyền từ bên ngoài vào hộp thoại
  */
 export interface DragModalData {
   title: string;
@@ -29,6 +29,6 @@ export class DragComponent extends BasicConfirmModalComponent implements OnInit 
   }
 
   ngOnInit(): void {
-    this.messageService.info(`这是一个从外部传入到对话框到数据》》》》》${this.nzModalData.title}`);
+    this.messageService.info(`Đây là một dữ liệu được truyền từ bên ngoài vào hộp thoại >>>>>${this.nzModalData.title}`);
   }
 }

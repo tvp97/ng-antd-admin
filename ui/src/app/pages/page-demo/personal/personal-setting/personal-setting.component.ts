@@ -36,42 +36,42 @@ export class PersonalSettingComponent implements OnInit {
   settingComponent: TabInterface[] = [
     {
       key: 'base',
-      component: new DynamicComponent(BaseComponent, { label: '基本设置' })
+      component: new DynamicComponent(BaseComponent, { label: 'Cài đặt cơ bản' })
     },
     {
       key: 'safe',
-      component: new DynamicComponent(SafeComponent, { label: '安全设置' })
+      component: new DynamicComponent(SafeComponent, { label: 'Cài đặt bảo mật' })
     },
     {
       key: 'bind',
-      component: new DynamicComponent(BindComponent, { label: '账号绑定' })
+      component: new DynamicComponent(BindComponent, { label: 'Liên kết tài khoản' })
     },
     {
       key: 'notice',
-      component: new DynamicComponent(NoticeComponent, { label: '新消息通知' })
+      component: new DynamicComponent(NoticeComponent, { label: 'Thông báo tin mới' })
     }
   ];
   destroyRef = inject(DestroyRef);
   menus: Array<{ key: string; title: string; selected?: boolean }> = [
     {
       key: 'base',
-      title: '基本设置',
+      title: 'Cài đặt cơ bản',
       selected: true
     },
     {
       key: 'safe',
-      title: '安全设置',
+      title: 'Cài đặt bảo mật',
       selected: false
     },
     {
       selected: false,
       key: 'bind',
-      title: '账号绑定'
+      title: 'Liên kết tài khoản'
     },
     {
       selected: false,
       key: 'notice',
-      title: '新消息通知'
+      title: 'Thông báo tin mới'
     }
   ];
   currentTitle: string = this.menus[0].title;

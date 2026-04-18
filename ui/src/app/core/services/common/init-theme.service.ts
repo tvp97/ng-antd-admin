@@ -5,7 +5,7 @@ import { StyleTheme, ThemeService } from '@store/common-store/theme.service';
 
 import { WindowService } from './window.service';
 /*
- * 初始化theme
+ * Khởi tạotheme
  * */
 @Injectable({
   providedIn: 'root'

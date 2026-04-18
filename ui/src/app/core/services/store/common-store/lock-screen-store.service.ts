@@ -7,7 +7,7 @@ export interface LockScreenFlag {
 }
 
 /**
- * 锁屏状态service的store
+ * Trạng thái khóa màn hìnhservicecủastore
  */
 @Injectable({
   providedIn: 'root'

@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 
 import { LoginType } from '@app/pages/other-login/login1/login1.component';
 
-// 这个是缓存login1的store，属于业务的store
+// Đây là bộ nhớ đệmlogin1củastorethuộc về kinh doanhstore
 @Injectable({
   providedIn: 'root'
 })

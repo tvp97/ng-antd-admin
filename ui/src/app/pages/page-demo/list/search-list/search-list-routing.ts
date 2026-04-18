@@ -11,9 +11,9 @@ export default [
     component: SearchListComponent,
     data: { key: 'search-list' },
     children: [
-      { path: 'article', component: ArticleComponent, title: 'Tìm kiếm列表(文章)', data: { key: 'article' } },
-      { path: 'project', component: ProjectComponent, title: 'Tìm kiếm列表(项目)', data: { key: 'project' } },
-      { path: 'application', component: ApplicationComponent, title: 'Tìm kiếm列表(应用)', data: { key: 'application' } }
+      { path: 'article', component: ArticleComponent, title: 'Tìm kiếmDanh sách(bài viết)', data: { key: 'article' } },
+      { path: 'project', component: ProjectComponent, title: 'Tìm kiếmDanh sách(dự án)', data: { key: 'project' } },
+      { path: 'application', component: ApplicationComponent, title: 'Tìm kiếmDanh sách(ứng dụng)', data: { key: 'application' } }
     ]
   },
 

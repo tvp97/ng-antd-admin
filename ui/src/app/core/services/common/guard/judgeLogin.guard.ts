@@ -5,11 +5,11 @@ import { TokenKey } from '@config/constant';
 
 import { WindowService } from '../window.service';
 
-// 有兴趣的可以看看class与fn的争议https://github.com/angular/angular/pull/47924
-// 我这里提供了跟judgeAuth.guard.ts的不同写法，供大家参考,也可以去官网查找mapToCanActivate 这个api，
-// 路由守卫，没有TokenKey则跳转登录页
+// Ai hứng thú có thể xem quaclassvớifntranh cãihttps://github.com/angular/angular/pull/47924
+// Tôi ở đây cung cấp vớijudgeAuth.guard.tsCác cách viết khác nhau, để mọi người tham khảo,Cũng có thể lên trang web chính thức để tìm.mapToCanActivate Cái nàyapi，
+// Vệ sĩ định tuyến, không cóTokenKeythì chuyển sang trang đăng nhập
 const canActivateChildFn: CanActivateFn = () => {
-  // 这个方法可以检查inject是否在context中
+  // Phương pháp này có thể kiểm trainjectCó đang ởcontextTrung
   assertInInjectionContext(canActivateChildFn);
   const windowSrc = inject(WindowService);
   const router = inject(Router);

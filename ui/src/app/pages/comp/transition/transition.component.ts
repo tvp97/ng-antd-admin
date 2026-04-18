@@ -17,8 +17,8 @@ import { DemoStaggerComponent } from './demo-stagger/demo-stagger.component';
 })
 export class TransitionComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '动画示例',
-    desc: 'https://angular.dev/guide/animations/migration 基于 CSS 原生动画的 Angular 官方推荐方式，旧版本@angular/animations 被标记为弃用，它的animations动画，请参考v20及以下版本的示例代码，还是很丰富的',
-    breadcrumb: ['首页', '组件', '动画']
+    title: 'Ví dụ hoạt hình',
+    desc: 'https://angular.dev/guide/animations/migration Dựa trên CSS hoạt hình gốc Angular Phương thức được chính thức đề xuất, phiên bản cũ@angular/animations Được đánh dấu là lỗi thời, nóanimationsHoạt hình, vui lòng tham khảov20Các ví dụ mã của các phiên bản trở xuống vẫn rất phong phú',
+    breadcrumb: ['Trang chủ', 'Thành phần', 'hoạt hình']
   };
 }

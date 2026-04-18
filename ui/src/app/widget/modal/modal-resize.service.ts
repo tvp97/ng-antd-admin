@@ -24,7 +24,7 @@ export class ModalResizeService {
   private startMarginLeft = 0;
   private startMarginTop = 0;
   private modalElement: HTMLElement | null = null;
-  // .ant-modal 外层容器，用于 n/w 方向的位置偏移，不干扰 CDK drag 的 transform
+  // .ant-modal Vỏ ngoài, dùng để n/w Vị trí lệch hướng, không gây cản trở CDK drag của transform
   private modalOuterElement: HTMLElement | null = null;
 
   createResizeHandlers(wrapCls: string, config: ModalResizeConfig = {}): void {
@@ -43,7 +43,7 @@ export class ModalResizeService {
       maxWidth: window.innerWidth - 100,
       maxHeight: window.innerHeight - 100,
       ...config,
-      // 以 modal 打开时的实际高度作为最小高度
+      // bằng modal Chiều cao thực tế khi mở làm chiều cao tối thiểu
       minHeight: initialHeight,
     };
 
@@ -81,18 +81,18 @@ export class ModalResizeService {
     const minWidth = config.minWidth || 400;
     const minHeight = config.minHeight || 300;
 
-    // 记录实际尺寸与最小值的最大值作为起始值，不提前写入 style，避免固化 auto 高度
+    // Ghi lại giá trị lớn nhất của kích thước thực tế và giá trị tối thiểu làm giá trị khởi đầu, không ghi trước style, tránh cố định auto chiều cao
     this.startWidth = Math.max(rect.width, minWidth);
     this.startHeight = Math.max(rect.height, minHeight);
 
-    // 记录 .ant-modal 当前的 margin 偏移作为起始位置（n/w 方向通过 margin 移动，不碰 CDK drag 的 transform）
+    // ghi chép .ant-modal hiện tại margin Độ lệch như vị trí bắt đầu (n/w Hướng thông qua margin Di chuyển, không chạm CDK drag của transform）
     const outer = this.modalOuterElement;
     if (outer) {
-      // getComputedStyle 能正确解析 auto，得到实际像素值
+      // getComputedStyle Có thể phân tích đúng autođược giá trị pixel thực tế
       const computed = getComputedStyle(outer);
       this.startMarginLeft = parseFloat(computed.marginLeft) || 0;
       this.startMarginTop = parseFloat(computed.marginTop) || 0;
-      // 将 auto margin 固化为像素值，防止后续设置时被 auto 覆盖
+      // sẽ auto margin Cố định thành giá trị pixel, ngăn chặn việc bị ảnh hưởng khi thiết lập sau này auto bao phủ
       outer.style.marginLeft = `${this.startMarginLeft}px`;
       outer.style.marginTop = `${this.startMarginTop}px`;
     } else {
@@ -113,13 +113,13 @@ export class ModalResizeService {
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
 
-    // Thêm body 样式以防止文本选择
+    // Thêm body Kiểu dáng để ngăn chọn văn bản
     document.body.style.userSelect = 'none';
     document.body.style.cursor = this.getCursor(direction);
   }
 
   /**
-   * 调整大小
+   * Thay đổi kích thước
    */
   private resize(e: MouseEvent, config: ModalResizeConfig): void {
     if (!this.isResizing || !this.modalElement || !this.currentHandle) {
@@ -154,7 +154,7 @@ export class ModalResizeService {
       newMarginTop = this.startMarginTop + deltaY;
     }
 
-    // 应用尺寸约束，并反向修正 margin，防止小于最小值时位置漂移
+    // Áp dụng hạn chế kích thước và hiệu chỉnh ngược margin, ngăn vị trí trôi khi nhỏ hơn giá trị tối thiểu
     if (newWidth < minWidth) {
       if (this.currentHandle.includes('w')) {
         newMarginLeft = this.startMarginLeft + (this.startWidth - minWidth);
@@ -177,7 +177,7 @@ export class ModalResizeService {
     this.modalElement.style.width = `${newWidth}px`;
     this.modalElement.style.height = `${newHeight}px`;
 
-    // n/w 方向通过操作 .ant-modal 的 margin 移动位置，完全不碰 CDK drag 管理的 transform
+    // n/w Hướng thông qua thao tác .ant-modal của margin Di chuyển vị trí, hoàn toàn không chạm CDK drag quản lý transform
     if (this.modalOuterElement) {
       if (this.currentHandle.includes('w')) {
         this.modalOuterElement.style.marginLeft = `${newMarginLeft}px`;
@@ -189,7 +189,7 @@ export class ModalResizeService {
   }
 
   /**
-   * 停止调整大小
+   * Dừng thay đổi kích thước
    */
   private stopResize(): void {
     this.isResizing = false;
@@ -199,7 +199,7 @@ export class ModalResizeService {
   }
 
   /**
-   * 获取光标样式
+   * Lấy kiểu con trỏ
    */
   private getCursor(direction: string): string {
     const cursorMap: Record<string, string> = {
@@ -216,7 +216,7 @@ export class ModalResizeService {
   }
 
   /**
-   * 清理调整大小手柄
+   * Dọn dẹp tay cầm điều chỉnh kích thước
    */
   dispose(): void {
     this.resizeHandles.forEach(handle => {

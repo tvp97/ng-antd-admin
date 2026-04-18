@@ -41,7 +41,7 @@ export class RegisterFormComponent implements OnInit {
     if (!invalid) {
       return;
     }
-    this.messageService.success('注册成功，请重新登录');
+    this.messageService.success('Đăng ký thành công, vui lòng đăng nhập lại');
     this.router.navigateByUrl('login/login-form');
     const param = this.validateForm.getRawValue();
 

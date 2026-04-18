@@ -1,13 +1,13 @@
 import { Injectable, signal } from '@angular/core';
 
-type componentName = 'Tìm kiếm列表（文章）' | 'Tìm kiếm列表（项目）' | 'Tìm kiếm列表（应用）';
+type componentName = 'Tìm kiếmDanh sách (bài viết)' | 'Tìm kiếmDanh sách (mục)' | 'Tìm kiếmDanh sách (ứng dụng)';
 
 /**
- * 这个是缓存Tìm kiếm列表的store，属于业务的store
+ * Đây là bộ nhớ đệmTìm kiếmdạng danh sáchstorethuộc về kinh doanhstore
  */
 @Injectable({
   providedIn: 'root'
 })
 export class SearchListStoreService {
-  $searchListComponentStore = signal<componentName>('Tìm kiếm列表（文章）');
+  $searchListComponentStore = signal<componentName>('Tìm kiếmDanh sách (bài viết)');
 }

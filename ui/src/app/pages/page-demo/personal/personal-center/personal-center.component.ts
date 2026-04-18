@@ -49,16 +49,16 @@ interface TabInterface {
   ]
 })
 export class PersonalCenterComponent {
-  readonly tagArray = signal<string[]>(['很有想法的', '专注设计', '大长腿', '川妹子', '海纳百川']);
+  readonly tagArray = signal<string[]>(['Rất có ý tưởng', 'Tập trung vào thiết kế', 'Đùi dài', 'Cô gái Tứ Xuyên', 'Biển cả chứa muôn sông']);
   readonly inputVisible = signal(false);
   readonly inputValue = signal('');
   readonly inputElement = viewChild<ElementRef>('inputElement');
   readonly adHost = viewChild.required(AdDirective);
 
   readonly tabData: TabInterface[] = [
-    { label: '文章(8)', component: new DynamicComponent(ArticleComponent, {}) },
-    { label: '应用(8)', component: new DynamicComponent(ApplicationComponent, {}) },
-    { label: '项目(8)', component: new DynamicComponent(ProjectsComponent, {}) }
+    { label: 'bài viết(8)', component: new DynamicComponent(ArticleComponent, {}) },
+    { label: 'ứng dụng(8)', component: new DynamicComponent(ApplicationComponent, {}) },
+    { label: 'dự án(8)', component: new DynamicComponent(ProjectsComponent, {}) }
   ];
 
   private readonly injector = inject(Injector);

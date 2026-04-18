@@ -14,14 +14,14 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
   selector: 'app-rich-text',
   templateUrl: './rich-text.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PageHeaderComponent, NzCardModule, WaterMarkComponent, FormsModule, NzFormModule, ReactiveFormsModule, NzGridModule, EditorComponent]
+  imports: [PageHeaderComponent, NzCardModule, FormsModule, NzFormModule, ReactiveFormsModule, NzGridModule, EditorComponent]
 })
 export class RichTextComponent {
   private fb = inject(NonNullableFormBuilder);
 
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '富文本，人们总是喜欢用花里胡哨的文字，表达自己空虚的情感',
-    breadcrumb: ['首页', '扩展功能', '富文本']
+    title: 'Văn bản phong phú, mọi người luôn thích dùng những từ ngữ hoa mỹ để thể hiện cảm xúc trống rỗng của bản thân',
+    breadcrumb: ['Trang chủ', 'Chức năng mở rộng', 'Văn bản giàu định dạng']
   };
   localUrl = 'http://139.9.225.248:8088';
   uploadRichFileUrl = environment.production ? `${this.localUrl}/rich-upload` : '/site/rich-upload';
@@ -29,14 +29,14 @@ export class RichTextComponent {
     detail: ['', [Validators.required]]
   });
 
-  // 所有配置
+  // Tất cả cấu hình
   // http://tinymce.ax-z.cn/configure/editor-appearance.php
   editInit = {
     // automatic_uploads: false,
     images_upload_url: this.uploadRichFileUrl,
-    branding: false, // 隐藏右下角技术支持
+    branding: false, // Ẩn hỗ trợ kỹ thuật ở góc dưới bên phải
     height: 500,
-    convert_urls: false, // 上传的图片路径不转成相对路径
+    convert_urls: false, // Đường dẫn hình ảnh đã tải lên không chuyển thành đường dẫn tương đối
     menubar: false,
     plugins: ['image'],
     fontsize_formats: '12px 14px 16px 18px 24px 36px 48px 56px 72px',
@@ -50,7 +50,7 @@ export class RichTextComponent {
     toolbar: '|bold|fontselect|fontsizeselect|styleselect|removeformat|aligncenter  alignright alignjustify | image'
 
     // image_caption: true,
-    // paset 插件允许粘贴图片
+    // paset Plugin cho phép dán hình ảnh
     // paste_data_images: true,
     // image_advtab: true,
     // imagetools_toolbar: 'rotateleft rotateright | flipv fliph | editimage imageoptions',

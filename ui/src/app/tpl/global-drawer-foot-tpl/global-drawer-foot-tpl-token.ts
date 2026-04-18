@@ -5,7 +5,7 @@ import { ApplicationRef, ComponentRef, createComponent, EnvironmentInjector, inj
 import { GlobalDrawerFootTplComponent } from '@app/tpl/global-drawer-foot-tpl/global-drawer-foot-tpl.component';
 
 /**
- * 全局抽屉的footer模板，也就是Xác nhận，Huỷ按钮啦
+ * ngăn kéo toàn cụcfooterMẫu, tức làXác nhận，Hubấm nút đi
  */
 export const GLOBAL_DRAWER_FOOT_TPL_TOKEN = new InjectionToken<ComponentRef<GlobalDrawerFootTplComponent>>('drawer action btn token', {
   providedIn: 'root',
@@ -16,7 +16,7 @@ export const GLOBAL_DRAWER_FOOT_TPL_TOKEN = new InjectionToken<ComponentRef<Glob
     const componentRef = createComponent(GlobalDrawerFootTplComponent, {
       environmentInjector: injector
     });
-    // 使用 `ApplicationRef` 实例注册新创建的 ref将组件视图包含到变更检测周期中。
+    // sử dụng `ApplicationRef` để thêm component ref mới được tạo vào chu kỳ kiểm tra thay đổi.
     appRef.attachView(componentRef.hostView);
     return componentRef;
   }

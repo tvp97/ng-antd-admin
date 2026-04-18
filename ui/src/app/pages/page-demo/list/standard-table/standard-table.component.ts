@@ -28,7 +28,7 @@ import { NzSpaceCompactComponent } from 'ng-zorro-antd/space';
   imports: [
     PageHeaderComponent,
     NzCardModule,
-    WaterMarkComponent,
+
     NzGridModule,
     NzStatisticModule,
     NzDividerModule,
@@ -47,8 +47,8 @@ import { NzSpaceCompactComponent } from 'ng-zorro-antd/space';
 })
 export class StandardTableComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '标准列表',
-    breadcrumb: ['首页', '列表页面', '标准列表']
+    title: 'Danh sách tiêu chuẩn',
+    breadcrumb: ['Trang chủ', 'Trang danh sách', 'Danh sách tiêu chuẩn']
   };
   isSpinning = false;
   list: Array<{
@@ -62,64 +62,64 @@ export class StandardTableComponent {
     progress: number;
     progress_status: NzProgressStatusType;
   }> = [
-    {
-      id: 1,
-      name: 'Alipay',
-      desc: '那是一种内在的东西， 他们到达不了，也无法触及的',
-      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png',
-      owner: '付小小',
-      owner_id: '1',
-      time: '2020-11-18 15:12',
-      progress: 75,
-      progress_status: 'active'
-    },
-    {
-      id: 2,
-      name: 'Angular',
-      desc: '希望是一个好东西，也许是最好的，好东西是不会消亡的',
-      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png',
-      owner: '曲丽丽',
-      owner_id: '2',
-      time: '2020-11-19 07:51',
-      progress: 93,
-      progress_status: 'exception'
-    },
-    {
-      id: 3,
-      name: 'Ant Design',
-      desc: '生命就像一盒巧克力，结果往往出人意料',
-      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
-      owner: '林东东',
-      owner_id: '3',
-      time: '2020-11-19 05:51',
-      progress: 94,
-      progress_status: 'active'
-    },
-    {
-      id: 4,
-      name: 'Ant Design Pro',
-      desc: 'Biết bao quán trong phố, nàng lại bước vào quán của tôi',
-      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png',
-      owner: '周星星',
-      owner_id: '4',
-      time: '2020-11-19 03:51',
-      progress: 93,
-      progress_status: 'active'
-    },
-    {
-      id: 5,
-      name: 'Bootstrap',
-      desc: '那时候我只会想自己想要什么，从不想自己拥有什么',
-      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/siCrBXXhmvTQGWPNLBow.png',
-      owner: '吴加好',
-      owner_id: '5',
-      time: '2020-11-19 01:51',
-      progress: 91,
-      progress_status: 'exception'
-    }
-  ];
+      {
+        id: 1,
+        name: 'Alipay',
+        desc: 'Đó là một thứ gì đó bên trong. Họ không thể đến được, cũng không thể chạm tới.',
+        avatar: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png',
+        owner: 'Phó Tiểu Tiểu',
+        owner_id: '1',
+        time: '2020-11-18 15:12',
+        progress: 75,
+        progress_status: 'active'
+      },
+      {
+        id: 2,
+        name: 'Angular',
+        desc: 'Hy vọng là một điều tốt, có lẽ là tốt nhất, điều tốt thì không bao giờ biến mất',
+        avatar: 'https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png',
+        owner: 'Khúc Lệ Lệ',
+        owner_id: '2',
+        time: '2020-11-19 07:51',
+        progress: 93,
+        progress_status: 'exception'
+      },
+      {
+        id: 3,
+        name: 'Ant Design',
+        desc: 'Cuộc sống giống như một hộp sô cô la, kết quả thường bất ngờ',
+        avatar: 'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
+        owner: 'Lâm Đông Đông',
+        owner_id: '3',
+        time: '2020-11-19 05:51',
+        progress: 94,
+        progress_status: 'active'
+      },
+      {
+        id: 4,
+        name: 'Ant Design Pro',
+        desc: 'Biết bao quán trong phố, nàng lại bước vào quán của tôi',
+        avatar: 'https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png',
+        owner: 'Châu Tinh Trì',
+        owner_id: '4',
+        time: '2020-11-19 03:51',
+        progress: 93,
+        progress_status: 'active'
+      },
+      {
+        id: 5,
+        name: 'Bootstrap',
+        desc: 'Lúc đó tôi chỉ nghĩ về những gì mình muốn, chưa bao giờ nghĩ về những gì mình có.',
+        avatar: 'https://gw.alipayobjects.com/zos/rmsportal/siCrBXXhmvTQGWPNLBow.png',
+        owner: 'Ngô Gia Hảo',
+        owner_id: '5',
+        time: '2020-11-19 01:51',
+        progress: 91,
+        progress_status: 'exception'
+      }
+    ];
 
-  edit(item: NzSafeAny): void {}
+  edit(item: NzSafeAny): void { }
 
-  deleteItem(item: NzSafeAny): void {}
+  deleteItem(item: NzSafeAny): void { }
 }

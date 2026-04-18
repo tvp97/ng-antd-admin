@@ -42,7 +42,7 @@ interface SearchParam {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     PageHeaderComponent,
-    WaterMarkComponent,
+
     NzCardModule,
     FormsModule,
     NzFormModule,
@@ -71,8 +71,8 @@ export class MenuComponent implements OnInit {
   destroyRef = inject(DestroyRef);
   tableConfig = signal<AntTableConfig>({ headers: [], total: 0, showCheckbox: false, loading: false, pageSize: 10, pageIndex: 1 });
   readonly pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '菜单管理,Thêm mới完菜单记得给对应角色Thêm刚刚Thêm mới的菜单权限，不然无法展示',
-    breadcrumb: ['首页', '系统管理', '菜单管理']
+    title: 'Quản lý thực đơn,Thêm mớiHoàn thành menu nhớ giao cho vai tương ứngThêmvừa mớiThêm mớiQuyền truy cập menu, nếu không sẽ không thể hiển thị',
+    breadcrumb: ['Trang chủ', 'Quản lý hệ thống', 'Quản lý thực đơn']
   };
   dataList = signal<TreeNodeInterface[]>([]);
   readonly visibleOptions: OptionsInterface[] = [...MapPipe.transformMapToArray(MapSet.visible, MapKeyType.Boolean)];
@@ -110,7 +110,7 @@ export class MenuComponent implements OnInit {
         const target = fnFlatDataHasParentToTree(menuList.list, 'fatherId');
         let list = fnFlattenTreeDataByDataList(target);
         console.log(sortFile);
-        // 因为前段要对后端Quay lại的数据进行处理，所以排序这里交给了前段来做
+        // Bởi vì phần trước phải đối với phần sauQuay lạiDữ liệu được xử lý, vì vậy việc sắp xếp ở đây được giao cho phần front-end thực hiện
         if (sortFile) {
           fnSortTreeData(list, sortFile);
         }
@@ -160,8 +160,8 @@ export class MenuComponent implements OnInit {
 
   del(id: number): void {
     this.modalSrv.confirm({
-      nzTitle: 'Xác nhận要Xóa吗？',
-      nzContent: 'Xóa后不可恢复',
+      nzTitle: 'Xác nhậnMuốnXóaÀ?',
+      nzContent: 'Xóakhông thể khôi phục sau này',
       nzOnOk: () => {
         this.tableLoading(true);
         this.dataService
@@ -173,7 +173,7 @@ export class MenuComponent implements OnInit {
             takeUntilDestroyed(this.destroyRef)
           )
           .subscribe(() => {
-            // 例如分页第二页只有一条数据，此时Xóa这条数据，跳转到第一页，并重新查询一下列表,pageIndex改变会由changePageIndex自动触发表格查询getDataList（）
+            // Ví dụ, trang thứ hai của phân trang chỉ có một mục dữ liệu, lúc nàyXóaDữ liệu này, chuyển sang trang đầu tiên và truy vấn lại danh sách,pageIndexThay đổi sẽ được bởichangePageIndexTự động kích hoạt truy vấn biểu mẫugetDataList（）
             if (this.dataList().length === 1 && this.tableConfig().pageIndex !== 1) {
               this.tableConfig.update(c => ({ ...c, pageIndex: c.pageIndex! - 1 }));
             } else {
@@ -184,7 +184,7 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  // 修改
+  // Chỉnh sửa
   edit(id: number, fatherId: number): void {
     this.dataService
       .getMenuDetail(id)
@@ -210,7 +210,7 @@ export class MenuComponent implements OnInit {
       });
   }
 
-  // 修改一页几条
+  // Sửa một trang vài mục
   changePageSize(e: number): void {
     this.tableConfig.update(config => ({ ...config, pageSize: e }));
   }
@@ -219,71 +219,71 @@ export class MenuComponent implements OnInit {
     this.tableConfig.set({
       headers: [
         {
-          title: '菜单名称',
+          title: 'Tên thực đơn',
           width: 230,
           field: 'menuName'
         },
         {
-          title: 'zorro图标',
+          title: 'zorroBiểu tượng',
           field: 'icon',
           width: 100,
           tdTemplate: this.zorroIconTpl()
         },
         {
-          title: '阿里图标',
+          title: 'Biểu tượng Alibaba',
           field: 'alIcon',
           width: 100,
           tdTemplate: this.aliIconTpl()
         },
         {
-          title: '权限码',
+          title: 'Mã quyền hạn',
           field: 'code',
           width: 300
         },
         {
-          title: '路由地址',
+          title: 'Địa chỉ định tuyến',
           field: 'path',
           width: 300
         },
         {
-          title: '排序',
+          title: 'Sắp xếp',
           field: 'orderNum',
           width: 80
         },
         {
-          title: '状态',
+          title: 'Trạng thái',
           field: 'status',
           pipe: 'available',
           width: 100
         },
         {
-          title: '展示',
+          title: 'trưng bày',
           field: 'visible',
           pipe: 'isOrNot',
           tdTemplate: this.visibleTpl(),
           width: 100
         },
         {
-          title: '外链',
+          title: 'Liên kết ngoài',
           field: 'newLinkFlag',
           pipe: 'isOrNot',
           tdTemplate: this.newLinkFlag(),
           width: 100
         },
         {
-          title: '创建时间',
+          title: 'Thời gian tạo',
           field: 'createdAt',
           pipe: 'date:yyyy-MM-dd HH:mm',
           width: 180
         },
         {
-          title: '更新时间',
+          title: 'Cập nhật thời gian',
           field: 'updatedAt',
           pipe: 'date:yyyy-MM-dd HH:mm',
           width: 180
         },
         {
-          title: '操作',
+          title: 'vận hành',
           tdTemplate: this.operationTpl(),
           width: 180,
           fixed: true,

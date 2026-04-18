@@ -1,30 +1,30 @@
-/*配置权限码*/
+/*Cấu hình mã quyền*/
 export const ActionCode = {
-  /*标签页操作打开Chi tiết*/
+  /*Mở thao tác thẻChi tiết*/
   TabsDetail: 'default:feat:tabs:example-detail',
-  /*查询表格 打开查看*/
+  /*Bảng tra cứu Mở để xem*/
   SearchTableDetail: 'default:page-demo:search-table:example-detail',
 
-  /*系统管理*/
-  AccountAdd: 'default:system:account:add', // 账号管理Thêm mới
-  AccountEdit: 'default:system:account:edit', // 账号管理Sửa
-  AccountDel: 'default:system:account:del', // 账号管理Xóa
+  /*Quản lý hệ thống*/
+  AccountAdd: 'default:system:account:add', // Quản lý tài khoảnThêm mới
+  AccountEdit: 'default:system:account:edit', // Quản lý tài khoảnSửa
+  AccountDel: 'default:system:account:del', // Quản lý tài khoảnXóa
 
-  /*角色管理*/
-  RoleManagerAdd: 'default:system:role-manager:add', // 角色管理Thêm mới
-  RoleManagerEdit: 'default:system:role-manager:edit', // 角色管理Sửa
-  RoleManagerDel: 'default:system:role-manager:del', // 角色管理Xóa
-  RoleManagerSetRole: 'default:system:role-manager:set-role', // 角色管理设置角色
+  /*Quản lý vai trò*/
+  RoleManagerAdd: 'default:system:role-manager:add', // Quản lý vai tròThêm mới
+  RoleManagerEdit: 'default:system:role-manager:edit', // Quản lý vai tròSửa
+  RoleManagerDel: 'default:system:role-manager:del', // Quản lý vai tròXóa
+  RoleManagerSetRole: 'default:system:role-manager:set-role', // Quản lý vai trò thiết lập vai trò
 
-  /*菜单管理*/
-  MenuAdd: 'default:system:menu:add', // 菜单Thêm mới
-  MenuEdit: 'default:system:menu:edit', // 菜单Sửa
-  MenuDel: 'default:system:menu:del', // 菜单Xóa
-  MenuAddLowLevel: 'default:system:menu:addlowlevel', // 菜单Thêm下级
+  /*Quản lý thực đơn*/
+  MenuAdd: 'default:system:menu:add', // Thực đơnThêm mới
+  MenuEdit: 'default:system:menu:edit', // Thực đơnSửa
+  MenuDel: 'default:system:menu:del', // Thực đơnXóa
+  MenuAddLowLevel: 'default:system:menu:addlowlevel', // Thực đơnThêmcấp dưới
 
-  /*部门管理*/
-  DeptAdd: 'default:system:dept:add', // 部门管理Thêm mới
-  DeptEdit: 'default:system:dept:edit', // 部门管理Sửa
-  DeptDel: 'default:system:dept:del', // 部门管理Xóa
-  DeptAddLowLevel: 'default:system:dept:addlowlevel' // 部门管理Thêm下级
+  /*Quản lý bộ phận*/
+  DeptAdd: 'default:system:dept:add', // Quản lý bộ phậnThêm mới
+  DeptEdit: 'default:system:dept:edit', // Quản lý bộ phậnSửa
+  DeptDel: 'default:system:dept:del', // Quản lý bộ phậnXóa
+  DeptAddLowLevel: 'default:system:dept:addlowlevel' // Quản lý bộ phậnThêmcấp dưới
 };

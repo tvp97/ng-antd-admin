@@ -23,7 +23,7 @@ interface TabInterface {
   selector: 'app-search-list',
   templateUrl: './search-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PageHeaderComponent, WaterMarkComponent, NzButtonModule, NzInputModule, NzWaveModule, NzTabsModule, RouterOutlet, NzSpaceCompactComponent]
+  imports: [PageHeaderComponent, NzButtonModule, NzInputModule, NzWaveModule, NzTabsModule, RouterOutlet, NzSpaceCompactComponent]
 })
 export class SearchListComponent {
   readonly headerContent = viewChild.required<TemplateRef<NzSafeAny>>('headerContent');
@@ -34,21 +34,21 @@ export class SearchListComponent {
       title: this.searchListService.$searchListComponentStore(),
       desc: this.headerContent(),
       footer: this.headerFooter(),
-      breadcrumb: ['首页', '列表页', this.searchListService.$searchListComponentStore()]
+      breadcrumb: ['Trang chủ', 'Trang danh sách', this.searchListService.$searchListComponentStore()]
     };
   });
   currentSelTab = 0;
   destroyRef = inject(DestroyRef);
   tabData: TabInterface[] = [
-    { label: '文章', url: '/default/page-demo/list/search-list/article' },
-    { label: '项目', url: '/default/page-demo/list/search-list/project' },
-    { label: '应用', url: '/default/page-demo/list/search-list/application' }
+    { label: 'bài viết', url: '/default/page-demo/list/search-list/article' },
+    { label: 'dự án', url: '/default/page-demo/list/search-list/project' },
+    { label: 'ứng dụng', url: '/default/page-demo/list/search-list/application' }
   ];
   private searchListService = inject(SearchListStoreService);
   private router = inject(Router);
 
   constructor() {
-    // todo 好像第一次路由结束以后不会执行，导致刷新的时候tab的索引错乱
+    // todo Có vẻ như sau khi lần đầu tiên định tuyến kết thúc sẽ không thực hiện, dẫn đến khi làm mớitabLỗi chỉ mục
     this.router.events
       .pipe(
         filter(event => event instanceof NavigationEnd),

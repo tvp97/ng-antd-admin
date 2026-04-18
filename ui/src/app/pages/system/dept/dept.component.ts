@@ -64,8 +64,8 @@ export class DeptComponent implements OnInit {
   searchParam: Partial<SearchParam> = {};
   destroyRef = inject(DestroyRef);
   readonly pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '部门管理',
-    breadcrumb: ['首页', '系统管理', '部门管理']
+    title: 'Quản lý bộ phận',
+    breadcrumb: ['Trang chủ', 'Quản lý hệ thống', 'Quản lý bộ phận']
   };
   dataList = signal<TreeNodeInterface[]>([]);
   readonly stateOptions: OptionsInterface[] = [...MapPipe.transformMapToArray(MapSet.available, MapKeyType.Boolean)];
@@ -111,7 +111,7 @@ export class DeptComponent implements OnInit {
       .subscribe(deptList => {
         const target = fnFlatDataHasParentToTree(deptList.list);
         let list = fnFlattenTreeDataByDataList(target);
-        // 因为前段要对后端Quay lại的数据进行处理，所以排序这里交给了前段来做
+        // Bởi vì phần trước phải đối với phần sauQuay lạiDữ liệu được xử lý, vì vậy việc sắp xếp ở đây được giao cho phần front-end thực hiện
         if (sortFile) {
           fnSortTreeData(list, sortFile);
         }
@@ -120,7 +120,7 @@ export class DeptComponent implements OnInit {
       });
   }
 
-  /*查看*/
+  /*Xem*/
   check(id: string, children: NzSafeAny[], parent: NzSafeAny[]): void {
     this.message.success(id);
   }
@@ -167,8 +167,8 @@ export class DeptComponent implements OnInit {
   del(id: number): void {
     const ids: number[] = [id];
     this.modalSrv.confirm({
-      nzTitle: 'Xác nhận要Xóa吗？',
-      nzContent: 'Xóa后不可恢复',
+      nzTitle: 'Xác nhậnMuốnXóaÀ?',
+      nzContent: 'Xóakhông thể khôi phục sau này',
       nzOnOk: () => {
         this.tableLoading(true);
         this.dataService
@@ -180,7 +180,7 @@ export class DeptComponent implements OnInit {
             takeUntilDestroyed(this.destroyRef)
           )
           .subscribe(() => {
-            // 例如分页第二页只有一条数据，此时Xóa这条数据，跳转到第一页，并重新查询一下列表,pageIndex改变会由changePageIndex自动触发表格查询getDataList（）
+            // Ví dụ, trang thứ hai của phân trang chỉ có một mục dữ liệu, lúc nàyXóaDữ liệu này, chuyển sang trang đầu tiên và truy vấn lại danh sách,pageIndexThay đổi sẽ được bởichangePageIndexTự động kích hoạt truy vấn biểu mẫugetDataList（）
             if (this.dataList().length === 1 && this.tableConfig().pageIndex !== 1) {
               this.tableConfig.update(config => ({ ...config, pageIndex: config.pageIndex! - 1 }));
             } else {
@@ -191,7 +191,7 @@ export class DeptComponent implements OnInit {
     });
   }
 
-  // 修改
+  // Chỉnh sửa
   edit(id: number, fatherId: number): void {
     this.dataService
       .getDeptsDetail(id)
@@ -221,7 +221,7 @@ export class DeptComponent implements OnInit {
     this.getDataList(e);
   }
 
-  // 修改一页几条
+  // Sửa một trang vài mục
   changePageSize(e: number): void {
     this.tableConfig.update(config => ({ ...config, pageSize: e }));
   }
@@ -230,30 +230,30 @@ export class DeptComponent implements OnInit {
     this.tableConfig.set({
       headers: [
         {
-          title: '部门名称',
+          title: 'Tên bộ phận',
           width: 230,
           field: 'departmentName'
         },
         {
-          title: '部门状态',
+          title: 'Trạng thái bộ phận',
           field: 'state',
           tdTemplate: this.state(),
           width: 100
         },
         {
-          title: '排序',
+          title: 'Sắp xếp',
           field: 'orderNum',
           showSort: true,
           width: 100
         },
         {
-          title: '创建时间',
+          title: 'Thời gian tạo',
           field: 'createdAt',
           pipe: 'date:yyyy-MM-dd HH:mm',
           width: 180
         },
         {
-          title: '操作',
+          title: 'vận hành',
           tdTemplate: this.operationTpl(),
           width: 180,
           fixed: false,

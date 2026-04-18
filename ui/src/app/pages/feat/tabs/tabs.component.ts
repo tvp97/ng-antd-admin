@@ -20,8 +20,8 @@ import { NzSpaceCompactComponent } from 'ng-zorro-antd/space';
 })
 export class TabsComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '标签页操作示例，如果需要在当前tab页面展示Chi tiết，请在"列表页>查询表格"中点击表格查看按钮，演示效果',
-    breadcrumb: ['首页', '扩展功能', '标签页面操作示例']
+    title: 'Ví dụ về thao tác tab, nếu cần ở hiện tạitabHiển thị trangChi tiết，xin vui lòng ở"Trang danh sách>Bảng tra cứu"Nhấp vào nút xem bảng trong để xem hiệu ứng trình diễn',
+    breadcrumb: ['Trang chủ', 'Chức năng mở rộng', 'Ví dụ về thao tác trên trang thẻ']
   };
   private msg = inject(NzMessageService);
   private tabService = inject(TabService);

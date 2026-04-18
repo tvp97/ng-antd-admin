@@ -46,7 +46,7 @@
 
 <div class="normal-table-wrap">
   <nz-card nzTitle="Tiến độ quy trình">
-    <app-water-mark />
+
     <nz-steps [nzCurrent]="1" [nzDirection]="stepDirection" [nzProgressDot]="progressTemplate">
       <nz-step nzTitle="Tạo dự án" [nzDescription]="createTpl"></nz-step>
       <nz-step nzTitle="Phòng ban duyệt vòng 1" [nzDescription]="trialTpl"></nz-step>
@@ -86,13 +86,14 @@
   </nz-card>
 
   <nz-card class="m-t-20" nzTitle="Thông tin người dùng">
-    <app-water-mark />
+
     <nz-descriptions>
       <nz-descriptions-item nzTitle="Tên người dùng">Phó Tiểu Tiểu</nz-descriptions-item>
       <nz-descriptions-item nzTitle="Số thẻ thành viên">32943898021309809423</nz-descriptions-item>
       <nz-descriptions-item nzTitle="CCCD/CMND">3321944288191034921</nz-descriptions-item>
       <nz-descriptions-item nzTitle="Phương thức liên hệ">18112345678</nz-descriptions-item>
-      <nz-descriptions-item nzTitle="Địa chỉ liên hệ" [nzSpan]="2">Khúc Lệ Lệ 18100000000 Ngã tư đường Công Chuyên và Hoàng Cô Sơn, Tây Hồ, Hàng Châu</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Địa chỉ liên hệ" [nzSpan]="2">Khúc Lệ Lệ 18100000000 Ngã tư đường Công Chuyên và
+        Hoàng Cô Sơn, Tây Hồ, Hàng Châu</nz-descriptions-item>
     </nz-descriptions>
     <nz-descriptions class="m-t-20" nzTitle="Nhóm thông tin">
       <nz-descriptions-item nzTitle="Dữ liệu nào đó">725</nz-descriptions-item>
@@ -102,7 +103,8 @@
     </nz-descriptions>
     <ng-template #dataTitleTpl>
       Dữ liệu nào đó
-      <i class="title-icon" nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Giải thích dữ liệu" nzType="info-circle"></i>
+      <i class="title-icon" nz-icon nz-tooltip nzTheme="outline" nzTooltipTitle="Giải thích dữ liệu"
+        nzType="info-circle"></i>
     </ng-template>
     <h3 class="m-t-20">Nhóm thông tin</h3>
     <nz-card class="m-t-20" nzTitle="Nhóm thông tin đa cấp" nzType="inner">
@@ -111,11 +113,13 @@
         <nz-descriptions-item nzTitle="Mã vai trò">1234567</nz-descriptions-item>
         <nz-descriptions-item nzTitle="Phòng ban">XXCông ty - YYBộ phận</nz-descriptions-item>
         <nz-descriptions-item nzTitle="Thời gian hết hạn">2017-08-08</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="Mô tả" [nzSpan]="2">Mô tả này rất dài dài dài dài dài dài dài dài dài dài dài dài...</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Mô tả" [nzSpan]="2">Mô tả này rất dài dài dài dài dài dài dài dài dài dài dài
+          dài...</nz-descriptions-item>
       </nz-descriptions>
       <nz-divider></nz-divider>
       <nz-descriptions nzTitle="Tên nhóm" [nzColumn]="1">
-        <nz-descriptions-item nzTitle="Tên khoa học">Citrullus lanatus (Thunb.) Matsum. et NakaiCây dây leo một năm; thân, cành mập, có gân rõ. Tua cuốn khá to..</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Tên khoa học">Citrullus lanatus (Thunb.) Matsum. et NakaiCây dây leo một năm;
+          thân, cành mập, có gân rõ. Tua cuốn khá to..</nz-descriptions-item>
       </nz-descriptions>
       <nz-divider></nz-divider>
       <nz-descriptions nzTitle="Tên nhóm">
@@ -126,12 +130,12 @@
   </nz-card>
 
   <nz-card class="m-t-20" nzTitle="Nhật ký cuộc gọi người dùng 6 tháng qua">
-    <app-water-mark />
+
     <nz-empty></nz-empty>
   </nz-card>
 
   <nz-card class="m-t-20">
-    <app-water-mark />
+
     <nz-card-tab>
       <nz-tabs nzSize="large">
         <nz-tab nzTitle="Nhật ký thao tác 1"></nz-tab>

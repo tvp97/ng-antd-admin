@@ -22,7 +22,7 @@ import { NzSafeAny } from 'ng-zorro-antd/core/types';
 </ng-template>*/
 
 /**
- * 视图 Outlet 组件，取代 NgComponentOutlet 和 NgTemplateOutlet
+ * Chế độ xem Outlet Các thành phần, thay thế NgComponentOutlet và NgTemplateOutlet
  */
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -32,12 +32,12 @@ export class ViewOutletDirective {
   private componentRef: ComponentRef<NzSafeAny> | undefined;
 
   /**
-   * 组件或者模板 TemplateRef
+   * Thành phần hoặc mẫu TemplateRef
    */
   readonly viewOutlet = input<Type<NzSafeAny> | TemplateRef<NzSafeAny> | null>(null);
 
   /**
-   * 组件和模板上下文传递数据
+   * Truyền dữ liệu giữa các thành phần và ngữ cảnh mẫu
    */
   readonly viewOutletContext = input<NzSafeAny>();
 

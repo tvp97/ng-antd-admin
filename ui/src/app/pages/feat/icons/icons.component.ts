@@ -31,9 +31,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 })
 export class IconsComponent {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '图标',
-    breadcrumb: ['首页', '功能', '图标'],
-    desc: '在图标选择器中演示：Tìm kiếm防抖，前端分页功能。'
+    title: 'Biểu tượng',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Biểu tượng'],
+    desc: 'Trình diễn trong bộ chọn biểu tượng:Tìm kiếmChống rung, chức năng phân trang phía frontend.'
   };
   seletedIcon = '';
   visible = false;

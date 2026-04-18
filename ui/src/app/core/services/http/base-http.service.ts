@@ -11,10 +11,10 @@ import { NzSafeAny } from 'ng-zorro-antd/core/types';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 export interface HttpCustomConfig {
-  needSuccessInfo?: boolean; // 是否需要"Thao tác thành công"提示
-  showLoading?: boolean; // 是否需要loading
-  otherUrl?: boolean; // 是否是第三方接口
-  loadingText?: string; // 可选：自定义Loading文案
+  needSuccessInfo?: boolean; // Có cần không"Thao tác thành công"Thông báo
+  showLoading?: boolean; // Có cần khôngloading
+  otherUrl?: boolean; // Có phải là giao diện bên thứ ba không
+  loadingText?: string; // Tùy chọn: Tùy chỉnhLoadingBản sao quảng cáo
 }
 
 export interface ActionResult<T> {
@@ -40,11 +40,11 @@ export class BaseHttpService {
     const reqPath = this.getUrl(path, config);
     const params = new HttpParams({ fromString: qs.stringify(param) });
 
-    // 获取关闭loading的回调函数
+    // Lấy đóngloadinghàm gọi lại
     const closeLoading = this.handleLoading(config);
 
     return this.http.get<ActionResult<T>>(reqPath, { params }).pipe(
-      finalize(closeLoading), // 无论成功失败，接口结束时立即调用关闭逻辑
+      finalize(closeLoading), // Dù thành công hay thất bại, logic đóng sẽ được gọi ngay khi kết thúc giao diện
       this.resultHandle<T>(config)
     );
   }
@@ -57,7 +57,7 @@ export class BaseHttpService {
     const closeLoading = this.handleLoading(config);
 
     return this.http.delete<ActionResult<T>>(reqPath, { params }).pipe(
-      finalize(closeLoading), // 无论成功失败，接口结束时立即调用关闭逻辑
+      finalize(closeLoading), // Dù thành công hay thất bại, logic đóng sẽ được gọi ngay khi kết thúc giao diện
       this.resultHandle<T>(config)
     );
   }
@@ -69,7 +69,7 @@ export class BaseHttpService {
     const closeLoading = this.handleLoading(config);
 
     return this.http.post<ActionResult<T>>(reqPath, param).pipe(
-      finalize(closeLoading), // 无论成功失败，接口结束时立即调用关闭逻辑
+      finalize(closeLoading), // Dù thành công hay thất bại, logic đóng sẽ được gọi ngay khi kết thúc giao diện
       this.resultHandle<T>(config)
     );
   }
@@ -81,7 +81,7 @@ export class BaseHttpService {
     const closeLoading = this.handleLoading(config);
 
     return this.http.put<ActionResult<T>>(reqPath, param).pipe(
-      finalize(closeLoading), // 无论成功失败，接口结束时立即调用关闭逻辑
+      finalize(closeLoading), // Dù thành công hay thất bại, logic đóng sẽ được gọi ngay khi kết thúc giao diện
       this.resultHandle<T>(config)
     );
   }
@@ -109,28 +109,28 @@ export class BaseHttpService {
   }
 
   /**
-   * Loading处理逻辑
-   * 即使接口瞬间Quay lại，Loading 也会坚持展示最少 500ms
+   * LoadingXử lý logic
+   * Ngay cả giao diện trong chốc látQuay lại，Loading Cũng sẽ kiên trì trình bày ít nhất 500ms
    */
   private handleLoading(config: HttpCustomConfig): () => void {
     if (config.showLoading) {
       const startTime = Date.now();
-      // 注意：设置 nzDuration: 0 为手动关闭，否则会被默认的 3000ms 自动消除逻辑干扰
+      // Chú ý: Cài đặt nzDuration: 0 Để tắt bằng tay, nếu không sẽ bị mặc định 3000ms Tự động loại bỏ nhiễu logic
       const msgRef = this.message.loading(config.loadingText || 'Đang tải...', { nzDuration: 0 });
 
       return () => {
         const elapsed = Date.now() - startTime;
-        const minDuration = 500; // 最小展示 500ms
+        const minDuration = 500; // Hiển thị tối thiểu 500ms
         const remaining = minDuration - elapsed;
 
         if (remaining > 0) {
-          // 如果请求太快（比如 50ms），则延迟 450ms 后再移除 Loading
-          // 此时数据已经Quay lại给页面了，但 Loading 还在
+          // Nếu yêu cầu quá nhanh (ví dụ 50ms）、thì trì hoãn 450ms sau đó loại bỏ Loading
+          // Lúc này dữ liệu đãQuay lạiĐã cho trang, nhưng Loading Vẫn ở
           setTimeout(() => {
             this.message.remove(msgRef.messageId);
           }, remaining);
         } else {
-          // 如果请求本身就很慢（超过 500ms），立即移除
+          // Nếu yêu cầu tự nó đã rất chậm (quá 500ms）, ngay lập tức gỡ bỏ
           this.message.remove(msgRef.messageId);
         }
       };

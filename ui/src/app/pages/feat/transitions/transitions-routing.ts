@@ -6,7 +6,7 @@ export default [
     title: 'View Transitions',
     data: {
       key: 'transitions',
-      shouldDetach: 'no' // 禁用路由复用
+      shouldDetach: 'no' // Vô hiệu hóa tái sử dụng định tuyến
     },
     loadComponent: () => import('./transitions').then(m => m.Transitions)
   },
@@ -15,7 +15,7 @@ export default [
     title: 'View Transitions',
     data: {
       key: 'transitions-detail',
-      shouldDetach: 'no' // 禁用路由复用
+      shouldDetach: 'no' // Vô hiệu hóa tái sử dụng định tuyến
     },
     loadComponent: () => import('./transitions-detail').then(m => m.TransitionsDetail)
   }

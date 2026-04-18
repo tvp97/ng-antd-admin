@@ -90,7 +90,7 @@ export class Login1Component {
     viewContainerRef.clear();
     const componentRef = viewContainerRef.createComponent<AdComponent>(adItem.component.component);
     componentRef.instance.data = adItem.component.data;
-    // ngZoneEventCoalescing，ngZoneRunCoalescing例子
+    // ngZoneEventCoalescing，ngZoneRunCoalescingVí dụ
     this.cdr.detectChanges();
   }
 

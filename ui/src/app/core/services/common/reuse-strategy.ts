@@ -18,24 +18,24 @@ export interface ReuseComponentRef {
   instance: ReuseComponentInstance;
 }
 
-/*路由复用*/
-// 参考https://zhuanlan.zhihu.com/p/29823560
+/*Tái sử dụng định tuyến*/
+// Tham khảohttps://zhuanlan.zhihu.com/p/29823560
 // https://blog.csdn.net/weixin_30561425/article/details/96985967?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control
 export class SimpleReuseStrategy implements RouteReuseStrategy {
   destroyRef = inject(DestroyRef);
   private readonly doc = inject(DOCUMENT);
   private readonly scrollService = inject(ScrollService);
 
-  // 缓存每个component的map
+  // Bộ đệm từng cáicomponentcủamap
   static handlers: Record<string, NzSafeAny> = {};
-  // 缓存每个页面的scroll位置,为啥不放在handlers里面呢,因为路由离开时路由复用导致以当前页为key为null了
+  // Lưu vào bộ nhớ đệm từng trangscrollVị trí,Tại sao không đặt vàohandlersBên trong thì,Bởi vì khi rời khỏi router, việc tái sử dụng router dẫn đến lấy trang hiện tại làmkeyvìnullrồi
   static scrollHandlers: Record<string, NzSafeAny> = {};
 
-  // 这个参数的目的是，在当前页签中点击Xóa按钮，虽然页签关闭了，但是在路由离开的时候，还是会将已经关闭的页签的组件缓存，
-  // 用这个参数来记录，是否需要缓存当前路由
+  // Mục đích của tham số này là nhấp vào trong tab hiện tạiXóaNút bấm, mặc dù tab đã đóng, nhưng khi rời khỏi tuyến đường, vẫn sẽ lưu bộ nhớ đệm của thành phần tab đã đóng.
+  // Sử dụng tham số này để ghi lại, có cần lưu trữ tạm thời tuyến đường hiện tại hay không
   public static waitDelete: string | null;
-  themesService = inject(ThemeService); // 用于获取主题
-  // 是否有多页签，没有多页签则不做路由缓存
+  themesService = inject(ThemeService); // Dùng để lấy chủ đề
+  // Có nhiều tab hay không, nếu không có nhiều tab thì không thực hiện lưu bộ nhớ đệm định tuyến
   $isShowTab = computed(() => {
     return this.themesService.$themesOptions().isShowTab;
   });
@@ -50,7 +50,7 @@ export class SimpleReuseStrategy implements RouteReuseStrategy {
     }
   }
 
-  // Xóa全部的缓存，在退出登录，不使用多标签 等操作中需要用到
+  // XóaXóa tất cả bộ nhớ đệm khi đăng xuất, không sử dụng nhiều thẻ Cần sử dụng trong các thao tác chờ
   public static deleteAllRouteSnapshot(route: ActivatedRouteSnapshot): Promise<void> {
     return new Promise(resolve => {
       Object.keys(SimpleReuseStrategy.handlers).forEach(key => {
@@ -61,12 +61,12 @@ export class SimpleReuseStrategy implements RouteReuseStrategy {
     });
   }
 
-  // 是否允许复用路由
+  // Có cho phép tái sử dụng tuyến đường không
   shouldDetach(route: ActivatedRouteSnapshot): boolean {
-    // 是否展示多页签，如果不展示多页签，则不做路由复用
+    // Có hiển thị nhiều tab hay không, nếu không hiển thị nhiều tab thì không thực hiện tái sử dụng định tuyến
     const shouldDetach = route.data['shouldDetach'] !== 'no' && this.$isShowTab();
-    // 在此处记录滚动位置：shouldDetach 在 outlet.detach() 之前调用，DOM 还在文档中
-    // 修改记录滚动位置的时机，如果放在路由离开时才记录，会造成获取不到dom
+    // Ghi lại vị trí cuộn tại đây:shouldDetach ở outlet.detach() gọi trước đó,DOM Vẫn ở trong tài liệu
+    // Thời điểm sửa đổi vị trí cuộn, nếu chỉ ghi lại khi rời khỏi tuyến đường, sẽ dẫn đến không thể lấy đượcdom
     if (shouldDetach && route.data['needKeepScroll'] !== 'no') {
       const key = fnGetReuseStrategyKeyFn(route);
       if (key) {
@@ -85,13 +85,13 @@ export class SimpleReuseStrategy implements RouteReuseStrategy {
     return shouldDetach;
   }
 
-  // 当路由离开时会触发，存储路由
+  // Khi rời khỏi tuyến đường sẽ được kích hoạt, lưu trữ tuyến đường
   store(route: ActivatedRouteSnapshot, handle: NzSafeAny): void {
     if (route.data['shouldDetach'] === 'no') {
       return;
     }
     const key = fnGetReuseStrategyKeyFn(route);
-    // 如果待Xóa的是当前路由则不存储快照
+    // Nếu chờXóaNếu là tuyến đường hiện tại thì không lưu trữ snapshot
     if (SimpleReuseStrategy.waitDelete === key) {
       this.runHook('_onReuseDestroy', handle.componentRef);
       handle.componentRef.destroy();
@@ -100,7 +100,7 @@ export class SimpleReuseStrategy implements RouteReuseStrategy {
       return;
     }
 
-    // 滚动位置已在 shouldDetach 时提前记录，此处 DOM 可能已被移除，不再操作
+    // Vị trí cuộn đã ở shouldDetach Ghi lại trước thời gian, ở đây DOM Có thể đã bị loại bỏ, không còn hoạt động
     SimpleReuseStrategy.handlers[key] = handle;
 
     if (handle && handle.componentRef) {
@@ -108,14 +108,14 @@ export class SimpleReuseStrategy implements RouteReuseStrategy {
     }
   }
 
-  // 是否允许还原路由
+  // Có cho phép khôi phục tuyến đường không
   shouldAttach(route: ActivatedRouteSnapshot): boolean {
     const key = fnGetReuseStrategyKeyFn(route);
     return !!key && !!SimpleReuseStrategy.handlers[key];
   }
 
-  // 获取存储路由
-  // 如果在这里获取目标路由组件的实例，执行生命周期，会导致组件的生命周期执行多次（大于等于2次），但是这样又能避免shouldReuseRoute里面用while
+  // Lấy định tuyến lưu trữ
+  // Nếu lấy thể hiện của thành phần định tuyến mục tiêu ở đây và thực thi vòng đời, sẽ dẫn đến việc vòng đời của thành phần được thực thi nhiều lần (lớn hơn hoặc bằng2lần), nhưng như vậy lại có thể tránhshouldReuseRoutedùng ở trongwhile
   // https://github.com/angular/angular/issues/43251
   // https://github.com/angular/angular/issues/42794
   retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null {
@@ -123,7 +123,7 @@ export class SimpleReuseStrategy implements RouteReuseStrategy {
     return !key ? null : SimpleReuseStrategy.handlers[key];
   }
 
-  // 进入路由触发，是同一路由时复用路由
+  // Kích hoạt khi vào tuyến đường, tái sử dụng tuyến đường khi cùng một tuyến đường
   shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
     const futureKey = fnGetReuseStrategyKeyFn(future);
     const currKey = fnGetReuseStrategyKeyFn(curr);
@@ -132,11 +132,11 @@ export class SimpleReuseStrategy implements RouteReuseStrategy {
     }
 
     const result = futureKey === currKey;
-    // 懒加载读取不到data，通过此方法下钻到最下一级路由
+    // Tải lười biếng không đọc đượcdata, thông qua phương pháp này khoan xuống cấp độ định tuyến thấp nhất
     while (future.firstChild) {
       future = future.firstChild;
     }
-    // 重新获取是因为future在上面while循环中已经变了
+    // Lấy lại là vìfutureỞ trênwhileĐã thay đổi trong vòng lặp
     const scrollFutureKey = fnGetReuseStrategyKeyFn(future);
     if (!!scrollFutureKey && SimpleReuseStrategy.scrollHandlers[scrollFutureKey]) {
       SimpleReuseStrategy.scrollHandlers[scrollFutureKey].scroll.forEach((elOptionItem: Record<string, [number, number]>) => {

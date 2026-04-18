@@ -12,23 +12,23 @@ import { NzInputModule } from 'ng-zorro-antd/input';
   selector: 'app-gaode-map',
   templateUrl: './gaode-map.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PageHeaderComponent, NzCardModule, WaterMarkComponent, NzInputModule, FormsModule]
+  imports: [PageHeaderComponent, NzCardModule, NzInputModule, FormsModule]
 })
 export class GaodeMapComponent implements AfterViewInit {
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '高德地图，高德打电话给我了，我这个key注销了，我就保留源代码在这里，供小伙伴参考，我自己的key就不暴露了',
-    breadcrumb: ['首页', '功能', '图表', '高德地图']
+    title: 'Bản đồ Gaode, Gaode đã gọi điện cho tôi, tôi nàykeyĐã hủy đăng ký, tôi sẽ giữ lại mã nguồn ở đây để các bạn tham khảo, của riêng tôikeyThì không bị lộ ra nữa',
+    breadcrumb: ['Trang chủ', 'chức năng', 'Biểu đồ', 'Bản đồ Gaode']
   };
   marker: [number, number] = [116.437253, 39.935033];
   markerPosition: string = this.marker.join(',');
 
   ngAfterViewInit(): void {
-    // api地址
+    // apiĐịa chỉ
     // https://lbs.amap.com/demo/javascript-api/example/map-lifecycle/map-show
-    // 自己去申请一个key，别用我这个Key，多谢。高德打电话给我了，我这个Key注销掉了，我就保留使用方法在这里，就不展示出来了
-    // 申请地址 https://console.amap.com/dev/key/app
+    // Tự mình đi xin một cáikey, đừng dùng cái này của tôiKeyCảm ơn nhiều. Gaode đã gọi điện cho tôi, tôi nàyKeyĐã hủy đăng ký, tôi sẽ giữ lại phương pháp sử dụng ở đây, nhưng sẽ không hiển thị ra.
+    // Địa chỉ đăng ký https://console.amap.com/dev/key/app
     AMapLoader.load({
-      key: 'xxxxxxxxxxxxx', //首次load必填
+      key: 'xxxxxxxxxxxxx', //lần đầuloadBắt buộc
       version: '1.4.15',
       AMapUI: {
         version: '1.1',
@@ -43,8 +43,8 @@ export class GaodeMapComponent implements AfterViewInit {
         });
 
         const marker = new AMap.Marker({
-          position: new AMap.LngLat(this.marker[0], this.marker[1]), // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
-          /*  title: '南京',*/
+          position: new AMap.LngLat(this.marker[0], this.marker[1]), // Đối tượng kinh độ vĩ độ, cũng có thể là mảng một chiều được cấu thành từ kinh độ vĩ độ[116.39, 39.9]
+          /*  title: 'Nam Kinh',*/
           draggable: true
         });
         marker.on('dragend', () => {

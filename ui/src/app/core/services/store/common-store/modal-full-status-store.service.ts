@@ -1,8 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 
 /**
- * 用于存储对话框是否是全屏状态的service
- * 就算打开多个对话框，同一时间也只能存在一个全屏的对话框
+ * Dùng để lưu trữ trạng thái hộp thoại có phải là toàn màn hình hay khôngservice
+ * Ngay cả khi mở nhiều hộp thoại, cùng một lúc cũng chỉ có thể tồn tại một hộp thoại toàn màn hình
  *
  */
 @Injectable({

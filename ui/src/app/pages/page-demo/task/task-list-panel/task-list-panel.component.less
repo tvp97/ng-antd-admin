@@ -3,7 +3,7 @@
   min-height: calc(100vh - 200px);
 }
 
-// 顶部工具栏
+// Thanh công cụ trên cùng
 .kanban-toolbar {
   gap: 12px;
   margin-bottom: 20px;
@@ -16,7 +16,7 @@
   }
 }
 
-// 看板主体：三列横排
+// Thân bảng Kanban: 3 cột ngang
 .kanban-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -33,7 +33,7 @@
   }
 }
 
-// 列头卡片
+// Thẻ tiêu đề cột
 .col-header-card {
   border-radius: 8px 8px 0 0 !important;
   margin-bottom: 0 !important;
@@ -45,7 +45,7 @@
   }
 }
 
-// 列内容区卡片
+// Thẻ khu vực nội dung cột
 .col-body-card {
   border-radius: 0 0 8px 8px !important;
   border-top: none !important;
@@ -57,7 +57,7 @@
   }
 }
 
-// 列内容区（drop zone）
+// Khu vực nội dung cột (drop zone)
 .col-body {
   min-height: 200px;
   padding: 8px;
@@ -78,7 +78,7 @@
   }
 }
 
-// 空状态
+// Trạng thái trống
 .col-empty {
   display: flex;
   flex-direction: column;
@@ -94,7 +94,7 @@
   }
 }
 
-// 任务卡片
+// Thẻ nhiệm vụ
 .themeMixin({
   :host {
     .task-card {
@@ -144,7 +144,7 @@
   }
 }
 
-// 标题行
+// Dòng tiêu đề
 .task-header {
   display: flex;
   align-items: flex-start;
@@ -175,7 +175,7 @@
   }
 }
 
-// 描述
+// Mô tả
 .task-desc {
   font-size: 12px;
   opacity: 0.55;
@@ -183,7 +183,7 @@
   word-break: break-word;
 }
 
-// 底部标签
+// Thẻ dưới cùng
 .task-footer {
   display: flex;
   flex-wrap: wrap;
@@ -195,7 +195,7 @@
   }
 }
 
-// 拖拽占位
+// Chỗ dành cho kéo thả
 .drag-placeholder {
   border: 2px dashed #1890ff;
   border-radius: 8px;
@@ -203,7 +203,7 @@
   opacity: 0.6;
 }
 
-// 拖拽预览
+// Xem trước kéo thả
 .drag-preview {
   border-radius: 8px;
   padding: 10px 12px;

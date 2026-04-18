@@ -27,15 +27,15 @@ enum StepEnum {
   templateUrl: './step.component.html',
   styleUrl: './step.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PageHeaderComponent, NzCardModule, WaterMarkComponent, NzStepsModule, PortalModule]
+  imports: [PageHeaderComponent, NzCardModule, NzStepsModule, PortalModule]
 })
 export class StepComponent implements OnInit, AfterViewInit {
   selectedPortal!: Portal<NzSafeAny>;
   stepDirection = signal<'horizontal' | 'vertical'>('horizontal');
   pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '分步表单',
-    desc: '将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。（演示cdk传送点）',
-    breadcrumb: ['首页', '表单页', '分步表单']
+    title: 'Biểu mẫu theo từng bước',
+    desc: 'Chia một nhiệm vụ biểu mẫu dài hoặc mà người dùng không quen thuộc thành nhiều bước, hướng dẫn người dùng hoàn thành. (Trình diễncdkĐiểm dịch chuyển)',
+    breadcrumb: ['Trang chủ', 'Trang biểu mẫu', 'Biểu mẫu theo từng bước']
   };
   currentStep = 1;
   stepComponentArray: Array<ComponentType<comp>> = [StepOneComponent, StepTwoComponent, StepThreeComponent];
@@ -48,11 +48,11 @@ export class StepComponent implements OnInit, AfterViewInit {
     this.currentStep = currentStepNum;
     ref!.destroy();
     this.goStep(step);
-    // ngZoneEventCoalescing，ngZoneRunCoalescing例子,请查看main.ts
+    // ngZoneEventCoalescing，ngZoneRunCoalescingVí dụ,Vui lòng xemmain.ts
     this.cdr.detectChanges();
   }
 
-  // 这么做完全是为了演示CDK portal的简单用法
+  // Làm như vậy hoàn toàn là để trình diễnCDK portalCách sử dụng đơn giản
   initComponent(ref: CdkPortalOutletAttachedRef): void {
     if (ref instanceof ComponentRef) {
       if (ref.instance instanceof StepOneComponent) {

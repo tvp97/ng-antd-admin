@@ -24,7 +24,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     NzCardModule,
-    WaterMarkComponent,
+
     NzGridModule,
     NzTagModule,
     NzIconModule,
@@ -36,7 +36,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
     NzAvatarModule,
     NzTooltipModule,
     NumberLoopPipe
-]
+  ]
 })
 export class ProjectComponent {
   expanded = false;
@@ -47,18 +47,18 @@ export class ProjectComponent {
     like: null
   };
   tagArray = [
-    { name: '类目一', isChecked: false },
-    { name: '类目二', isChecked: false },
-    { name: '类目三', isChecked: false },
-    { name: '类目四', isChecked: false },
-    { name: '类目五', isChecked: false },
-    { name: '类目六', isChecked: false },
-    { name: '类目七', isChecked: false },
-    { name: '类目八', isChecked: false },
-    { name: '类目九', isChecked: false },
-    { name: '类目十', isChecked: false },
-    { name: '类目十一', isChecked: false },
-    { name: '类目十二', isChecked: false }
+    { name: 'Danh mục một', isChecked: false },
+    { name: 'Danh mục hai', isChecked: false },
+    { name: 'Danh mục ba', isChecked: false },
+    { name: 'Danh mục bốn', isChecked: false },
+    { name: 'Danh mục năm', isChecked: false },
+    { name: 'Danh mục sáu', isChecked: false },
+    { name: 'Danh mục bảy', isChecked: false },
+    { name: 'Danh mục tám', isChecked: false },
+    { name: 'Danh mục chín', isChecked: false },
+    { name: 'Danh mục mười', isChecked: false },
+    { name: 'Danh mục mười một', isChecked: false },
+    { name: 'Danh mục mười hai', isChecked: false }
   ];
   private searchListService = inject(SearchListStoreService);
 
@@ -75,6 +75,6 @@ export class ProjectComponent {
   }
 
   _onReuseInit(): void {
-    this.searchListService.$searchListComponentStore.set('Tìm kiếm列表（项目）');
+    this.searchListService.$searchListComponentStore.set('Tìm kiếmDanh sách (mục)');
   }
 }

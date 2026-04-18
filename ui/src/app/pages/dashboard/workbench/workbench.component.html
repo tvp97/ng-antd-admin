@@ -3,19 +3,20 @@
 <div class="normal-table-wrap">
   <div nz-row [nzGutter]="[32, 32]">
     <div nz-col [nzLg]="24" [nzMd]="24" [nzSm]="24" [nzXl]="16" [nzXs]="24" [nzXXl]="16">
-      <app-water-mark />
+
       <div nz-row [nzGutter]="[32, 32]">
         <div nz-col nzSpan="24">
           <nz-card nzTitle="Dự án đang tiến hành" [nzExtra]="extraTemplate">
             <div nz-row>
               @for (i of 6 | numberLoop; track $index) {
-                <div nz-card-grid nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
-                  <nz-card-meta nzDescription="Biết bao quán trong phố, nàng lại bước vào quán của tôi" [nzTitle]="cardTitleTpl"></nz-card-meta>
-                  <div class="card-foot">
-                    <span nz-typography nzType="secondary">Hoa</span>
-                    <span nz-typography nzType="secondary">4 năm trước</span>
-                  </div>
+              <div nz-card-grid nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
+                <nz-card-meta nzDescription="Biết bao quán trong phố, nàng lại bước vào quán của tôi"
+                  [nzTitle]="cardTitleTpl"></nz-card-meta>
+                <div class="card-foot">
+                  <span nz-typography nzType="secondary">Hoa</span>
+                  <span nz-typography nzType="secondary">4 năm trước</span>
                 </div>
+              </div>
               }
             </div>
           </nz-card>
@@ -24,20 +25,20 @@
           <nz-card nzTitle="Hoạt động">
             <nz-list>
               @for (item of 6 | numberLoop; track $index) {
-                <nz-list-item style="padding: 16px 24px">
-                  <nz-list-item-meta>
-                    <nz-list-item-meta-avatar nzSrc="imgs/default_face.png"></nz-list-item-meta-avatar>
-                    <nz-list-item-meta-title>
-                      <a>
-                        Khúc Lệ Lệ tại
-                        <span class="operate-text">Nhóm thiết kế cao cấp</span>
-                        Dự án mới
-                        <span class="operate-text">Sprint tháng 6</span>
-                      </a>
-                    </nz-list-item-meta-title>
-                    <nz-list-item-meta-description>19 ngày trước</nz-list-item-meta-description>
-                  </nz-list-item-meta>
-                </nz-list-item>
+              <nz-list-item style="padding: 16px 24px">
+                <nz-list-item-meta>
+                  <nz-list-item-meta-avatar nzSrc="imgs/default_face.png"></nz-list-item-meta-avatar>
+                  <nz-list-item-meta-title>
+                    <a>
+                      Khúc Lệ Lệ tại
+                      <span class="operate-text">Nhóm thiết kế cao cấp</span>
+                      Dự án mới
+                      <span class="operate-text">Sprint tháng 6</span>
+                    </a>
+                  </nz-list-item-meta-title>
+                  <nz-list-item-meta-description>19 ngày trước</nz-list-item-meta-description>
+                </nz-list-item-meta>
+              </nz-list-item>
               }
             </nz-list>
           </nz-card>
@@ -45,15 +46,15 @@
       </div>
     </div>
     <div nz-col [nzLg]="24" [nzMd]="24" [nzSm]="24" [nzXl]="8" [nzXs]="24" [nzXXl]="8">
-      <app-water-mark />
+
       <div nz-row [nzGutter]="[32, 32]">
         <div nz-col nzSpan="24">
           <nz-card nzTitle="Bắt đầu nhanh / điều hướng">
             <div nz-row [nzGutter]="[16, 16]">
               @for (item of 6 | numberLoop; track $index) {
-                <div nz-col nzSpan="6">
-                  <a (click)="msg.success('Đã nhấn')">Thao tác 1</a>
-                </div>
+              <div nz-col nzSpan="6">
+                <a (click)="msg.success('Đã nhấn')">Thao tác 1</a>
+              </div>
               }
               <div nz-col nzSpan="6">
                 <button nz-button nzGhost nzSize="small" nzType="primary">
@@ -73,12 +74,13 @@
           <nz-card nzTitle="Nhóm">
             <div nz-row>
               @for (item of 5 | numberLoop; track $index) {
-                <div nz-col nzSpan="12">
-                  <a class="group">
-                    <nz-avatar nzSrc="https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png" [nzSize]="24"></nz-avatar>
-                    <span class="m-l-10">Nhóm khoa học</span>
-                  </a>
-                </div>
+              <div nz-col nzSpan="12">
+                <a class="group">
+                  <nz-avatar nzSrc="https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png"
+                    [nzSize]="24"></nz-avatar>
+                  <span class="m-l-10">Nhóm khoa học</span>
+                </a>
+              </div>
               }
             </div>
           </nz-card>
@@ -96,8 +98,10 @@
           <img alt="" src="imgs/default_face.png" />
         </div>
         <div nz-col nzFlex="1">
-          <h4 class="left-start-center m-0" nz-typography style="height: 50%">Chào buổi sáng, Serati Ma, chúc bạn một ngày vui!</h4>
-          <div class="left-start-center" nz-typography nzType="secondary" style="height: 50%">Chuyên gia UX | Ant Financial – Khối kinh doanh – Bộ phận nền tảng – Phòng kỹ thuật – UED</div>
+          <h4 class="left-start-center m-0" nz-typography style="height: 50%">Chào buổi sáng, Serati Ma, chúc bạn một
+            ngày vui!</h4>
+          <div class="left-start-center" nz-typography nzType="secondary" style="height: 50%">Chuyên gia UX | Ant
+            Financial – Khối kinh doanh – Bộ phận nền tảng – Phòng kỹ thuật – UED</div>
         </div>
       </div>
     </div>

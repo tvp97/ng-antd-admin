@@ -6,7 +6,7 @@
 
 @layout-trigger-height: 40px;
 
-// 如果存在所有主题通用的样式变量,基本样式文件并在每个主题样式定制文件中引入它：
+// Nếu có biến kiểu chung cho tất cả theme, hãy đưa vào đây:
 * {
   box-sizing: border-box;
 }
@@ -581,11 +581,11 @@ h6 {
   padding: 24px;
 }
 
-// 通用页面统一布局
+// Bố cục chung của trang
 .normal-table-wrap {
   padding: 27px 27px 0 27px;
 
-  /* 列表顶部样式 */
+  /* Kiểu phần đầu danh sách */
   .ant-pro-table-toolbar {
     display: flex;
     align-items: center;
@@ -612,15 +612,15 @@ h6 {
     }
   }
 
-  // 表单样式
+  // Kiểu form
   .form-wrap {
     padding: 24px;
   }
 }
 
-/* 覆盖zorro样式 */
+/* Ghi đè kiểu zorro */
 
-// 对话框增加滚动条
+// Thêm thanh cuộn cho hộp thoại
 .ant-modal-body {
   overflow: auto;
   max-height: 600px;
@@ -663,7 +663,7 @@ input[nz-input] {
   .animate-bg-0;
 }
 
-// zorro更新日志中16.2.2版本的中内置 cdk-overlay 样式影响，Xóa这段样式会导致Modal kéo thả的示例demo，同时弹出2个对话框，点击不同的对话框，z-index不生效
+// Fix lỗi z-index do cdk-overlay của zorro
 .cdk-global-overlay-wrapper {
   position: unset;
   z-index: unset;

@@ -62,9 +62,9 @@ export class AccountComponent implements OnInit {
   searchParam: Partial<SearchParam> = {};
   tableConfig = signal<AntTableConfig>({ headers: [], total: 0, showCheckbox: true, loading: false, pageSize: 10, pageIndex: 1 });
   readonly pageHeaderInfo: Partial<PageHeaderType> = {
-    title: '账号管理',
-    breadcrumb: ['首页', '用户管理', '账号管理'],
-    desc: '移除了左侧部门的布局，如果有需要可以看v20及以下的模版代码'
+    title: 'Quản lý tài khoản',
+    breadcrumb: ['Trang chủ', 'Quản lý người dùng', 'Quản lý tài khoản'],
+    desc: 'Đã loại bỏ bố cục của bộ phận bên trái, nếu cần có thể xemv20Mã mẫu và các phiên bản thấp hơn'
   };
   dataList = signal<User[]>([]);
   checkedCashArray: User[] = [];
@@ -112,7 +112,7 @@ export class AccountComponent implements OnInit {
       });
   }
 
-  // 设置权限
+  // Cài đặt quyền
   setRole(id: number): void {
     this.router.navigate(['/default/system/role-manager/set-role'], { queryParams: { id: id } });
   }
@@ -144,9 +144,9 @@ export class AccountComponent implements OnInit {
     this.getDataList();
   }
 
-  // 在这里做了一个示例，用于获取选中列的数据，而不通过接口，这里可以通过dataItem获取到当前列的数据，也可以通过id从dataList中找到匹配的数据
-  // 推荐使用接口获取Chi tiết的方式，因为这样保证了数据的实时性
-  // 修改
+  // Ở đây làm một ví dụ, để lấy dữ liệu của cột được chọn, mà không thông qua giao diện, ở đây có thể thông quadataItemLấy dữ liệu của cột hiện tại, cũng có thể thông quaidtừdataListtìm dữ liệu phù hợp trong đó
+  // Đề xuất sử dụng giao diện để lấyChi tiếtcách thức này, vì điều này đảm bảo tính thời gian thực của dữ liệu
+  // Chỉnh sửa
   edit(id: number, dataItem: User): void {
     console.log(dataItem);
     this.dataService
@@ -208,8 +208,8 @@ export class AccountComponent implements OnInit {
     if (this.checkedCashArray.length > 0) {
       const tempArrays: number[] = [];
       this.modalSrv.confirm({
-        nzTitle: 'Xác nhận要Xóa吗？',
-        nzContent: 'Xóa后不可恢复',
+        nzTitle: 'Xác nhậnMuốnXóaÀ?',
+        nzContent: 'Xóakhông thể khôi phục sau này',
         nzOnOk: () => {
           this.checkedCashArray.forEach(item => {
             tempArrays.push(item.id);
@@ -233,7 +233,7 @@ export class AccountComponent implements OnInit {
         }
       });
     } else {
-      this.message.error('请勾选数据');
+      this.message.error('Vui lòng đánh dấu dữ liệu');
       return;
     }
   }
@@ -241,8 +241,8 @@ export class AccountComponent implements OnInit {
   del(id: number): void {
     const ids: number[] = [id];
     this.modalSrv.confirm({
-      nzTitle: 'Xác nhận要Xóa吗？',
-      nzContent: 'Xóa后不可恢复',
+      nzTitle: 'Xác nhậnMuốnXóaÀ?',
+      nzContent: 'Xóakhông thể khôi phục sau này',
       nzOnOk: () => {
         this.tableLoading(true);
         this.dataService
@@ -254,7 +254,7 @@ export class AccountComponent implements OnInit {
             takeUntilDestroyed(this.destroyRef)
           )
           .subscribe(() => {
-            // 例如分页第二页只有一条数据，此时Xóa这条数据，跳转到第一页，并重新查询一下列表,pageIndex改变会由changePageIndex自动触发表格查询getDataList（）
+            // Ví dụ, trang thứ hai của phân trang chỉ có một mục dữ liệu, lúc nàyXóaDữ liệu này, chuyển sang trang đầu tiên và truy vấn lại danh sách,pageIndexThay đổi sẽ được bởichangePageIndexTự động kích hoạt truy vấn biểu mẫugetDataList（）
             if (this.dataList().length === 1 && this.tableConfig().pageIndex !== 1) {
               this.tableConfig.update(c => ({ ...c, pageIndex: c.pageIndex! - 1 }));
             } else {
@@ -265,7 +265,7 @@ export class AccountComponent implements OnInit {
     });
   }
 
-  // 修改一页几条
+  // Sửa một trang vài mục
   changePageSize(e: number): void {
     this.tableConfig.update(config => ({ ...config, pageSize: e }));
   }
@@ -275,7 +275,7 @@ export class AccountComponent implements OnInit {
     this.getDataList();
   }
 
-  /*展开*/
+  /*Mở rộng*/
   toggleCollapse(): void {
     this.isCollapse = !this.isCollapse;
   }
@@ -289,56 +289,56 @@ export class AccountComponent implements OnInit {
       showCheckbox: true,
       headers: [
         {
-          title: 'Tên đăng nhập称',
+          title: 'Tên đăng nhậpgọi',
           field: 'userName',
           width: 100
         },
         {
-          title: '是否可用',
+          title: 'Có sẵn không',
           width: 100,
           field: 'available',
           tdTemplate: this.availableFlag()
         },
         {
-          title: '性别',
+          title: 'Giới tính',
           width: 70,
           field: 'sex',
           pipe: 'sex'
         },
         {
-          title: '手机',
+          title: 'Điện thoại di động',
           width: 100,
           field: 'mobile'
         },
         {
-          title: '邮箱',
+          title: 'Hộp thư',
           width: 100,
           field: 'email'
         },
         {
-          title: '最后登录时间',
+          title: 'Lần đăng nhập cuối cùng',
           width: 120,
           field: 'lastLoginTime',
           pipe: 'date:yyyy-MM-dd HH:mm'
         },
         {
-          title: '创建时间',
+          title: 'Thời gian tạo',
           width: 100,
           field: 'createdAt',
           pipe: 'date:yyyy-MM-dd HH:mm'
         },
         {
-          title: '电话',
+          title: 'Điện thoại',
           width: 100,
           field: 'telephone'
         },
         {
-          title: '所属部门',
+          title: 'Bộ phận trực thuộc',
           width: 100,
           field: 'departmentName'
         },
         {
-          title: '操作',
+          title: 'vận hành',
           tdTemplate: this.operationTpl(),
           width: 150,
           fixed: true
